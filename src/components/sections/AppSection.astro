@@ -1,0 +1,87 @@
+---
+interface Props {
+  eyebrow: string;
+  title: string;
+  description: string;
+  featureCards: Array<{ title: string; icon?: string; tone: string }>;
+  phoneMockup: { src: string; alt: string };
+  primaryCta: { text: string; url: string };
+  secondaryCta: { text: string; url: string };
+  stores: Array<{ platform: string; label: string; url: string; qrImage: string; storeTitle: string }>;
+}
+
+const { eyebrow, title, description, featureCards, phoneMockup, primaryCta, secondaryCta, stores } = Astro.props;
+const featureCardsJson = JSON.stringify(featureCards);
+---
+
+<section class="home-section section-home-app home-section-tone-warm" aria-labelledby="app-heading">
+  <div class="max-w-7xl mx-auto px-4 home-surface fade-in">
+    <div class="home-app-shell">
+      <div class="home-app-bg">
+        <div class="home-app-row home-app-row-top">
+          <div class="home-app-track" data-home-app-track-top></div>
+        </div>
+        <div class="home-app-row home-app-row-bottom">
+          <div class="home-app-track" data-home-app-track-bottom></div>
+        </div>
+        <div class="home-app-phone-wrap">
+          <div class="home-app-phone">
+            <img src={phoneMockup.src} alt={phoneMockup.alt} class="home-app-shot" loading="lazy" decoding="async" width="320" height="676" />
+          </div>
+        </div>
+      </div>
+
+      <div class="home-app-content">
+        <p class="home-app-kicker">{eyebrow}</p>
+        <h2 id="app-heading" class="font-messiri home-app-title">{title}</h2>
+        <p class="home-app-desc">{description}</p>
+        <div class="home-app-actions">
+          <a href={primaryCta.url} class="home-app-cta-primary">{primaryCta.text}</a>
+          <a href={secondaryCta.url} target="_blank" rel="noopener noreferrer" class="home-app-cta-secondary inline-flex items-center justify-center">{secondaryCta.text}</a>
+        </div>
+        <div class="home-app-store">
+          {stores.map((store) => (
+            <a href={store.url} target="_blank" rel="noopener noreferrer" class="home-app-store-card">
+              <img src={store.qrImage} alt={`QR для ${store.label} DOM`} class="home-app-qr" loading="lazy" decoding="async" width="140" height="140" />
+              <span class="home-app-store-text">
+                <span class="home-app-store-label">{store.label}</span>
+                <span class="home-app-store-title">{store.storeTitle}</span>
+              </span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script define:vars={{ featureCardsJson }}>
+  (function () {
+    const featureCards = typeof featureCardsJson === 'string' ? JSON.parse(featureCardsJson) : featureCardsJson;
+    const root = document.querySelector('.section-home-app');
+    if (!root) return;
+
+    const topTrack = root.querySelector('[data-home-app-track-top]');
+    const bottomTrack = root.querySelector('[data-home-app-track-bottom]');
+    if (!topTrack || !bottomTrack) return;
+
+    const renderItems = (items) => items.map((item) => `
+      <article class="home-app-item" data-app-tone="${item.tone || 'violet'}">
+        <div class="home-app-item-core">
+          <span class="home-app-item-icon">${item.icon || '◉'}</span>
+          <span class="home-app-item-name">${item.title}</span>
+        </div>
+        <span class="home-app-item-meta">DOM</span>
+      </article>
+    `).join('');
+
+    const topItems = featureCards.filter((_, idx) => idx % 2 === 0);
+    const bottomItems = featureCards.filter((_, idx) => idx % 2 === 1);
+
+    const topMarkup = renderItems(topItems);
+    const bottomMarkup = renderItems(bottomItems);
+
+    topTrack.innerHTML = topMarkup + topMarkup;
+    bottomTrack.innerHTML = bottomMarkup + bottomMarkup;
+  })();
+</script>

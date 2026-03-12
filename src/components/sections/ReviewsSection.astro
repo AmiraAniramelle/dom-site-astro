@@ -1,0 +1,157 @@
+---
+interface Props {
+  eyebrow: string;
+  title: string;
+  reviews: Array<{
+    id: string;
+    name: string;
+    role: string;
+    city: string;
+    text: string;
+    fullText: string;
+    photo: string;
+  }>;
+  cta: { text: string; url: string };
+  flowTitle: string;
+  flowCards: Array<{ name: string; city: string; result: string; photo: string }>;
+}
+
+const { eyebrow, title, reviews, cta, flowTitle, flowCards } = Astro.props;
+const reviewsJson = JSON.stringify(reviews);
+const flowCardsJson = JSON.stringify(flowCards);
+---
+
+<section class="home-section section-home-reviews home-section-tone-soft" data-home-reviews aria-labelledby="reviews-heading">
+  <div class="max-w-7xl mx-auto px-4 home-surface fade-in">
+    <div class="home-reviews-top">
+      <div>
+        <p class="home-reviews-kicker">{eyebrow}</p>
+        <h2 id="reviews-heading" class="font-messiri home-reviews-title">{title}</h2>
+      </div>
+    </div>
+
+    <div class="home-reviews-grid" data-home-reviews-grid></div>
+    <div class="home-reviews-actions">
+      <a href={cta.url} class="home-reviews-cta-link">{cta.text}</a>
+    </div>
+    <div class="home-flow-section">
+      <p class="home-flow-title">{flowTitle}</p>
+      <div class="home-flow-marquee">
+        <div class="home-flow-track" data-home-flow-track-a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="home-review-modal-overlay hidden" data-home-review-modal-overlay role="dialog" aria-modal="true" aria-labelledby="home-review-modal-name">
+    <article class="home-review-modal relative">
+      <button type="button" class="home-review-modal-close" data-home-review-close aria-label="Закрыть отзыв">×</button>
+      <div class="home-review-photo-wrap">
+        <img src="" alt="" class="home-review-photo" data-home-review-modal-photo width="760" height="420" />
+      </div>
+      <div class="home-review-modal-content">
+        <h3 id="home-review-modal-name" class="home-review-name" data-home-review-modal-name></h3>
+        <p class="home-review-meta" data-home-review-modal-meta></p>
+        <p class="home-review-modal-text" data-home-review-modal-text></p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<script define:vars={{ reviewsJson, flowCardsJson }}>
+  (function () {
+    const reviews = typeof reviewsJson === 'string' ? JSON.parse(reviewsJson) : reviewsJson;
+    const flowCards = typeof flowCardsJson === 'string' ? JSON.parse(flowCardsJson) : flowCardsJson;
+
+    const root = document.querySelector('[data-home-reviews]');
+    if (!root) return;
+
+    const grid = root.querySelector('[data-home-reviews-grid]');
+    const overlay = root.querySelector('[data-home-review-modal-overlay]');
+    const flowTrackA = root.querySelector('[data-home-flow-track-a]');
+    if (!grid || !overlay) return;
+
+    const photoEl = overlay.querySelector('[data-home-review-modal-photo]');
+    const nameEl = overlay.querySelector('[data-home-review-modal-name]');
+    const metaEl = overlay.querySelector('[data-home-review-modal-meta]');
+    const textEl = overlay.querySelector('[data-home-review-modal-text]');
+    const closeBtn = overlay.querySelector('[data-home-review-close]');
+    if (!photoEl || !nameEl || !metaEl || !textEl || !closeBtn) return;
+
+    const stories = reviews.map((r) => ({
+      id: r.id,
+      name: r.name,
+      meta: r.role + ' · ' + r.city,
+      image: r.photo,
+      excerpt: r.text,
+      full: r.fullText,
+    }));
+
+    grid.innerHTML = stories.map((story) => `
+      <button type="button" class="home-review-card" data-home-story-id="${story.id}">
+        <div class="home-review-photo-wrap">
+          <img src="${story.image}" alt="${story.name}" class="home-review-photo" loading="lazy" decoding="async" width="400" height="275" onerror="this.onerror=null;this.src='/images/home/hero-reference.jpg';">
+        </div>
+        <div class="home-review-body">
+          <h3 class="home-review-name">${story.name}</h3>
+          <p class="home-review-meta">${story.meta}</p>
+          <p class="home-review-excerpt">${story.excerpt}</p>
+          <p class="home-review-readmore">Читать полностью</p>
+        </div>
+      </button>
+    `).join('');
+
+    if (flowTrackA && flowCards.length) {
+      const flowSlice = flowCards.slice(0, 6);
+      const flowMarkup = flowSlice.map((item) => `
+        <article class="home-flow-card">
+          <div class="home-flow-card-media">
+            <img src="${item.photo}" alt="${item.name}" loading="lazy" decoding="async" width="290" height="138" onerror="this.onerror=null;this.src='/images/home/hero-reference.jpg';">
+            <div class="home-flow-card-overlay"></div>
+          </div>
+          <div class="home-flow-card-body">
+            <p class="home-flow-card-name">${item.name}</p>
+            <p class="home-flow-card-meta">${item.city}</p>
+            <p class="home-flow-card-result">${item.result}</p>
+          </div>
+        </article>
+      `).join('');
+      flowTrackA.innerHTML = flowMarkup;
+    }
+
+    const closeModal = () => {
+      overlay.classList.add('hidden');
+      document.body.style.overflow = '';
+    };
+
+    const openModal = (storyId) => {
+      const story = stories.find((item) => item.id === storyId);
+      if (!story) return;
+      photoEl.src = story.image;
+      photoEl.alt = story.name;
+      nameEl.textContent = story.name;
+      metaEl.textContent = story.meta;
+      textEl.textContent = story.full;
+      overlay.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    };
+
+    grid.addEventListener('click', (event) => {
+      const card = event.target.closest('[data-home-story-id]');
+      if (!card) return;
+      openModal(card.getAttribute('data-home-story-id'));
+    });
+
+    closeBtn.addEventListener('click', closeModal);
+    overlay.addEventListener('click', (event) => {
+      if (event.target === overlay) closeModal();
+    });
+
+    if (window.__homeStoryEscHandler) {
+      document.removeEventListener('keydown', window.__homeStoryEscHandler);
+    }
+    window.__homeStoryEscHandler = (event) => {
+      if (event.key === 'Escape' && !overlay.classList.contains('hidden')) closeModal();
+    };
+    document.addEventListener('keydown', window.__homeStoryEscHandler);
+  })();
+</script>

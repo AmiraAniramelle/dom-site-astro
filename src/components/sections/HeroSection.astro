@@ -1,53 +1,86 @@
 ---
 import { Image } from 'astro:assets';
-import portrait from '../../assets/images/anna-portrait.png';
+import type { HeroBlock } from '../../data/hero';
 import symbolGold from '../../assets/images/dom-symbol-gold.svg';
-import logoOverlay from '../../assets/images/dom-logo-home-gold-bg.jpg';
+import portraitAsset from '../../assets/images/anna-portrait.png';
+import logoOverlayAsset from '../../assets/images/dom-logo-home-gold-bg.jpg';
+
+interface Props {
+  data: HeroBlock;
+}
+
+const { data: hero } = Astro.props;
 ---
 
-<section class="relative w-full home-hero overflow-hidden" aria-labelledby="hero-heading">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-10 lg:pt-6 lg:pb-12 relative z-10">
+<section
+  class="relative w-full home-hero overflow-hidden futuristic-grid"
+  aria-labelledby="hero-heading"
+  role="region"
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-7 pb-10 lg:pt-10 lg:pb-12 relative z-10">
     <div class="hero-frame rounded-[2rem] p-6 md:p-8 lg:p-10 fade-in">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
         <div class="lg:col-span-7">
           <div class="hero-badge inline-flex items-center gap-3 px-4 py-2 rounded-xl mb-5">
-            <Image src={symbolGold} alt="" class="w-8 h-8 opacity-95" width={32} height={32} role="presentation" />
-            <span class="font-montserrat text-xs md:text-sm uppercase tracking-[0.18em] text-dom-gold-dark">DOM · ИНСТИТУТ ВНУТРЕННЕЙ ТРАНСФОРМАЦИИ И СИСТЕМНОГО МЫШЛЕНИЯ · АННА ХЕФОРС</span>
+            <Image src={symbolGold} alt="Символ DOM" class="w-8 h-8 opacity-95" width={32} height={32} loading="eager" />
+            <span class="font-montserrat text-xs md:text-sm uppercase tracking-[0.18em] text-dom-gold-dark">{hero.badgeText}</span>
           </div>
-          <h1 id="hero-heading" class="hero-title text-dom-graphite">Верни себе опору. Жизнь — это система, которую можно выстроить.</h1>
-          <p class="hero-lead">
-            Метод DOM — архитектура зрелой жизни: шесть граней единой системы, которая соединяет внешнюю реализацию и внутреннюю честность.
-          </p>
+          <h1 id="hero-heading" class="hero-title text-dom-graphite">{hero.title}</h1>
+          <p class="hero-lead">{hero.lead}</p>
           <div class="flex flex-col sm:flex-row gap-3">
-            <a href="/ru/path/" class="px-8 py-4 bg-gold-gradient text-white font-normal rounded-xl shadow-[0_14px_40px_rgba(217,179,114,0.35)] hover:shadow-[0_20px_50px_rgba(217,179,114,0.5)] font-montserrat uppercase tracking-[0.08em] text-sm min-w-[220px] text-center">
-              Начать свой путь
+            <a href={hero.primaryButton.href} class="px-8 py-4 bg-gold-gradient text-white font-semibold rounded-xl shadow-[0_14px_40px_rgba(217,179,114,0.35)] hover:shadow-[0_20px_50px_rgba(217,179,114,0.5)] font-montserrat uppercase tracking-[0.08em] text-sm min-w-[220px] text-center">
+              {hero.primaryButton.label}
             </a>
-            <a href="/ru/method/" class="hero-secondary-btn px-8 py-4 rounded-xl font-montserrat uppercase tracking-[0.08em] text-sm min-w-[220px] text-center inline-block font-normal">
-              Открыть структуру метода
+            <a href={hero.secondaryButton.href} class="hero-secondary-btn px-8 py-4 rounded-xl font-montserrat uppercase tracking-[0.08em] text-sm min-w-[220px] text-center inline-block font-normal">
+              {hero.secondaryButton.label}
             </a>
           </div>
         </div>
         <div class="lg:col-span-5">
           <div class="home-panel p-4 md:p-5 rounded-[1.6rem] relative overflow-hidden max-w-[500px] ml-auto">
             <div class="about-portrait rounded-[1.2rem] overflow-hidden aspect-[4/5] relative">
-              <Image
-                src={portrait}
-                alt="Анна Хефорс — автор метода DOM, системный метод и внутренняя трансформация"
-                class="w-full h-full object-cover object-top"
-                width={896}
-                height={1152}
-                loading="eager"
-                fetchPriority="high"
-              />
+              {hero.portrait.url ? (
+                <img
+                  src={hero.portrait.url}
+                  alt={hero.portrait.alt}
+                  class="w-full h-full object-cover object-top"
+                  width={896}
+                  height={1152}
+                  loading="eager"
+                  fetchpriority="high"
+                />
+              ) : (
+                <Image
+                  src={portraitAsset}
+                  alt={hero.portrait.alt}
+                  class="w-full h-full object-cover object-top"
+                  width={896}
+                  height={1152}
+                  loading="eager"
+                  fetchPriority="high"
+                />
+              )}
               <div class="hero-portrait-overlay hero-portrait-overlay-image">
                 <div class="hero-portrait-visitor-card">
-                  <Image
-                    src={logoOverlay}
-                    alt="DOM — Systemic Method, Development, Oneness, Mental Health"
-                    class="hero-portrait-visitor-card-img"
-                    width={320}
-                    height={188}
-                  />
+                  {hero.overlayCard.url ? (
+                    <img
+                      src={hero.overlayCard.url}
+                      alt={hero.overlayCard.alt}
+                      class="hero-portrait-visitor-card-img"
+                      width={320}
+                      height={188}
+                      loading="eager"
+                    />
+                  ) : (
+                    <Image
+                      src={logoOverlayAsset}
+                      alt={hero.overlayCard.alt}
+                      class="hero-portrait-visitor-card-img"
+                      width={320}
+                      height={188}
+                      loading="eager"
+                    />
+                  )}
                 </div>
               </div>
             </div>

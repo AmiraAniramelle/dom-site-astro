@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://dom-site.com/sitemap-index.xml

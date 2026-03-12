@@ -1,0 +1,130 @@
+---
+interface IntentCard {
+  id: string;
+  image: string;
+  topText: string;
+  boldText: string;
+  url: string;
+  phrase: string;
+}
+
+interface Props {
+  eyebrow: string;
+  title: string;
+  subtitle: string;
+  selectBtnLabel: string;
+  selectBtnUrl: string;
+  cards: IntentCard[];
+}
+
+const { eyebrow, title, subtitle, selectBtnLabel, selectBtnUrl, cards } = Astro.props;
+const cardsJson = JSON.stringify(cards);
+---
+
+<section class="home-intent-section home-section home-section-tone-soft" data-home-intent-slider>
+  <div class="max-w-7xl mx-auto px-4 home-surface">
+    <div class="home-intent-top">
+      <p class="home-intent-eyebrow">{eyebrow}</p>
+      <h2 class="home-intent-title">{title}</h2>
+      <p class="home-intent-sub">{subtitle}</p>
+    </div>
+
+    <div class="home-intent-slider-wrap">
+      <button type="button" class="home-intent-arrow-btn home-intent-side-arrow left" data-home-intent-action="prev" aria-label="Предыдущий">‹</button>
+      <div data-home-intent-slots></div>
+      <button type="button" class="home-intent-arrow-btn home-intent-side-arrow right" data-home-intent-action="next" aria-label="Следующий">›</button>
+    </div>
+
+    <div class="home-intent-phrase-wrap">
+      <p class="home-intent-phrase-text" data-home-intent-phrase></p>
+    </div>
+
+    <div class="home-intent-controls">
+      <a href={selectBtnUrl} class="home-intent-select-btn">{selectBtnLabel}</a>
+    </div>
+
+    <div class="home-intent-dots" data-home-intent-dots></div>
+  </div>
+</section>
+
+<script define:vars={{ cardsJson }}>
+  const cards = typeof cardsJson === 'string' ? JSON.parse(cardsJson) : cardsJson;
+
+  function getHomeIntentPosition(index, active, total) {
+    const diff = ((index - active) + total) % total;
+    const n = diff > total / 2 ? diff - total : diff;
+    if (n === 0) return 'pos-center';
+    if (n === 1) return 'pos-right1';
+    if (n >= 2) return 'pos-right2';
+    if (n === -1) return 'pos-left1';
+    return 'pos-left2';
+  }
+
+  function init() {
+    const root = document.querySelector('[data-home-intent-slider]');
+    if (!root) return;
+
+    const slots = root.querySelector('[data-home-intent-slots]');
+    const phraseEl = root.querySelector('[data-home-intent-phrase]');
+    const dotsEl = root.querySelector('[data-home-intent-dots]');
+    if (!slots || !phraseEl || !dotsEl) return;
+
+    const total = cards.length;
+    let active = Math.min(2, total - 1);
+
+    function render() {
+      slots.innerHTML = cards.map((card, index) => {
+        const pos = getHomeIntentPosition(index, active, total);
+        const bigHtml = card.boldText.replace(/\n/g, '<br>');
+        return `<a href="${card.url}" class="home-intent-card-slot ${pos}" data-home-intent-index="${index}">
+          <div class="home-intent-card-inner">
+            <img class="home-intent-card-img" src="${card.image}" alt="${card.topText}" width="600" height="400" loading="lazy" decoding="async">
+            <div class="home-intent-card-overlay"></div>
+            <div class="home-intent-card-content">
+              <p class="home-intent-card-small">${card.topText}</p>
+              <p class="home-intent-card-big">${bigHtml}</p>
+            </div>
+          </div>
+        </a>`;
+      }).join('');
+
+      phraseEl.style.opacity = '0';
+      setTimeout(() => {
+        phraseEl.textContent = `«${cards[active].phrase}»`;
+        phraseEl.style.opacity = '1';
+      }, 140);
+
+      dotsEl.innerHTML = cards.map((_, index) =>
+        `<button type="button" class="home-intent-dot ${index === active ? 'active' : ''}" data-home-intent-dot="${index}" aria-label="Слайд ${index + 1}"></button>`
+      ).join('');
+    }
+
+    function go(direction) {
+      active = (active + direction + total) % total;
+      render();
+    }
+
+    root.addEventListener('click', (event) => {
+      const dotBtn = event.target.closest('[data-home-intent-dot]');
+      if (dotBtn) {
+        event.preventDefault();
+        const index = Number(dotBtn.getAttribute('data-home-intent-dot'));
+        if (!Number.isNaN(index)) {
+          active = index;
+          render();
+        }
+        return;
+      }
+
+      const actionBtn = event.target.closest('[data-home-intent-action]');
+      if (actionBtn) {
+        event.preventDefault();
+        go(actionBtn.getAttribute('data-home-intent-action') === 'prev' ? -1 : 1);
+      }
+    });
+
+    render();
+  }
+
+  init();
+</script>

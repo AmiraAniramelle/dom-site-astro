@@ -1,16 +1,35 @@
 ---
+import type { PageMeta } from '../types/page';
+import { siteConfig } from '../data/site';
+import SEOHead from '../components/global/SEOHead.astro';
+import Navbar from '../components/Navbar.astro';
+import FooterSection from '../components/Footer/FooterSection.astro';
+import '../styles/global.css';
+
 interface Props {
+  /** Полный объект мета (для страниц продукта, блога и т.д.) */
+  meta?: PageMeta;
+  /** Устаревшие пропсы — если meta не передан, мета собирается из них */
   title?: string;
   description?: string;
   image?: string;
   noindex?: boolean;
 }
-const { title = 'DOM | Системный Метод Анны Хефорс', description = 'Системный метод Анны Хефорс — путь к деньгам, отношениям, ментальному здоровью и осознанности.', image, noindex = false } = Astro.props;
-const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin);
-const ogImage = image ?? `${Astro.url.origin}/dom-assets/anna-portrait.png`;
-import Navbar from '../components/Navbar.astro';
-import FooterSection from '../components/Footer/FooterSection.astro';
-import '../styles/global.css';
+
+const { meta: metaProp, title: titleLegacy, description: descriptionLegacy, image: imageLegacy, noindex = false } = Astro.props;
+
+const canonicalFromUrl = Astro.url.pathname.endsWith('/') ? Astro.url.pathname : Astro.url.pathname + '/';
+const canonicalUrlFull = `${siteConfig.url}${canonicalFromUrl}`;
+
+const meta: PageMeta = metaProp ?? {
+  title: titleLegacy ?? 'DOM | Системный Метод Анны Хефорс',
+  description: descriptionLegacy ?? 'Системный метод Анны Хефорс — путь к деньгам, отношениям, ментальному здоровью и осознанности.',
+  canonicalUrl: canonicalUrlFull,
+  ogImage: imageLegacy ?? siteConfig.defaultOgImage,
+  ogType: 'website',
+  locale: 'ru_RU',
+  noIndex: noindex,
+};
 ---
 
 <!doctype html>
@@ -18,15 +37,7 @@ import '../styles/global.css';
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title}</title>
-    <meta name="description" content={description} />
-    {noindex ? <meta name="robots" content="noindex, nofollow" /> : null}
-    <link rel="canonical" href={canonicalURL.toString()} />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={ogImage} />
-    <meta property="og:locale" content="ru_RU" />
+    <SEOHead meta={meta} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />

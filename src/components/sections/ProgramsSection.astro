@@ -1,0 +1,204 @@
+---
+interface Props {
+  eyebrow: string;
+  title: string;
+  subtitle: string;
+  filters: Array<{ id: string; label: string }>;
+  programs: Array<{
+    id: string;
+    title: string;
+    category: string;
+    format: string;
+    image: string;
+    isFlagship: boolean;
+    url: string;
+    directions: string[];
+    desc: string;
+    ctaText?: string;
+    free?: boolean;
+  }>;
+  cta: { text: string; url: string };
+}
+
+const { eyebrow, title, subtitle, filters, programs, cta } = Astro.props;
+const filtersJson = JSON.stringify(filters);
+const programsJson = JSON.stringify(programs);
+---
+
+<section class="home-section section-home-programs home-section-tone-warm" data-home-programs aria-labelledby="programs-heading">
+  <div class="max-w-7xl mx-auto px-4 home-surface fade-in">
+    <div class="home-programs-top">
+      <p class="home-programs-kicker">{eyebrow}</p>
+      <h2 id="programs-heading" class="font-messiri home-programs-title">{title}</h2>
+      <p class="home-programs-lead">{subtitle}</p>
+    </div>
+
+    <div class="home-program-filters" data-home-program-filters></div>
+
+    <div class="home-program-carousel-outer">
+      <button type="button" class="home-program-arrow prev" data-home-program-action="prev" aria-label="Предыдущие программы">‹</button>
+      <button type="button" class="home-program-arrow next" data-home-program-action="next" aria-label="Следующие программы">›</button>
+      <div class="home-program-carousel" data-home-program-carousel></div>
+    </div>
+
+    <div class="home-program-dots" data-home-program-dots></div>
+
+    <div class="home-program-bottom">
+      <a href={cta.url} class="home-reviews-cta-link">{cta.text}</a>
+    </div>
+  </div>
+</section>
+
+<script define:vars={{ filtersJson, programsJson }}>
+  (function () {
+    const filters = typeof filtersJson === 'string' ? JSON.parse(filtersJson) : filtersJson;
+    const programs = typeof programsJson === 'string' ? JSON.parse(programsJson) : programsJson;
+
+    const root = document.querySelector('[data-home-programs]');
+    if (!root) return;
+
+    const filtersRoot = root.querySelector('[data-home-program-filters]');
+    const carousel = root.querySelector('[data-home-program-carousel]');
+    const dotsRoot = root.querySelector('[data-home-program-dots]');
+    if (!filtersRoot || !carousel || !dotsRoot) return;
+
+    let currentFilter = 'all';
+    let activeIndex = 0;
+    let isDragging = false;
+    let startX = 0;
+    let scrollStart = 0;
+
+    const getDirLabel = (id) => filters.find((x) => x.id === id)?.label || id;
+    const getFiltered = () => {
+      const base = currentFilter === 'all'
+        ? programs
+        : programs.filter((item) => item.directions && item.directions.includes(currentFilter));
+      return [...base].sort((a, b) => Number(Boolean(b.isFlagship)) - Number(Boolean(a.isFlagship)));
+    };
+
+    const getCardStep = () => {
+      const firstCard = carousel.querySelector('.home-program-card');
+      if (!firstCard) return 328;
+      const gap = 18;
+      return firstCard.getBoundingClientRect().width + gap;
+    };
+
+    const updateActiveByScroll = () => {
+      const step = getCardStep();
+      const count = getFiltered().length;
+      if (!count) {
+        activeIndex = 0;
+        return;
+      }
+      activeIndex = Math.min(Math.round(carousel.scrollLeft / step), count - 1);
+      renderDots();
+    };
+
+    const renderFilters = () => {
+      filtersRoot.innerHTML = filters.map((dir) => `
+        <button type="button" class="home-program-filter-btn ${dir.id === currentFilter ? 'active' : ''}" data-home-program-filter="${dir.id}">
+          ${dir.label}
+        </button>
+      `).join('');
+    };
+
+    const renderCards = () => {
+      const filtered = getFiltered();
+      carousel.innerHTML = filtered.map((item, idx) => `
+        <a href="${item.url}" class="home-program-card" data-home-program-id="${item.id}">
+          <img src="${item.image}" alt="${item.title}" class="home-program-photo" loading="lazy" decoding="async" width="310" height="420" onerror="this.onerror=null;this.src='/images/home/hero-reference.jpg';">
+          <div class="home-program-overlay"></div>
+          <div class="home-program-dir-badge">
+            ${(item.directions || []).map((dir) => `<span class="home-program-chip">${getDirLabel(dir)}</span>`).join('')}
+          </div>
+          <span class="home-program-num">${String(idx + 1).padStart(2, '0')}</span>
+          <div class="home-program-content">
+            <div class="home-program-meta-row">
+              <p class="home-program-tag">${item.category}</p>
+              <span class="home-program-pills">
+                ${item.free ? '<span class="home-program-free">Бесплатно</span>' : ''}
+                ${item.isFlagship ? '<span class="home-program-flagship">Флагман</span>' : ''}
+              </span>
+            </div>
+            <h3 class="home-program-card-title">${item.title}</h3>
+            <p class="home-program-desc">${item.desc}</p>
+            <div class="home-program-footer">
+              <span class="home-program-format">${item.format}</span>
+              <span class="home-program-cta">${item.ctaText || 'Подробнее'} <span class="home-program-cta-arr">→</span></span>
+            </div>
+          </div>
+        </a>
+      `).join('');
+    };
+
+    function renderDots() {
+      const filtered = getFiltered();
+      dotsRoot.innerHTML = filtered.map((_, idx) => `
+        <button type="button" class="home-program-dot ${idx === activeIndex ? 'active' : ''}" data-home-program-dot="${idx}" aria-label="Программа ${idx + 1}"></button>
+      `).join('');
+    }
+
+    const rerender = () => {
+      activeIndex = 0;
+      carousel.scrollTo({ left: 0, behavior: 'auto' });
+      renderFilters();
+      renderCards();
+      renderDots();
+    };
+
+    rerender();
+
+    filtersRoot.addEventListener('click', (event) => {
+      const btn = event.target.closest('[data-home-program-filter]');
+      if (!btn) return;
+      const nextFilter = btn.getAttribute('data-home-program-filter') || 'all';
+      if (nextFilter === currentFilter) return;
+      currentFilter = nextFilter;
+      rerender();
+    });
+
+    root.addEventListener('click', (event) => {
+      const actionBtn = event.target.closest('[data-home-program-action]');
+      if (actionBtn) {
+        event.preventDefault();
+        const direction = actionBtn.getAttribute('data-home-program-action') === 'prev' ? -1 : 1;
+        carousel.scrollBy({ left: direction * getCardStep(), behavior: 'smooth' });
+        return;
+      }
+
+      const dotBtn = event.target.closest('[data-home-program-dot]');
+      if (dotBtn) {
+        event.preventDefault();
+        const idx = Number(dotBtn.getAttribute('data-home-program-dot'));
+        if (!Number.isNaN(idx)) {
+          carousel.scrollTo({ left: idx * getCardStep(), behavior: 'smooth' });
+        }
+      }
+    });
+
+    carousel.addEventListener('scroll', updateActiveByScroll);
+
+    carousel.addEventListener('mousedown', (event) => {
+      isDragging = true;
+      startX = event.pageX;
+      scrollStart = carousel.scrollLeft;
+      carousel.classList.add('dragging');
+    });
+
+    carousel.addEventListener('mousemove', (event) => {
+      if (!isDragging) return;
+      event.preventDefault();
+      const delta = event.pageX - startX;
+      carousel.scrollLeft = scrollStart - delta;
+    });
+
+    const stopDrag = () => {
+      isDragging = false;
+      carousel.classList.remove('dragging');
+      updateActiveByScroll();
+    };
+
+    carousel.addEventListener('mouseup', stopDrag);
+    carousel.addEventListener('mouseleave', stopDrag);
+  })();
+</script>

@@ -1,0 +1,73 @@
+---
+interface Props {
+  eyebrow: string;
+  title: string;
+  highlightWord: string;
+  text: string;
+  authorSignature: string;
+  image: { src: string; alt: string };
+  logoCard: { src: string; alt: string; label: string };
+}
+
+const { eyebrow, title, highlightWord, text, authorSignature, image, logoCard } = Astro.props;
+
+/** Разбиваем title по переносам; строка с highlightWord получает класс accent; первая строка может начинаться с "DOM —". */
+const titleLines = title.split('\n');
+function getTitleLineClass(line: string): string {
+  if (line.includes(highlightWord)) return 'home-manifest-line home-manifest-accent';
+  return 'home-manifest-line';
+}
+---
+
+<section class="home-section home-manifest-section home-section-tone-warm">
+  <div class="max-w-6xl mx-auto px-4 home-surface fade-in">
+    <div class="home-manifest-shell">
+      <div class="home-manifest-card">
+        <div class="home-manifest-media">
+          <div class="home-manifest-photo-frame">
+            <img
+              src={image.src}
+              alt={image.alt}
+              class="home-manifest-photo"
+              loading="lazy"
+              decoding="async"
+              width="1200"
+              height="1500"
+            />
+            <div class="home-manifest-photo-overlay"></div>
+          </div>
+          <div class="home-manifest-chip">
+            <img src={logoCard.src} alt={logoCard.alt} class="home-manifest-chip-logo" width="78" height="78" />
+            <p class="home-manifest-chip-text">{logoCard.label}</p>
+          </div>
+        </div>
+
+        <div class="home-manifest-text">
+          <p class="home-manifest-eyebrow">{eyebrow}</p>
+          <h2 class="home-manifest-title">
+            {titleLines.map((line) => {
+              if (line.startsWith('DOM —')) {
+                return (
+                  <span class="home-manifest-line">
+                    <span class="home-manifest-dom">DOM —</span>
+                    {line.slice(5)}
+                  </span>
+                );
+              }
+              return <span class={getTitleLineClass(line)}>{line}</span>;
+            })}
+          </h2>
+          <div class="home-manifest-divider" aria-hidden="true">
+            <span></span>
+          </div>
+          <p class="home-manifest-copy">{text}</p>
+          <p class="home-manifest-sign">
+            <span class="home-manifest-sign-line" aria-hidden="true"></span>
+            {authorSignature}
+            <span class="home-manifest-sign-line" aria-hidden="true"></span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

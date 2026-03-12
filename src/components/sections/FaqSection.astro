@@ -1,0 +1,91 @@
+---
+interface Props {
+  title: string;
+  items: Array<{ question: string; answer: string }>;
+  kicker?: string;
+  asideCopy?: string;
+  contactLink?: { text: string; url: string };
+}
+
+const { title, items, kicker, asideCopy, contactLink } = Astro.props;
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: items.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: { '@type': 'Answer', text: item.answer },
+  })),
+};
+---
+
+<section class="home-section section-home-faq" data-home-faq aria-labelledby="faq-heading">
+  <div class="max-w-6xl mx-auto px-4 home-surface fade-in">
+    <div class="home-faq-layout">
+      <aside class="home-faq-aside">
+        {kicker && <p class="home-faq-kicker">{kicker}</p>}
+        <h2 id="faq-heading" class="font-messiri home-faq-title">{title}</h2>
+        {asideCopy && <p class="home-faq-aside-copy">{asideCopy}</p>}
+        {contactLink && (
+          <a href={contactLink.url} target="_blank" rel="noopener noreferrer" class="home-faq-contact-link">{contactLink.text}</a>
+        )}
+      </aside>
+
+      <div class="home-faq-main">
+        <div class="home-faq-grid">
+          {items.map((item, index) => {
+            const isOpen = index === 0;
+            return (
+              <article class={`home-faq-item${isOpen ? ' open' : ''}`}>
+                <button
+                  type="button"
+                  class="home-faq-q"
+                  data-home-faq-toggle
+                  aria-expanded={isOpen}
+                  aria-controls={`faq-answer-${index}`}
+                  id={`faq-question-${index}`}
+                >
+                  <span>{item.question}</span>
+                  <span class="home-faq-arrow" aria-hidden="true">⌄</span>
+                </button>
+                <div class="home-faq-a-wrap" id={`faq-answer-${index}`} role="region" aria-labelledby={`faq-question-${index}`}>
+                  <p class="home-faq-a">{item.answer}</p>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+<script>
+  (function () {
+    const root = document.querySelector('[data-home-faq]');
+    if (!root) return;
+
+    root.addEventListener('click', (event) => {
+      const button = event.target.closest('[data-home-faq-toggle]');
+      if (!button) return;
+
+      const item = button.closest('.home-faq-item');
+      if (!item) return;
+      const isOpen = item.classList.contains('open');
+
+      root.querySelectorAll('.home-faq-item').forEach((faqItem) => {
+        faqItem.classList.remove('open');
+        const faqBtn = faqItem.querySelector('[data-home-faq-toggle]');
+        if (faqBtn) faqBtn.setAttribute('aria-expanded', 'false');
+      });
+
+      if (!isOpen) {
+        item.classList.add('open');
+        button.setAttribute('aria-expanded', 'true');
+      }
+    });
+  })();
+</script>

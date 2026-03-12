@@ -22,10 +22,10 @@ const mobileLinks = getMobileNavLinks();
 const isRu = currentPath.startsWith('/ru') || currentPath === '/';
 ---
 
-<nav class="fixed w-full z-50 top-0 left-0 right-0 bg-dom-graphite/95 transition-all duration-300 border-0 shadow-none" id="navbar" aria-label="Основная навигация" style="border: none; box-shadow: none;">
+<nav class="fixed w-full z-50 top-0 left-0 right-0 bg-dom-graphite/95 transition-all duration-300 border-0 shadow-none" id="navbar" aria-label="Главная навигация" style="border: none; box-shadow: none;">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center h-24 md:h-28">
-      <a href="/ru/" class="flex-shrink-0 flex items-center group" aria-label="DOM — на главную">
+      <a href="/ru/" class="flex-shrink-0 flex items-center group" aria-label="DOM — Главная">
         <Image src={logo} alt="Логотип DOM" class="brand-logo" width={384} height={384} />
       </a>
 
@@ -37,12 +37,14 @@ const isRu = currentPath.startsWith('/ru') || currentPath === '/';
                 <a
                   href={item.url}
                   class={`nav-link px-2 py-2 rounded-md text-sm font-normal transition-colors ${isItemActive(item) ? 'nav-link-active' : 'text-dom-beige hover:text-dom-gold'}`}
+                  aria-haspopup="true"
+                  aria-expanded="false"
                 >
                   {item.title}
                 </a>
                 <div class="blog-nav-dropdown-menu opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all absolute left-1/2 -translate-x-1/2 mt-1">
                   {item.children.map((child) => (
-                    <a href={child.url} class="blog-nav-dropdown-item block">{child.title}</a>
+                    <a href={child.url} class="blog-nav-dropdown-item block" aria-label={child.title}>{child.title}</a>
                   ))}
                 </div>
               </div>
@@ -72,7 +74,7 @@ const isRu = currentPath.startsWith('/ru') || currentPath === '/';
       </div>
 
       <div class="md:hidden">
-        <button id="mobile-menu-btn" type="button" class="text-dom-gold hover:text-white focus:outline-none p-2" aria-label="Меню">
+        <button id="mobile-menu-btn" type="button" class="text-dom-gold hover:text-white focus:outline-none p-2" aria-label="Меню" aria-expanded="false" aria-haspopup="true">
           <span class="text-2xl">☰</span>
         </button>
       </div>
@@ -99,8 +101,12 @@ const isRu = currentPath.startsWith('/ru') || currentPath === '/';
 </nav>
 
 <script>
-  document.getElementById('mobile-menu-btn')?.addEventListener('click', () => {
-    const menu = document.getElementById('mobile-menu');
-    if (menu) menu.classList.toggle('hidden');
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  btn?.addEventListener('click', () => {
+    if (!menu) return;
+    menu.classList.toggle('hidden');
+    const isOpen = !menu.classList.contains('hidden');
+    btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
   });
 </script>

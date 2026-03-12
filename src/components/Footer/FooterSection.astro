@@ -18,8 +18,9 @@ import FooterAppQR from './FooterAppQR.astro';
 import FooterLegal from './FooterLegal.astro';
 ---
 
-<footer class="text-dom-beige py-8 sm:py-10 relative overflow-hidden">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1fr_0.9fr_1fr_1fr_auto] gap-6 lg:gap-x-6 lg:gap-y-6 relative z-10">
+<!-- Фон подвала задаётся только в global.css (footer). Не добавлять bg-dom-graphite и др. -->
+<footer class="text-dom-beige py-6 border-t border-dom-gold/30 relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1fr_0.9fr_1fr_1fr_auto] gap-5 lg:gap-x-5 lg:gap-y-5 relative z-10">
     {footerBlocks.map((block) => {
       const gridClass = block.gridClass ?? '';
       if (block.type === 'logo') {

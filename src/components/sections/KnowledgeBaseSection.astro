@@ -1,0 +1,57 @@
+---
+interface Props {
+  title: string;
+  ctaAll?: { text: string; url: string };
+  categories: Array<{
+    title: string;
+    description: string;
+    articles: Array<{ title: string; url: string }>;
+    chipLabel?: string;
+    image?: { src: string; alt: string };
+  }>;
+}
+
+const { title, ctaAll, categories } = Astro.props;
+---
+
+<section class="home-section home-section-tone-soft" aria-labelledby="knowledge-heading">
+  <div class="max-w-7xl mx-auto px-4 home-surface">
+    <div class="flex items-end justify-between flex-wrap gap-4 mb-8">
+      <h2 id="knowledge-heading" class="font-messiri home-title text-dom-graphite">{title}</h2>
+      {ctaAll && (
+        <a href={ctaAll.url} class="font-montserrat text-xs uppercase tracking-[0.1em] text-dom-goldDark hover:text-dom-graphite">{ctaAll.text}</a>
+      )}
+    </div>
+    <div class="home-knowledge-grid">
+      {categories.map((category) => (
+        <article class="home-knowledge-card">
+          {category.image && (
+            <div class="home-knowledge-media">
+              <img
+                src={category.image.src}
+                alt={category.image.alt}
+                width="400"
+                height="250"
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="home-knowledge-overlay" aria-hidden="true"></div>
+              {category.chipLabel && <p class="home-knowledge-chip">{category.chipLabel}</p>}
+            </div>
+          )}
+          <div class="home-knowledge-body">
+            <h3 class="font-messiri text-2xl text-dom-graphite mb-3">{category.title}</h3>
+            <p class="font-montserrat text-sm text-dom-graphite/75 leading-relaxed mb-6">{category.description}</p>
+            <ul class="home-knowledge-articles flex flex-wrap gap-3 list-none m-0 p-0" aria-label="Статьи">
+              {category.articles.map((article) => (
+                <li>
+                  <a href={article.url} class="font-montserrat text-xs uppercase tracking-[0.08em] text-dom-goldDark hover:text-dom-graphite">{article.title}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

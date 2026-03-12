@@ -73,6 +73,7 @@ export const appBlock = {
   appName: 'DOM',
   appSubtitle: 'Meditation & Balance',
   description: 'DOM для iOS и Android.',
+  qrHint: 'НАЖМИТЕ НА QR, ЧТОБЫ ПЕРЕЙТИ В STORE, ИЛИ ОТСКАНИРУЙТЕ КОД',
   /** URL иконки приложения (из CMS или медиа). Если задан — используется он, иначе локальный файл */
   iconUrl: undefined as string | undefined,
   stores: [

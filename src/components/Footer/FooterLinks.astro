@@ -13,9 +13,7 @@ const { links, title = 'Полезные ссылки' } = Astro.props;
   <p class="text-xs uppercase tracking-[0.12em] text-dom-gold/85 font-montserrat mb-2">{title}</p>
   <nav class="grid grid-cols-1 gap-y-1.5 min-w-[170px]" aria-label="Навигация по сайту">
     {links.map((link) => (
-      <a href={link.url} class="text-left text-[11px] font-montserrat text-dom-beige/78 hover:text-dom-gold transition-colors">
-        {link.title}
-      </a>
+      <a href={link.url} class="text-left text-[11px] font-montserrat text-dom-beige/78 hover:text-dom-gold transition-colors">{link.title}</a>
     ))}
   </nav>
 </div>

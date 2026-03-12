@@ -1,0 +1,143 @@
+---
+interface StarNode {
+  dataNode: string;
+  text?: string;
+  textLines?: [string, string];
+}
+
+interface Props {
+  title: string;
+  subtitle: string;
+  description: string;
+  outerHouse: { title: string; label: string; description: string; items: Array<{ letter: string; name: string; desc: string }> };
+  innerHouse: { title: string; label: string; description: string; items: Array<{ letter: string; name: string; desc: string }> };
+  closingQuote: string;
+  closingText: string;
+  cta: { text: string; url: string };
+  ctaQuestion?: string;
+  star: { centerLabel: string; nodes: StarNode[] };
+}
+
+const { title, subtitle, description, outerHouse, innerHouse, closingQuote, closingText, cta, ctaQuestion, star } = Astro.props;
+
+const outerFacets = ['ext-d', 'ext-o', 'ext-m'] as const;
+const innerFacets = ['int-d', 'int-o', 'int-m'] as const;
+
+const nodeClassByDataNode: Record<string, string> = {
+  'int-o': 'node-int-o',
+  'int-d': 'node-int-d',
+  'int-m': 'node-int-m',
+  'ext-d': 'node-ext-d',
+  'ext-m': 'node-ext-m',
+  'ext-o': 'node-ext-o',
+};
+---
+
+<section class="home-section home-section-tone-warm" aria-labelledby="arch-heading">
+  <div class="max-w-7xl mx-auto px-4 home-surface">
+    <h2 id="arch-heading" class="font-messiri home-title text-dom-graphite mb-4 text-center">{title}</h2>
+    <div class="home-arch-intro">
+      <p>
+        {subtitle}<br />
+        {description}
+      </p>
+    </div>
+
+    <div class="home-arch-layout" data-home-arch>
+      <article class="home-arch-card">
+        <h3>{outerHouse.title}</h3>
+        <p class="home-arch-card-sub">{outerHouse.label}</p>
+        <p class="home-arch-card-desc">{outerHouse.description}</p>
+        <div class="home-arch-list">
+          {outerHouse.items.map((item, i) => (
+            <div class="home-arch-item" data-facet={outerFacets[i]} tabindex="0">
+              <p class="home-arch-item-title"><span class="home-arch-item-code">{item.letter} —</span>{item.name}</p>
+              <p class="home-arch-item-copy">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </article>
+
+      <div class="home-arch-star-wrap" aria-hidden="true">
+        <div class="home-arch-constellation">
+          <svg class="home-arch-star-svg" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
+            <polygon points="50,10 22,70 78,70"></polygon>
+            <polygon points="22,30 78,30 50,90"></polygon>
+          </svg>
+          {star.nodes.map((node) => (
+            <div class={`home-arch-node ${nodeClassByDataNode[node.dataNode] ?? ''}`} data-node={node.dataNode}>
+              {node.textLines ? (
+                <span set:html={`${node.textLines[0]}<br>${node.textLines[1]}`} />
+              ) : (
+                node.text
+              )}
+            </div>
+          ))}
+          <div class="home-arch-love">{star.centerLabel}</div>
+        </div>
+      </div>
+
+      <article class="home-arch-card">
+        <h3>{innerHouse.title}</h3>
+        <p class="home-arch-card-sub">{innerHouse.label}</p>
+        <p class="home-arch-card-desc">{innerHouse.description}</p>
+        <div class="home-arch-list">
+          {innerHouse.items.map((item, i) => (
+            <div class="home-arch-item" data-facet={innerFacets[i]} tabindex="0">
+              <p class="home-arch-item-title"><span class="home-arch-item-code">{item.letter} —</span>{item.name}</p>
+              <p class="home-arch-item-copy">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </article>
+    </div>
+
+    <p class="home-arch-closing">
+      <strong>{closingQuote}</strong><br />
+      {closingText}
+    </p>
+
+    <div class="home-arch-cta">
+      {ctaQuestion && <p>{ctaQuestion}</p>}
+      <a href={cta.url} class="method-cta-btn">{cta.text}</a>
+    </div>
+  </div>
+</section>
+
+<script>
+  function initHomeArchitectureBlock() {
+    const root = document.querySelector('[data-home-arch]');
+    if (!root) return;
+
+    const items = root.querySelectorAll('[data-facet]');
+    const nodes = root.querySelectorAll('[data-node]');
+    if (!items.length || !nodes.length) return;
+
+    const setActive = (facet) => {
+      nodes.forEach((node) => {
+        node.classList.toggle('active', node.getAttribute('data-node') === facet);
+      });
+    };
+
+    const clearActive = () => {
+      nodes.forEach((node) => node.classList.remove('active'));
+    };
+
+    items.forEach((item) => {
+      const facet = item.getAttribute('data-facet');
+      if (!facet) return;
+
+      item.addEventListener('mouseenter', () => setActive(facet));
+      item.addEventListener('focus', () => setActive(facet));
+      item.addEventListener('click', () => setActive(facet));
+      item.addEventListener('mouseleave', clearActive);
+      item.addEventListener('blur', clearActive);
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => setTimeout(initHomeArchitectureBlock, 40));
+  } else {
+    setTimeout(initHomeArchitectureBlock, 40);
+  }
+</script>

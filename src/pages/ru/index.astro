@@ -1,12 +1,109 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import HeroSection from '../../components/sections/HeroSection.astro';
+import IntentSlider from '../../components/sections/IntentSlider.astro';
+import ManifestSection from '../../components/sections/ManifestSection.astro';
 import MissionSection from '../../components/sections/MissionSection.astro';
-import PathCtaSection from '../../components/sections/PathCtaSection.astro';
+import ArchitectureSection from '../../components/sections/ArchitectureSection.astro';
+import AuthorSection from '../../components/sections/AuthorSection.astro';
+import ProgramsSection from '../../components/sections/ProgramsSection.astro';
+import ReviewsSection from '../../components/sections/ReviewsSection.astro';
+import AppSection from '../../components/sections/AppSection.astro';
+import KnowledgeBaseSection from '../../components/sections/KnowledgeBaseSection.astro';
+import FaqSection from '../../components/sections/FaqSection.astro';
+import FinalCtaSection from '../../components/sections/FinalCtaSection.astro';
+import { homePageData } from '../../data/pages/home';
 ---
 
-<BaseLayout title="DOM | Системный Метод Анны Хефорс" description="Метод DOM — архитектура зрелой жизни: шесть граней единой системы. Верни себе опору.">
-  <HeroSection />
-  <MissionSection />
-  <PathCtaSection />
+<BaseLayout
+  title="DOM | Системный Метод Анны Хефорс"
+  description={homePageData.hero.lead}
+>
+  <HeroSection data={homePageData.hero} />
+  <IntentSlider
+    eyebrow={homePageData.intent.eyebrow}
+    title={homePageData.intent.title}
+    subtitle={homePageData.intent.subtitle}
+    selectBtnLabel={homePageData.intent.selectBtnLabel}
+    selectBtnUrl={homePageData.intent.selectBtnUrl}
+    cards={homePageData.intent.cards}
+  />
+  <ManifestSection
+    eyebrow={homePageData.manifest.eyebrow}
+    title={homePageData.manifest.title}
+    highlightWord={homePageData.manifest.highlightWord}
+    text={homePageData.manifest.text}
+    authorSignature={homePageData.manifest.authorSignature}
+    image={homePageData.manifest.image}
+    logoCard={homePageData.manifest.logoCard}
+  />
+  <MissionSection title={homePageData.mission.title} paragraphs={homePageData.mission.paragraphs} />
+  <ArchitectureSection
+    title={homePageData.architecture.title}
+    subtitle={homePageData.architecture.subtitle}
+    description={homePageData.architecture.description}
+    outerHouse={homePageData.architecture.outerHouse}
+    innerHouse={homePageData.architecture.innerHouse}
+    closingQuote={homePageData.architecture.closingQuote}
+    closingText={homePageData.architecture.closingText}
+    cta={homePageData.architecture.cta}
+    ctaQuestion={homePageData.architecture.ctaQuestion}
+    star={homePageData.architecture.star}
+  />
+  <AuthorSection
+    eyebrow={homePageData.author.eyebrow}
+    title={homePageData.author.title}
+    bio={homePageData.author.bio}
+    quote={homePageData.author.quote}
+    badges={homePageData.author.badges}
+    image={homePageData.author.image}
+    imageCaption={homePageData.author.imageCaption}
+    cta={homePageData.author.cta}
+  />
+  <ProgramsSection
+    eyebrow={homePageData.programs.eyebrow}
+    title={homePageData.programs.title}
+    subtitle={homePageData.programs.subtitle}
+    filters={homePageData.programs.filters}
+    programs={homePageData.programs.programs}
+    cta={homePageData.programs.cta}
+  />
+  <ReviewsSection
+    eyebrow={homePageData.reviews.eyebrow}
+    title={homePageData.reviews.title}
+    reviews={homePageData.reviews.reviews}
+    cta={homePageData.reviews.cta}
+    flowTitle={homePageData.reviews.flowTitle}
+    flowCards={homePageData.reviews.flowCards}
+  />
+  <AppSection
+    eyebrow={homePageData.app.eyebrow}
+    title={homePageData.app.title}
+    description={homePageData.app.description}
+    featureCards={homePageData.app.featureCards}
+    phoneMockup={homePageData.app.phoneMockup}
+    primaryCta={homePageData.app.primaryCta}
+    secondaryCta={homePageData.app.secondaryCta}
+    stores={homePageData.app.stores}
+  />
+  <KnowledgeBaseSection
+    title={homePageData.knowledgeBase.title}
+    ctaAll={homePageData.knowledgeBase.ctaAll}
+    categories={homePageData.knowledgeBase.categories}
+  />
+  <FaqSection
+    title={homePageData.faq.title}
+    items={homePageData.faq.items}
+    kicker={homePageData.faq.kicker}
+    asideCopy={homePageData.faq.asideCopy}
+    contactLink={homePageData.faq.contactLink}
+  />
+  <FinalCtaSection
+    titleLine1={homePageData.finalCta.titleLine1}
+    titleLine2={homePageData.finalCta.titleLine2}
+    subtitle={homePageData.finalCta.subtitle}
+    image={homePageData.finalCta.image}
+    imageCaption={homePageData.finalCta.imageCaption}
+    form={homePageData.finalCta.form}
+  />
 </BaseLayout>

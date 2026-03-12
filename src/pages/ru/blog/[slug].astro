@@ -1,0 +1,117 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { createPageMeta } from '../../../data/seo/defaults';
+import { siteConfig } from '../../../data/site';
+import type { PageMeta, Breadcrumb } from '../../../types/page';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', (e) => e.data.published && e.data.lang === 'ru');
+  return posts.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const post = entry.data;
+const slug = entry.id;
+
+const breadcrumbs: Breadcrumb[] = [
+  { name: 'Главная', url: `${siteConfig.url}/ru/` },
+  { name: 'Блог', url: `${siteConfig.url}/ru/blog/` },
+  { name: post.title, url: `${siteConfig.url}/ru/blog/${slug}/` },
+];
+
+const meta: PageMeta = createPageMeta({
+  title: post.seo.title,
+  description: post.seo.description,
+  canonicalUrl: `${siteConfig.url}/ru/blog/${slug}/`,
+  ogImage: post.seo.ogImage,
+  ogType: 'article',
+  locale: 'ru_RU',
+  breadcrumbs,
+  publishedTime: post.date,
+  author: siteConfig.author,
+});
+
+const articleJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: post.title,
+  description: post.excerpt,
+  author: { '@type': 'Person', name: siteConfig.author },
+  datePublished: post.date,
+  image: post.cover.startsWith('http') ? post.cover : `${siteConfig.url}${post.cover.startsWith('/') ? '' : '/'}${post.cover}`,
+};
+
+const { Content } = await render(entry);
+---
+
+<BaseLayout meta={meta}>
+  <article class="max-w-3xl mx-auto px-4 py-10">
+    <nav aria-label="Хлебные крошки" class="text-sm text-dom-graphite/80 mb-6">
+      <ol class="flex flex-wrap gap-x-2 gap-y-1">
+        {breadcrumbs.map((b, i) => (
+          <li class="flex items-center gap-2">
+            {i > 0 && <span aria-hidden="true">/</span>}
+            {i === breadcrumbs.length - 1 ? (
+              <span class="text-dom-graphite font-medium">{b.name}</span>
+            ) : (
+              <a href={b.url.startsWith('http') ? b.url.replace(siteConfig.url, '') : b.url} class="hover:text-dom-gold transition-colors">{b.name}</a>
+            )}
+          </li>
+        ))}
+      </ol>
+    </nav>
+
+    <header class="mb-8">
+      <p class="font-montserrat text-xs uppercase tracking-widest text-dom-gold mb-2">{post.contentType} · {post.category}</p>
+      <h1 class="font-messiri text-4xl md:text-5xl text-dom-graphite mb-4">{post.title}</h1>
+      <p class="text-dom-graphite/80 mb-2">{post.date} · {post.readingTime} мин чтения</p>
+      {post.tags.length > 0 && (
+        <p class="text-sm text-dom-graphite/70">
+          {post.tags.map((t) => (
+            <span class="inline-block mr-2">#{t}</span>
+          ))}
+        </p>
+      )}
+    </header>
+
+    {post.cover && (
+      <figure class="mb-8 rounded-xl overflow-hidden">
+        <img
+          src={post.cover.startsWith('http') ? post.cover : post.cover}
+          alt=""
+          width="1200"
+          height="630"
+          class="w-full h-auto object-cover"
+          loading="eager"
+        />
+      </figure>
+    )}
+
+    <div class="prose prose-dom max-w-none">
+      <Content />
+    </div>
+
+    {post.relatedProductId && (
+      <aside class="mt-10 p-6 rounded-2xl border border-dom-gold/20 bg-dom-beige/30">
+        <p class="font-montserrat text-xs uppercase tracking-widest text-dom-gold mb-2">Связанный продукт</p>
+        <a href={`/ru/products/${post.relatedProductId}/`} class="font-messiri text-xl text-dom-graphite hover:text-dom-gold transition-colors">
+          Открыть программу →
+        </a>
+      </aside>
+    )}
+
+    {post.cta && (
+      <p class="mt-6">
+        <a href={`#${post.cta.action}`} class="px-6 py-3 bg-gold-gradient text-white rounded-xl font-montserrat text-sm uppercase tracking-wider">
+          {post.cta.label}
+        </a>
+      </p>
+    )}
+  </article>
+
+  <script type="application/ld+json" set:html={JSON.stringify(articleJsonLd)} />
+</BaseLayout>

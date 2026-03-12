@@ -1,0 +1,70 @@
+---
+import { Image } from 'astro:assets';
+import portraitAsset from '../../assets/images/anna-portrait.png';
+
+interface Props {
+  eyebrow: string;
+  title: string;
+  bio: string[];
+  quote: { text: string; author: string };
+  badges: Array<{ text: string }>;
+  image: { src: string; alt: string };
+  imageCaption: string;
+  cta: { text: string; url: string };
+}
+
+const { eyebrow, title, bio, quote, badges, image, imageCaption, cta } = Astro.props;
+const useLocalImage = !image.src;
+---
+
+<section class="home-section section-author home-section-tone-soft" aria-labelledby="author-heading">
+  <div class="max-w-7xl mx-auto px-4 home-surface fade-in">
+    <div class="author-grid">
+      <div class="author-photo-shell author-photo-desktop">
+        {useLocalImage ? (
+          <Image src={portraitAsset} alt={image.alt} class="author-photo" width={896} height={1120} loading="lazy" />
+        ) : (
+          <img src={image.src} alt={image.alt} class="author-photo" width={896} height={1120} loading="lazy" decoding="async" />
+        )}
+        <p class="author-photo-note">{imageCaption}</p>
+        <div class="author-cta-desktop">
+          <a href={cta.url} class="hero-secondary-btn px-8 py-4 rounded-xl font-montserrat uppercase tracking-[0.08em] text-sm">{cta.text}</a>
+        </div>
+      </div>
+
+      <div>
+        <p class="author-label">{eyebrow}</p>
+        <h2 id="author-heading" class="font-messiri author-title">{title}</h2>
+        <div class="author-photo-shell author-photo-mobile">
+          {useLocalImage ? (
+            <Image src={portraitAsset} alt={image.alt} class="author-photo" width={896} height={1120} loading="lazy" />
+          ) : (
+            <img src={image.src} alt={image.alt} class="author-photo" width={896} height={1120} loading="lazy" decoding="async" />
+          )}
+          <p class="author-photo-note">{imageCaption}</p>
+        </div>
+
+        <div class="author-text">
+          {bio.map((p) => (
+            <p>{p}</p>
+          ))}
+        </div>
+
+        <div class="author-quote">
+          <blockquote>{quote.text}</blockquote>
+          <cite>{quote.author}</cite>
+        </div>
+
+        <ul class="author-facts">
+          {badges.map((b) => (
+            <li>{b.text}</li>
+          ))}
+        </ul>
+
+        <div class="author-cta author-cta-mobile">
+          <a href={cta.url} class="hero-secondary-btn px-8 py-4 rounded-xl font-montserrat uppercase tracking-[0.08em] text-sm">{cta.text}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

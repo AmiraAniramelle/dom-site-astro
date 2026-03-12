@@ -1,20 +1,21 @@
 ---
-// Секция «Миссия проекта DOM» на главной
+interface Props {
+  title: string;
+  paragraphs: string[];
+}
+
+const { title, paragraphs } = Astro.props;
 ---
 
 <section class="home-section home-section-tone-soft" aria-labelledby="mission-heading">
   <div class="max-w-6xl mx-auto px-4 home-surface fade-in">
-    <h2 id="mission-heading" class="font-messiri home-title text-dom-graphite mb-7 text-center">Миссия проекта DOM</h2>
+    <h2 id="mission-heading" class="font-messiri home-title text-dom-graphite mb-7 text-center">{title}</h2>
     <div class="home-panel p-8 md:p-10">
-      <p class="home-subtitle font-montserrat text-dom-graphite mb-5">
-        Миссия DOM: помочь человеку восстановить внутреннюю опору и выстроить зрелую систему жизни в мире перемен.
-      </p>
-      <p class="home-subtitle font-montserrat text-dom-graphite mb-5">
-        Метод соединяет то, что обычно разделено: рациональное мышление и глубину чувств, дисциплину и любовь, внешнюю реализацию и внутреннюю честность.
-      </p>
-      <p class="home-subtitle font-montserrat text-dom-graphite">
-        DOM формирует системное мышление, зрелость, устойчивость и уважение к себе и миру.
-      </p>
+      {paragraphs.map((text, i) => (
+        <p class:list={['home-subtitle', 'font-montserrat', 'text-dom-graphite', { 'mb-5': i < paragraphs.length - 1 }]}>
+          {text}
+        </p>
+      ))}
     </div>
   </div>
 </section>

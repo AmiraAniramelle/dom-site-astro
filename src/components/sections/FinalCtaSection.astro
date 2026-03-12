@@ -1,0 +1,69 @@
+---
+interface Props {
+  titleLine1: string;
+  titleLine2: string;
+  subtitle: string;
+  image: { src: string; alt: string };
+  imageCaption: { name: string; role: string };
+  form: {
+    fields: Array<{ name: string; placeholder: string; type: string }>;
+    submitText: string;
+    disclaimer: string;
+    endpoint?: string;
+  };
+}
+
+const { titleLine1, titleLine2, subtitle, image, imageCaption, form } = Astro.props;
+---
+
+<section class="home-section section-home-final-cta" aria-labelledby="final-cta-heading">
+  <div class="max-w-7xl mx-auto px-4 home-surface fade-in">
+    <div class="home-final-cta-shell home-final-cta-shell-narrow">
+      <div class="home-final-cta-grid home-final-cta-grid-cols">
+        <div class="home-final-cta-photo-wrap">
+          <img
+            src={image.src}
+            alt={image.alt}
+            class="home-final-cta-photo"
+            loading="lazy"
+            decoding="async"
+            width={390}
+            height={454}
+          />
+          <p class="home-final-cta-photo-note">
+            {imageCaption.name}
+            <span>{imageCaption.role}</span>
+          </p>
+        </div>
+
+        <div class="home-final-cta-content">
+          <h2 id="final-cta-heading" class="font-messiri home-final-cta-title">
+            {titleLine1}<br />{titleLine2}
+          </h2>
+          <p class="home-final-cta-sub">{subtitle}</p>
+
+          <form
+            class="home-final-cta-form"
+            method="POST"
+            action="#"
+            data-netlify="true"
+            name="home-lead"
+          >
+            <input type="hidden" name="form-name" value="home-lead" />
+            {form.fields.map((field) => (
+              <input
+                type={field.type}
+                name={field.name}
+                required
+                placeholder={field.placeholder}
+                autocomplete={field.name === 'email' ? 'email' : field.name === 'name' ? 'name' : 'off'}
+              />
+            ))}
+            <button type="submit" class="home-final-cta-submit">{form.submitText}</button>
+          </form>
+          <p class="home-final-cta-note">{form.disclaimer}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
