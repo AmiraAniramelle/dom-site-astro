@@ -1,0 +1,23 @@
+---
+import type { AppStoreLink } from '../../data/footer';
+
+interface Props {
+  stores: AppStoreLink[];
+  gridClass?: string;
+}
+
+const { stores, gridClass = '' } = Astro.props;
+
+const qrLinkClass = 'text-center rounded-xl border border-dom-gold/35 bg-white/5 p-2 hover:bg-dom-gold/15 hover:border-dom-gold/70 transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dom-gold focus-visible:ring-offset-2 focus-visible:ring-offset-dom-graphite';
+---
+
+<div class={`lg:justify-self-start lg:-ml-6 ${gridClass}`}>
+  <div class="grid grid-cols-1 gap-2 max-w-[150px]">
+    {stores.map((store) => (
+      <a href={store.href} target="_blank" rel="noopener noreferrer" class={qrLinkClass}>
+        <img src={store.qrImageUrl} alt={store.alt ?? `QR: ${store.label}`} class="w-16 h-16 rounded-lg border border-dom-gold/30 bg-white p-1 mx-auto" width="64" height="64" loading="lazy" decoding="async" />
+        <p class="font-montserrat text-[10px] uppercase tracking-[0.08em] text-dom-beige/85 mt-1">{store.label}</p>
+      </a>
+    ))}
+  </div>
+</div>

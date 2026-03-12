@@ -1,0 +1,67 @@
+---
+import {
+  footerBlocks,
+  footerNavLinks,
+  contact,
+  socialLinks,
+  copyrightText,
+  legalLinks,
+  appBlock,
+  legalBar,
+  type FooterBlockConfig,
+} from '../../data/footer';
+import FooterLogo from './FooterLogo.astro';
+import FooterLinks from './FooterLinks.astro';
+import FooterContact from './FooterContact.astro';
+import FooterApp from './FooterApp.astro';
+import FooterAppQR from './FooterAppQR.astro';
+import FooterLegal from './FooterLegal.astro';
+---
+
+<footer class="text-dom-beige py-8 sm:py-10 relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1fr_0.9fr_1fr_1fr_auto] gap-6 lg:gap-x-6 lg:gap-y-6 relative z-10">
+    {footerBlocks.map((block) => {
+      const gridClass = block.gridClass ?? '';
+      if (block.type === 'logo') {
+        return (
+          <div class={gridClass}>
+            <FooterLogo copyrightText={copyrightText} homeUrl="/ru/" />
+          </div>
+        );
+      }
+      if (block.type === 'links') {
+        return (
+          <div class={gridClass}>
+            <FooterLinks links={footerNavLinks} />
+          </div>
+        );
+      }
+      if (block.type === 'contact') {
+        return (
+          <div class={gridClass}>
+            <FooterContact contact={contact} socialLinks={socialLinks} />
+          </div>
+        );
+      }
+      if (block.type === 'app') {
+        return (
+          <FooterApp
+            title={appBlock.title}
+            appName={appBlock.appName}
+            appSubtitle={appBlock.appSubtitle}
+            description={appBlock.description}
+            qrHint={appBlock.qrHint}
+            iconUrl={appBlock.iconUrl}
+          />
+        );
+      }
+      if (block.type === 'appQR') {
+        return (
+          <FooterAppQR stores={appBlock.stores} gridClass={block.gridClass} />
+        );
+      }
+      return null;
+    })}
+  </div>
+  <FooterLegal year={legalBar.year} brand={legalBar.brand} links={legalLinks} />
+</footer>

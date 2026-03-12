@@ -1,0 +1,43 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  noindex?: boolean;
+}
+const { title = 'DOM | Системный Метод Анны Хефорс', description = 'Системный метод Анны Хефорс — путь к деньгам, отношениям, ментальному здоровью и осознанности.', image, noindex = false } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin);
+const ogImage = image ?? `${Astro.url.origin}/dom-assets/anna-portrait.png`;
+import Navbar from '../components/Navbar.astro';
+import FooterSection from '../components/Footer/FooterSection.astro';
+import '../styles/global.css';
+---
+
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {noindex ? <meta name="robots" content="noindex, nofollow" /> : null}
+    <link rel="canonical" href={canonicalURL.toString()} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content="ru_RU" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet" />
+  </head>
+  <body>
+    <Navbar />
+    <main class="pt-24 md:pt-28 min-h-screen">
+      <slot />
+    </main>
+    <FooterSection />
+  </body>
+</html>

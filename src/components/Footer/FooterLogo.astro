@@ -1,0 +1,24 @@
+---
+import { Image } from 'astro:assets';
+import logoGradient from '../../assets/images/dom-logo-gradient.png';
+
+interface Props {
+  copyrightText: string;
+  homeUrl?: string;
+}
+
+const { copyrightText, homeUrl = '/ru/' } = Astro.props;
+---
+
+<div>
+  <a href={homeUrl} class="inline-block" aria-label="DOM — на главную">
+    <Image
+      src={logoGradient}
+      alt="DOM — системный метод Анны Хефорс"
+      class="brand-logo w-auto object-contain"
+      width={280}
+      height={176}
+    />
+  </a>
+  <p class="mt-3 text-[11px] font-montserrat text-dom-beige/70">{copyrightText}</p>
+</div>

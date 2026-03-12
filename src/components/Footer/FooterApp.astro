@@ -1,0 +1,35 @@
+---
+import { Image } from 'astro:assets';
+import appIcon from '../../assets/images/DOM-app.png';
+import type { AppStoreLink } from '../../data/footer';
+
+interface Props {
+  title: string;
+  appName: string;
+  appSubtitle: string;
+  description: string;
+  qrHint: string;
+  /** Если задан (из CMS) — показываем эту иконку; иначе локальную */
+  iconUrl?: string;
+}
+
+const { title, appName, appSubtitle, description, qrHint, iconUrl } = Astro.props;
+const iconAlt = `Иконка приложения ${appName}`;
+---
+
+<div class="lg:justify-self-start">
+  <h4 class="font-bold mb-3 text-white font-messiri text-xl">{title}</h4>
+  <div class="inline-flex items-center gap-2 rounded-xl border border-dom-gold/30 bg-white/5 px-3 py-2 mb-3">
+    {iconUrl ? (
+      <img src={iconUrl} alt={iconAlt} class="w-11 h-11 rounded-[10px] object-cover border border-dom-gold/30 bg-white" width={88} height={88} loading="lazy" decoding="async" />
+    ) : (
+      <Image src={appIcon} alt={iconAlt} class="w-11 h-11 rounded-[10px] object-cover border border-dom-gold/30 bg-white" width={132} height={132} />
+    )}
+    <div class="leading-tight">
+      <p class="font-montserrat text-xs text-dom-beige">{appName}</p>
+      <p class="font-montserrat text-[10px] text-dom-beige/70">{appSubtitle}</p>
+    </div>
+  </div>
+  <p class="text-xs opacity-80 font-montserrat mb-3">{description}</p>
+  <p class="font-montserrat text-[10px] uppercase tracking-[0.11em] text-dom-gold/85 mb-3 max-w-[250px]">{qrHint}</p>
+</div>
