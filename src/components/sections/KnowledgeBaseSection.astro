@@ -16,7 +16,7 @@ const { title, ctaAll, categories } = Astro.props;
 
 <section class="home-section home-section-tone-soft" aria-labelledby="knowledge-heading">
   <div class="max-w-7xl mx-auto px-4 home-surface">
-    <div class="flex items-end justify-between flex-wrap gap-4 mb-8">
+    <div class="flex items-end justify-between flex-wrap gap-4 mb-7">
       <h2 id="knowledge-heading" class="font-messiri home-title text-dom-graphite">{title}</h2>
       {ctaAll && (
         <a href={ctaAll.url} class="font-montserrat text-xs uppercase tracking-[0.1em] text-dom-goldDark hover:text-dom-graphite">{ctaAll.text}</a>
@@ -41,7 +41,7 @@ const { title, ctaAll, categories } = Astro.props;
           )}
           <div class="home-knowledge-body">
             <h3 class="font-messiri text-2xl text-dom-graphite mb-3">{category.title}</h3>
-            <p class="font-montserrat text-sm text-dom-graphite/75 leading-relaxed mb-6">{category.description}</p>
+            <p class="font-montserrat text-sm text-dom-graphite/75 leading-relaxed mb-5">{category.description}</p>
             <ul class="home-knowledge-articles flex flex-wrap gap-3 list-none m-0 p-0" aria-label="Статьи">
               {category.articles.map((article) => (
                 <li>

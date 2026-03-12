@@ -1,0 +1,148 @@
+/**
+ * ПОДВАЛ И ПОСЛЕДНИЙ БЛОК ГЛАВНОЙ (Final CTA)
+ * ------------------------------------------
+ * Единственное место стилей для <footer> и .section-home-final-cta.
+ * Подключается последним — не трогать в global.css, не добавлять сюда другие секции.
+ * На <footer> не вешать классы фона (bg-dom-graphite и т.п.) — фон задаётся только здесь.
+ */
+
+/* ========== Footer ========== */
+footer {
+  background: linear-gradient(130deg, #0f0d0a 0%, #201911 100%), url("/images/shared/pattern-rings.png") !important;
+  background-size: cover, 380px;
+  border-top: 1px solid rgba(217, 179, 114, 0.32);
+}
+footer .brand-logo {
+  height: 144px;
+  width: auto;
+}
+footer h4 {
+  background-image: linear-gradient(135deg, #f3dfb5 0%, #cca26b 35%, #a4814a 58%, #e5c78b 100%), url("/images/shared/сусальное золото.png");
+  background-size: 100% 100%, 420px 420px;
+  background-position: center center, center center;
+  background-blend-mode: overlay;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 1px 10px rgba(165, 118, 50, 0.18);
+}
+@media (min-width: 768px) {
+  footer .brand-logo {
+    height: 176px;
+  }
+}
+
+/* ========== Final CTA (последний блок главной) ========== */
+.section-home-final-cta {
+  background: linear-gradient(180deg, #fff8e9 0%, #f5ead5 100%);
+  padding-top: clamp(4.5rem, 6.3vw, 5.76rem);
+  padding-bottom: clamp(4.5rem, 6.3vw, 5.76rem);
+}
+.section-home-final-cta .home-final-cta-shell {
+  border: 1px solid rgba(186, 143, 75, 0.28);
+  border-radius: 1.5rem;
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.88), rgba(249, 236, 208, 0.84));
+  box-shadow: 0 20px 42px rgba(104, 77, 35, 0.14);
+  padding: 1rem;
+}
+.section-home-final-cta .home-final-cta-shell-narrow {
+  max-width: 920px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.section-home-final-cta .home-final-cta-grid {
+  display: grid;
+  gap: 2.25rem;
+  align-items: center;
+}
+.section-home-final-cta .home-final-cta-grid-cols {
+  grid-template-columns: 1fr 1.2fr;
+}
+.section-home-final-cta .home-final-cta-photo-wrap {
+  border: 1px solid rgba(186, 143, 75, 0.2);
+  border-radius: 1.15rem;
+  background: rgba(255, 250, 240, 0.86);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  max-width: 390px;
+  width: 100%;
+  margin: 0 auto;
+}
+.section-home-final-cta .home-final-cta-photo {
+  width: 100%;
+  aspect-ratio: 4 / 4.65;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+.section-home-final-cta .home-final-cta-photo-note {
+  padding: 0.8rem 0.9rem 0.95rem;
+  text-align: center;
+  color: #3a2e20;
+  font-family: var(--dom-heading-font);
+  font-size: clamp(1.1rem, 1.7vw, 1.45rem);
+  line-height: 1.2;
+}
+.section-home-final-cta .home-final-cta-photo-note span {
+  display: block;
+  margin-top: 0.22rem;
+  font-family: "Montserrat", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: rgba(82, 62, 30, 0.72);
+}
+.section-home-final-cta .home-final-cta-content {
+  padding: 0.8rem 0 0.3rem;
+  min-width: 0;
+}
+.section-home-final-cta .home-final-cta-title {
+  font-size: clamp(1.62rem, 3.15vw, 2.52rem);
+  line-height: 0.98;
+  letter-spacing: 0.01em;
+  color: #2f2416;
+  margin-bottom: 0.68rem;
+}
+.section-home-final-cta .home-final-cta-sub {
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(1rem, 1.45vw, 1.16rem);
+  line-height: 1.6;
+  color: rgba(47, 36, 22, 0.78);
+  margin-bottom: 0.95rem;
+  max-width: 52ch;
+}
+.section-home-final-cta .home-final-cta-form {
+  width: 100%;
+  max-width: 100%;
+}
+/* Контейнер виджета GetCourse */
+.section-home-final-cta .home-final-cta-getcourse {
+  min-height: 200px;
+  border-radius: 0.9rem;
+  overflow: hidden;
+}
+.section-home-final-cta .home-final-cta-getcourse iframe {
+  max-width: 100%;
+  border: none;
+  border-radius: 0.9rem;
+}
+.section-home-final-cta .home-final-cta-note {
+  margin-top: 0.5rem;
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  line-height: 1.45;
+  color: rgba(78, 58, 30, 0.68);
+}
+@media (max-width: 768px) {
+  .section-home-final-cta .home-final-cta-grid,
+  .section-home-final-cta .home-final-cta-grid-cols {
+    grid-template-columns: 1fr;
+  }
+  .section-home-final-cta .home-final-cta-content {
+    padding: 0.35rem 0 0.25rem;
+  }
+  .section-home-final-cta .home-final-cta-title {
+    font-size: clamp(1.35rem, 5.4vw, 1.98rem);
+  }
+}

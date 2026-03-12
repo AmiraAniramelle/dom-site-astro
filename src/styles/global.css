@@ -214,31 +214,7 @@ main {
 }
 #navbar .brand-logo { height: 140px; width: auto; }
 
-/* ========== Footer (подвал). Не трогать .section-home-final-cta. Фон только здесь — не добавлять bg-* на <footer>. ========== */
-footer {
-  background:
-    linear-gradient(130deg, #0f0d0a 0%, #201911 100%),
-    url("/images/shared/pattern-rings.png") !important;
-  background-size: cover, 380px;
-  border-top: 1px solid rgba(217, 179, 114, 0.32);
-}
-footer .brand-logo { height: 144px; width: auto; }
-footer h4 {
-  background-image:
-    linear-gradient(135deg, #f3dfb5 0%, #cca26b 35%, #a4814a 58%, #e5c78b 100%),
-    url("/images/shared/сусальное золото.png");
-  background-size: 100% 100%, 420px 420px;
-  background-position: center center, center center;
-  background-blend-mode: overlay;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0 1px 10px rgba(165, 118, 50, 0.18);
-}
-@media (min-width: 768px) {
-  footer .brand-logo { height: 176px; }
-}
-
+/* Стили подвала и .section-home-final-cta только в src/styles/footer-and-final-cta.css */
 section { position: relative; }
 section::before {
   content: '';
@@ -260,11 +236,13 @@ button:focus-visible {
   outline-offset: 2px;
 }
 
+/* Стили кнопок .dom-btn-primary и .dom-btn-secondary — в src/styles/buttons.css (подключается отдельно, чтобы Tailwind не удалял классы). */
+
 .home-section {
   position: relative;
   overflow: hidden;
-  padding-top: 5.5rem;
-  padding-bottom: 5.5rem;
+  padding-top: 4.95rem;
+  padding-bottom: 4.95rem;
 }
 .home-section-tone-soft { background: var(--dom-home-tone-soft); }
 .home-section-tone-warm { background: var(--dom-home-tone-warm); }
@@ -279,12 +257,12 @@ button:focus-visible {
 
 /* Intent slider (секция 2 главной) */
 .home-intent-section {
-  padding: 3.7rem 0 3.1rem;
+  padding: 3.33rem 0 2.79rem;
   overflow: hidden;
 }
 .home-intent-top {
   text-align: center;
-  margin-bottom: 2.4rem;
+  margin-bottom: 2.16rem;
   padding: 0 2rem;
   position: relative;
   z-index: 7;
@@ -300,7 +278,7 @@ button:focus-visible {
 }
 .home-intent-title {
   font-family: var(--dom-heading-font) !important;
-  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-size: clamp(1.8rem, 3.6vw, 2.88rem);
   font-weight: 400;
   color: #2a2115;
   line-height: 1.08;
@@ -569,7 +547,7 @@ button:focus-visible {
 
 /* Manifest section (секция 3 главной) */
 .home-manifest-section {
-  padding: clamp(2.8rem, 4.2vw, 4.2rem) 0;
+  padding: clamp(2.52rem, 3.78vw, 3.78rem) 0;
 }
 .home-manifest-shell {
   max-width: 1160px;
@@ -578,13 +556,13 @@ button:focus-visible {
   border-radius: 2rem;
   background: linear-gradient(160deg, rgba(255, 254, 250, 0.96), rgba(248, 237, 214, 0.92));
   box-shadow: 0 18px 34px rgba(127, 94, 35, 0.1);
-  padding: clamp(1.2rem, 2.4vw, 2rem);
+  padding: clamp(1.08rem, 2.16vw, 1.8rem);
 }
 .home-manifest-card {
   position: relative;
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: clamp(1.3rem, 2.6vw, 2.8rem);
+  gap: clamp(1.17rem, 2.34vw, 2.52rem);
   align-items: center;
   text-align: left;
 }
@@ -603,7 +581,7 @@ button:focus-visible {
 }
 .home-manifest-title {
   font-family: var(--dom-heading-font);
-  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-size: clamp(1.8rem, 3.6vw, 2.88rem);
   line-height: 1.08;
   letter-spacing: 0.008em;
   font-weight: 400;
@@ -980,13 +958,13 @@ button:focus-visible {
 
 /* Author section (секция 6 главной) */
 .section-author {
-  padding-top: clamp(6rem, 8vw, 7.5rem);
-  padding-bottom: clamp(6rem, 8vw, 7.5rem);
+  padding-top: clamp(5.4rem, 7.2vw, 6.75rem);
+  padding-bottom: clamp(5.4rem, 7.2vw, 6.75rem);
 }
 .author-grid {
   display: grid;
   grid-template-columns: minmax(0, 0.4fr) minmax(0, 0.6fr);
-  gap: clamp(1.6rem, 3vw, 3rem);
+  gap: clamp(1.44rem, 2.7vw, 2.7rem);
   align-items: start;
 }
 .author-photo-shell {
@@ -1030,7 +1008,7 @@ button:focus-visible {
   margin-bottom: 0.55rem;
 }
 .author-title {
-  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-size: clamp(1.8rem, 3.6vw, 2.88rem);
   line-height: 1.08;
   letter-spacing: 0.01em;
   font-weight: 400;
@@ -1133,11 +1111,11 @@ button:focus-visible {
 
 /* Reviews section (секция 8 главной) */
 .section-home-reviews {
-  padding-top: clamp(5rem, 7vw, 6.6rem);
-  padding-bottom: clamp(5rem, 7vw, 6.6rem);
+  padding-top: clamp(4.5rem, 6.3vw, 5.94rem);
+  padding-bottom: clamp(4.5rem, 6.3vw, 5.94rem);
 }
 .home-reviews-top {
-  margin-bottom: 1.8rem;
+  margin-bottom: 1.62rem;
 }
 .home-reviews-kicker {
   font-family: "Montserrat", sans-serif;
@@ -1148,7 +1126,7 @@ button:focus-visible {
   margin-bottom: 0.45rem;
 }
 .home-reviews-title {
-  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-size: clamp(1.8rem, 3.6vw, 2.88rem);
   line-height: 1.08;
   letter-spacing: 0.01em;
   font-weight: 400;
@@ -1368,12 +1346,12 @@ button:focus-visible {
 
 /* Programs section (секция 7 главной) */
 .section-home-programs {
-  padding-top: clamp(5rem, 7vw, 6.6rem);
-  padding-bottom: clamp(5rem, 7vw, 6.2rem);
+  padding-top: clamp(4.5rem, 6.3vw, 5.94rem);
+  padding-bottom: clamp(5rem, 6.3vw, 5.58rem);
 }
 .home-programs-top {
   text-align: center;
-  margin-bottom: 1.6rem;
+  margin-bottom: 1.44rem;
 }
 .home-programs-kicker {
   font-family: "Montserrat", sans-serif;
@@ -1385,7 +1363,7 @@ button:focus-visible {
   margin-bottom: 0.85rem;
 }
 .home-programs-title {
-  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-size: clamp(1.8rem, 3.6vw, 2.88rem);
   line-height: 1.08;
   letter-spacing: 0.02em;
   font-weight: 400;
@@ -1732,8 +1710,8 @@ button:focus-visible {
 
 /* App section — DOM всегда с тобой */
 .section-home-app {
-  padding-top: clamp(4.8rem, 7vw, 6rem);
-  padding-bottom: clamp(4.8rem, 7vw, 5.8rem);
+  padding-top: clamp(4.32rem, 6.3vw, 5.4rem);
+  padding-bottom: clamp(4.32rem, 6.3vw, 5.22rem);
 }
 .home-app-shell {
   border: 1px solid rgba(186, 143, 75, 0.24);
@@ -1917,7 +1895,7 @@ button:focus-visible {
   margin-bottom: 0.5rem;
 }
 .home-app-title {
-  font-size: clamp(2rem, 3.5vw, 2.9rem);
+  font-size: clamp(1.8rem, 3.15vw, 2.61rem);
   line-height: 1.06;
   letter-spacing: 0.01em;
   color: #2f2416;
@@ -2094,8 +2072,8 @@ button:focus-visible {
 /* FAQ section */
 .section-home-faq {
   background: #fff8e9;
-  padding-top: clamp(4.8rem, 7vw, 6.2rem);
-  padding-bottom: clamp(2.6rem, 4vw, 3.6rem);
+  padding-top: clamp(4.32rem, 6.3vw, 5.58rem);
+  padding-bottom: clamp(2.34rem, 3.6vw, 3.24rem);
 }
 .home-faq-layout {
   display: grid;
@@ -2120,7 +2098,7 @@ button:focus-visible {
   margin-bottom: 0.5rem;
 }
 .home-faq-title {
-  font-size: clamp(2rem, 4.2vw, 3.3rem);
+  font-size: clamp(1.8rem, 3.78vw, 2.97rem);
   line-height: 1.08;
   letter-spacing: 0.01em;
   font-weight: 400;
@@ -2222,141 +2200,9 @@ button:focus-visible {
   color: rgba(47, 36, 22, 0.82);
 }
 
-/* ========== Final CTA section (последний блок главной). Не трогать footer. ========== */
-.section-home-final-cta {
-  background: linear-gradient(180deg, #fff8e9 0%, #f5ead5 100%);
-  padding-top: clamp(5rem, 7vw, 6.4rem);
-  padding-bottom: clamp(5rem, 7vw, 6.4rem);
-}
-.section-home-final-cta .home-final-cta-shell {
-  border: 1px solid rgba(186, 143, 75, 0.28);
-  border-radius: 1.5rem;
-  background: linear-gradient(160deg, rgba(255, 255, 255, 0.88), rgba(249, 236, 208, 0.84));
-  box-shadow: 0 20px 42px rgba(104, 77, 35, 0.14);
-  padding: 1rem;
-}
-.section-home-final-cta .home-final-cta-shell-narrow {
-  max-width: 920px;
-  margin-left: auto;
-  margin-right: auto;
-}
-.section-home-final-cta .home-final-cta-grid {
-  display: grid;
-  gap: 2.5rem;
-  align-items: center;
-}
-.section-home-final-cta .home-final-cta-grid-cols {
-  grid-template-columns: 1fr 1.2fr;
-}
-.section-home-final-cta .home-final-cta-photo-wrap {
-  border: 1px solid rgba(186, 143, 75, 0.2);
-  border-radius: 1.15rem;
-  background: rgba(255, 250, 240, 0.86);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  max-width: 390px;
-  width: 100%;
-  margin: 0 auto;
-}
-.section-home-final-cta .home-final-cta-photo {
-  width: 100%;
-  aspect-ratio: 4 / 4.65;
-  object-fit: cover;
-  object-position: center;
-  display: block;
-}
-.section-home-final-cta .home-final-cta-photo-note {
-  padding: 0.8rem 0.9rem 0.95rem;
-  text-align: center;
-  color: #3a2e20;
-  font-family: var(--dom-heading-font);
-  font-size: clamp(1.1rem, 1.7vw, 1.45rem);
-  line-height: 1.2;
-}
-.section-home-final-cta .home-final-cta-photo-note span {
-  display: block;
-  margin-top: 0.22rem;
-  font-family: "Montserrat", sans-serif;
-  font-size: 11px;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-  color: rgba(82, 62, 30, 0.72);
-}
-.section-home-final-cta .home-final-cta-content {
-  padding: 0.8rem 0 0.3rem;
-  min-width: 0;
-}
-.section-home-final-cta .home-final-cta-title {
-  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-  line-height: 0.98;
-  letter-spacing: 0.01em;
-  color: #2f2416;
-  margin-bottom: 0.75rem;
-}
-.section-home-final-cta .home-final-cta-sub {
-  font-family: "Montserrat", sans-serif;
-  font-size: clamp(1rem, 1.45vw, 1.16rem);
-  line-height: 1.6;
-  color: rgba(47, 36, 22, 0.78);
-  margin-bottom: 0.95rem;
-  max-width: 52ch;
-}
-.section-home-final-cta .home-final-cta-form {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0.65rem;
-  width: 100%;
-  max-width: 100%;
-}
-.section-home-final-cta .home-final-cta-form input {
-  width: 100%;
-  box-sizing: border-box;
-  border: 1px solid rgba(186, 143, 75, 0.33);
-  border-radius: 0.8rem;
-  background: rgba(255, 255, 255, 0.92);
-  color: #2f2416;
-  font-family: "Montserrat", sans-serif;
-  font-size: 15px;
-  padding: 0.78rem 0.95rem;
-  outline: none;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-.section-home-final-cta .home-final-cta-form input:focus {
-  border-color: rgba(166, 120, 50, 0.62);
-  box-shadow: 0 0 0 3px rgba(217, 179, 114, 0.18);
-}
-.section-home-final-cta .home-final-cta-submit {
-  width: 100%;
-  border: 0;
-  border-radius: 0.9rem;
-  padding: 0.88rem 1rem;
-  font-family: "Montserrat", sans-serif;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: #fff8ed;
-  background: linear-gradient(135deg, #d9b372, #a4743a);
-  box-shadow: 0 10px 28px rgba(162, 115, 48, 0.32);
-  cursor: pointer;
-  transition: transform 0.22s ease, box-shadow 0.22s ease;
-}
-.section-home-final-cta .home-final-cta-submit:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 16px 40px rgba(162, 115, 48, 0.45);
-}
-.section-home-final-cta .home-final-cta-note {
-  margin-top: 0.5rem;
-  font-family: "Montserrat", sans-serif;
-  font-size: 12px;
-  line-height: 1.45;
-  color: rgba(78, 58, 30, 0.68);
-}
-
 @media (max-width: 768px) {
   .home-manifest-section {
-    padding: 2.2rem 0 2.8rem;
+    padding: 1.98rem 0 2.52rem;
   }
   .home-manifest-shell {
     border-radius: 1.4rem;
@@ -2376,7 +2222,7 @@ button:focus-visible {
     letter-spacing: 0.16em;
   }
   .home-manifest-title {
-    font-size: clamp(1.8rem, 7vw, 2.35rem);
+    font-size: clamp(1.62rem, 6.3vw, 2.12rem);
     line-height: 1.12;
     max-width: none;
   }
@@ -2434,8 +2280,8 @@ button:focus-visible {
     padding: 1.1rem;
   }
   .section-author {
-    padding-top: clamp(3.5rem, 10vw, 4.5rem);
-    padding-bottom: clamp(3.5rem, 10vw, 4.5rem);
+    padding-top: clamp(3.15rem, 9vw, 4.05rem);
+    padding-bottom: clamp(3.15rem, 9vw, 4.05rem);
   }
   .author-grid {
     grid-template-columns: 1fr;
@@ -2551,16 +2397,6 @@ button:focus-visible {
     flex-basis: 26px;
     font-size: 13px;
   }
-  .section-home-final-cta .home-final-cta-grid,
-  .section-home-final-cta .home-final-cta-grid-cols {
-    grid-template-columns: 1fr;
-  }
-  .section-home-final-cta .home-final-cta-content {
-    padding: 0.35rem 0 0.25rem;
-  }
-  .section-home-final-cta .home-final-cta-title {
-    font-size: clamp(1.5rem, 6vw, 2.2rem);
-  }
   .home-reviews-grid {
     grid-template-columns: 1fr;
     gap: 0.9rem;
@@ -2580,10 +2416,6 @@ button:focus-visible {
   }
   .home-review-modal-content {
     padding: 1rem 0.9rem 1.15rem;
-  }
-  .home-reviews-cta-link {
-    width: 100%;
-    text-align: center;
   }
   .fade-in { animation-duration: 0.6s; }
 }
@@ -2728,169 +2560,6 @@ button:focus-visible {
   object-fit: contain;
 }
 
-.home-title { font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.08; letter-spacing: 0.01em; font-weight: 400; color: #2a2115; }
+.home-title { font-size: clamp(1.8rem, 3.6vw, 2.88rem); line-height: 1.08; letter-spacing: 0.01em; font-weight: 400; color: #2a2115; }
 .home-subtitle { font-size: clamp(1rem, 2vw, 1.15rem); line-height: 1.75; color: rgba(31, 24, 15, 0.78); }
 .home-surface { position: relative; z-index: 1; }
-
-/* ========== LOCK: Подвал и последний блок главной. Стили продублированы в конце файла — не удалять этот блок, чтобы ничего их не перебивало. ========== */
-footer {
-  background: linear-gradient(130deg, #0f0d0a 0%, #201911 100%), url("/images/shared/pattern-rings.png") !important;
-  background-size: cover, 380px;
-  border-top: 1px solid rgba(217, 179, 114, 0.32);
-}
-footer .brand-logo { height: 144px; width: auto; }
-footer h4 {
-  background-image: linear-gradient(135deg, #f3dfb5 0%, #cca26b 35%, #a4814a 58%, #e5c78b 100%), url("/images/shared/сусальное золото.png");
-  background-size: 100% 100%, 420px 420px;
-  background-position: center center, center center;
-  background-blend-mode: overlay;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0 1px 10px rgba(165, 118, 50, 0.18);
-}
-@media (min-width: 768px) {
-  footer .brand-logo { height: 176px; }
-}
-.section-home-final-cta {
-  background: linear-gradient(180deg, #fff8e9 0%, #f5ead5 100%);
-  padding-top: clamp(5rem, 7vw, 6.4rem);
-  padding-bottom: clamp(5rem, 7vw, 6.4rem);
-}
-.section-home-final-cta .home-final-cta-shell {
-  border: 1px solid rgba(186, 143, 75, 0.28);
-  border-radius: 1.5rem;
-  background: linear-gradient(160deg, rgba(255, 255, 255, 0.88), rgba(249, 236, 208, 0.84));
-  box-shadow: 0 20px 42px rgba(104, 77, 35, 0.14);
-  padding: 1rem;
-}
-.section-home-final-cta .home-final-cta-shell-narrow {
-  max-width: 920px;
-  margin-left: auto;
-  margin-right: auto;
-}
-.section-home-final-cta .home-final-cta-grid {
-  display: grid;
-  gap: 2.5rem;
-  align-items: center;
-}
-.section-home-final-cta .home-final-cta-grid-cols {
-  grid-template-columns: 1fr 1.2fr;
-}
-.section-home-final-cta .home-final-cta-photo-wrap {
-  border: 1px solid rgba(186, 143, 75, 0.2);
-  border-radius: 1.15rem;
-  background: rgba(255, 250, 240, 0.86);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  max-width: 390px;
-  width: 100%;
-  margin: 0 auto;
-}
-.section-home-final-cta .home-final-cta-photo {
-  width: 100%;
-  aspect-ratio: 4 / 4.65;
-  object-fit: cover;
-  object-position: center;
-  display: block;
-}
-.section-home-final-cta .home-final-cta-photo-note {
-  padding: 0.8rem 0.9rem 0.95rem;
-  text-align: center;
-  color: #3a2e20;
-  font-family: var(--dom-heading-font);
-  font-size: clamp(1.1rem, 1.7vw, 1.45rem);
-  line-height: 1.2;
-}
-.section-home-final-cta .home-final-cta-photo-note span {
-  display: block;
-  margin-top: 0.22rem;
-  font-family: "Montserrat", sans-serif;
-  font-size: 11px;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-  color: rgba(82, 62, 30, 0.72);
-}
-.section-home-final-cta .home-final-cta-content {
-  padding: 0.8rem 0 0.3rem;
-  min-width: 0;
-}
-.section-home-final-cta .home-final-cta-title {
-  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-  line-height: 0.98;
-  letter-spacing: 0.01em;
-  color: #2f2416;
-  margin-bottom: 0.75rem;
-}
-.section-home-final-cta .home-final-cta-sub {
-  font-family: "Montserrat", sans-serif;
-  font-size: clamp(1rem, 1.45vw, 1.16rem);
-  line-height: 1.6;
-  color: rgba(47, 36, 22, 0.78);
-  margin-bottom: 0.95rem;
-  max-width: 52ch;
-}
-.section-home-final-cta .home-final-cta-form {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0.65rem;
-  width: 100%;
-  max-width: 100%;
-}
-.section-home-final-cta .home-final-cta-form input {
-  width: 100%;
-  box-sizing: border-box;
-  border: 1px solid rgba(186, 143, 75, 0.33);
-  border-radius: 0.8rem;
-  background: rgba(255, 255, 255, 0.92);
-  color: #2f2416;
-  font-family: "Montserrat", sans-serif;
-  font-size: 15px;
-  padding: 0.78rem 0.95rem;
-  outline: none;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-.section-home-final-cta .home-final-cta-form input:focus {
-  border-color: rgba(166, 120, 50, 0.62);
-  box-shadow: 0 0 0 3px rgba(217, 179, 114, 0.18);
-}
-.section-home-final-cta .home-final-cta-submit {
-  width: 100%;
-  border: 0;
-  border-radius: 0.9rem;
-  padding: 0.88rem 1rem;
-  font-family: "Montserrat", sans-serif;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: #fff8ed;
-  background: linear-gradient(135deg, #d9b372, #a4743a);
-  box-shadow: 0 10px 28px rgba(162, 115, 48, 0.32);
-  cursor: pointer;
-  transition: transform 0.22s ease, box-shadow 0.22s ease;
-}
-.section-home-final-cta .home-final-cta-submit:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 16px 40px rgba(162, 115, 48, 0.45);
-}
-.section-home-final-cta .home-final-cta-note {
-  margin-top: 0.5rem;
-  font-family: "Montserrat", sans-serif;
-  font-size: 12px;
-  line-height: 1.45;
-  color: rgba(78, 58, 30, 0.68);
-}
-@media (max-width: 768px) {
-  .section-home-final-cta .home-final-cta-grid,
-  .section-home-final-cta .home-final-cta-grid-cols {
-    grid-template-columns: 1fr;
-  }
-  .section-home-final-cta .home-final-cta-content {
-    padding: 0.35rem 0 0.25rem;
-  }
-  .section-home-final-cta .home-final-cta-title {
-    font-size: clamp(1.5rem, 6vw, 2.2rem);
-  }
-}

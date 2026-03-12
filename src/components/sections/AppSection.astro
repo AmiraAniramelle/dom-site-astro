@@ -36,8 +36,8 @@ const featureCardsJson = JSON.stringify(featureCards);
         <h2 id="app-heading" class="font-messiri home-app-title">{title}</h2>
         <p class="home-app-desc">{description}</p>
         <div class="home-app-actions">
-          <a href={primaryCta.url} class="home-app-cta-primary">{primaryCta.text}</a>
-          <a href={secondaryCta.url} target="_blank" rel="noopener noreferrer" class="home-app-cta-secondary inline-flex items-center justify-center">{secondaryCta.text}</a>
+          <a href={primaryCta.url} class="dom-btn-primary">{primaryCta.text}</a>
+          <a href={secondaryCta.url} target="_blank" rel="noopener noreferrer" class="dom-btn-secondary">{secondaryCta.text}</a>
         </div>
         <div class="home-app-store">
           {stores.map((store) => (
