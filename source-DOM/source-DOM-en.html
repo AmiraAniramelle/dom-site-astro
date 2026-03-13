@@ -1,0 +1,2767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM | Anna Hefors Systemic Method</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dom: {
+                            graphite: '#1e1e1e',
+                            gold: '#d9b372',
+                            goldLeaf: '#cca26b',
+                            goldDark: '#a4814a',
+                            beige: '#f4e4ce',
+                            white: '#ffffff',
+                        }
+                    },
+                    fontFamily: {
+                        messiri: ['"Cinzel"', 'serif'],
+                        montserrat: ['"Montserrat"', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'gold-gradient': 'linear-gradient(135deg, #d9b372 0%, #a4814a 100%)',
+                        'graphite-gradient': 'linear-gradient(180deg, #1e1e1e 0%, #2a2622 100%)',
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --dom-graphite: #1e1e1e;
+            --dom-gold: #d9b372;
+            --dom-gold-dark: #a4814a;
+            --dom-beige: #f4e4ce;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background:
+                radial-gradient(circle at 15% 20%, rgba(217, 179, 114, 0.13), transparent 35%),
+                radial-gradient(circle at 85% 10%, rgba(164, 129, 74, 0.1), transparent 35%),
+                linear-gradient(180deg, #f8f0e2 0%, #f4e4ce 45%, #efe2cf 100%);
+            color: var(--dom-graphite);
+        }
+
+        main {
+            transition: opacity 0.35s ease;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #1e1e1e; }
+        ::-webkit-scrollbar-thumb { background: #d9b372; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #a4814a; }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in { animation: fadeIn 0.8s ease-out forwards; }
+        .gold-text-glow { text-shadow: 0 0 20px rgba(217, 179, 114, 0.3); }
+        
+        .nav-link {
+            position: relative;
+            letter-spacing: 0.03em;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            left: 0.5rem;
+            right: 0.5rem;
+            bottom: 0.25rem;
+            height: 1.5px;
+            background: linear-gradient(90deg, transparent 0%, var(--dom-gold) 50%, transparent 100%);
+            transform: scaleX(0);
+            transform-origin: center;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-link:hover::after,
+        .nav-link-active::after {
+            transform: scaleX(1);
+        }
+
+        .nav-link-active {
+            color: var(--dom-gold);
+            background: rgba(217, 179, 114, 0.08);
+        }
+
+        #mobile-menu button {
+            transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+        }
+
+        #mobile-menu button:hover {
+            background: rgba(217, 179, 114, 0.1);
+            transform: translateX(4px);
+        }
+
+        button {
+            transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+        }
+
+        button:hover {
+            filter: saturate(1.05);
+        }
+
+        button:focus-visible {
+            outline: 2px solid var(--dom-gold);
+            outline-offset: 2px;
+        }
+
+        section {
+            position: relative;
+        }
+
+        section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                radial-gradient(circle at 10% 15%, rgba(217, 179, 114, 0.06), transparent 30%),
+                radial-gradient(circle at 90% 85%, rgba(164, 129, 74, 0.05), transparent 28%);
+            pointer-events: none;
+        }
+
+        section > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .bg-white,
+        .bg-white\/80,
+        .bg-white\/5 {
+            box-shadow: 0 14px 45px rgba(30, 30, 30, 0.09);
+        }
+
+        @media (max-width: 768px) {
+            .fade-in {
+                animation-duration: 0.6s;
+            }
+        }
+
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            height: 400px;
+            max-height: 400px;
+            margin: 0 auto;
+        }
+        
+        .masonry-grid {
+            column-count: 1;
+            column-gap: 2rem;
+        }
+        @media (min-width: 768px) { .masonry-grid { column-count: 2; } }
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 2rem;
+        }
+
+        .video-ribbon {
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            padding-bottom: 0.5rem;
+        }
+
+        .video-ribbon-track {
+            display: flex;
+            gap: 1rem;
+            min-width: max-content;
+        }
+
+        .video-ribbon-card {
+            width: 320px;
+            scroll-snap-align: start;
+            background: linear-gradient(140deg, rgba(20, 16, 10, 0.94), rgba(34, 26, 15, 0.9));
+            border: 1px solid rgba(217, 179, 114, 0.32);
+            box-shadow: 0 16px 35px rgba(12, 10, 7, 0.32);
+        }
+
+        .video-ribbon-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 22px 45px rgba(12, 10, 7, 0.4);
+        }
+
+        .bridge-icon {
+            width: 22px;
+            height: 22px;
+            object-fit: contain;
+            opacity: 0.9;
+            filter: drop-shadow(0 0 8px rgba(217, 179, 114, 0.24));
+        }
+
+        /* Brand Redesign */
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(180deg, rgba(15, 13, 10, 0.72), rgba(15, 13, 10, 0.72)),
+                url('./dom-assets/pattern-rings.png');
+            background-size: auto, 540px;
+            background-repeat: no-repeat, repeat;
+            background-position: center, center;
+            pointer-events: none;
+            z-index: -2;
+        }
+
+        #navbar {
+            background:
+                linear-gradient(90deg, rgba(11, 10, 8, 0.94), rgba(38, 30, 16, 0.92)),
+                url('./dom-assets/pattern-rings.png');
+            background-size: cover, 360px;
+            border-bottom: 1px solid rgba(217, 179, 114, 0.32);
+        }
+
+        .brand-logo {
+            height: 68px;
+            width: auto;
+            filter: drop-shadow(0 0 18px rgba(217, 179, 114, 0.18));
+            transition: transform 0.35s ease, filter 0.35s ease;
+        }
+
+        #navbar .brand-logo {
+            height: 96px;
+        }
+
+        footer .brand-logo {
+            height: 86px;
+        }
+
+        .group:hover .brand-logo {
+            transform: translateY(-1px) scale(1.02);
+            filter: drop-shadow(0 0 26px rgba(217, 179, 114, 0.3));
+        }
+
+        .home-hero {
+            min-height: auto;
+            background:
+                radial-gradient(circle at 50% 0%, rgba(255, 236, 191, 0.92), rgba(247, 224, 176, 0.82) 40%, rgba(231, 205, 154, 0.9) 100%),
+                linear-gradient(140deg, #f8e8c4 0%, #efd8a8 50%, #e5c88f 100%);
+        }
+
+        .home-hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('./dom-assets/pattern-rings.png') center/560px repeat;
+            opacity: 0.2;
+            pointer-events: none;
+        }
+
+        .hero-frame {
+            border: 1px solid rgba(170, 124, 52, 0.38);
+            background: linear-gradient(145deg, rgba(255, 247, 229, 0.82), rgba(242, 221, 176, 0.74));
+            box-shadow: 0 18px 55px rgba(136, 99, 39, 0.2), inset 0 0 0 1px rgba(255, 255, 255, 0.42);
+            backdrop-filter: blur(4px);
+        }
+
+        .hero-logo-shell {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+            border: none;
+            background: transparent;
+            box-shadow: none;
+            width: min(92vw, 760px);
+            margin-inline: auto;
+            line-height: 1;
+        }
+
+        .hero-logo-shell::before {
+            content: none;
+        }
+
+        .hero-main-logo {
+            width: 100%;
+            max-width: 620px;
+            height: auto;
+            object-fit: contain;
+            object-position: center center;
+            display: block;
+            filter: drop-shadow(0 12px 24px rgba(130, 89, 30, 0.22));
+        }
+
+        .hero-badge {
+            border: 1px solid rgba(166, 120, 50, 0.42);
+            background: linear-gradient(90deg, rgba(255, 243, 214, 0.9), rgba(241, 219, 175, 0.82));
+        }
+
+        .home-section {
+            position: relative;
+            overflow: hidden;
+            padding-top: 5.5rem;
+            padding-bottom: 5.5rem;
+        }
+
+        .home-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('./dom-assets/pattern-rings.png') center/520px repeat;
+            opacity: 0.06;
+            pointer-events: none;
+        }
+
+        .home-surface {
+            position: relative;
+            z-index: 1;
+        }
+
+        .home-title {
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            line-height: 1.08;
+            letter-spacing: 0.01em;
+        }
+
+        .home-subtitle {
+            font-size: clamp(1rem, 2vw, 1.15rem);
+            line-height: 1.75;
+            color: rgba(31, 24, 15, 0.78);
+        }
+
+        .home-panel {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.92), rgba(251, 244, 229, 0.9));
+            border: 1px solid rgba(190, 148, 82, 0.2);
+            border-radius: 1.75rem;
+            box-shadow: 0 20px 45px rgba(127, 94, 35, 0.12);
+        }
+
+        .home-value-card {
+            height: 100%;
+            padding: 2rem;
+            border: 1px solid rgba(186, 143, 75, 0.2);
+            border-radius: 1.5rem;
+            background: linear-gradient(160deg, rgba(255, 255, 255, 0.95), rgba(249, 238, 213, 0.7));
+            box-shadow: 0 14px 34px rgba(136, 99, 39, 0.1);
+            transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+        }
+
+        .home-value-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(178, 132, 62, 0.42);
+            box-shadow: 0 20px 44px rgba(136, 99, 39, 0.16);
+        }
+
+        .gold-heading {
+            color: #f0d39c;
+            text-shadow: 0 0 20px rgba(217, 179, 114, 0.32);
+        }
+
+        .path-reflection-wrap {
+            position: relative;
+        }
+
+        .path-layer {
+            position: relative;
+            z-index: 1;
+        }
+
+        .path-layer-top::after {
+            content: '';
+            position: absolute;
+            left: 3%;
+            right: 3%;
+            bottom: -62px;
+            height: 84px;
+            pointer-events: none;
+            background:
+                linear-gradient(180deg, rgba(56, 51, 45, 0.16), rgba(56, 51, 45, 0)),
+                repeating-linear-gradient(90deg, rgba(204, 162, 107, 0.18) 0 18px, rgba(204, 162, 107, 0) 18px 34px);
+            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent 90%);
+            transform: scaleY(-1);
+            opacity: 0.45;
+            filter: blur(0.6px);
+        }
+
+        .path-layer-bottom::before {
+            content: '';
+            position: absolute;
+            left: 3%;
+            right: 3%;
+            top: -62px;
+            height: 84px;
+            pointer-events: none;
+            background:
+                linear-gradient(0deg, rgba(244, 228, 206, 0.32), rgba(244, 228, 206, 0)),
+                repeating-linear-gradient(90deg, rgba(217, 179, 114, 0.22) 0 18px, rgba(217, 179, 114, 0) 18px 34px);
+            mask-image: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent 90%);
+            opacity: 0.38;
+            filter: blur(0.8px);
+        }
+
+        .path-mirror-line {
+            position: relative;
+            height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: -8px 0 12px;
+            z-index: 2;
+        }
+
+        .path-mirror-line::before {
+            content: '';
+            position: absolute;
+            left: 5%;
+            right: 5%;
+            top: 50%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(204, 162, 107, 0.9), transparent);
+        }
+
+        .path-mirror-line::after {
+            content: '';
+            position: absolute;
+            left: 7%;
+            right: 7%;
+            top: calc(50% - 8px);
+            height: 16px;
+            border-top: 1px solid rgba(204, 162, 107, 0.5);
+            border-bottom: 1px solid rgba(204, 162, 107, 0.35);
+            border-radius: 999px;
+            opacity: 0.5;
+            animation: pathWaterDrift 5.5s ease-in-out infinite;
+        }
+
+        .path-mirror-chip {
+            position: relative;
+            z-index: 1;
+            font-family: "Montserrat", sans-serif;
+            font-size: 11px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #8d6a34;
+            background: linear-gradient(90deg, rgba(244, 228, 206, 0.92), rgba(236, 215, 173, 0.88));
+            border: 1px solid rgba(204, 162, 107, 0.45);
+            border-radius: 999px;
+            padding: 8px 14px;
+            box-shadow: 0 10px 24px rgba(141, 106, 52, 0.16);
+        }
+
+        @keyframes pathWaterDrift {
+            0%, 100% { transform: translateX(0) scaleX(1); opacity: 0.46; }
+            50% { transform: translateX(8px) scaleX(1.02); opacity: 0.7; }
+        }
+
+        .hero-portrait-wrap {
+            position: relative;
+            border: 1px solid rgba(217, 179, 114, 0.4);
+            background: radial-gradient(circle at 50% 15%, rgba(255, 220, 152, 0.24), rgba(20, 16, 11, 0.65));
+            box-shadow: 0 24px 70px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+        }
+
+        .hero-portrait-wrap::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('./dom-assets/ornament-flower.png') center/140% no-repeat;
+            opacity: 0.16;
+        }
+
+        .hero-portrait {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+            mix-blend-mode: screen;
+        }
+
+        .bg-dom-graphite {
+            background-image:
+                linear-gradient(140deg, #100e0b 0%, #1c1611 64%, #2b2116 100%),
+                url('./dom-assets/pattern-rings.png');
+            background-size: cover, 420px;
+            background-blend-mode: normal, soft-light;
+        }
+
+        footer {
+            background:
+                linear-gradient(130deg, #0f0d0a 0%, #201911 100%),
+                url('./dom-assets/pattern-rings.png');
+            background-size: cover, 380px;
+            border-top: 1px solid rgba(217, 179, 114, 0.32);
+        }
+
+        .futuristic-grid {
+            position: relative;
+            isolation: isolate;
+        }
+
+        .futuristic-grid::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(rgba(217, 179, 114, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(217, 179, 114, 0.05) 1px, transparent 1px);
+            background-size: 36px 36px;
+            opacity: 0.35;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .futuristic-grid::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 30% 20%, rgba(217, 179, 114, 0.22), transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .method-star-panel {
+            background:
+                radial-gradient(circle at 18% 16%, rgba(255, 246, 227, 0.65), transparent 40%),
+                radial-gradient(circle at 82% 14%, rgba(240, 217, 173, 0.5), transparent 42%),
+                linear-gradient(145deg, rgba(248, 235, 210, 0.96), rgba(236, 215, 176, 0.92));
+            border: 1px solid rgba(204, 162, 107, 0.45);
+            box-shadow: 0 20px 60px rgba(120, 86, 37, 0.18), inset 0 0 0 1px rgba(255, 255, 255, 0.45);
+        }
+
+        .method-page-bg {
+            background:
+                radial-gradient(circle at 50% -12%, rgba(255, 251, 239, 0.8), transparent 42%),
+                radial-gradient(circle at 8% 88%, rgba(204, 162, 107, 0.35), transparent 38%),
+                radial-gradient(circle at 88% 84%, rgba(183, 137, 79, 0.26), transparent 34%),
+                linear-gradient(145deg, #f4e4ce 0%, #ead6b3 48%, #cca26b 100%);
+            position: relative;
+        }
+
+        .method-page-bg::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 30% 30%, rgba(56, 51, 45, 0.08) 0, rgba(56, 51, 45, 0.02) 32%, transparent 62%),
+                radial-gradient(circle at 70% 70%, rgba(56, 51, 45, 0.07) 0, rgba(56, 51, 45, 0.02) 30%, transparent 58%),
+                url('./dom-assets/pattern-rings.png') center/520px repeat;
+            mix-blend-mode: multiply;
+            opacity: 0.18;
+            pointer-events: none;
+        }
+
+        .about-portrait {
+            border: 1px solid rgba(217, 179, 114, 0.38);
+            box-shadow: 0 18px 55px rgba(19, 15, 10, 0.28);
+            background: linear-gradient(180deg, rgba(31, 24, 15, 0.88), rgba(18, 14, 9, 0.95));
+        }
+
+        .about-page-bg {
+            background:
+                radial-gradient(circle at 12% 10%, rgba(255, 240, 210, 0.95), rgba(255, 240, 210, 0) 42%),
+                radial-gradient(circle at 88% 12%, rgba(245, 218, 166, 0.65), rgba(245, 218, 166, 0) 40%),
+                linear-gradient(150deg, #fffaf0 0%, #f7ebd3 50%, #f2dfb8 100%);
+        }
+
+        .about-page-bg::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('./dom-assets/pattern-rings.png') center/520px repeat;
+            opacity: 0.08;
+            pointer-events: none;
+        }
+
+        .about-surface {
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-light-card {
+            background: linear-gradient(155deg, rgba(255, 255, 255, 0.95), rgba(248, 237, 213, 0.78));
+            border: 1px solid rgba(186, 143, 75, 0.22);
+            box-shadow: 0 16px 38px rgba(131, 97, 39, 0.14);
+        }
+
+        .story-card {
+            height: 100%;
+            background: linear-gradient(160deg, rgba(255, 255, 255, 0.98), rgba(247, 235, 208, 0.82));
+            border: 1px solid rgba(183, 140, 72, 0.2);
+            border-radius: 1.5rem;
+            box-shadow: 0 12px 34px rgba(140, 103, 43, 0.12);
+            padding: 1.5rem;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        }
+
+        .story-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(176, 130, 59, 0.42);
+            box-shadow: 0 18px 38px rgba(140, 103, 43, 0.18);
+        }
+
+        .story-photo {
+            width: 64px;
+            height: 64px;
+            border-radius: 999px;
+            border: 2px solid rgba(214, 173, 107, 0.7);
+            object-fit: cover;
+            box-shadow: 0 6px 14px rgba(125, 87, 31, 0.2);
+        }
+
+        .telegram-ribbon {
+            display: grid;
+            grid-auto-flow: column;
+            grid-auto-columns: minmax(240px, 320px);
+            gap: 1rem;
+            overflow-x: auto;
+            padding-bottom: 0.4rem;
+            scroll-snap-type: x mandatory;
+        }
+
+        .telegram-ribbon::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .telegram-ribbon::-webkit-scrollbar-thumb {
+            background: rgba(180, 136, 66, 0.45);
+            border-radius: 999px;
+        }
+
+        .telegram-shot {
+            scroll-snap-align: start;
+            border-radius: 1.1rem;
+            border: 1px solid rgba(184, 142, 74, 0.25);
+            background: linear-gradient(155deg, rgba(255, 255, 255, 0.96), rgba(245, 232, 202, 0.78));
+            box-shadow: 0 10px 24px rgba(126, 91, 35, 0.12);
+            overflow: hidden;
+        }
+
+        .telegram-shot img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+        }
+
+        .product-enroll {
+            background: linear-gradient(145deg, #d9b36f 0%, #d2a95f 100%);
+            border: 1px solid rgba(109, 74, 24, 0.22);
+            box-shadow: 0 20px 50px rgba(112, 79, 28, 0.22);
+        }
+
+        .product-enroll-input {
+            width: 100%;
+            border: 1px solid rgba(112, 76, 26, 0.22);
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 999px;
+            padding: 1rem 1.2rem;
+            color: #2f271f;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .product-enroll-input::placeholder {
+            color: rgba(56, 45, 34, 0.62);
+        }
+
+        .lang-switch {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px;
+            border-radius: 999px;
+            border: 1px solid rgba(217, 179, 114, 0.35);
+            background: rgba(217, 179, 114, 0.08);
+        }
+
+        .lang-switch-link {
+            font-family: "Montserrat", sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: rgba(244, 228, 206, 0.85);
+            padding: 7px 11px;
+            border-radius: 999px;
+            line-height: 1;
+            transition: background-color 0.25s ease, color 0.25s ease;
+        }
+
+        .lang-switch-link:hover {
+            color: #ffffff;
+            background: rgba(217, 179, 114, 0.2);
+        }
+
+        .lang-switch-link.active {
+            color: #2a2115;
+            background: linear-gradient(120deg, #e3c282, #cca26b);
+        }
+
+        @media (max-width: 1024px) {
+            .home-hero {
+                padding-top: 1rem;
+                padding-bottom: 1rem;
+            }
+
+            #navbar .brand-logo {
+                height: 72px;
+            }
+
+            .hero-logo-shell {
+                padding: 0;
+                width: min(92vw, 460px);
+            }
+
+            .hero-main-logo {
+                max-width: 460px;
+                width: 100%;
+            }
+
+            .home-section {
+                padding-top: 4.25rem;
+                padding-bottom: 4.25rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-dom-beige text-dom-graphite font-montserrat antialiased overflow-x-hidden relative">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-dom-graphite/95 backdrop-blur-md border-b border-dom-gold/30 transition-all duration-300 shadow-[0_4px_30px_rgba(0,0,0,0.3)]" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-24 md:h-28">
+                <div class="flex-shrink-0 flex items-center cursor-pointer group" onclick="navigateTo('home')">
+                    <img src="./dom-assets/dom-logo-symbol-gold.png" alt="DOM" class="brand-logo">
+                </div>
+                
+                <div class="hidden md:flex items-center gap-5">
+                    <div class="ml-6 lg:ml-10 flex items-baseline space-x-2 lg:space-x-6">
+                        <button onclick="navigateTo('home')" data-nav="home" class="nav-link text-dom-beige hover:text-dom-gold px-2 py-2 rounded-md text-sm font-medium transition-colors">DOM</button>
+                        <button onclick="navigateTo('method')" data-nav="method" class="nav-link text-dom-beige hover:text-dom-gold px-2 py-2 rounded-md text-sm font-medium transition-colors">About Method</button>
+                        <button onclick="navigateTo('path')" data-nav="path" class="nav-link text-dom-beige hover:text-dom-gold px-2 py-2 rounded-md text-sm font-medium transition-colors">Path Map</button>
+                        <button onclick="navigateTo('about')" data-nav="about" class="nav-link text-dom-beige hover:text-dom-gold px-2 py-2 rounded-md text-sm font-medium transition-colors">About Author</button>
+                        <button onclick="navigateTo('blog')" data-nav="blog" class="nav-link text-dom-beige hover:text-dom-gold px-2 py-2 rounded-md text-sm font-medium transition-colors">Blog & Science</button>
+                        <button onclick="navigateTo('reviews')" data-nav="reviews" class="nav-link text-dom-beige hover:text-dom-gold px-2 py-2 rounded-md text-sm font-medium transition-colors">Reviews</button>
+                        <button onclick="navigateTo('contacts')" data-nav="contacts" class="nav-link text-dom-beige hover:text-dom-gold px-2 py-2 rounded-md text-sm font-medium transition-colors">Contacts</button>
+                    </div>
+                    <div class="lang-switch" aria-label="Переключение языка">
+                        <a href="./DOM.html" class="lang-switch-link">RUS</a>
+                        <a href="./DOM-en.html" class="lang-switch-link active">EN</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-dom-gold hover:text-white focus:outline-none">
+                        <span class="text-2xl">☰</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-dom-graphite border-t border-dom-gold/20">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <button onclick="navigateTo('home')" class="block w-full text-left text-dom-beige hover:text-dom-gold px-3 py-2 rounded-md text-base font-medium">DOM</button>
+                <button onclick="navigateTo('method')" class="block w-full text-left text-dom-beige hover:text-dom-gold px-3 py-2 rounded-md text-base font-medium">About Method</button>
+                <button onclick="navigateTo('path')" class="block w-full text-left text-dom-beige hover:text-dom-gold px-3 py-2 rounded-md text-base font-medium">Path Map</button>
+                <button onclick="navigateTo('about')" class="block w-full text-left text-dom-beige hover:text-dom-gold px-3 py-2 rounded-md text-base font-medium">About Author</button>
+                <button onclick="navigateTo('blog')" class="block w-full text-left text-dom-beige hover:text-dom-gold px-3 py-2 rounded-md text-base font-medium">Blog & Science</button>
+                <button onclick="navigateTo('reviews')" class="block w-full text-left text-dom-beige hover:text-dom-gold px-3 py-2 rounded-md text-base font-medium">Reviews</button>
+                <button onclick="navigateTo('contacts')" class="block w-full text-left text-dom-beige hover:text-dom-gold px-3 py-2 rounded-md text-base font-medium">Contacts</button>
+                <div class="pt-3 mt-2 border-t border-dom-gold/25">
+                    <p class="px-3 pb-2 text-[11px] uppercase tracking-[0.14em] text-dom-gold/80 font-semibold">Language</p>
+                    <div class="px-3">
+                        <div class="lang-switch" aria-label="Переключение языка (мобильное)">
+                            <a href="./DOM.html" class="lang-switch-link">RUS</a>
+                            <a href="./DOM-en.html" class="lang-switch-link active">EN</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main id="app-content" class="pt-20 min-h-screen">
+        <!-- Content will be injected here via JS -->
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dom-graphite text-dom-beige py-12 border-t border-dom-gold/30 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
+            <div>
+                <img src="./dom-assets/dom-logo-symbol-gold.png" alt="DOM" class="brand-logo mb-4">
+                <p class="text-sm opacity-80 leading-relaxed font-montserrat">Anna Hefors Systemic Method.<br>A space to return to your true self.</p>
+            </div>
+            <div>
+                <h4 class="font-bold mb-4 text-white font-messiri text-xl">Navigation</h4>
+                <ul class="space-y-2 text-sm opacity-80 font-montserrat">
+                    <li><button onclick="navigateTo('home')" class="hover:text-dom-gold transition-colors">DOM</button></li>
+                    <li><button onclick="navigateTo('method')" class="hover:text-dom-gold transition-colors">About Method</button></li>
+                    <li><button onclick="navigateTo('path')" class="hover:text-dom-gold transition-colors">Path Map</button></li>
+                    <li><button onclick="navigateTo('about')" class="hover:text-dom-gold transition-colors">About Author</button></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-4 text-white font-messiri text-xl">Contacts</h4>
+                <p class="text-sm opacity-80 font-montserrat">Telegram: <a href="https://t.me/itbrain_support" target="_blank" class="text-dom-gold hover:underline">@itbrain_support</a></p>
+                <p class="text-sm opacity-80 mt-4 font-montserrat">© 2026 DOM Method. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========================================== -->
+    <!-- TEMPLATES -->
+    <!-- ========================================== -->
+
+    <!-- ГЛАВНАЯ -->
+    <template id="view-home">
+        <div class="relative w-full home-hero overflow-hidden futuristic-grid">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-5 pb-6 lg:pt-6 lg:pb-8 relative z-10">
+                <div class="hero-frame max-w-5xl mx-auto rounded-[2rem] p-5 md:p-7 lg:p-8 fade-in text-center flex flex-col items-center">
+                        <div class="hero-badge inline-flex items-center gap-3 px-4 py-2 rounded-xl mb-2 mx-auto">
+                            <img src="./dom-assets/dom-symbol-gold.svg" alt="" class="w-8 h-8 opacity-95">
+                            <span class="font-montserrat text-xs md:text-sm uppercase tracking-[0.18em] text-dom-goldDark">DOM • ARCHITECTURE OF MATURITY</span>
+                        </div>
+                        <div class="hero-logo-shell mb-2">
+                            <img src="./dom-assets/dom-logo-home-gold-bg.jpg" alt="DOM Systemic Method by Anna Hefors" class="hero-main-logo">
+                        </div>
+                        <h1 class="sr-only">DOM Anna Hefors Systemic Method</h1>
+                        <p class="font-montserrat text-base md:text-xl text-dom-graphite/85 mb-7 max-w-3xl mx-auto leading-relaxed">
+                            A space where you restore inner support and build a stable life system through clear thinking, a mature stance, and depth of feeling.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-3 justify-center">
+                            <button onclick="navigateTo('path')" class="px-8 py-4 bg-gold-gradient text-white font-semibold rounded-xl shadow-[0_14px_40px_rgba(217,179,114,0.35)] hover:shadow-[0_20px_50px_rgba(217,179,114,0.5)] font-montserrat uppercase tracking-[0.08em] text-sm min-w-[220px]">
+                                Начать свой путь
+                            </button>
+                            <button onclick="navigateTo('method')" class="px-8 py-4 border border-dom-gold/50 text-dom-gold hover:bg-dom-gold/10 hover:border-dom-gold rounded-xl font-montserrat uppercase tracking-[0.08em] text-sm min-w-[220px]">
+                                Архитектура метода
+                            </button>
+                        </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="home-section bg-[#f6e8c8]">
+            <div class="max-w-4xl mx-auto px-4 text-center home-surface fade-in">
+                <h2 class="font-messiri home-title text-dom-graphite mb-10">DOM Manifesto</h2>
+                <div class="home-panel p-8 md:p-12 text-left relative">
+                    <span class="absolute top-4 left-6 text-7xl text-dom-gold/20 font-serif">"</span>
+                    <p class="home-subtitle text-dom-graphite mb-6 font-montserrat relative z-10">
+                        DOM — это когда ты наконец возвращаешься домой. К себе настоящему.
+                        Нас всю жизнь учат бежать вперёд, но почти никто не объясняет, как при этом остаться целым внутри.
+                    </p>
+                    <p class="home-subtitle text-dom-graphite mb-6 font-montserrat relative z-10">
+                        Мы создаём пространство для взросления, соединяя <span class="text-dom-goldDark font-bold">рациональное мышление</span> и <span class="text-dom-goldDark font-bold">глубину чувств</span>. 
+                        Это не про то, чтобы стать "успешным", а про то, чтобы стать <span class="font-bold">устойчивым</span>.
+                    </p>
+                    <div class="mt-8 pt-6 border-t border-dom-graphite/10 flex justify-between items-center">
+                        <span class="font-messiri text-dom-graphite font-bold text-xl tracking-wide">Anna Kamallaya Hefors</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- БЛОК ЦЕННОСТЕЙ -->
+        <section class="home-section bg-[#fff8e9]">
+            <div class="max-w-7xl mx-auto px-4 home-surface">
+                <div class="text-center mb-14 fade-in">
+                    <span class="text-dom-goldDark font-bold tracking-widest uppercase text-sm mb-3 block font-montserrat">About the Brand</span>
+                    <h2 class="font-messiri home-title text-dom-graphite mb-5">Экосистема присутствия</h2>
+                    <p class="home-subtitle font-montserrat max-w-3xl mx-auto">
+                        DOM — это независимая международная платформа системного знания о человеке. 
+                        Мы не работаем в логике классической терапии или жесткого достигаторства. Это пространство, куда вы приходите не за тем, чтобы «исправить» себя, а чтобы восстановить связь с собственной сутью.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-7">
+                    <div class="home-value-card">
+                        <div class="w-12 h-12 mb-5 border border-dom-gold rounded-full flex items-center justify-center text-dom-gold font-bold">1</div>
+                        <h3 class="font-messiri text-2xl text-dom-graphite mb-3">Inner Support</h3>
+                        <p class="font-montserrat text-sm text-dom-graphite/75 leading-relaxed">Устойчивость формируется изнутри, а не через внешние авторитеты. Мы поддерживаем развитие самостоятельности мышления, помогая выстроить собственную структуру жизни.</p>
+                    </div>
+                    <div class="home-value-card">
+                        <div class="w-12 h-12 mb-5 border border-dom-gold rounded-full flex items-center justify-center text-dom-gold font-bold">2</div>
+                        <h3 class="font-messiri text-2xl text-dom-graphite mb-3">Тишина и глубина</h3>
+                        <p class="font-montserrat text-sm text-dom-graphite/75 leading-relaxed">In a world of constant noise and acceleration, DOM becomes a point of silence. We value meaning over form, depth over speed, and stability over fast effects.</p>
+                    </div>
+                    <div class="home-value-card">
+                        <div class="w-12 h-12 mb-5 border border-dom-gold rounded-full flex items-center justify-center text-dom-gold font-bold">3</div>
+                        <h3 class="font-messiri text-2xl text-dom-graphite mb-3">Свобода быть собой</h3>
+                        <p class="font-montserrat text-sm text-dom-graphite/75 leading-relaxed">Пространство, где не нужно соответствовать чужим ожиданиям или ролям. Свобода в методе DOM — это абсолютная безопасность быть подлинным.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <!-- О МЕТОДЕ -->
+    <template id="view-method">
+        <section class="method-page-bg text-dom-graphite min-h-screen py-24 relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="mb-16 method-star-panel rounded-[2rem] p-6 md:p-10 fade-in">
+                    <div class="text-center mb-10">
+                        <span class="text-[#38332d]/75 text-xs uppercase tracking-[0.2em] font-montserrat">Interactive Model</span>
+                        <h2 class="font-messiri text-4xl md:text-6xl text-[#38332d] mt-3 mb-4">Method Architecture</h2>
+                        <p class="max-w-3xl mx-auto text-[#38332d]/82 text-lg md:text-xl font-light leading-relaxed">Move your cursor over the star: the model responds to motion and shows the unified system of External and Internal DOM.</p>
+                    </div>
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                        <div class="lg:col-span-7">
+                            <div class="chart-container flex justify-center items-center relative rounded-2xl border border-[#cca26b]/45 bg-[#f4e4ce]/68" style="height: 500px; max-width: 100%;">
+                                <canvas id="starCanvas" width="500" height="500" class="max-w-full h-auto drop-shadow-[0_0_30px_rgba(217,179,114,0.35)]"></canvas>
+                            </div>
+                        </div>
+                        <div class="lg:col-span-5 space-y-5">
+                            <div class="bg-[#f4e4ce]/82 border border-[#cca26b]/35 rounded-2xl p-6">
+                                <h4 class="font-messiri text-2xl text-[#38332d] mb-3">External DOM</h4>
+                                <p class="text-[#38332d]/78 font-montserrat text-sm">Material foundation, social realization, and resilience in the world.</p>
+                            </div>
+                            <div class="bg-[#f4e4ce]/82 border border-[#cca26b]/35 rounded-2xl p-6">
+                                <h4 class="font-messiri text-2xl text-[#38332d] mb-3">Internal DOM</h4>
+                                <p class="text-[#38332d]/78 font-montserrat text-sm">Deep meaning, awareness, and a personal foundation.</p>
+                            </div>
+                            <div class="bg-gold-gradient border border-[#cca26b]/60 rounded-2xl p-6">
+                                <h4 class="font-messiri text-[#38332d] text-2xl mb-3 uppercase tracking-widest">Love</h4>
+                                <p class="text-[#38332d]/90 font-montserrat text-sm">Центр, который объединяет все направления и удерживает систему целостной.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <div class="flex flex-col items-center justify-center h-full fade-in">
+                        <div class="w-full p-8 bg-[#f4e4ce]/92 rounded-2xl border border-[#b98c54]/55 backdrop-blur-md shadow-[0_14px_34px_rgba(56,51,45,0.16)]">
+                            <img src="./dom-assets/dom-symbol-gold.svg" alt="" class="w-20 h-20 mx-auto mb-6 opacity-95">
+                            <h4 class="font-messiri text-3xl text-[#38332d] font-bold mb-4 tracking-wide text-center">System Logic</h4>
+                            <p class="text-[#2f2922] text-base leading-relaxed font-montserrat text-center font-medium">
+                                DOM связывает внешний контур жизни и внутренний контур личности. Эта двусторонняя архитектура исключает перекосы и формирует устойчивость на уровне решений, эмоций и действий.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-8 fade-in" style="animation-delay: 0.2s;">
+                        <div class="bg-[#f4e4ce]/94 backdrop-blur-md p-8 rounded-2xl border border-[#b98c54]/55 hover:bg-[#f4e4ce]/98 hover:border-[#af7f45]/75 transition-all duration-500 shadow-[0_18px_38px_rgba(56,51,45,0.18)] group">
+                            <h4 class="text-2xl font-bold text-[#38332d] mb-6 font-messiri tracking-wider flex items-center">
+                                External DOM 
+                                <span class="text-[#6b4d20] font-semibold text-xs ml-3 font-montserrat uppercase tracking-widest bg-[#cca26b]/28 px-2 py-1 rounded">Проявленная жизнь</span>
+                            </h4>
+                            <ul class="space-y-5">
+                                <li class="flex items-start">
+                                    <span class="text-[#af7f45] mr-4 font-messiri text-3xl leading-none w-8 text-center drop-shadow-[0_0_3px_rgba(217,179,114,0.25)]">D</span>
+                                    <div>
+                                        <strong class="text-[#38332d] block font-medium text-lg mb-1">Money</strong>
+                                        <span class="text-sm text-[#2f2922]/92 font-medium">Материальная опора, структура реализации и проявленность.</span>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-[#af7f45] mr-4 font-messiri text-3xl leading-none w-8 text-center drop-shadow-[0_0_3px_rgba(217,179,114,0.25)]">O</span>
+                                    <div>
+                                        <strong class="text-[#38332d] font-medium text-lg mb-1 flex items-center gap-2">Relationships <img src="./dom-assets/bridge-element.png" alt="" class="bridge-icon"></strong>
+                                        <span class="text-sm text-[#2f2922]/92 font-medium">Architecture of family and healthy connections with the world.</span>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-[#af7f45] mr-4 font-messiri text-3xl leading-none w-8 text-center drop-shadow-[0_0_3px_rgba(217,179,114,0.25)]">M</span>
+                                    <div>
+                                        <strong class="text-[#38332d] block font-medium text-lg mb-1">Mental Health</strong>
+                                        <span class="text-sm text-[#2f2922]/92 font-medium">Психическая устойчивость, нейрофизиология и опора.</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-[#f4e4ce]/94 backdrop-blur-md p-8 rounded-2xl border border-[#b98c54]/55 hover:bg-[#f4e4ce]/98 hover:border-[#af7f45]/75 transition-all duration-500 shadow-[0_18px_38px_rgba(56,51,45,0.18)] group">
+                            <h4 class="text-2xl font-bold text-[#38332d] mb-6 font-messiri tracking-wider flex items-center">
+                                Internal DOM 
+                                <span class="text-[#6b4d20] font-semibold text-xs ml-3 font-montserrat uppercase tracking-widest bg-[#cca26b]/28 px-2 py-1 rounded">Основа личности</span>
+                            </h4>
+                            <ul class="space-y-5">
+                                <li class="flex items-start">
+                                    <span class="text-[#af7f45] mr-4 font-messiri text-3xl leading-none w-8 text-center drop-shadow-[0_0_3px_rgba(217,179,114,0.25)]">D</span>
+                                    <div>
+                                        <strong class="text-[#38332d] block font-medium text-lg mb-1">Soul / Spirit</strong>
+                                        <span class="text-sm text-[#2f2922]/92 font-medium">A deep source, meaning, intuition, and authenticity.</span>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-[#af7f45] mr-4 font-messiri text-3xl leading-none w-8 text-center drop-shadow-[0_0_3px_rgba(217,179,114,0.25)]">O</span>
+                                    <div>
+                                        <strong class="text-[#38332d] font-medium text-lg mb-1 flex items-center gap-2">Awareness <img src="./dom-assets/bridge-element.png" alt="" class="bridge-icon"></strong>
+                                        <span class="text-sm text-[#2f2922]/92 font-medium">Честный, безоценочный взгляд на себя и реальность.</span>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-[#af7f45] mr-4 font-messiri text-3xl leading-none w-8 text-center drop-shadow-[0_0_3px_rgba(217,179,114,0.25)]">M</span>
+                                    <div>
+                                        <strong class="text-[#38332d] block font-medium text-lg mb-1">Worldview</strong>
+                                        <span class="text-sm text-[#2f2922]/92 font-medium">Фундаментальные ценности, этический компас и картина мира.</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-14 fade-in" style="animation-delay: 0.25s;">
+                    <button onclick="navigateTo('path')" class="px-12 py-5 bg-gold-gradient text-white font-montserrat font-semibold uppercase tracking-[0.12em] rounded-xl shadow-[0_14px_38px_rgba(217,179,114,0.35)] hover:shadow-[0_18px_44px_rgba(217,179,114,0.5)] transition-all">
+                        Начать путь
+                    </button>
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <!-- КАРТА ПУТИ -->
+    <template id="view-path">
+        <section class="bg-dom-beige min-h-screen pt-20 pb-24 relative overflow-hidden futuristic-grid">
+            <div class="max-w-7xl mx-auto px-4 relative z-10">
+                <div class="text-center mb-20 fade-in">
+                    <img src="./dom-assets/dom-symbol-gold.svg" alt="" class="w-12 h-12 mx-auto mb-5 opacity-90">
+                    <h2 class="font-messiri text-5xl md:text-6xl text-dom-graphite mb-6">DOM Path Map</h2>
+                    <div class="w-20 h-1 bg-dom-gold mx-auto mb-8"></div>
+                    <p class="text-dom-graphite/80 text-xl max-w-3xl mx-auto font-montserrat leading-relaxed font-light">
+                        Метод DOM строится в двух измерениях. Сначала человек выстраивает устойчивость во внешнем мире. Только затем открывается возможность безопасного погружения во внутреннюю работу.
+                    </p>
+                </div>
+
+                <div class="path-reflection-wrap">
+                <!-- EXTERNAL HOUSE -->
+                <div class="mb-24 fade-in path-layer path-layer-top" style="animation-delay: 0.1s;">
+                    <div class="text-center mb-12">
+                        <span class="text-dom-goldDark font-bold tracking-widest uppercase text-sm mb-3 block font-montserrat">Level 1</span>
+                        <h3 class="font-messiri text-4xl md:text-5xl text-dom-graphite mb-6">External DOM</h3>
+                        <p class="text-dom-graphite/70 max-w-2xl mx-auto font-montserrat text-lg">Фундамент зрелости. Money. Relationships. Mental Health. Без порядка здесь невозможно построить устойчивость внутри.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                        <div class="bg-white p-10 rounded-2xl border border-dom-gold/25 hover:shadow-2xl hover:border-dom-gold transition-all duration-500 flex flex-col items-center text-center group cursor-pointer" onclick="navigateTo('path-mental')">
+                            <span class="mb-4 inline-flex items-center px-3 py-1 rounded-full text-[11px] uppercase tracking-[0.14em] font-semibold bg-dom-gold/15 text-dom-goldDark">Step 1</span>
+                            <div class="w-20 h-20 rounded-full bg-dom-beige/50 flex items-center justify-center mb-8 text-dom-gold text-4xl font-messiri group-hover:bg-dom-gold group-hover:text-white transition-colors duration-500 shadow-inner">M</div>
+                            <h4 class="font-messiri text-3xl text-dom-graphite mb-4 group-hover:text-dom-gold transition-colors">Mental Health</h4>
+                            <p class="text-dom-graphite/70 font-montserrat text-sm mb-8 flex-grow leading-relaxed">Психическая устойчивость, настройка нейрофизиологии и внутренняя стабильность.</p>
+                            <button class="px-8 py-3 border border-dom-graphite/20 text-dom-graphite rounded hover:bg-dom-graphite hover:text-white transition w-full font-medium uppercase tracking-wider text-xs">Enter</button>
+                        </div>
+                        
+                        <div class="bg-white p-10 rounded-2xl border border-dom-gold/25 hover:shadow-2xl hover:border-dom-gold transition-all duration-500 flex flex-col items-center text-center group cursor-pointer" onclick="navigateTo('path-relations')">
+                            <span class="mb-4 inline-flex items-center px-3 py-1 rounded-full text-[11px] uppercase tracking-[0.14em] font-semibold bg-dom-gold/15 text-dom-goldDark">Step 2</span>
+                            <div class="w-20 h-20 rounded-full bg-dom-beige/50 flex items-center justify-center mb-8 text-dom-gold text-4xl font-messiri group-hover:bg-dom-gold group-hover:text-white transition-colors duration-500 shadow-inner">O</div>
+                            <h4 class="font-messiri text-3xl text-dom-graphite mb-4 group-hover:text-dom-gold transition-colors flex items-center gap-2">Relationships <img src="./dom-assets/bridge-element.png" alt="" class="bridge-icon"></h4>
+                            <p class="text-dom-graphite/70 font-montserrat text-sm mb-8 flex-grow leading-relaxed">Family architecture, personal boundaries, and healthy interaction with the world.</p>
+                            <button class="px-8 py-3 border border-dom-graphite/20 text-dom-graphite rounded hover:bg-dom-graphite hover:text-white transition w-full font-medium uppercase tracking-wider text-xs">Enter</button>
+                        </div>
+
+                        <div class="bg-white p-10 rounded-2xl border border-dom-gold/25 hover:shadow-2xl hover:border-dom-gold transition-all duration-500 flex flex-col items-center text-center group cursor-pointer" onclick="navigateTo('path-money')">
+                            <span class="mb-4 inline-flex items-center px-3 py-1 rounded-full text-[11px] uppercase tracking-[0.14em] font-semibold bg-dom-gold/15 text-dom-goldDark">Step 3</span>
+                            <div class="w-20 h-20 rounded-full bg-dom-beige/50 flex items-center justify-center mb-8 text-dom-gold text-4xl font-messiri group-hover:bg-dom-gold group-hover:text-white transition-colors duration-500 shadow-inner">D</div>
+                            <h4 class="font-messiri text-3xl text-dom-graphite mb-4 group-hover:text-dom-gold transition-colors">Money</h4>
+                            <p class="text-dom-graphite/70 font-montserrat text-sm mb-8 flex-grow leading-relaxed">Финансовая зрелость, масштабирование дохода и аутентичная реализация.</p>
+                            <button class="px-8 py-3 border border-dom-graphite/20 text-dom-graphite rounded hover:bg-dom-graphite hover:text-white transition w-full font-medium uppercase tracking-wider text-xs">Enter</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="path-mirror-line fade-in" style="animation-delay: 0.16s;">
+                    <span class="path-mirror-chip">Mirror of Houses</span>
+                </div>
+
+                <!-- INTERNAL HOUSE -->
+                <div class="fade-in path-layer path-layer-bottom" style="animation-delay: 0.2s;">
+                    <div class="bg-dom-graphite rounded-3xl p-10 md:p-20 relative overflow-hidden border border-dom-gold/30 shadow-2xl">
+                        <div class="absolute bottom-0 right-0 -mb-20 -mr-20 w-96 h-96 bg-dom-gold rounded-full opacity-10 filter blur-3xl"></div>
+                        
+                        <div class="relative z-10 text-center text-dom-beige mb-16">
+                            <span class="text-dom-gold font-bold tracking-widest uppercase text-sm mb-3 block font-montserrat">Level 2</span>
+                            <h3 class="font-messiri text-4xl md:text-5xl text-white mb-6">Internal DOM</h3>
+                            <p class="text-dom-beige/80 max-w-3xl mx-auto font-montserrat text-lg font-light leading-relaxed">When the outer foundation is built, depth opens. This is work with soul, total awareness, and a rebuilt worldview.</p>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-10 relative z-10">
+                            <div class="bg-white/5 backdrop-blur-md p-8 rounded-2xl border border-dom-gold/20 hover:bg-white/10 hover:border-dom-gold/50 transition-all duration-300 flex flex-col items-center text-center cursor-pointer group" onclick="navigateTo('path-soul')">
+                                <span class="mb-4 inline-flex items-center px-3 py-1 rounded-full text-[11px] uppercase tracking-[0.14em] font-semibold bg-dom-gold/15 text-dom-gold">Step 1</span>
+                                <div class="w-16 h-16 rounded-full bg-dom-gold/10 border border-dom-gold/30 flex items-center justify-center mb-6 text-dom-gold text-3xl font-messiri group-hover:bg-dom-gold group-hover:text-white transition-all">D</div>
+                                <h4 class="font-messiri text-2xl text-white mb-4">Soul</h4>
+                                <p class="text-dom-beige/60 font-montserrat text-sm mb-8 flex-grow">Source of Inner Joy и Initiations. Интеграция духовного опыта.</p>
+                                <button class="px-6 py-2 border border-dom-gold/50 text-dom-gold rounded hover:bg-dom-gold hover:text-white transition w-full font-medium text-sm">Learn More</button>
+                            </div>
+
+                            <div class="bg-white/5 backdrop-blur-md p-8 rounded-2xl border border-dom-gold/20 hover:bg-white/10 hover:border-dom-gold/50 transition-all duration-300 flex flex-col items-center text-center cursor-pointer group" onclick="navigateTo('path-awareness')">
+                                <span class="mb-4 inline-flex items-center px-3 py-1 rounded-full text-[11px] uppercase tracking-[0.14em] font-semibold bg-dom-gold/15 text-dom-gold">Step 2</span>
+                                <div class="w-16 h-16 rounded-full bg-dom-gold/10 border border-dom-gold/30 flex items-center justify-center mb-6 text-dom-gold text-3xl font-messiri group-hover:bg-dom-gold group-hover:text-white transition-all">O</div>
+                                <h4 class="font-messiri text-2xl text-white mb-4 flex items-center gap-2">Awareness <img src="./dom-assets/bridge-element.png" alt="" class="bridge-icon"></h4>
+                                <p class="text-dom-beige/60 font-montserrat text-sm mb-8 flex-grow">Честный взгляд и тотальное присутствие. Эволюция через Золотой Геном.</p>
+                                <button class="px-6 py-2 border border-dom-gold/50 text-dom-gold rounded hover:bg-dom-gold hover:text-white transition w-full font-medium text-sm">Learn More</button>
+                            </div>
+
+                            <div class="bg-white/5 backdrop-blur-md p-8 rounded-2xl border border-dom-gold/20 hover:bg-white/10 hover:border-dom-gold/50 transition-all duration-300 flex flex-col items-center text-center cursor-pointer group" onclick="navigateTo('path-worldview')">
+                                <span class="mb-4 inline-flex items-center px-3 py-1 rounded-full text-[11px] uppercase tracking-[0.14em] font-semibold bg-dom-gold/15 text-dom-gold">Step 3</span>
+                                <div class="w-16 h-16 rounded-full bg-dom-gold/10 border border-dom-gold/30 flex items-center justify-center mb-6 text-dom-gold text-3xl font-messiri group-hover:bg-dom-gold group-hover:text-white transition-all">M</div>
+                                <h4 class="font-messiri text-2xl text-white mb-4">Worldview</h4>
+                                <p class="text-dom-beige/60 font-montserrat text-sm mb-8 flex-grow">Фундаментальные законы и архитектура смыслов Мироздания Рафаэля.</p>
+                                <button class="px-6 py-2 border border-dom-gold/50 text-dom-gold rounded hover:bg-dom-gold hover:text-white transition w-full font-medium text-sm">Learn More</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+
+            </div>
+        </section>
+    </template>
+
+    <!-- ОТЗЫВЫ (REVIEWS) -->
+    <template id="view-reviews">
+        <section class="bg-dom-beige min-h-screen pt-24 pb-32 futuristic-grid">
+            <div class="max-w-7xl mx-auto px-4 fade-in">
+                
+                <div class="text-center mb-20">
+                    <span class="text-dom-goldDark font-bold tracking-widest uppercase text-sm mb-3 block font-montserrat">Результаты</span>
+                    <h2 class="font-messiri text-5xl md:text-6xl text-dom-graphite mb-6">Participant Reviews</h2>
+                    <div class="w-20 h-1 bg-dom-gold mx-auto mb-8"></div>
+                    <p class="text-dom-graphite/70 text-lg max-w-2xl mx-auto font-montserrat">Реальные истории трансформации, возвращения к себе и создания внутренней опоры через систему DOM.</p>
+                </div>
+
+                <div class="mb-20">
+                    <h3 class="font-messiri text-4xl text-dom-graphite mb-10 text-center">Student Stories</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <article class="story-card">
+                            <div class="flex items-center gap-4 mb-4">
+                                <img src="./dom-assets/hero-reference.jpg" alt="Tatiana Shalyutina" class="story-photo object-[48%_28%]">
+                                <div>
+                                    <h4 class="font-messiri text-xl text-dom-graphite leading-tight">Tatiana Shalyutina</h4>
+                                    <p class="text-xs uppercase tracking-[0.12em] text-dom-goldDark font-montserrat">Kuragino</p>
+                                </div>
+                            </div>
+                            <p class="font-montserrat text-sm text-dom-graphite/80 leading-relaxed">После прохождения «Семейного Единства» ушли постоянные конфликты дома. Я перестала доказывать и начала слышать себя. Уже за первый месяц отношения в семье стали теплее и спокойнее.</p>
+                        </article>
+                        <article class="story-card">
+                            <div class="flex items-center gap-4 mb-4">
+                                <img src="./dom-assets/hero-reference.jpg" alt="Alexander Filileev" class="story-photo object-[42%_34%]">
+                                <div>
+                                    <h4 class="font-messiri text-xl text-dom-graphite leading-tight">Alexander Filileev</h4>
+                                    <p class="text-xs uppercase tracking-[0.12em] text-dom-goldDark font-montserrat">Оренбург</p>
+                                </div>
+                            </div>
+                            <p class="font-montserrat text-sm text-dom-graphite/80 leading-relaxed">The method quickly brought order to decisions and finances. Instead of chaos, structure, focus, and confidence appeared. Income started growing without inner tension.</p>
+                        </article>
+                        <article class="story-card">
+                            <div class="flex items-center gap-4 mb-4">
+                                <img src="./dom-assets/hero-reference.jpg" alt="Elena Gerchek" class="story-photo object-[54%_22%]">
+                                <div>
+                                    <h4 class="font-messiri text-xl text-dom-graphite leading-tight">Elena Gerchek</h4>
+                                    <p class="text-xs uppercase tracking-[0.12em] text-dom-goldDark font-montserrat">Antalya</p>
+                                </div>
+                            </div>
+                            <p class="font-montserrat text-sm text-dom-graphite/80 leading-relaxed">In a short period, I gently rebuilt relationships with loved ones. I saw my old patterns and replaced them with an adult position. It brought stability and calm.</p>
+                        </article>
+                        <article class="story-card">
+                            <div class="flex items-center gap-4 mb-4">
+                                <img src="./dom-assets/hero-reference.jpg" alt="Marina Borisova" class="story-photo object-[50%_30%]">
+                                <div>
+                                    <h4 class="font-messiri text-xl text-dom-graphite leading-tight">Marina Borisova</h4>
+                                    <p class="text-xs uppercase tracking-[0.12em] text-dom-goldDark font-montserrat">Омск</p>
+                                </div>
+                            </div>
+                            <p class="font-montserrat text-sm text-dom-graphite/80 leading-relaxed">Я пришла в проект с сильной тревогой и усталостью. Первые изменения почувствовала уже на старте: стало легче дышать, исчезли внутренние качели, появилась опора на себя.</p>
+                        </article>
+                        <article class="story-card">
+                            <div class="flex items-center gap-4 mb-4">
+                                <img src="./dom-assets/hero-reference.jpg" alt="Наталья Киселева" class="story-photo object-[46%_26%]">
+                                <div>
+                                    <h4 class="font-messiri text-xl text-dom-graphite leading-tight">Наталья Киселева</h4>
+                                    <p class="text-xs uppercase tracking-[0.12em] text-dom-goldDark font-montserrat">Kazan</p>
+                                </div>
+                            </div>
+                            <p class="font-montserrat text-sm text-dom-graphite/80 leading-relaxed">Система DOM дала мне конкретные шаги, а не абстрактные советы. Я быстро выровняла режим, снизила внутренний шум и стала принимать решения без страха ошибки.</p>
+                        </article>
+                        <article class="story-card">
+                            <div class="flex items-center gap-4 mb-4">
+                                <img src="./dom-assets/hero-reference.jpg" alt="Irina Baklanova" class="story-photo object-[58%_24%]">
+                                <div>
+                                    <h4 class="font-messiri text-xl text-dom-graphite leading-tight">Irina Baklanova</h4>
+                                    <p class="text-xs uppercase tracking-[0.12em] text-dom-goldDark font-montserrat">Сочи</p>
+                                </div>
+                            </div>
+                            <p class="font-montserrat text-sm text-dom-graphite/80 leading-relaxed">Я перестала жить в постоянной эмоциональной перегрузке. Метод помог выстроить внутренние границы и вернуть уважение к себе. Это моментально улучшило и работу, и отношения.</p>
+                        </article>
+                        <article class="story-card">
+                            <div class="flex items-center gap-4 mb-4">
+                                <img src="./dom-assets/hero-reference.jpg" alt="Ольга Назарова" class="story-photo object-[40%_30%]">
+                                <div>
+                                    <h4 class="font-messiri text-xl text-dom-graphite leading-tight">Ольга Назарова</h4>
+                                    <p class="text-xs uppercase tracking-[0.12em] text-dom-goldDark font-montserrat">Санкт-Петербург</p>
+                                </div>
+                            </div>
+                            <p class="font-montserrat text-sm text-dom-graphite/80 leading-relaxed">In a few weeks, I resolved old inner conflicts and built a new priority system. Clarity appeared: where I am going, what I am doing, and why.</p>
+                        </article>
+                        <article class="story-card">
+                            <div class="flex items-center gap-4 mb-4">
+                                <img src="./dom-assets/hero-reference.jpg" alt="Ekaterina Sokolova" class="story-photo object-[52%_32%]">
+                                <div>
+                                    <h4 class="font-messiri text-xl text-dom-graphite leading-tight">Ekaterina Sokolova</h4>
+                                    <p class="text-xs uppercase tracking-[0.12em] text-dom-goldDark font-montserrat">Новосибирск</p>
+                                </div>
+                            </div>
+                            <p class="font-montserrat text-sm text-dom-graphite/80 leading-relaxed">It became easier for me to communicate with children and spouse without pressure or blame. The method taught me to see causes rather than fight consequences. Results came quickly and tangibly.</p>
+                        </article>
+                        <article class="story-card">
+                            <div class="flex items-center gap-4 mb-4">
+                                <img src="./dom-assets/hero-reference.jpg" alt="Larisa Evdokimova" class="story-photo object-[56%_30%]">
+                                <div>
+                                    <h4 class="font-messiri text-xl text-dom-graphite leading-tight">Larisa Evdokimova</h4>
+                                    <p class="text-xs uppercase tracking-[0.12em] text-dom-goldDark font-montserrat">Krasnodar</p>
+                                </div>
+                            </div>
+                            <p class="font-montserrat text-sm text-dom-graphite/80 leading-relaxed">После включения в метод у меня изменилась энергия в бизнесе: стало больше порядка, меньше суеты и больше точности. Это напрямую отразилось на продажах и команде.</p>
+                        </article>
+                        <article class="story-card">
+                            <div class="flex items-center gap-4 mb-4">
+                                <img src="./dom-assets/hero-reference.jpg" alt="Светлана Мельник" class="story-photo object-[44%_28%]">
+                                <div>
+                                    <h4 class="font-messiri text-xl text-dom-graphite leading-tight">Светлана Мельник</h4>
+                                    <p class="text-xs uppercase tracking-[0.12em] text-dom-goldDark font-montserrat">Minsk</p>
+                                </div>
+                            </div>
+                            <p class="font-montserrat text-sm text-dom-graphite/80 leading-relaxed">Я пришла за ответами и получила рабочую систему, которая дает быстрые результаты. Появилось чувство дома внутри себя, и это изменило все сферы жизни одновременно.</p>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="mb-20">
+                    <h3 class="font-messiri text-4xl text-dom-graphite mb-8 text-center">Studio Video Reviews</h3>
+                    <div class="video-ribbon">
+                        <div class="video-ribbon-track">
+                            <article class="video-ribbon-card rounded-2xl p-4 transition-all duration-300 cursor-pointer">
+                                <div class="aspect-video rounded-xl overflow-hidden mb-4 relative border border-dom-gold/30">
+                                    <img src="./dom-assets/hero-reference.jpg" alt="Студийный видео-отзыв 1" class="w-full h-full object-cover object-[50%_24%] opacity-85">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent"></div>
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <div class="w-14 h-14 rounded-full bg-dom-gold text-white flex items-center justify-center text-xl shadow-[0_8px_24px_rgba(217,179,114,0.45)]">▶</div>
+                                    </div>
+                                </div>
+                                <h4 class="font-messiri text-xl text-dom-gold mb-2">Отзыв #01</h4>
+                                <p class="text-dom-beige/80 text-sm font-montserrat">О внутренней опоре и быстрых изменениях в состоянии.</p>
+                            </article>
+                            <article class="video-ribbon-card rounded-2xl p-4 transition-all duration-300 cursor-pointer">
+                                <div class="aspect-video rounded-xl overflow-hidden mb-4 relative border border-dom-gold/30">
+                                    <img src="./dom-assets/hero-reference.jpg" alt="Студийный видео-отзыв 2" class="w-full h-full object-cover object-[44%_30%] opacity-85">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent"></div>
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <div class="w-14 h-14 rounded-full bg-dom-gold text-white flex items-center justify-center text-xl shadow-[0_8px_24px_rgba(217,179,114,0.45)]">▶</div>
+                                    </div>
+                                </div>
+                                <h4 class="font-messiri text-xl text-dom-gold mb-2">Отзыв #02</h4>
+                                <p class="text-dom-beige/80 text-sm font-montserrat">О финансовой устойчивости после прохождения модулей.</p>
+                            </article>
+                            <article class="video-ribbon-card rounded-2xl p-4 transition-all duration-300 cursor-pointer">
+                                <div class="aspect-video rounded-xl overflow-hidden mb-4 relative border border-dom-gold/30">
+                                    <img src="./dom-assets/hero-reference.jpg" alt="Студийный видео-отзыв 3" class="w-full h-full object-cover object-[56%_26%] opacity-85">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent"></div>
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <div class="w-14 h-14 rounded-full bg-dom-gold text-white flex items-center justify-center text-xl shadow-[0_8px_24px_rgba(217,179,114,0.45)]">▶</div>
+                                    </div>
+                                </div>
+                                <h4 class="font-messiri text-xl text-dom-gold mb-2">Отзыв #03</h4>
+                                <p class="text-dom-beige/80 text-sm font-montserrat">О восстановлении отношений в семье и с детьми.</p>
+                            </article>
+                            <article class="video-ribbon-card rounded-2xl p-4 transition-all duration-300 cursor-pointer">
+                                <div class="aspect-video rounded-xl overflow-hidden mb-4 relative border border-dom-gold/30">
+                                    <img src="./dom-assets/hero-reference.jpg" alt="Студийный видео-отзыв 4" class="w-full h-full object-cover object-[48%_34%] opacity-85">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent"></div>
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <div class="w-14 h-14 rounded-full bg-dom-gold text-white flex items-center justify-center text-xl shadow-[0_8px_24px_rgba(217,179,114,0.45)]">▶</div>
+                                    </div>
+                                </div>
+                                <h4 class="font-messiri text-xl text-dom-gold mb-2">Отзыв #04</h4>
+                                <p class="text-dom-beige/80 text-sm font-montserrat">О ментальном здоровье и спокойствии без качелей.</p>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-14">
+                    <h3 class="font-messiri text-4xl text-dom-graphite mb-8 text-center">Telegram Review Screenshots</h3>
+                    <div class="telegram-ribbon">
+                        <article class="telegram-shot">
+                            <img src="./dom-assets/hero-reference.jpg" alt="Скриншот отзыва Telegram 1" class="object-[47%_22%]">
+                            <div class="p-4">
+                                <p class="font-montserrat text-xs uppercase tracking-[0.12em] text-dom-goldDark">Telegram review 01</p>
+                            </div>
+                        </article>
+                        <article class="telegram-shot">
+                            <img src="./dom-assets/hero-reference.jpg" alt="Скриншот отзыва Telegram 2" class="object-[52%_32%]">
+                            <div class="p-4">
+                                <p class="font-montserrat text-xs uppercase tracking-[0.12em] text-dom-goldDark">Telegram review 02</p>
+                            </div>
+                        </article>
+                        <article class="telegram-shot">
+                            <img src="./dom-assets/hero-reference.jpg" alt="Скриншот отзыва Telegram 3" class="object-[45%_34%]">
+                            <div class="p-4">
+                                <p class="font-montserrat text-xs uppercase tracking-[0.12em] text-dom-goldDark">Telegram review 03</p>
+                            </div>
+                        </article>
+                        <article class="telegram-shot">
+                            <img src="./dom-assets/hero-reference.jpg" alt="Скриншот отзыва Telegram 4" class="object-[58%_24%]">
+                            <div class="p-4">
+                                <p class="font-montserrat text-xs uppercase tracking-[0.12em] text-dom-goldDark">Telegram review 04</p>
+                            </div>
+                        </article>
+                        <article class="telegram-shot">
+                            <img src="./dom-assets/hero-reference.jpg" alt="Скриншот отзыва Telegram 5" class="object-[41%_30%]">
+                            <div class="p-4">
+                                <p class="font-montserrat text-xs uppercase tracking-[0.12em] text-dom-goldDark">Telegram review 05</p>
+                            </div>
+                        </article>
+                        <article class="telegram-shot">
+                            <img src="./dom-assets/hero-reference.jpg" alt="Скриншот отзыва Telegram 6" class="object-[54%_28%]">
+                            <div class="p-4">
+                                <p class="font-montserrat text-xs uppercase tracking-[0.12em] text-dom-goldDark">Telegram review 06</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <a href="https://t.me/itbrain_support" target="_blank" class="inline-flex items-center justify-center px-10 py-4 bg-gold-gradient text-white rounded-xl shadow-[0_14px_36px_rgba(166,120,50,0.35)] hover:shadow-[0_18px_44px_rgba(166,120,50,0.45)] font-montserrat font-semibold uppercase tracking-[0.09em] text-sm">
+                        View More Reviews
+                    </a>
+                </div>
+
+            </div>
+        </section>
+    </template>
+
+    <!-- БЛОГ И НАУКА -->
+    <template id="view-blog">
+        <section class="bg-white min-h-screen pt-24 pb-32 futuristic-grid">
+            <div class="max-w-7xl mx-auto px-4 fade-in">
+                <div class="text-center mb-20">
+                    <span class="text-dom-goldDark font-bold tracking-widest uppercase text-sm mb-3 block font-montserrat">Knowledge Base</span>
+                    <h2 class="font-messiri text-5xl md:text-6xl text-dom-graphite mb-6">Blog & Science</h2>
+                    <div class="w-20 h-1 bg-dom-gold mx-auto mb-8"></div>
+                    <p class="text-dom-graphite/70 text-lg max-w-2xl mx-auto font-montserrat">Статьи, исследования и материалы по системному мышлению, нейробиологии и выстраиванию внутренних опор.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <!-- Заглушки для статей -->
+                    <div class="bg-dom-beige/10 rounded-3xl overflow-hidden border border-dom-graphite/10 hover:shadow-2xl transition-all group cursor-pointer">
+                        <div class="h-48 bg-dom-graphite relative overflow-hidden">
+                            <div class="absolute inset-0 bg-gold-gradient opacity-20 group-hover:opacity-40 transition-opacity"></div>
+                            <span class="absolute bottom-4 left-4 bg-white text-dom-graphite text-xs font-bold uppercase py-1 px-3 rounded-full">Neurobiology</span>
+                        </div>
+                        <div class="p-8">
+                            <h3 class="font-messiri text-2xl text-dom-graphite mb-4 group-hover:text-dom-goldDark transition-colors">How the Brain Sabotages Financial Growth</h3>
+                            <p class="text-sm text-dom-graphite/70 font-montserrat mb-6">Разбираем скрытые выгоды, из-за которых нервная система выбирает «безопасную боль» вместо изобилия.</p>
+                            <button class="text-dom-gold font-bold uppercase tracking-widest text-xs">Читать статью →</button>
+                        </div>
+                    </div>
+
+                    <div class="bg-dom-beige/10 rounded-3xl overflow-hidden border border-dom-graphite/10 hover:shadow-2xl transition-all group cursor-pointer">
+                        <div class="h-48 bg-dom-graphite relative overflow-hidden">
+                            <div class="absolute inset-0 bg-gold-gradient opacity-20 group-hover:opacity-40 transition-opacity"></div>
+                            <span class="absolute bottom-4 left-4 bg-white text-dom-graphite text-xs font-bold uppercase py-1 px-3 rounded-full">Relationships</span>
+                        </div>
+                        <div class="p-8">
+                            <h3 class="font-messiri text-2xl text-dom-graphite mb-4 group-hover:text-dom-goldDark transition-colors">Child Roles in Business and Family</h3>
+                            <p class="text-sm text-dom-graphite/70 font-montserrat mb-6">Почему мы ждем от партнеров спасения, а от клиентов — признания, и как вернуть себе позицию взрослого.</p>
+                            <button class="text-dom-gold font-bold uppercase tracking-widest text-xs">Читать статью →</button>
+                        </div>
+                    </div>
+
+                    <div class="bg-dom-beige/10 rounded-3xl overflow-hidden border border-dom-graphite/10 hover:shadow-2xl transition-all group cursor-pointer">
+                        <div class="h-48 bg-dom-graphite relative overflow-hidden">
+                            <div class="absolute inset-0 bg-gold-gradient opacity-20 group-hover:opacity-40 transition-opacity"></div>
+                            <span class="absolute bottom-4 left-4 bg-white text-dom-graphite text-xs font-bold uppercase py-1 px-3 rounded-full">Система</span>
+                        </div>
+                        <div class="p-8">
+                            <h3 class="font-messiri text-2xl text-dom-graphite mb-4 group-hover:text-dom-goldDark transition-colors">Internal DOM Architecture</h3>
+                            <p class="text-sm text-dom-graphite/70 font-montserrat mb-6">С чего начинается истинная трансформация и почему нельзя строить духовность без материального фундамента.</p>
+                            <button class="text-dom-gold font-bold uppercase tracking-widest text-xs">Читать статью →</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <!-- КОНТАКТЫ -->
+    <template id="view-contacts">
+        <section class="bg-dom-graphite min-h-screen pt-24 pb-32 text-dom-beige">
+            <div class="max-w-4xl mx-auto px-4 fade-in">
+                <div class="text-center mb-16">
+                    <span class="text-dom-gold font-bold tracking-widest uppercase text-sm mb-3 block font-montserrat">Get in Touch</span>
+                    <h2 class="font-messiri text-5xl md:text-6xl text-white mb-6">Contacts</h2>
+                    <div class="w-20 h-1 bg-dom-gold mx-auto mb-8"></div>
+                </div>
+
+                <div class="bg-white/5 backdrop-blur-md p-10 md:p-16 rounded-[2rem] border border-dom-gold/20 shadow-2xl text-center relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-2 bg-gold-gradient"></div>
+                    <h3 class="font-messiri text-3xl text-white mb-6">DOM Support Team</h3>
+                    <p class="text-lg opacity-80 leading-relaxed font-montserrat mb-10 max-w-xl mx-auto">
+                        Если у вас есть вопросы по программам, доступу к материалам или выбору правильного этапа на Карте Пути — напишите нам. Мы всегда рядом.
+                    </p>
+                    
+                    <a href="https://t.me/itbrain_support" target="_blank" class="inline-block px-12 py-5 bg-dom-gold text-white font-bold rounded hover:bg-white hover:text-dom-graphite transition-all shadow-[0_10px_30px_rgba(217,179,114,0.3)] font-messiri text-xl tracking-widest uppercase">
+                        Написать в Telegram
+                    </a>
+                    
+                    <div class="mt-12 pt-8 border-t border-white/10 grid grid-cols-1 md:grid-cols-2 gap-6 text-sm opacity-60 font-montserrat">
+                        <div>
+                            <strong class="block text-white mb-1">Email:</strong>
+                            support@dom-method.ru
+                        </div>
+                        <div>
+                            <strong class="block text-white mb-1">Working Hours:</strong>
+                            Пн-Пт, 10:00 - 19:00 (МСК)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <!-- ОБ АВТОРЕ -->
+    <template id="view-about">
+        <section class="about-page-bg min-h-screen pt-24 pb-32 relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-[800px] h-[800px] bg-dom-gold rounded-full opacity-[0.05] filter blur-[100px] pointer-events-none"></div>
+            <img src="./dom-assets/ornament-flower.png" alt="" class="absolute -top-12 -right-16 w-64 opacity-20 pointer-events-none">
+            
+            <div class="max-w-5xl mx-auto px-4 fade-in about-surface">
+                <div class="text-center mb-16">
+                    <span class="text-dom-goldDark font-bold tracking-widest uppercase text-sm mb-3 block font-montserrat">Основатель метода</span>
+                    <h2 class="font-messiri text-5xl md:text-6xl text-dom-graphite mb-6">Anna Kamallaya Hefors</h2>
+                    <div class="w-20 h-1 bg-dom-gold mx-auto mb-8"></div>
+                </div>
+
+                <div class="bg-white rounded-[2.5rem] p-8 md:p-12 shadow-2xl border border-dom-gold/20 mb-12 relative overflow-hidden">
+                    <div class="absolute -left-10 -bottom-10 w-48 h-48 bg-gold-gradient opacity-10 rounded-full blur-2xl"></div>
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center relative z-10">
+                        <div class="md:col-span-4">
+                            <div class="about-portrait rounded-[1.6rem] overflow-hidden aspect-[3/4]">
+                                <img src="./dom-assets/anna-portrait.png" alt="Anna Kamallaya Hefors" class="w-full h-full object-cover object-top">
+                            </div>
+                        </div>
+                        <div class="md:col-span-8">
+                            <p class="text-2xl md:text-3xl text-dom-graphite font-messiri leading-relaxed mb-6">
+                                Исследователь человеческой системы, нейробиолог и создатель системного метода DOM.
+                            </p>
+                            <p class="font-montserrat text-lg text-dom-graphite/80 leading-relaxed border-l-4 border-dom-gold pl-6 mb-6">
+                                Её метод даёт быстрые и точные сдвиги уже на старте, без поверхностной мотивации и хаотичных действий. Это о точке опоры, о внутренней архитектуре личности и о месте, где мозг, сердце и зрелая позиция соединяются в единую систему.
+                            </p>
+                            <p class="font-montserrat font-bold text-dom-graphite text-lg">
+                                Анна не предлагает зависимость от эксперта. <span class="text-dom-goldDark">Она возвращает человеку его собственную устойчивость.</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+                    <div class="about-light-card p-10 md:p-12 rounded-[2.5rem] text-dom-graphite relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-dom-gold opacity-10 rounded-full blur-2xl"></div>
+                        <h3 class="font-messiri text-3xl text-dom-goldDark mb-6 relative z-10">Путь исследования</h3>
+                        <p class="font-montserrat text-base leading-relaxed mb-6 text-dom-graphite/80 relative z-10">Her approach is based on years of studying neurobiology, systems thinking, psychodynamics, and intergenerational structures.</p>
+                        <p class="font-montserrat text-base font-bold leading-relaxed text-dom-graphite mb-4 relative z-10">Но главное — способность видеть человека не через симптомы, а через систему, где:</p>
+                        <ul class="mt-4 space-y-3 font-montserrat text-base text-dom-graphite/85 relative z-10">
+                            <li><span class="text-dom-gold mr-3">❖</span>каждая эмоция — сигнал</li>
+                            <li><span class="text-dom-gold mr-3">❖</span>каждый конфликт — сбой позиции</li>
+                            <li><span class="text-dom-gold mr-3">❖</span>каждая трудность — точка настройки</li>
+                        </ul>
+                        <p class="font-montserrat text-sm mt-8 text-dom-graphite/65 italic relative z-10">Her work combines scientific precision and the depth of inner experience.</p>
+                    </div>
+
+                    <div class="about-light-card p-10 md:p-12 rounded-[2.5rem]">
+                        <h3 class="font-messiri text-3xl text-dom-graphite mb-6">Отличие подхода</h3>
+                        <p class="font-montserrat text-base text-dom-graphite/80 leading-relaxed mb-4">Anna Kamallaya Hefors’ method is <strong>не психотерапия</strong> в классическом формате, <strong>не коучинг</strong> и <strong>не духовная практика</strong>.</p>
+                        <p class="font-montserrat text-lg font-bold text-dom-graphite leading-relaxed mb-6">Это системная модель зрелости.</p>
+                        <p class="font-montserrat text-base text-dom-graphite/80 leading-relaxed mb-6">At the center is a person as a system: with rules, order, and an inner foundation.</p>
+                        
+                        <div class="bg-dom-beige/30 p-6 rounded-2xl mt-6 border border-dom-gold/20">
+                            <ul class="space-y-3 font-montserrat text-sm text-dom-graphite/90 font-medium">
+                                <li>• В её проектах не лечат — <span class="text-dom-goldDark">восстанавливают позицию.</span></li>
+                                <li>• Не убеждают — <span class="text-dom-goldDark">возвращают в взрослую роль.</span></li>
+                                <li>• Не дают костыли — <span class="text-dom-goldDark">помогают собрать опору.</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-16">
+                    <div class="p-12 md:p-16 rounded-[3rem] about-light-card text-dom-graphite relative overflow-hidden text-center border border-dom-gold/30">
+                        <div class="absolute inset-0 bg-gold-gradient opacity-20"></div>
+                        <div class="relative z-10">
+                            <h3 class="font-messiri text-4xl md:text-5xl mb-8 text-dom-goldDark">О глубине и мягкости</h3>
+                            <p class="font-montserrat text-xl leading-relaxed max-w-3xl mx-auto mb-8 text-dom-graphite/85 font-light">
+                                При всей структурности метода, в основе — невероятная мягкость. Работа Анны — это пространство, где можно:
+                                <br><br>
+                                <span class="font-medium bg-white/70 px-4 py-2 rounded-lg inline-block m-1">перестать бороться с собой</span>
+                                <span class="font-medium bg-white/70 px-4 py-2 rounded-lg inline-block m-1">перестать обвинять</span>
+                                <span class="font-medium bg-white/70 px-4 py-2 rounded-lg inline-block m-1">искать виноватых</span>
+                            </p>
+                            <p class="font-montserrat text-2xl font-bold mb-8 text-dom-graphite">And begin to see. Not through fear. But through acceptance.</p>
+                            <p class="font-montserrat text-lg text-dom-graphite/80 max-w-4xl mx-auto">
+                                Её подход позволяет человеку принять родителей в сердце, собрать свой внутренний треугольник целостности и вернуть себе ощущение опоры из точки рождения.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-white p-10 rounded-[2.5rem] border border-dom-graphite/10 shadow-lg">
+                        <h3 class="font-messiri text-3xl text-dom-graphite mb-8 text-center">Who Is Her Work For?</h3>
+                        <ul class="space-y-5 font-montserrat text-base text-dom-graphite/80 mb-8">
+                            <li class="flex items-start bg-dom-beige/10 p-4 rounded-xl border border-dom-beige">
+                                <span class="text-dom-gold mr-4 mt-0.5 text-xl font-bold">✓</span>Для тех, кто устал от бесконечного анализа.
+                            </li>
+                            <li class="flex items-start bg-dom-beige/10 p-4 rounded-xl border border-dom-beige">
+                                <span class="text-dom-gold mr-4 mt-0.5 text-xl font-bold">✓</span>Кто чувствует, что «что-то не собирается».
+                            </li>
+                            <li class="flex items-start bg-dom-beige/10 p-4 rounded-xl border border-dom-beige">
+                                <span class="text-dom-gold mr-4 mt-0.5 text-xl font-bold">✓</span>Кто хочет зрелости, а не иллюзии роста.
+                            </li>
+                            <li class="flex items-start bg-dom-beige/10 p-4 rounded-xl border border-dom-beige">
+                                <span class="text-dom-gold mr-4 mt-0.5 text-xl font-bold">✓</span>Кто готов смотреть глубже поверхностных инструментов.
+                            </li>
+                        </ul>
+                        <div class="text-center pt-6 border-t border-dom-graphite/10">
+                            <p class="font-montserrat font-bold text-dom-graphite text-lg">Это путь не для зависимых от вдохновения.</p>
+                            <p class="font-messiri text-xl text-dom-goldDark mt-2">Это путь для тех, кто выбирает взрослость.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-dom-graphite p-10 rounded-[2.5rem] border border-dom-gold/30 shadow-2xl relative overflow-hidden group flex flex-col justify-center text-center">
+                        <div class="absolute -top-20 -right-20 w-64 h-64 bg-dom-gold/10 rounded-full blur-3xl"></div>
+                        <h3 class="font-messiri text-3xl md:text-4xl text-white mb-8 relative z-10 leading-tight">Почему DOM — это институт, <br><span class="text-dom-gold">а не школа</span></h3>
+                        
+                        <p class="font-montserrat text-lg text-dom-beige/80 leading-relaxed mb-6 relative z-10">
+                            Anna Kamallaya Hefors создала не личный бренд. <span class="text-white font-bold">Она создала экосистему.</span>
+                        </p>
+                        <p class="font-montserrat text-base text-dom-beige/70 leading-relaxed mb-10 relative z-10">
+                            DOM — это пространство, где метод живёт не как авторская история, а как структурная модель, способная передаваться, масштабироваться и работать независимо от личности.
+                        </p>
+                        <div class="mt-auto">
+                            <p class="font-messiri text-2xl text-dom-gold font-bold relative z-10 uppercase tracking-widest drop-shadow-md">
+                                Опора должна быть в системе.<br>А не в харизме.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </template>
+
+    <!-- ДИНАМИЧЕСКИЕ ШАБЛОНЫ ДЛЯ ПУТЕЙ (Необходимы для работы логики Карты Пути) -->
+    <!-- PATH DETAILS: MONEY -->
+    <template id="view-path-money">
+        <section class="bg-white min-h-screen pt-12 pb-24">
+            <div class="max-w-6xl mx-auto px-4 fade-in">
+                <button onclick="navigateTo('path')" class="text-dom-goldDark hover:text-dom-graphite flex items-center text-sm font-bold uppercase tracking-wider mb-10 transition-colors">
+                    <span class="mr-2">←</span> Back to Path Map
+                </button>
+                <div class="flex items-center mb-10 border-b border-dom-graphite/10 pb-8">
+                    <div class="w-20 h-20 rounded-full bg-dom-beige/50 flex items-center justify-center mr-6 text-dom-gold text-4xl font-messiri">D</div>
+                    <div>
+                        <span class="text-dom-graphite/50 font-bold tracking-widest uppercase text-xs mb-2 block">Level 1 / External DOM</span>
+                        <h2 class="font-messiri text-5xl text-dom-graphite">Направление: Money</h2>
+                    </div>
+                </div>
+                
+                <div class="prose max-w-none text-dom-graphite/80 font-montserrat leading-relaxed mb-16 text-lg">
+                    <p class="mb-6 border-l-4 border-dom-gold pl-6 font-medium text-dom-graphite">
+                        Money в системе DOM — это не просто инструмент потребления. Это следствие вашей проявленности, системного мышления и уровня энергии.
+                    </p>
+                    <p class="mb-6">
+                        Мы рассматриваем финансовую зрелость как фундамент для любой дальнейшей трансформации. Без закрытых базовых потребностей, без понимания законов обмена ценностью с миром, переход на глубокие уровни осознанности становится побегом от реальности.
+                    </p>
+                </div>
+
+                <h3 class="font-messiri text-4xl text-dom-graphite mb-10">Direction Programs</h3>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-dom-graphite text-dom-beige p-10 rounded-2xl border border-dom-gold/30 shadow-2xl relative overflow-hidden group cursor-pointer" onclick="navigateToProduct('formula-money')">
+                        <div class="absolute top-0 right-0 bg-gold-gradient text-white text-xs font-bold uppercase py-2 px-6 rounded-bl-xl shadow-lg">Flagship</div>
+                        <h4 class="font-messiri text-3xl text-white mb-4 mt-4 group-hover:text-dom-gold transition-colors">Формула Денег</h4>
+                        <p class="text-base opacity-80 mb-8 font-light">Core architecture of financial thinking. A systemic approach to increasing income, removing blocks, and creating a structure that works for you.</p>
+                        <button type="button" onclick="navigateToProduct('formula-money')" class="w-full py-4 bg-dom-gold text-white font-bold rounded hover:bg-dom-goldDark transition shadow-lg shadow-dom-gold/30 text-lg tracking-wider">Open Program</button>
+                    </div>
+                    
+                    <div class="bg-white p-8 rounded-2xl border border-dom-gold/20 hover:border-dom-gold/50 hover:shadow-xl transition-all duration-300 group cursor-pointer" onclick="navigateToProduct('business-mission')">
+                        <span class="text-xs font-bold uppercase text-dom-goldDark mb-3 block tracking-widest">Module</span>
+                        <h4 class="font-messiri text-2xl text-dom-graphite mb-3 group-hover:text-dom-goldDark transition-colors">Business Mission</h4>
+                        <p class="text-sm text-dom-graphite/70 mb-6 font-montserrat">Точечная работа с поиском своего истинного дела. Интеграция внутренних смыслов в бизнес-модели.</p>
+                        <button class="w-full py-3 border border-dom-graphite/20 text-dom-graphite rounded group-hover:bg-dom-graphite group-hover:text-white transition">Learn More</button>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-2xl border border-dom-gold/20 hover:border-dom-gold/50 hover:shadow-xl transition-all duration-300 group cursor-pointer" onclick="navigateToProduct('power-of-manifestation')">
+                        <span class="text-xs font-bold uppercase text-dom-goldDark mb-3 block tracking-widest">Intensive</span>
+                        <h4 class="font-messiri text-2xl text-dom-graphite mb-3 group-hover:text-dom-goldDark transition-colors">Сила проявления</h4>
+                        <p class="text-sm text-dom-graphite/70 mb-6 font-montserrat">Преодоление страха видимости. Практики для выхода из тени и смелого заявления о себе миру.</p>
+                        <button class="w-full py-3 border border-dom-graphite/20 text-dom-graphite rounded group-hover:bg-dom-graphite group-hover:text-white transition">Learn More</button>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-2xl border border-dom-gold/20 hover:border-dom-gold/50 hover:shadow-xl transition-all duration-300 group cursor-pointer" onclick="navigateToProduct('seven-systems-abundance')">
+                        <span class="text-xs font-bold uppercase text-dom-goldDark mb-3 block tracking-widest">Практическая встреча</span>
+                        <h4 class="font-messiri text-2xl text-dom-graphite mb-3 group-hover:text-dom-goldDark transition-colors">7 систем изобилия</h4>
+                        <p class="text-sm text-dom-graphite/70 mb-6 font-montserrat">Aligning all levels of life for free financial flow through 7 life systems.</p>
+                        <button class="w-full py-3 border border-dom-graphite/20 text-dom-graphite rounded group-hover:bg-dom-graphite group-hover:text-white transition">Learn More</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <!-- PATH DETAILS: RELATIONS -->
+    <template id="view-path-relations">
+        <section class="bg-white min-h-screen pt-12 pb-24">
+            <div class="max-w-6xl mx-auto px-4 fade-in">
+                <button onclick="navigateTo('path')" class="text-dom-goldDark hover:text-dom-graphite flex items-center text-sm font-bold uppercase tracking-wider mb-10 transition-colors">
+                    <span class="mr-2">←</span> Back to Path Map
+                </button>
+                <div class="flex items-center mb-10 border-b border-dom-graphite/10 pb-8">
+                    <div class="w-20 h-20 rounded-full bg-dom-beige/50 flex items-center justify-center mr-6 text-dom-gold text-4xl font-messiri">O</div>
+                    <div>
+                        <span class="text-dom-graphite/50 font-bold tracking-widest uppercase text-xs mb-2 block">Level 1 / External DOM</span>
+                        <h2 class="font-messiri text-5xl text-dom-graphite">Направление: Relationships</h2>
+                    </div>
+                </div>
+                
+                <div class="prose max-w-none text-dom-graphite/80 font-montserrat leading-relaxed mb-16 text-lg">
+                    <p class="mb-6 border-l-4 border-dom-gold pl-6 font-medium text-dom-graphite">
+                        Relationships — это базовая структура взаимодействия с миром. То, как вы выстраиваете связи с партнером, семьей и окружением, отражает вашу внутреннюю архитектуру.
+                    </p>
+                    <p class="mb-6">
+                        В этом направлении мы формируем безопасную среду. Снимаем претензии, выходим из деструктивных конфликтов и учимся выстраивать чистые, экологичные границы.
+                    </p>
+                </div>
+
+                <h3 class="font-messiri text-4xl text-dom-graphite mb-10">Direction Programs</h3>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-dom-graphite text-dom-beige p-10 rounded-2xl border border-dom-gold/30 shadow-2xl relative overflow-hidden group cursor-pointer" onclick="navigateToProduct('family-unity')">
+                        <div class="absolute top-0 right-0 bg-white text-dom-graphite text-xs font-bold uppercase py-2 px-6 rounded-bl-xl shadow-lg">Free Entry</div>
+                        <h4 class="font-messiri text-3xl text-white mb-4 mt-4 group-hover:text-dom-gold transition-colors">Семейное Единство</h4>
+                        <p class="text-base opacity-80 mb-8 font-light">A basic, foundational step. A gentle entry threshold into the method through healing the most important relationships. Building a strong family system without losing yourself.</p>
+                        <button class="w-full py-4 bg-dom-gold text-white font-bold rounded hover:bg-dom-goldDark transition shadow-lg shadow-dom-gold/30 text-lg tracking-wider">Начать бесплатно</button>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-2xl border border-dom-gold/20 hover:border-dom-gold/50 hover:shadow-xl transition-all duration-300 group cursor-pointer" onclick="navigateToProduct('place-among-others')">
+                        <span class="text-xs font-bold uppercase text-dom-goldDark mb-3 block tracking-widest">Session + Practice</span>
+                        <h4 class="font-messiri text-2xl text-dom-graphite mb-3 group-hover:text-dom-goldDark transition-colors">A Place Among Others</h4>
+                        <p class="text-sm text-dom-graphite/70 mb-6 font-montserrat">The art of connection without losing yourself. Includes the neuro-trainer “Dissolving Social Masks.”</p>
+                        <button class="w-full py-3 border border-dom-graphite/20 text-dom-graphite rounded group-hover:bg-dom-graphite group-hover:text-white transition">Learn More</button>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-2xl border border-dom-gold/20 hover:border-dom-gold/50 hover:shadow-xl transition-all duration-300 group cursor-pointer" onclick="navigateToProduct('man-woman-relations')">
+                        <span class="text-xs font-bold uppercase text-dom-goldDark mb-3 block tracking-widest">Session + Practice</span>
+                        <h4 class="font-messiri text-2xl text-dom-graphite mb-3 group-hover:text-dom-goldDark transition-colors">Man and Woman</h4>
+                        <p class="text-sm text-dom-graphite/70 mb-6 font-montserrat">Partnership relationships and the neuro-trainer “Returning to Your Place in the Relationship System.”</p>
+                        <button class="w-full py-3 border border-dom-graphite/20 text-dom-graphite rounded group-hover:bg-dom-graphite group-hover:text-white transition">Learn More</button>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-2xl border border-dom-gold/20 hover:border-dom-gold/50 hover:shadow-xl transition-all duration-300 group cursor-pointer" onclick="navigateToProduct('children-relations')">
+                        <span class="text-xs font-bold uppercase text-dom-goldDark mb-3 block tracking-widest">Deep Analysis</span>
+                        <h4 class="font-messiri text-2xl text-dom-graphite mb-3 group-hover:text-dom-goldDark transition-colors">Relationships with Children</h4>
+                        <p class="text-sm text-dom-graphite/70 mb-6 font-montserrat">Почему мы теряем контакт и как его восстановить. Создание доверия без манипуляций.</p>
+                        <button class="w-full py-3 border border-dom-graphite/20 text-dom-graphite rounded group-hover:bg-dom-graphite group-hover:text-white transition">Learn More</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <!-- PATH DETAILS: MENTAL HEALTH -->
+    <template id="view-path-mental">
+        <section class="bg-white min-h-screen pt-12 pb-24">
+            <div class="max-w-6xl mx-auto px-4 fade-in">
+                <button onclick="navigateTo('path')" class="text-dom-goldDark hover:text-dom-graphite flex items-center text-sm font-bold uppercase tracking-wider mb-10 transition-colors">
+                    <span class="mr-2">←</span> Back to Path Map
+                </button>
+                <div class="flex items-center mb-10 border-b border-dom-graphite/10 pb-8">
+                    <div class="w-20 h-20 rounded-full bg-dom-beige/50 flex items-center justify-center mr-6 text-dom-gold text-4xl font-messiri">M</div>
+                    <div>
+                        <span class="text-dom-graphite/50 font-bold tracking-widest uppercase text-xs mb-2 block">Level 1 / External DOM</span>
+                        <h2 class="font-messiri text-5xl text-dom-graphite">Mental Health</h2>
+                    </div>
+                </div>
+                
+                <div class="prose max-w-none text-dom-graphite/80 font-montserrat leading-relaxed mb-16 text-lg">
+                    <p class="mb-6 border-l-4 border-dom-gold pl-6 font-medium text-dom-graphite">
+                        Психическая устойчивость — это способность оставаться на своих ногах, когда всё вокруг приходит в движение. Это не отсутствие стресса, а умение сквозь него проходить.
+                    </p>
+                    <p class="mb-6">
+                        Это направление про нейрофизиологию и стабильность нервной системы. Мы работаем с внутренними опорами, помогаем мозгу выдерживать нагрузки масштаба и восстанавливаем право быть собой настоящим.
+                    </p>
+                </div>
+
+                <h3 class="font-messiri text-4xl text-dom-graphite mb-10">Direction Programs</h3>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-dom-graphite text-dom-beige p-10 rounded-2xl border border-dom-gold/35 shadow-2xl relative overflow-hidden group cursor-pointer" onclick="navigateToProduct('power-of-acceptance')">
+                        <div class="absolute top-0 right-0 bg-gold-gradient text-white text-xs font-bold uppercase py-2 px-6 rounded-bl-xl shadow-lg">Фундамент</div>
+                        <span class="text-xs font-bold uppercase text-dom-gold mb-3 block tracking-widest mt-2">Step 1</span>
+                        <h4 class="font-messiri text-3xl text-white mb-4 group-hover:text-dom-gold transition-colors">Power of Acceptance</h4>
+                        <p class="text-base opacity-85 mb-8 font-light">A powerful foundational product. How to stop fighting reality and your own limitations, turning them into a growth resource.</p>
+                        <button class="w-full py-4 bg-dom-gold text-white font-bold rounded hover:bg-dom-goldDark transition shadow-lg shadow-dom-gold/30 text-lg tracking-wider">Open Program</button>
+                    </div>
+                    
+                    <div class="bg-white p-8 rounded-2xl border border-dom-gold/20 hover:border-dom-gold/50 hover:shadow-xl transition-all duration-300 group cursor-pointer" onclick="navigateToProduct('rules-of-life-systems')">
+                        <span class="text-xs font-bold uppercase text-dom-goldDark mb-3 block tracking-widest">Step 2</span>
+                        <h4 class="font-messiri text-2xl text-dom-graphite mb-3 group-hover:text-dom-goldDark transition-colors">Rules of Life Systems</h4>
+                        <p class="text-sm text-dom-graphite/70 mb-6 font-montserrat">Устройство внутренней Вселенной. Научитесь видеть сбои и быстро возвращать внутренний порядок.</p>
+                        <button class="w-full py-3 border border-dom-graphite/20 text-dom-graphite rounded group-hover:bg-dom-graphite group-hover:text-white transition">Learn More</button>
+                    </div>
+
+                    <div class="bg-dom-graphite text-dom-beige p-10 rounded-2xl border border-dom-gold/30 shadow-2xl relative overflow-hidden group cursor-pointer" onclick="navigateToProduct('neuro-trainers')">
+                        <div class="absolute top-0 right-0 bg-dom-gold text-white text-xs font-bold uppercase py-2 px-6 rounded-bl-xl shadow-lg">Key Tool</div>
+                        <span class="text-xs font-bold uppercase text-dom-gold mb-3 block tracking-widest mt-2">Step 3</span>
+                        <h4 class="font-messiri text-3xl text-white mb-4 group-hover:text-dom-gold transition-colors">Neuro Brain Trainers</h4>
+                        <p class="text-base opacity-80 mb-8 font-light">Специальные аудио-визуальные практики для синхронизации полушарий, снижения тревожности и повышения емкости нервной системы.</p>
+                        <button class="w-full py-4 bg-dom-gold text-white font-bold rounded hover:bg-dom-goldDark transition shadow-lg shadow-dom-gold/30 text-lg tracking-wider">Explore Tool</button>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-2xl border border-dom-gold/20 hover:border-dom-gold/50 hover:shadow-xl transition-all duration-300 group cursor-pointer" onclick="navigateToProduct('square-of-life-force')">
+                        <span class="text-xs font-bold uppercase text-dom-goldDark mb-3 block tracking-widest">Step 4</span>
+                        <h4 class="font-messiri text-2xl text-dom-graphite mb-3 group-hover:text-dom-goldDark transition-colors">Square of Life Force</h4>
+                        <p class="text-sm text-dom-graphite/70 mb-6 font-montserrat">Освойте взрослое «Я». Алгоритм выхода из автоматических паттернов и возвращения в центр.</p>
+                        <button class="w-full py-3 border border-dom-graphite/20 text-dom-graphite rounded group-hover:bg-dom-graphite group-hover:text-white transition">Learn More</button>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-2xl border border-dom-gold/20 hover:border-dom-gold/50 hover:shadow-xl transition-all duration-300 group cursor-pointer" onclick="navigateToProduct('separation-from-family-scenarios')">
+                        <span class="text-xs font-bold uppercase text-dom-goldDark mb-3 block tracking-widest">Step 5</span>
+                        <h4 class="font-messiri text-2xl text-dom-graphite mb-3 group-hover:text-dom-goldDark transition-colors">Separation from Family Scenarios</h4>
+                        <p class="text-sm text-dom-graphite/70 mb-6 font-montserrat">Снятие повторяющихся сценариев рода через перестройку нейронных связей без ухода в боль.</p>
+                        <button class="w-full py-3 border border-dom-graphite/20 text-dom-graphite rounded group-hover:bg-dom-graphite group-hover:text-white transition">Learn More</button>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-2xl border border-dom-gold/20 hover:border-dom-gold/50 hover:shadow-xl transition-all duration-300 group cursor-pointer" onclick="navigateToProduct('true-self')">
+                        <span class="text-xs font-bold uppercase text-dom-goldDark mb-3 block tracking-widest">Step 6</span>
+                        <h4 class="font-messiri text-2xl text-dom-graphite mb-3 group-hover:text-dom-goldDark transition-colors">Find Your True Self</h4>
+                        <p class="text-sm text-dom-graphite/70 mb-6 font-montserrat">Снятие социальных масок, работа со стыдом и виной. Возвращение к подлинной идентичности.</p>
+                        <button class="w-full py-3 border border-dom-graphite/20 text-dom-graphite rounded group-hover:bg-dom-graphite group-hover:text-white transition">Learn More</button>
+                    </div>
+
+                    <div class="md:col-span-2 bg-dom-graphite text-dom-beige p-10 rounded-2xl border border-dom-gold/45 shadow-[0_20px_50px_rgba(204,162,107,0.3)] relative overflow-hidden group cursor-pointer" onclick="navigateToProduct('psychogenotypes')">
+                        <div class="absolute top-0 right-0 bg-gold-gradient text-white text-xs font-bold uppercase py-2 px-6 rounded-bl-xl shadow-lg">Flagship</div>
+                        <span class="text-xs font-bold uppercase text-dom-gold mb-3 block tracking-widest mt-2">Step 7</span>
+                        <h4 class="font-messiri text-4xl text-white mb-4 group-hover:text-dom-gold transition-colors">Психогенотипы</h4>
+                        <p class="text-base opacity-85 mb-8 font-light">Direction flagship. Deep understanding of personality structure, innate patterns, and growth points for fast and sustainable change.</p>
+                        <button class="w-full md:w-auto px-10 py-4 bg-dom-gold text-white font-bold rounded hover:bg-dom-goldDark transition shadow-lg shadow-dom-gold/30 text-lg tracking-wider">Open Flagship</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <!-- PATH DETAILS: SOUL -->
+    <template id="view-path-soul">
+        <section class="bg-dom-graphite min-h-screen pt-12 pb-24 text-dom-beige">
+            <div class="max-w-6xl mx-auto px-4 fade-in">
+                <button onclick="navigateTo('path')" class="text-dom-gold hover:text-white flex items-center text-sm font-bold uppercase tracking-wider mb-10 transition-colors">
+                    <span class="mr-2">←</span> Back to Path Map
+                </button>
+                <div class="flex items-center mb-10 border-b border-dom-gold/20 pb-8">
+                    <div class="w-20 h-20 rounded-full bg-dom-gold/20 border border-dom-gold/30 flex items-center justify-center mr-6 text-dom-gold text-4xl font-messiri">D</div>
+                    <div>
+                        <span class="text-dom-gold font-bold tracking-widest uppercase text-xs mb-2 block">Level 2 / Internal DOM</span>
+                        <h2 class="font-messiri text-5xl text-white">Direction: Soul</h2>
+                    </div>
+                </div>
+                
+                <div class="prose max-w-none text-dom-beige/80 font-montserrat leading-relaxed mb-16 text-lg">
+                    <p class="mb-6 border-l-4 border-dom-gold pl-6 font-medium text-white">
+                        Второй уровень системы DOM. Пространство, куда мы заходим только после того, как выстроен внешний фундамент.
+                    </p>
+                    <p class="mb-6">
+                        Это работа на уровне смыслов, тотальной осознанности и духа. Здесь заканчивается "ремонт" жизни и начинается истинное Творчество.
+                    </p>
+                </div>
+
+                <h3 class="font-messiri text-4xl text-white mb-10">Direction Programs</h3>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="md:col-span-2 bg-[linear-gradient(135deg,#f3d89b_0%,#d4aa5f_45%,#ba8c42_100%)] text-[#2a2115] p-10 rounded-2xl border border-[#f4e4ce]/50 shadow-[0_22px_54px_rgba(204,162,107,0.42)] relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 bg-[#2a2115] text-[#f4e4ce] text-xs font-bold uppercase py-2 px-6 rounded-bl-xl tracking-widest">Super Flagship</div>
+                        <span class="text-xs font-bold uppercase text-[#4e3a1d] mb-3 block tracking-widest mt-2">Closed Level</span>
+                        <h4 class="font-messiri text-4xl mb-4 tracking-wide">GOLDEN GENOME</h4>
+                        <p class="text-base opacity-90 mb-6 font-montserrat leading-relaxed">Ключевой, высший проект направления «Soul». Сейчас программа закрыта и будет открыта только тем, кто покорил External DOM и стабильно удерживает фундамент в Деньгах, Relationshipsх и Ментальном здоровье.</p>
+                        <div class="mb-8 p-5 bg-[#2a2115]/20 rounded-xl text-sm border-l-2 border-[#2a2115]/55">
+                            <strong class="block mb-2">Status:</strong>
+                            Набор временно закрыт. Доступ открывается после подтвержденного прохождения Внешнего DOM.
+                        </div>
+                        <button onclick="window.open('https://t.me/itbrain_support?text=Заявка%20в%20лист%20ожидания%20ЗОЛОТОЙ%20ГЕНОМ', '_blank')" class="px-8 py-4 bg-[#2a2115] text-[#f4e4ce] font-bold rounded hover:bg-[#1f180f] transition shadow-lg text-lg">Join Waitlist</button>
+                    </div>
+
+                    <div class="bg-white/10 backdrop-blur p-10 rounded-2xl border border-dom-gold/30 shadow-2xl relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 bg-white text-dom-graphite text-xs font-bold uppercase py-2 px-6 rounded-bl-xl">Free</div>
+                        <h4 class="font-messiri text-3xl text-white mb-4 mt-2">Initiations</h4>
+                        <p class="text-base opacity-85 mb-6 font-light">Проект в открытом доступе. Бесплатные материалы и практики для первого входа в направление «Soul» и мягкой внутренней настройки.</p>
+                        <div class="mb-8 p-5 bg-dom-graphite/50 rounded-xl text-sm border-l-2 border-dom-gold/50">
+                            <strong class="text-white block mb-2">Access:</strong>
+                            Открытый доступ для всех участников. Без оплаты.
+                        </div>
+                        <button onclick="window.open('https://t.me/itbrain_support?text=Хочу%20получить%20доступ%20к%20проекту%20Initiations', '_blank')" class="px-8 py-4 bg-dom-gold text-white font-bold rounded hover:bg-white hover:text-dom-graphite transition shadow-lg text-lg">Get for Free</button>
+                    </div>
+
+                    <div class="bg-white/5 backdrop-blur p-10 rounded-2xl border border-dom-gold/30 shadow-2xl relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 bg-dom-gold text-dom-graphite text-xs font-bold uppercase py-2 px-6 rounded-bl-xl">Продвинутый уровень</div>
+                        <h4 class="font-messiri text-3xl text-white mb-4 mt-2">Source of Inner Joy</h4>
+                        <p class="text-base opacity-80 mb-6 font-light">Deep, almost meditative immersion into your own nature. Connection with a state independent of external circumstances. Absolute, unconditional joy of being.</p>
+                        <div class="mb-8 p-5 bg-dom-graphite/50 rounded-xl text-sm border-l-2 border-dom-gold/50">
+                            <strong class="text-white block mb-2">Entry Conditions:</strong>
+                            Только после прохождения базовых программ Внешнего DOM (Формула Денег / Семейное Единство).
+                        </div>
+                        <button onclick="window.open('https://t.me/itbrain_support?text=Заявка%20на%20программу%20Источник%20внутренней%20радости', '_blank')" class="px-8 py-4 bg-dom-gold text-white font-bold rounded hover:bg-white hover:text-dom-graphite transition shadow-lg text-lg">Submit Application</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <template id="view-path-awareness">
+         <section class="bg-dom-graphite min-h-screen pt-12 pb-24 text-dom-beige">
+            <div class="max-w-6xl mx-auto px-4 fade-in">
+                <button onclick="navigateTo('path')" class="text-dom-gold hover:text-white flex items-center text-sm font-bold uppercase tracking-wider mb-10 transition-colors">
+                    <span class="mr-2">←</span> Back to Path Map
+                </button>
+                <div class="flex items-center mb-10 border-b border-dom-gold/20 pb-8">
+                    <div class="w-20 h-20 rounded-full bg-dom-gold/20 border border-dom-gold/30 flex items-center justify-center mr-6 text-dom-gold text-4xl font-messiri">O</div>
+                    <div>
+                        <span class="text-dom-gold font-bold tracking-widest uppercase text-xs mb-2 block">Level 2 / Internal DOM</span>
+                        <h2 class="font-messiri text-5xl text-white">Направление: Awareness</h2>
+                    </div>
+                </div>
+                
+                <div class="prose max-w-none text-dom-beige/80 font-montserrat leading-relaxed mb-16 text-lg">
+                    <p class="mb-6 border-l-4 border-dom-gold pl-6 font-medium text-white">
+                        Awareness в системе DOM — это не просто пребывание в моменте. Это тотальная ясность и честный, безоценочный взгляд на себя, свои реакции и окружающую реальность.
+                    </p>
+                </div>
+
+                <div class="bg-white/5 backdrop-blur p-10 rounded-2xl border border-dom-gold/30 shadow-2xl relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 bg-dom-gold text-dom-graphite text-xs font-bold uppercase py-2 px-6 rounded-bl-xl">Knowledge</div>
+                    <h4 class="font-messiri text-3xl text-white mb-4 mt-2">Golden Genome Theory</h4>
+                    <p class="text-base opacity-80 mb-8 font-light">Фундаментальные знания об эволюции сознания. Активация заложенного потенциала, распаковка внутренних кодов и переход на частоты творца своей реальности.</p>
+                    <div class="mb-8 p-5 bg-dom-graphite/50 rounded-xl text-sm border-l-2 border-dom-gold/50">
+                        <strong class="text-white block mb-2">Entry Conditions:</strong>
+                        Только после прохождения базовых программ Внешнего DOM (Формула Денег / Семейное Единство).
+                    </div>
+                    <button onclick="window.open('https://t.me/itbrain_support?text=Заявка%20на%20программу%20Теория%20Золотого%20Генома', '_blank')" class="px-8 py-4 bg-dom-gold text-white font-bold rounded hover:bg-white hover:text-dom-graphite transition shadow-lg text-lg">Submit Application</button>
+                </div>
+            </div>
+        </section>
+    </template>
+    
+    <template id="view-path-worldview">
+         <section class="bg-dom-graphite min-h-screen pt-12 pb-24 text-dom-beige">
+            <div class="max-w-6xl mx-auto px-4 fade-in">
+                <button onclick="navigateTo('path')" class="text-dom-gold hover:text-white flex items-center text-sm font-bold uppercase tracking-wider mb-10 transition-colors">
+                    <span class="mr-2">←</span> Back to Path Map
+                </button>
+                <div class="flex items-center mb-10 border-b border-dom-gold/20 pb-8">
+                    <div class="w-20 h-20 rounded-full bg-dom-gold/20 border border-dom-gold/30 flex items-center justify-center mr-6 text-dom-gold text-4xl font-messiri">M</div>
+                    <div>
+                        <span class="text-dom-gold font-bold tracking-widest uppercase text-xs mb-2 block">Level 2 / Internal DOM</span>
+                        <h2 class="font-messiri text-5xl text-white">Направление: Worldview</h2>
+                    </div>
+                </div>
+                
+                <div class="prose max-w-none text-dom-beige/80 font-montserrat leading-relaxed mb-16 text-lg">
+                    <p class="mb-6 border-l-4 border-dom-gold pl-6 font-medium text-white">
+                        Worldview определяет масштаб вашей реальности. Это фундаментальные законы, этический компас и картина мира, через которую вы взаимодействуете с пространством.
+                    </p>
+                </div>
+
+                <div class="bg-white/5 backdrop-blur p-10 rounded-2xl border border-dom-gold/30 shadow-2xl relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 bg-dom-gold text-dom-graphite text-xs font-bold uppercase py-2 px-6 rounded-bl-xl">Concept</div>
+                    <h4 class="font-messiri text-3xl text-white mb-4 mt-2">Raphael’s Cosmology</h4>
+                    <p class="text-base opacity-80 mb-8 font-light">A deep conceptual foundation. Architecture of higher meanings and universal laws of existence. Transfer of knowledge about global structures shaping our reality and evolution.</p>
+                    <div class="mb-8 p-5 bg-dom-graphite/50 rounded-xl text-sm border-l-2 border-dom-gold/50">
+                        <strong class="text-white block mb-2">Entry Conditions:</strong>
+                        Только после прохождения базовых программ Внешнего DOM (Формула Денег / Семейное Единство).
+                    </div>
+                    <button onclick="window.open('https://t.me/itbrain_support?text=Заявка%20на%20программу%20Мироздание%20Рафаэля', '_blank')" class="px-8 py-4 bg-dom-gold text-white font-bold rounded hover:bg-white hover:text-dom-graphite transition shadow-lg text-lg">Submit Application</button>
+                </div>
+            </div>
+        </section>
+    </template>
+
+
+    <script>
+        const state = {
+            currentView: 'home',
+            pathStage: 1,
+            productFilter: 'all'
+        };
+
+        // --- ПОЛНАЯ БАЗА ДАННЫХ ВСЕХ ПРОДУКТОВ ---
+        const productDetails = {
+            'formula-money': {
+                title: 'ФОРМУЛА M+O+N+E+Y',
+                tag: 'СИСТЕМНЫЙ МЕТОД РАБОТЫ С ДЕНЕЖНОЙ МАТРИЦЕЙ',
+                shortDesc: 'Новый финансовый порядок жизни. 5 элементов сборки новой сети сознания мозга. Достаток становится естественным следствием порядка внутри.',
+                mission: 'Создать пространство, в котором зрелые, осознанные лидеры возвращаются к целостному мышлению и действуют из внутреннего порядка, а не из страха и выживания. Объединить людей, способных брать ответственность за свою жизнь и деньги, формируя новую культуру мышления.',
+                whyImportant: 'Часто деньги приходят и уходят. Вы зарабатываете, но не чувствуете устойчивости. Всё, что связано с деньгами, вызывает тревогу или страх потери. Потеряна связь между вашими действиями и доходом, работают родовые сценарии "не высовываться". Без изменения мышления ничего не меняется.',
+                forWhom: [
+                    { title: 'Духовно развивающиеся', desc: 'Ищете баланс между смыслом и деньгами, готовы перестать отрицать материальное как часть Жизни.' },
+                    { title: 'Лидеры и создатели', desc: 'Понимаете, что качество вашего мышления напрямую определяет результаты в жизни и бизнесе.' },
+                    { title: 'В периоде перехода', desc: 'Выходите из состояния выживания, усталости или хаоса и ищете спокойную основу для следующего этапа.' }
+                ],
+                results: [
+                    'Перестаёте жить в нарушении денежных порядков системы',
+                    'Выходите из хронических долгов и постоянных утечек энергии',
+                    'Возвращаете телесное чувство безопасности и покоя',
+                    'Перестаёте саботировать рост дохода (скрытые выгоды)',
+                    'Начинаете осознавать свои истинные цели, дающие возможности'
+                ],
+                modules: [
+                    { name: 'M — MINDSET (Мышление)', desc: 'Ваше место в системе. Поиск нарушенного баланса обмена.' },
+                    { name: 'O — ORDER (Порядок)', desc: '21 день. Правила системы денег. Выход из родовых программ безденежья.' },
+                    { name: 'N — NEUROSYSTEM (Нейропластичность)', desc: '21 день. Перепрошивка реакций мозга из страха в спокойствие.' },
+                    { name: 'E — ENERGY (Энергия Денег)', desc: 'Эмоции, страх, стыд и вина как утечка. Законы сохранения ресурса.' },
+                    { name: 'Y — YOUR VALUE (Твоя ценность)', desc: '21 день. Работа с программой "Я никчёмный". Опора на себя.' }
+                ],
+                reviews: [
+                    { text: 'Я пересмотрел всё свои предыдущие отношения с деньгами и нашёл ответы на старые вопросы. Я стал выполнять свою роль, и доход начал расти органично, без надрыва.', author: 'Александр' },
+                    { text: 'Раньше всё держала в голове, не было ясной системы. Формула дала невероятное чувство внутреннего порядка и безопасности, которое сразу отразилось на материи.', author: 'Мария' }
+                ],
+                faq: [
+                    { q: 'Какой формат прохождения программы?', a: '100% онлайн формат в видео и аудио записи. Это 5 модулей, 5 нейротренажеров в записи и более 22 часов материалов.' },
+                    { q: 'Сколько времени занимает обучение?', a: 'Среднее время глубокого прохождения Формулы — около 4 месяцев (по 21 дню на ключевые модули).' },
+                    { q: 'Подойдет ли это, если у меня сейчас кризис?', a: 'Да. Программа специально выводит из паттернов "выживания" и тревоги в состояние стабильности и опоры.' }
+                ],
+                price: '48 608 ₽ (Доступ ко всем модулям на год)',
+                backLink: 'path-money'
+            },
+            
+            'business-mission': {
+                title: 'БИЗНЕС МИССИЯ',
+                tag: 'СИСТЕМНАЯ ПРОГРАММА',
+                shortDesc: 'Для предпринимателей и экспертов, которые устали тянуть бизнес на себе и хотят, чтобы система начала работать на цели.',
+                mission: 'Разделить личность и бизнес. Восстановить верную иерархию системы, чтобы бизнес перестал быть площадкой для проигрывания детских семейных сценариев и стал настоящим источником ресурса.',
+                whyImportant: 'Главная ошибка большинства предпринимателей — они подсознательно переносят семейные сценарии в бизнес. Из-за этого вы много работаете, но доход нестабилен, команда не тянет, а деньги «не остаются». Вы выгораете, потому что ведете дела из детских ролей («Клиент спасет», «Я как Мама для команды»), а не из позиции собственника.',
+                forWhom: [
+                    { title: 'Уставшие тащить всё', desc: 'Бизнес держится только на вас и начинает разваливаться без вашего ежесекундного контроля.' },
+                    { title: 'В стеклянном потолке', desc: 'Вы много делаете, но доход прыгает. Клиенты сложные, а партнёры подводят.' },
+                    { title: 'Готовые к системе', desc: 'Вы хотите устойчивости, а не эмоциональных качелей. Готовы занять место реального собственника.' }
+                ],
+                results: [
+                    'Чёткое разделение: я — личность / бизнес — система',
+                    'Восстановление верной иерархии: Собственник → Руководитель → Команда → Клиенты → Партнёры',
+                    'Выход из детских ролей и сценариев вечной борьбы',
+                    'Наведение порядка в деньгах, ясное понимание роли собственника',
+                    'Выход из выгорания без потери дохода'
+                ],
+                modules: [
+                    { name: '01. Семья и бизнес — разные системы', desc: 'Почему бизнес не должен лечить ваши личные психологические дефициты.' },
+                    { name: '02. Детские роли в бизнесе', desc: 'Диагностика. Инвесторы как «папа», клиенты как «спасители», сотрудники как «дети».' },
+                    { name: '03. Роли, Иерархия и Функционал', desc: 'Где нарушен порядок — там нет денег. Почему позиция «я всё делаю сам» разрушает проект.' },
+                    { name: '04. Бизнес как система', desc: 'Цель. Правила. Последствия. И как распределяются деньги в здоровой системе.' },
+                    { name: '05. Договор > ожидания', desc: 'Там, где ожидания заменяют договоры — начинаются конфликты и потери.' }
+                ],
+                reviews: [],
+                faq: [
+                    { q: 'В каком формате проходит программа?', a: 'Это не просто лекции, а системная работа: 1 день глубокой теории и практик + 1 дополнительная онлайн-встреча с живыми разборами кейсов участников.' },
+                    { q: 'Кому точно НЕ подойдет этот курс?', a: 'Тем, кто ищет быстрые схемы и магические кнопки, не готов брать на себя ответственность и хочет, чтобы бизнес «сам как-нибудь заработал».' },
+                    { q: 'Сколько сохраняется доступ?', a: 'Доступ ко всем материалам и записям сохраняется на 1 год.' }
+                ],
+                price: '30 000 ₽',
+                backLink: 'path-money'
+            },
+
+            'family-unity': {
+                title: 'Семейное Единство',
+                tag: 'БЛАГОТВОРИТЕЛЬНЫЙ ПРОЕКТ',
+                shortDesc: 'Постройте фундамент для здоровья будущего поколения, укрепив отношения в семье. Практические шаги на основе нейробиологии и психологии.',
+                mission: 'Остановить цепочку боли и начать передавать силу, любовь и опору нашим детям. Вырастить поколение целостных, сильных людей, способных творить, любить и вести Мир вперёд.',
+                whyImportant: 'Каждый второй брак заканчивается разводом. Ребёнок впитывает всё, что происходит между родителями. Напряжение, недоверие, обида, усталость — всё, что вы не проговариваете, становится частью его внутреннего мира.',
+                forWhom: [
+                    { title: 'В затяжном конфликте', desc: 'У вас дома напряжённая атмосфера, постоянные претензии и ощущение, что вы чужие люди.' },
+                    { title: 'Уставшие тащить всё', desc: 'Вы всё тащите на себе, чувствуете, что больше не можете, и хотите равного партнерства.' },
+                    { title: 'Ради будущего детей', desc: 'Ребёнок закрылся, и вы хотите восстановить с ним доверительный контакт.' }
+                ],
+                results: [
+                    'Уйдёт напряжение, вернётся внимание и эмоциональная близость',
+                    'Появится ощущение, что вас действительно слышат',
+                    'Почувствуете, что ваш вклад замечают и ценят',
+                    'Распределение ролей в семье станет честным и равным',
+                    'Научитесь выстраивать доверительное общение с ребёнком'
+                ],
+                modules: [
+                    { name: 'Step 1. Разобраться в причинах', desc: 'Диагностика конфликтов: как и почему мы теряем эмоциональный контакт.' },
+                    { name: 'Step 2. Вернуть тепло', desc: 'Снятие претензий, экологичные личные границы и возвращение желания быть рядом.' },
+                    { name: 'Step 3. Доверительное общение', desc: 'Построение архитектуры партнерства нового времени без давления и манипуляций.' }
+                ],
+                reviews: [
+                    { text: 'Как только я приняла всем сердцем привычки мужа, он стал ко мне относиться по-другому. Я так рада, что это всё происходит со мной!', author: 'Tatiana Shalyutina' },
+                    { text: 'Мы 2 года воевали и обвиняли друг друга. После проекта он переехал за нами, снял жилье и начал заботиться. Это невероятная ценность.', author: 'Elena Gerchek' }
+                ],
+                faq: [
+                    { q: 'Нужно ли проходить программу вместе с партнёром?', a: 'Нет, программа построена так, чтобы вы могли начать изменения самостоятельно. Часто после этого подключаются и другие члены семьи.' },
+                    { q: 'А если у нас всё сложно уже давно?', a: 'Программа работает даже в ситуациях, где давно нет диалога. Она помогает сделать первый шаг без давления и конфронтации.' },
+                    { q: 'Это точно бесплатно?', a: 'Да, участие полностью бесплатное. Это благотворительный проект Анны Хефорс, созданный для поддержки семей.' }
+                ],
+                price: 'Free',
+                backLink: 'path-relations'
+            },
+
+            'neuro-trainers': {
+                title: 'Нейротренажеры мозга',
+                tag: 'ИНСТРУМЕНТ НОВОЙ ЭРЫ',
+                shortDesc: '5 уникальных аудиосессий, которые воздействуют на подсознание с помощью звуковой терапии и нейрокодов. Быстрое снятие стресса и устранение блоков.',
+                mission: 'Мягко вытащить силу из устаревших нейронных шаблонов и перенаправить её в новые нейросети, способные поддерживать другой уровень мышления, чувствования и действия.',
+                whyImportant: 'Мы часто понимаем головой, что нужно изменить, но тело и подсознание продолжают саботировать процесс. Ощущение внутреннего хаоса, потеря энергии, жизнь в сопротивлении себе и принятие решений из страха — всё это следствие старых нейронных программ. Нейротренажеры работают напрямую с подсознанием, минуя логическое сопротивление.',
+                forWhom: [
+                    { title: 'В состоянии хаоса', desc: 'Чувствуете потерю опоры, постоянную усталость и не понимаете, куда утекает ваша энергия.' },
+                    { title: 'Живущие из страха', desc: 'Принимаете решения из тревоги или чувства долга. Сомневаетесь в своих истинных желаниях.' },
+                    { title: 'В эмоциональных качелях', desc: 'Испытываете перепады настроения, чувство вины в общении с партнёром или детьми.' }
+                ],
+                results: [
+                    'Мгновенная смена состояния — от напряжения к ясности и покою',
+                    'Развитие нейропластичности: способность мозга перестраиваться',
+                    'Осознание причин трудностей и мягкое снятие эмоциональных блоков',
+                    'Возвращение внутренней опоры и выход из роли жертвы',
+                    'Притяжение новых возможностей для роста в деньгах и отношениях'
+                ],
+                modules: [
+                    { name: 'Сессия 1. Личность', desc: 'Открытие Сердца. Выход в Высшее предназначение и защита Жизнью.' },
+                    { name: 'Сессия 2. Здоровье', desc: 'Снятие блоков долженствования, «хорошести», страхов и ложных обещаний.' },
+                    { name: 'Сессия 3. Soul', desc: 'Глубокий диалог с Душой. Настройка на неизбежные позитивные изменения.' },
+                    { name: 'Сессия 4. Money', desc: 'Изобилие энергий. Установки лидеров, соединяющих духовность и бизнес-системы.' },
+                    { name: 'Сессия 5. Relationships', desc: 'Исцеление созависимости. Сильнейшая опора на себя и взаимопонимание без искажений.' }
+                ],
+                reviews: [
+                    { text: 'Самые глубокие осознания с мурашками и слезами долгожданного освобождения. Вернулась ясность и ощущение, что я снова управляю своей жизнью.', author: 'Участник программы' }
+                ],
+                faq: [
+                    { q: 'Как это работает технически?', a: 'Звуковая терапия (резонанс звука) и авторские голосовые активации погружают мозг в расслабленное состояние, заменяя старые шаблоны поведения на новые.' },
+                    { q: 'Как много времени это занимает?', a: 'Каждая аудиосессия длится 1-1,5 часа. Не требует усилий: просто слушайте перед сном или в спокойной обстановке и наблюдайте, как происходят изменения.' },
+                    { q: 'В чем отличие от психотерапии?', a: 'Мы работаем с подсознанием напрямую через нейропластичность. Глубинные барьеры устраняются быстро, формируя позитивные модели, которых сложно достичь только через разговорную терапию.' },
+                    { q: 'С кем мы не работаем?', a: 'Программа не подходит людям с диагностированными психическими расстройствами и состояниями, требующими медикаментозного или индивидуального психиатрического лечения.' }
+                ],
+                price: '40 000 ₽ (Доступ на 1 год)',
+                backLink: 'path-mental'
+            },
+
+            'power-of-acceptance': {
+                title: 'Сила Принятия',
+                tag: 'Практическая встреча',
+                shortDesc: 'Погрузись в самое сердце перемен. Прими Себя и свой Мир целиком, чтобы жить легко и свободно.',
+                mission: 'Освободить душу от тяжести обид и вывести из циклично повторяющихся сценариев. Научить видеть свою жизнь без борьбы, пропустив через тело истинную Силу Принятия.',
+                whyImportant: 'Мы часто говорим «я принимаю», но внутри подавляем гнев, вину или раздражение. Подавляя, мы только увеличиваем боль внутри. Без истинного принятия прошлого и себя невозможно выстроить крепкие опоры и двигаться вперед без напряжения.',
+                forWhom: [
+                    { title: 'Живущие в тревоге', desc: 'У вас есть фоновое тревожное состояние, и вы испытываете боль при воспоминании о прошлом или детстве.' },
+                    { title: 'Ходящие по кругу', desc: 'Вы замечаете, что в вашей жизни циклично повторяются одни и те же негативные сценарии.' },
+                    { title: 'Подавляющие эмоции', desc: 'Вы стараетесь казаться «понимающими», но внутри чувствуете раздражение или оценку поступков других людей.' }
+                ],
+                results: [
+                    'Проживете опыт тотального принятия через тело, а не просто "в голове"',
+                    'Полностью освободите свою душу от тяжести подавленных обид',
+                    'Выйдете в нейтральное состояние без осуждения себя и других',
+                    'Почувствуете поддержку самой Жизни и внутреннюю свободу'
+                ],
+                modules: [
+                    { name: 'Практическая часть', desc: 'Глубокая работа в доверительном поле, где мозг отдыхает от саботажа, а сознание расширяется.' }
+                ],
+                reviews: [],
+                faq: [
+                    { q: 'В каком формате проходит встреча?', a: 'Это запись мощной практической сессии, направленной на работу с подсознанием и эмоциональными блоками.' },
+                    { q: 'Чем это отличается от простого "отпускания" ситуации?', a: 'Истинное принятие — это не подавление. Это телесное перепроживание, после которого уходит боль и наступает абсолютная нейтральность.' }
+                ],
+                price: '9 520 ₽',
+                backLink: 'path-mental'
+            },
+
+            'true-self': {
+                title: 'Обрети Себя Настоящего',
+                tag: 'Терапевтическая работа',
+                shortDesc: 'Финальная сборка всех частей себя в одну Цельность. Ты больше никогда не потеряешь себя.',
+                mission: 'Передать уникальный метод обретения себя и осознания своего места в мире, чтобы все сферы жизни процветали в гармонии и уверенности.',
+                whyImportant: 'Люди часто живут в раздробленном состоянии, теряя связь со своей истинной сущностью. Когда нет цельности, мы легко выбиваемся из колеи и теряем внутренний центр при малейших кризисах.',
+                forWhom: [
+                    { title: 'Потерявшие ориентиры', desc: 'Вы жаждете понимания своей истинной сущности, своего предназначения и места в этом мире.' },
+                    { title: 'Ищущие гармонию', desc: 'Вам нужен путь к внутренней тишине, уверенности в себе и настоящей самореализации.' }
+                ],
+                results: [
+                    'Соединение всех сфер жизни в единое целое, как в матрешку',
+                    'Понимание себя, своих ценностей и истинных желаний',
+                    'Выход в своё настоящее место силы, где Жизнь даёт лучшее',
+                    'Способность оставаться в своём центре при любых обстоятельствах'
+                ],
+                modules: [
+                    { name: 'Инструменты самореализации', desc: 'Практические техники для достижения внутренней гармонии, развития самооценки и определения своего места в жизни.' }
+                ],
+                reviews: [],
+                faq: [],
+                price: '16 908 ₽',
+                backLink: 'path-mental'
+            },
+
+            'power-of-manifestation': {
+                title: 'Сила Проявления',
+                tag: 'Intensive',
+                shortDesc: 'Услышь свой настоящий голос, вспомни миссию и научись проявлять свои дары миру легко и радостно.',
+                mission: 'Освободить человека от программы «хорошести» и страха осуждения, чтобы он мог раскрыть свой уникальный потенциал и находиться в Миссии Души.',
+                whyImportant: 'Многие боятся проявляться из-за страха чужого мнения: непрошенных советов, осуждения, зависти. В результате эксперты совершают фундаментальные ошибки в позиционировании и живут в рамках социальных ожиданий, а не в потоке с Жизнью.',
+                forWhom: [
+                    { title: 'Эксперты и мастера', desc: 'Те, кто хочет понять, как соединять полученные знания и навыки, вкладывая свет во всё, что делает.' },
+                    { title: 'Боящиеся критики', desc: 'Вы боитесь осуждения, насмешек или того, что ваши слова исказят.' },
+                    { title: 'Ищущие миссию', desc: 'Вы хотите найти свою истинную цель, свободную от чужих ожиданий.' }
+                ],
+                results: [
+                    'Найденная истинная миссия, свободная от чужих ожиданий',
+                    'Освобождение от страха проявляться и заявлять о себе',
+                    'Уверенность в своём внутреннем голосе и доверие к себе',
+                    'Осознание 12 фундаментальных ошибок мастеров'
+                ],
+                modules: [
+                    { name: 'Разбор 12 ошибок', desc: 'Deep Analysis фундаментальных ошибок, которые сеют сомнения, неуверенность и мешают раскрытию индивидуальности.' }
+                ],
+                reviews: [],
+                faq: [
+                    { q: 'Подходит ли это для начинающих экспертов?', a: 'Да, это поможет сразу выстроить правильное позиционирование без страха и социальных искажений.' }
+                ],
+                price: '28 572 ₽',
+                backLink: 'path-money'
+            },
+            
+            'seven-systems-abundance': {
+                title: '7 систем изобилия',
+                tag: 'ПРАКТИЧЕСКАЯ ВСТРЕЧА',
+                shortDesc: 'Встреча «7 систем, через которые приходит изобилие». Настройте все уровни жизни для свободного финансового потока.',
+                mission: 'Показать, что деньги — это не изолированная сфера, а результат работы 7 взаимосвязанных систем жизни.',
+                whyImportant: 'Если вы пытаетесь увеличить доход только через действия и стратегии, но игнорируете законы систем (рода, отношений, проявленности), вы будете сталкиваться с сопротивлением среды.',
+                forWhom: [
+                    { title: 'Упершиеся в потолок', desc: 'Вы делаете правильные действия, но доход не растет.' },
+                    { title: 'Ищущие легкости', desc: 'Хотите, чтобы деньги приходили как следствие ценности, а не тяжелой борьбы.' }
+                ],
+                results: [
+                    'Понимание, в какой из 7 систем у вас происходит утечка энергии',
+                    'Настройка внутреннего состояния на принятие изобилия',
+                    'Снятие блоков, перекрывающих финансовый поток'
+                ],
+                modules: [
+                    { name: 'Разбор 7 систем', desc: 'Детальный анализ каждой системы, через которую протекает энергия изобилия.' }
+                ],
+                reviews: [],
+                faq: [],
+                price: 'По запросу',
+                backLink: 'path-money'
+            },
+            
+            'place-among-others': {
+                title: 'A Place Among Others',
+                tag: 'ВСТРЕЧА + НЕЙРОТРЕНАЖЕР',
+                shortDesc: 'Искусство быть в контакте, не теряя себя. Включает эфир и нейротренажер «Растворение социальных масок».',
+                mission: 'Научить выстраивать зрелый контакт без обид, ожиданий и контроля. Вернуть себе опору, живость и свободу быть настоящим среди других людей.',
+                whyImportant: 'В общении мы часто неосознанно надеваем защитные маски, пытаясь угодить, заслужить любовь или защититься. Из-за этого мы теряем энергию и самих себя, а отношения становятся поверхностными и тяжелыми.',
+                forWhom: [
+                    { title: 'Теряющие себя', desc: 'Те, кто растворяется в партнере, друзьях или коллективе.' },
+                    { title: 'Носящие маски', desc: 'Те, кто боится проявлять свои истинные чувства и казаться неудобным.' },
+                    { title: 'В напряжении', desc: 'Кто чувствует усталость после общения и хочет выстроить экологичные границы.' }
+                ],
+                results: [
+                    'Возвращение в состояние опоры и зрелости в любом окружении',
+                    'Умение взаимодействовать без борьбы и спасательства',
+                    'Растворение защитных масок и возвращение естественности',
+                    'Свободное течение энергии в отношениях'
+                ],
+                modules: [
+                    { name: 'Эфир «Моё место среди других»', desc: 'Разбор системы «Я и другие». Почему мы теряем себя и как сохранять центр.' },
+                    { name: 'Нейротренажер «Растворение социальных масок»', desc: 'Глубокая практика для подсознания, помогающая снять защитные сценарии.' }
+                ],
+                reviews: [],
+                faq: [],
+                price: 'По подписке',
+                backLink: 'path-relations'
+            },
+            
+            'man-woman-relations': {
+                title: 'Man and Woman',
+                tag: 'ВСТРЕЧА + НЕЙРОТРЕНАЖЕР',
+                shortDesc: 'Выстраивание глубокой связи в паре. Включает нейротренажер «Возвращение на свое место в системе отношений».',
+                mission: 'Помочь выйти из перепутанных ролей (мама-сын, спасатель-жертва) и занять свое истинное место Мужчины или Женщины в отношениях.',
+                whyImportant: 'Часто конфликты и холод в паре возникают не из-за отсутствия любви, а из-за того, что партнеры не находятся на своих местах, проигрывая травмы прошлого.',
+                forWhom: [
+                    { title: 'Пары в кризисе', desc: 'Чувствуете дистанцию, холод или постоянные претензии друг к другу.' },
+                    { title: 'Ищущие близости', desc: 'Хотите перейти от созависимости к истинному партнерству.' }
+                ],
+                results: [
+                    'Осознание и выход из деструктивных ролей в паре',
+                    'Возвращение страсти и тепла через правильную иерархию',
+                    'Формирование безопасного пространства для двоих'
+                ],
+                modules: [
+                    { name: 'Встреча «Relationships между мужчиной и женщиной»', desc: 'Разбор системных ошибок в партнерстве.' },
+                    { name: 'Нейротренажер', desc: 'Практика «Возвращение на свое место в системе отношений».' }
+                ],
+                reviews: [],
+                faq: [],
+                price: 'По подписке',
+                backLink: 'path-relations'
+            },
+            
+            'children-relations': {
+                title: 'Relationships with Children',
+                tag: 'ГЛУБОКИЙ РАЗБОР',
+                shortDesc: 'Почему мы теряем контакт и как его восстановить. Создание доверия без давления и манипуляций.',
+                mission: 'Прекратить передачу травм по наследству и научиться видеть в ребенке отдельную личность, выстраивая отношения на основе доверия и уважения.',
+                whyImportant: 'Мы часто воспитываем детей из тревоги, собственных ожиданий и непрожитых сценариев. Это приводит к потере эмоциональной связи, когда ребенок закрывается.',
+                forWhom: [
+                    { title: 'Родители', desc: 'Чьи дети закрылись, огрызаются или саботируют общение.' },
+                    { title: 'Будущие родители', desc: 'Кто хочет заранее выстроить здоровую систему в семье.' }
+                ],
+                results: [
+                    'Понимание истинных причин протеста и замкнутости детей',
+                    'Восстановление теплой, эмоциональной связи',
+                    'Снятие родительской тревоги и чувства вины'
+                ],
+                modules: [
+                    { name: 'Эфир-разбор', desc: 'Почему мы теряем контакт и конкретные шаги для его восстановления.' }
+                ],
+                reviews: [],
+                faq: [],
+                price: 'По подписке',
+                backLink: 'path-relations'
+            },
+            
+            'rules-of-life-systems': {
+                title: 'Rules of Life Systems',
+                tag: 'БАЗОВЫЙ ЭФИР',
+                shortDesc: 'О том, как устроены главные системы жизни. Вы научитесь видеть сбои и быстро возвращать внутренний порядок.',
+                mission: 'Дать ясное понимание законов, по которым работает наша внутренняя Вселенная, чтобы выборы стали точными, а тревога ушла.',
+                whyImportant: 'Незнание правил систем (родовых, финансовых, личностных) приводит к тому, что мы тратим годы на борьбу с ветряными мельницами, пытаясь изменить следствия, а не причину.',
+                forWhom: [
+                    { title: 'Живущие в хаосе', desc: 'Для тех, кто не понимает, почему рушатся те или иные сферы жизни.' },
+                    { title: 'Стремящиеся к системе', desc: 'Кто хочет получить алгоритм быстрой самодиагностики.' }
+                ],
+                results: [
+                    'Поймёте, где именно возникает сбой в вашей жизни',
+                    'Увидите связи: как одно действие меняет сразу несколько сфер',
+                    'Почувствуете опору и спокойствие от понимания правил игры'
+                ],
+                modules: [
+                    { name: 'Разбор систем', desc: 'Законы, по которым работает каждая жизненная система.' },
+                    { name: 'Практика', desc: 'Переход в новое системное мышление.' }
+                ],
+                reviews: [],
+                faq: [],
+                price: 'В рамках клуба Сила Жизни',
+                backLink: 'path-mental'
+            },
+            
+            'square-of-life-force': {
+                title: 'Square of Life Force',
+                tag: 'ПРАКТИКУМ',
+                shortDesc: 'Освойте центральное взрослое «Я». Алгоритм выхода из автоматических паттернов и возвращения в центр.',
+                mission: 'Помочь человеку перестать выпадать в детские реакции, занимая центральную позицию, из которой можно управлять своей энергией.',
+                whyImportant: 'Нас часто «качает» из стороны в сторону: от обид к агрессии, от спасательства к жертвенности. Это происходит из-за потери центра.',
+                forWhom: [
+                    { title: 'Эмоционально нестабильные', desc: 'Кого часто выбивают из колеи внешние обстоятельства.' },
+                    { title: 'Работающие над собой', desc: 'Кто хочет стабильного, взрослого состояния каждый день.' }
+                ],
+                results: [
+                    'Освоение центрального взрослого «Я»',
+                    'Усиление энергии и результативности',
+                    'Алгоритм работы с состоянием на каждый день'
+                ],
+                modules: [
+                    { name: 'Эфир', desc: 'Из каких частей состоит внутренняя система «Я» и три позиции (выше, ниже, посередине).' }
+                ],
+                reviews: [],
+                faq: [],
+                price: 'В рамках клуба Сила Жизни',
+                backLink: 'path-mental'
+            },
+            
+            'separation-from-family-scenarios': {
+                title: 'Separation from Family Scenarios',
+                tag: 'АВТОРСКАЯ ПРАКТИКА',
+                shortDesc: 'Уникальный инструмент для снятия повторяющихся сценариев рода через перестройку нейронных связей.',
+                mission: 'Освободить человека от тяжести деструктивных родовых лояльностей, не заставляя его погружаться в боль прошлого.',
+                whyImportant: 'Многие программы безденежья, одиночества или тяжелой судьбы не принадлежат нам, а скопированы из родовой системы. Их невозможно убрать просто логикой.',
+                forWhom: [
+                    { title: 'Ходящие по кругу', desc: 'Кто замечает, что повторяет судьбу родителей или предков.' },
+                    { title: 'Уставшие от раскопок', desc: 'Кто хочет решить вопрос через новое состояние, а не бесконечный анализ травм.' }
+                ],
+                results: [
+                    'Снятие повторяющихся сценариев рода',
+                    'Перестройка нейронных связей на созидание',
+                    'Освобождение огромного количества жизненной энергии'
+                ],
+                modules: [
+                    { name: 'Практика', desc: 'Методика Анны Хефорс на основе нейропластичности мозга.' }
+                ],
+                reviews: [],
+                faq: [],
+                price: 'В рамках клуба Сила Жизни',
+                backLink: 'path-mental'
+            },
+            
+            'psychogenotypes': {
+                title: 'Психогенотипы',
+                tag: 'СИСТЕМНЫЙ ПРОЕКТ',
+                shortDesc: 'Глубинное понимание структуры своей личности и врожденных паттернов поведения.',
+                mission: 'Дать ключ к расшифровке индивидуальных настроек психики, чтобы перестать ломать себя и начать использовать свои сильные стороны.',
+                whyImportant: 'Мы часто сравниваем себя с другими и пытаемся соответствовать чужим идеалам. Понимание своего психогенотипа снимает чувство неполноценности и открывает доступ к врожденным талантам.',
+                forWhom: [
+                    { title: 'Ищущие себя', desc: 'Для тех, кто хочет понять свои подлинные реакции и мотивы.' },
+                    { title: 'Специалисты', desc: 'Для тех, кто работает с людьми и хочет лучше понимать их структуру.' }
+                ],
+                results: [
+                    'Распаковка индивидуальных особенностей личности',
+                    'Снижение самокритики и рост опоры на свои сильные стороны',
+                    'Понимание того, как выстраивать отношения с разными типами людей'
+                ],
+                modules: [
+                    { name: 'Module психогенотипов', desc: 'Подробный разбор структур личности.' }
+                ],
+                reviews: [],
+                faq: [],
+                price: 'По запросу',
+                backLink: 'path-mental'
+            }
+        };
+
+        function navigateTo(viewName) {
+            state.currentView = viewName;
+            updateActiveNav(viewName);
+            if (viewName !== 'method' && window.__starCleanup) {
+                window.__starCleanup();
+                window.__starCleanup = null;
+            }
+            
+            const mobileMenu = document.getElementById('mobile-menu');
+            if(mobileMenu) mobileMenu.classList.add('hidden');
+            
+            const main = document.getElementById('app-content');
+            let template = document.getElementById(`view-${viewName}`);
+            
+            if (!template) {
+               console.warn(`View template 'view-${viewName}' not found.`);
+               return;
+            }
+            
+            main.style.opacity = 0;
+            setTimeout(() => {
+                main.innerHTML = template.innerHTML;
+                main.style.opacity = 1;
+                
+                if (viewName === 'method') {
+                    setTimeout(drawMethodStar, 50);
+                }
+                
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }, 200);
+        }
+
+        function updateActiveNav(viewName) {
+            const navButtons = document.querySelectorAll('.nav-link[data-nav]');
+            const mainView = viewName.startsWith('path-') ? 'path' : viewName;
+            navButtons.forEach((btn) => {
+                btn.classList.toggle('nav-link-active', btn.dataset.nav === mainView);
+            });
+        }
+
+        function submitProductForm(event, productId) {
+            event.preventDefault();
+            const product = productDetails[productId];
+            if (!product) return;
+            const form = event.target;
+            const formData = new FormData(form);
+            const name = (formData.get('name') || '').toString().trim();
+            const email = (formData.get('email') || '').toString().trim();
+            const phone = (formData.get('phone') || '').toString().trim();
+            const consent = formData.get('consent');
+
+            if (!name || !email || !phone || !consent) {
+                alert('Пожалуйста, заполните все поля формы и подтвердите согласие.');
+                return;
+            }
+
+            const text = [
+                'Новая заявка на программу DOM',
+                `Продукт: ${product.title}`,
+                `Стоимость: ${product.price}`,
+                `Имя: ${name}`,
+                `Email: ${email}`,
+                `Телефон: ${phone}`
+            ].join('\n');
+
+            window.open(`https://t.me/itbrain_support?text=${encodeURIComponent(text)}`, '_blank');
+            form.reset();
+            alert('Заявка отправлена. Мы свяжемся с вами в ближайшее время.');
+        }
+
+        // --- DYNAMIC PRODUCT PAGE ROUTING ---
+        function navigateToProduct(productId) {
+            const product = productDetails[productId];
+            if (!product) {
+                alert("Информация о продукте формируется.");
+                return;
+            }
+            updateActiveNav('path');
+            if (window.__starCleanup) {
+                window.__starCleanup();
+                window.__starCleanup = null;
+            }
+
+            const main = document.getElementById('app-content');
+            main.style.opacity = 0;
+
+            setTimeout(() => {
+                const forWhomHTML = product.forWhom.map(item => `
+                    <div class="bg-white p-8 rounded-2xl border border-dom-graphite/10 hover:shadow-xl hover:border-dom-gold/40 transition-all duration-300 relative overflow-hidden group">
+                        <h4 class="font-messiri text-2xl text-dom-graphite mb-3">${item.title}</h4>
+                        <p class="text-sm text-dom-graphite/70 font-montserrat leading-relaxed">${item.desc}</p>
+                    </div>
+                `).join('');
+
+                const resultsHTML = product.results.map(res => `
+                    <li class="flex items-start bg-dom-beige/20 p-5 rounded-xl border border-dom-beige hover:border-dom-gold/30 transition-colors">
+                        <span class="text-dom-gold mr-4 mt-1 text-2xl font-bold">✓</span>
+                        <span class="text-dom-graphite/80 font-montserrat text-base leading-relaxed">${res}</span>
+                    </li>
+                `).join('');
+
+                const modulesHTML = product.modules.length > 0 ? product.modules.map((mod, idx) => `
+                    <div class="border-l-2 border-dom-gold/30 pl-8 pb-8 relative group">
+                        <div class="absolute w-4 h-4 bg-dom-beige border-2 border-dom-gold rounded-full -left-[9px] top-1 group-hover:bg-dom-gold transition-colors"></div>
+                        <h5 class="font-messiri font-bold text-dom-graphite text-2xl mb-2">${mod.name}</h5>
+                        <p class="text-base text-dom-graphite/70 font-montserrat leading-relaxed">${mod.desc}</p>
+                    </div>
+                `).join('') : '<p class="text-dom-graphite/50 italic">Структура программы обновляется...</p>';
+
+                const reviewsHTML = product.reviews && product.reviews.length > 0 ? product.reviews.map(rev => `
+                    <div class="bg-dom-graphite text-dom-beige p-10 rounded-2xl relative shadow-2xl border border-dom-gold/10">
+                        <span class="absolute top-4 left-6 text-7xl text-dom-gold/20 font-serif">"</span>
+                        <p class="font-montserrat text-base leading-relaxed mb-8 relative z-10 italic">«${rev.text}»</p>
+                        <div class="flex items-center">
+                            <p class="font-messiri text-dom-gold font-bold text-xl">— ${rev.author}</p>
+                        </div>
+                    </div>
+                `).join('') : '';
+
+                const faqHTML = product.faq && product.faq.length > 0 ? product.faq.map(f => `
+                    <details class="bg-white border border-dom-graphite/10 rounded-xl p-6 cursor-pointer group hover:border-dom-gold/40 transition-colors shadow-sm mb-4">
+                        <summary class="font-bold text-dom-graphite group-open:text-dom-goldDark text-lg transition-colors font-montserrat outline-none list-none flex justify-between items-center">
+                            ${f.q}
+                            <span class="text-dom-gold text-3xl font-light group-open:rotate-45 transition-transform">+</span>
+                        </summary>
+                        <p class="text-dom-graphite/70 font-montserrat mt-5 text-base leading-relaxed border-t border-gray-100 pt-5">${f.a}</p>
+                    </details>
+                `).join('') : '';
+
+                main.innerHTML = `
+                    <section class="bg-dom-beige/10 min-h-screen pt-12 pb-32">
+                        <div class="max-w-5xl mx-auto px-4 fade-in">
+                            <button onclick="navigateTo('${product.backLink}')" class="text-dom-goldDark hover:text-dom-graphite flex items-center text-sm font-bold uppercase tracking-widest mb-10 transition-colors bg-white px-5 py-2 rounded-full shadow-sm border border-dom-gold/20 inline-flex">
+                                <span class="mr-2">←</span> Назад к направлению
+                            </button>
+
+                            <div class="bg-white rounded-[2rem] p-10 md:p-16 border border-dom-gold/20 shadow-2xl mb-20 relative overflow-hidden">
+                                <span class="text-xs font-bold uppercase text-white bg-dom-goldDark px-5 py-2 rounded-full inline-block mb-8 shadow-md tracking-widest">${product.tag}</span>
+                                <h1 class="font-messiri text-5xl md:text-7xl text-dom-graphite mb-8 leading-tight">${product.title}</h1>
+                                <p class="text-xl md:text-2xl text-dom-graphite/80 font-montserrat leading-relaxed max-w-4xl font-light border-l-4 border-dom-gold pl-6">${product.shortDesc}</p>
+                            </div>
+
+                            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-24">
+                                <div class="bg-dom-graphite p-10 md:p-12 rounded-[2rem] text-dom-beige shadow-2xl relative overflow-hidden">
+                                    <h3 class="font-messiri text-4xl text-dom-gold mb-6 relative z-10">Project Mission</h3>
+                                    <p class="font-montserrat leading-relaxed opacity-90 text-lg relative z-10">${product.mission}</p>
+                                </div>
+                                <div class="p-10 md:p-12 bg-white rounded-[2rem] border border-dom-graphite/10 shadow-xl">
+                                    <h3 class="font-messiri text-4xl text-dom-graphite mb-6">Почему это важно?</h3>
+                                    <p class="font-montserrat leading-relaxed text-dom-graphite/80 text-lg">${product.whyImportant}</p>
+                                </div>
+                            </div>
+
+                            ${product.forWhom.length > 0 ? `
+                            <div class="mb-24">
+                                <div class="text-center mb-12">
+                                    <h3 class="font-messiri text-5xl text-dom-graphite">Who Is This Path For?</h3>
+                                </div>
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                                    ${forWhomHTML}
+                                </div>
+                            </div>` : ''}
+
+                            <div class="bg-white rounded-[2.5rem] p-10 md:p-16 border border-dom-gold/20 shadow-2xl mb-24 grid grid-cols-1 lg:grid-cols-2 gap-16 relative overflow-hidden">
+                                <div class="relative z-10">
+                                    <h3 class="font-messiri text-4xl text-dom-graphite mb-10">Что вы получите:</h3>
+                                    <ul class="space-y-4">
+                                        ${resultsHTML}
+                                    </ul>
+                                </div>
+                                <div class="relative z-10">
+                                    <h3 class="font-messiri text-4xl text-dom-graphite mb-10">How It Works:</h3>
+                                    <div class="pt-4">
+                                        ${modulesHTML}
+                                    </div>
+                                </div>
+                            </div>
+
+                            ${reviewsHTML ? `
+                            <div class="mb-24">
+                                <h3 class="font-messiri text-5xl text-dom-graphite mb-12 text-center">Participant Transformations</h3>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                                    ${reviewsHTML}
+                                </div>
+                            </div>` : ''}
+
+                            ${faqHTML ? `
+                            <div class="mb-24 max-w-4xl mx-auto">
+                                <h3 class="font-messiri text-5xl text-dom-graphite mb-12 text-center">Частые вопросы</h3>
+                                <div class="space-y-2">
+                                    ${faqHTML}
+                                </div>
+                            </div>` : ''}
+
+                            <div class="product-enroll p-8 md:p-12 rounded-[2.2rem] relative overflow-hidden">
+                                <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                                    <div class="bg-white/15 border border-white/30 rounded-3xl p-6 md:p-8">
+                                        <p class="font-montserrat text-xs uppercase tracking-[0.16em] text-dom-graphite/70 mb-4">Participation Terms</p>
+                                        <h3 class="font-messiri text-4xl text-dom-graphite mb-4">Enroll in Program</h3>
+                                        <p class="font-montserrat text-base text-dom-graphite/80 leading-relaxed mb-6">${product.shortDesc}</p>
+                                        <div class="text-5xl font-messiri text-dom-graphite mb-2">${product.price}</div>
+                                        <p class="font-montserrat text-sm text-dom-graphite/75">Format: ${product.tag}. After registration, the DOM support team will contact you and confirm participation details.</p>
+                                    </div>
+
+                                    <form onsubmit="submitProductForm(event, '${productId}')" class="bg-white/20 border border-white/35 rounded-3xl p-6 md:p-8">
+                                        <h4 class="font-messiri text-4xl text-dom-graphite mb-5">Application Form</h4>
+                                        <div class="space-y-4">
+                                            <input type="text" name="name" required class="product-enroll-input" placeholder="Your Name">
+                                            <input type="email" name="email" required class="product-enroll-input" placeholder="Email">
+                                            <input type="tel" name="phone" required class="product-enroll-input" placeholder="Phone / Telegram">
+                                        </div>
+
+                                        <button type="submit" class="w-full mt-6 py-4 bg-dom-graphite text-dom-gold font-messiri text-3xl tracking-wide rounded-2xl hover:bg-[#26211b] transition-all shadow-[0_12px_26px_rgba(28,22,16,0.3)]">
+                                            Reserve Your Spot
+                                        </button>
+
+                                        <label class="mt-5 flex items-start gap-3 cursor-pointer">
+                                            <input type="checkbox" name="consent" required class="mt-1 w-5 h-5 rounded border-dom-graphite/40">
+                                            <span class="font-montserrat text-sm leading-relaxed text-dom-graphite/85">I consent to personal data processing and receiving messages related to my application.</span>
+                                        </label>
+
+                                        <p class="font-montserrat text-xs leading-relaxed text-dom-graphite/70 mt-4">
+                                            Нажимая «Reserve Your Spot», вы подтверждаете согласие с условиями оферты и политикой обработки персональных данных.
+                                        </p>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                `;
+                main.style.opacity = 1;
+                window.scrollTo(0, 0);
+            }, 300);
+        }
+
+        // --- METHOD VIEW LOGIC (STAR CANVAS) ---
+        function drawMethodStar() {
+            const canvas = document.getElementById('starCanvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            if (window.__starCleanup) window.__starCleanup();
+
+            const width = canvas.width;
+            const height = canvas.height;
+            const cx = width / 2;
+            const cy = height / 2;
+            const R = 138;
+            const mouse = { x: 0, y: 0 };
+            let raf = null;
+            if (!window.__bridgeElementImg) {
+                const img = new Image();
+                img.src = './dom-assets/bridge-element.png';
+                window.__bridgeElementImg = img;
+            }
+            const bridgeImg = window.__bridgeElementImg;
+
+            const onMove = (e) => {
+                const rect = canvas.getBoundingClientRect();
+                mouse.x = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
+                mouse.y = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
+            };
+            const onLeave = () => { mouse.x = 0; mouse.y = 0; };
+            canvas.addEventListener('mousemove', onMove);
+            canvas.addEventListener('mouseleave', onLeave);
+
+            function rotatePoint(x, y, angle) {
+                return {
+                    x: x * Math.cos(angle) - y * Math.sin(angle),
+                    y: x * Math.sin(angle) + y * Math.cos(angle)
+                };
+            }
+
+            function drawTriangle(points, fill, stroke) {
+                ctx.beginPath();
+                ctx.moveTo(points[0].x, points[0].y);
+                ctx.lineTo(points[1].x, points[1].y);
+                ctx.lineTo(points[2].x, points[2].y);
+                ctx.closePath();
+                ctx.fillStyle = fill;
+                ctx.strokeStyle = stroke;
+                ctx.lineWidth = 2.2;
+                ctx.fill();
+                ctx.stroke();
+            }
+
+            function drawLabel(letter, sub, x, y) {
+                ctx.save();
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+
+                ctx.font = '700 11px "Montserrat", sans-serif';
+                const subWidth = ctx.measureText(sub).width;
+                const w = Math.max(108, Math.min(188, subWidth + 24));
+                const h = 42;
+                const rx = x - w / 2;
+                const ry = y - h / 2;
+
+                ctx.fillStyle = 'rgba(56,51,45,0.8)';
+                ctx.strokeStyle = 'rgba(217,179,114,0.62)';
+                ctx.lineWidth = 1;
+                ctx.beginPath();
+                ctx.roundRect(rx, ry, w, h, 12);
+                ctx.fill();
+                ctx.stroke();
+
+                ctx.font = '700 13px "Montserrat", sans-serif';
+                ctx.fillStyle = '#d9b372';
+                ctx.fillText(letter, x, y - 8);
+
+                ctx.font = '600 11px "Montserrat", sans-serif';
+                ctx.fillStyle = '#f4e4ce';
+                ctx.fillText(sub, x, y + 9);
+                ctx.restore();
+            }
+
+            function render(ts) {
+                const t = ts * 0.001;
+                const spin = t * 0.18 + mouse.x * 0.2;
+                const sway = mouse.y * 12;
+                ctx.clearRect(0, 0, width, height);
+
+                ctx.save();
+                ctx.translate(cx, cy + sway);
+
+                for (let i = 0; i < 4; i++) {
+                    ctx.beginPath();
+                    ctx.arc(0, 0, 62 + i * 20, 0, Math.PI * 2);
+                    ctx.strokeStyle = `rgba(217,179,114,${0.2 - i * 0.035})`;
+                    ctx.lineWidth = 1;
+                    ctx.stroke();
+                }
+
+                const baseUp = [
+                    { x: 0, y: -R },
+                    { x: R * 0.866025, y: R * 0.5 },
+                    { x: -R * 0.866025, y: R * 0.5 }
+                ];
+                const baseDown = [
+                    { x: 0, y: R },
+                    { x: -R * 0.866025, y: -R * 0.5 },
+                    { x: R * 0.866025, y: -R * 0.5 }
+                ];
+                const up = baseUp.map((p) => {
+                    const r = rotatePoint(p.x, p.y, spin);
+                    return { x: r.x, y: r.y };
+                });
+                const down = baseDown.map((p) => {
+                    const r = rotatePoint(p.x, p.y, -spin * 0.92);
+                    return { x: r.x, y: r.y };
+                });
+
+                ctx.shadowColor = 'rgba(217, 179, 114, 0.35)';
+                ctx.shadowBlur = 18;
+                drawTriangle(up, 'rgba(217,179,114,0.10)', 'rgba(217,179,114,0.9)');
+                drawTriangle(down, 'rgba(217,179,114,0.05)', 'rgba(217,179,114,0.85)');
+                ctx.shadowBlur = 0;
+
+                if (bridgeImg && bridgeImg.complete) {
+                    const pulse = 1 + Math.sin(t * 1.6) * 0.035;
+                    const bridgeW = 196 * pulse;
+                    const bridgeH = 186 * pulse;
+                    ctx.save();
+                    ctx.globalAlpha = 0.72;
+                    ctx.translate(0, 0);
+                    ctx.rotate(-spin * 0.35);
+                    ctx.shadowColor = 'rgba(217,179,114,0.34)';
+                    ctx.shadowBlur = 22;
+                    ctx.drawImage(bridgeImg, -bridgeW / 2, -bridgeH / 2 - 6, bridgeW, bridgeH);
+                    ctx.restore();
+                }
+
+                const labels = [
+                    { l: 'D', s: 'Money', x: 0, y: -R - 40, a: spin },
+                    { l: 'O', s: 'Relationships', x: -R * 0.866025 - 52, y: R * 0.5 + 28, a: spin },
+                    { l: 'M', s: 'Ментальность', x: R * 0.866025 + 58, y: R * 0.5 + 28, a: spin },
+                    { l: 'D', s: 'Дух', x: 0, y: R + 40, a: -spin * 0.92 },
+                    { l: 'O', s: 'Awareness', x: -R * 0.866025 - 52, y: -R * 0.5 - 28, a: -spin * 0.92 },
+                    { l: 'M', s: 'Worldview', x: R * 0.866025 + 58, y: -R * 0.5 - 28, a: -spin * 0.92 }
+                ];
+                labels.forEach((item) => {
+                    const rp = rotatePoint(item.x, item.y, item.a);
+                    drawLabel(item.l, item.s, rp.x, rp.y);
+                });
+
+                ctx.shadowColor = 'rgba(224, 193, 136, 0.85)';
+                ctx.shadowBlur = 30;
+                ctx.beginPath();
+                ctx.arc(0, 0, 45, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(255,255,255,0.08)';
+                ctx.fill();
+                ctx.shadowBlur = 0;
+                ctx.strokeStyle = 'rgba(217,179,114,0.5)';
+                ctx.lineWidth = 1.4;
+                ctx.stroke();
+                ctx.fillStyle = '#ffffff';
+                ctx.font = 'bold 15px "Montserrat", sans-serif';
+                ctx.fillText('ЛЮБОВЬ', 0, 0);
+
+                ctx.restore();
+                raf = requestAnimationFrame(render);
+            }
+
+            raf = requestAnimationFrame(render);
+            window.__starCleanup = () => {
+                canvas.removeEventListener('mousemove', onMove);
+                canvas.removeEventListener('mouseleave', onLeave);
+                if (raf) cancelAnimationFrame(raf);
+            };
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            navigateTo('home');
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+            if(btn && menu) {
+                btn.addEventListener('click', () => {
+                    menu.classList.toggle('hidden');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

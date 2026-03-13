@@ -42,12 +42,40 @@ const { titleLine1, titleLine2, subtitle, image, imageCaption, form } = Astro.pr
           </h2>
           <p class="home-final-cta-sub">{subtitle}</p>
 
-          <div class="home-final-cta-form home-final-cta-getcourse" aria-label="Форма заявки">
+          <div class="home-final-cta-form home-final-cta-getcourse" aria-label="Форма заявки" id="getcourse-widget-container">
+            <div class="home-final-cta-getcourse-placeholder" id="getcourse-placeholder">
+              <p class="text-sm text-dom-graphite/70 font-montserrat">Загрузка формы…</p>
+            </div>
             <script
               id="92f16c1101a62242a6bc3cb34b4c36088a01468e"
               src="https://khefors.ru/pl/lite/widget/script?id=1575472"
-              is:inline
-            />
+              defer
+            ></script>
+            <script is:inline>
+              (function() {
+                function hidePlaceholder() {
+                  var el = document.getElementById('getcourse-placeholder');
+                  if (el) el.style.display = 'none';
+                }
+                if (document.readyState === 'loading') {
+                  document.addEventListener('DOMContentLoaded', function check() {
+                    setTimeout(function() {
+                      var container = document.getElementById('getcourse-widget-container');
+                      if (container && container.querySelector('iframe')) hidePlaceholder();
+                    }, 1500);
+                  });
+                } else {
+                  setTimeout(function() {
+                    var container = document.getElementById('getcourse-widget-container');
+                    if (container && container.querySelector('iframe')) hidePlaceholder();
+                  }, 1500);
+                }
+                setInterval(function() {
+                  var container = document.getElementById('getcourse-widget-container');
+                  if (container && container.querySelector('iframe')) hidePlaceholder();
+                }, 800);
+              })();
+            </script>
           </div>
           <p class="home-final-cta-note">{form.disclaimer}</p>
         </div>

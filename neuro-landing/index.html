@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Нейро Тренажёры Мозга</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            dark: '#1a0848',
+            purple: { glow: '#7c3aed', deep: '#4c1d95', mid: '#6d28d9' },
+          },
+          backgroundImage: {
+            'gradient-hero': 'linear-gradient(135deg, #dc2626 0%, #ec4899 50%, #8b5cf6 100%)',
+            'gradient-cta': 'linear-gradient(90deg, #dc2626 0%, #f97316 100%)',
+            'gradient-bg': 'linear-gradient(180deg, #1e0a3c 0%, #2d1b4e 40%, #1a0848 100%)',
+          },
+          boxShadow: {
+            'glow': '0 0 40px rgba(124, 58, 237, 0.3)',
+            'glow-pink': '0 0 60px rgba(236, 72, 153, 0.2)',
+            'glass': '0 8px 32px rgba(0,0,0,0.2)',
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    /* Контейнер как в дизайне: 1100–1200px, не width:100% */
+    .container { width: 100%; max-width: 1160px; margin-left: auto; margin-right: auto; padding-left: 1.5rem; padding-right: 1.5rem; }
+    @media (min-width: 1024px) { .container { padding-left: 2rem; padding-right: 2rem; } }
+    .title-neiro { background: linear-gradient(90deg, #c084fc, #f97316); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .title-trenazhery { color: #f97316; }
+    .title-mozga { color: #fff; }
+    .gradient-text { background: linear-gradient(90deg, #ff4b5c, #ff4fa3, #9b6bff); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .hero-badge { background: rgba(88, 28, 135, 0.6); border-radius: 999px; padding: 10px 20px; font-size: 14px; font-weight: 600; color: #fff; }
+    .hero-feature-sep { width: 2px; min-height: 2.5em; background: linear-gradient(180deg, #f97316, #ec4899); border-radius: 1px; }
+    .cta-wrap { display: flex; flex-wrap: wrap; align-items: center; gap: 24px; }
+    .cta { padding: 0; border-radius: 20px; font-size: 0; font-weight: 700; letter-spacing: 0.05em; background: transparent; color: #fff; text-decoration: none; display: inline-flex; align-items: stretch; overflow: hidden; box-shadow: 0 8px 32px rgba(255, 75, 43, 0.4); border: none; transition: transform 0.2s, box-shadow 0.2s; min-height: 64px; }
+    .cta:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(255, 75, 43, 0.5); }
+    .cta-icon-box { width: 64px; flex-shrink: 0; background: rgba(139, 92, 246, 0.5); display: flex; align-items: center; justify-content: center; }
+    .cta-icon { width: 28px; height: 28px; border-radius: 6px; background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(200,180,255,0.8)); flex-shrink: 0; }
+    .cta-text { padding: 14px 32px 16px 28px; background: linear-gradient(90deg, #ea580c, #ff6b35); display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 2px; }
+    .cta-text .cta-discount { font-size: 13px; font-weight: 600; opacity: 0.95; text-transform: uppercase; }
+    .cta-text .cta-buy { font-size: 20px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+    .hero-price-new { font-size: 28px; font-weight: 700; color: #ff6b35; }
+    .btn-store { padding: 12px 24px; border-radius: 12px; font-size: 14px; font-weight: 500; color: #fff; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; background: #3b2563; border: 1px solid rgba(255,255,255,0.15); transition: opacity 0.2s; }
+    .btn-store:hover { opacity: 0.9; }
+    .glass-card { background: rgba(255,255,255,0.08); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.2); border-radius: 1rem; }
+    .neural-pattern { background-image: radial-gradient(circle at 20% 30%, rgba(124,58,237,0.08) 0%, transparent 50%), radial-gradient(circle at 80% 70%, rgba(236,72,153,0.06) 0%, transparent 50%); }
+    .hero-grid { display: grid; grid-template-columns: 1.1fr 1.3fr; align-items: center; gap: 80px; min-height: 90vh; }
+    @media (max-width: 1023px) { .hero-grid { grid-template-columns: 1fr; gap: 48px; min-height: auto; padding: 2rem 0; } }
+    .phones { position: relative; width: 100%; min-height: 85vh; overflow: visible; }
+    .phone-front, .phone-back { box-sizing: border-box; flex-shrink: 0; }
+    .phone-front { position: absolute; right: 0; top: 5%; width: 55vw !important; max-width: 920px; min-width: 320px; transform: rotate(-8deg); z-index: 2; }
+    .phone-back { position: absolute; right: 20%; top: 0; width: 48vw !important; max-width: 800px; min-width: 280px; transform: rotate(6deg); opacity: 0.88; }
+    .hero-brain-icon { width: 52px; height: 52px; border-radius: 50%; background: linear-gradient(135deg, rgba(236,72,153,0.5), rgba(139,92,246,0.5)); border: 2px solid rgba(255,255,255,0.2); flex-shrink: 0; align-self: flex-start; margin-top: -6px; }
+    @media (max-width: 1023px) { .phones { min-height: 70vh; } .phone-front { width: 75vw !important; max-width: 380px; right: 5%; } .phone-back { width: 65vw !important; max-width: 320px; right: 35%; } }
+  </style>
+</head>
+<body class="min-h-screen text-white font-sans antialiased">
+  <!-- Background -->
+  <div class="fixed inset-0 bg-gradient-to-b from-[#1e0a3c] via-[#2d1b4e] to-[#1a0848] neural-pattern z-0" aria-hidden="true"></div>
+
+  <!-- Subtle neural shapes (SVG pattern) -->
+  <div class="fixed inset-0 opacity-[0.04] z-0" aria-hidden="true">
+    <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="neurons" x="0" y="0" width="120" height="120" patternUnits="userSpaceOnUse">
+          <circle cx="20" cy="20" r="1" fill="white"/>
+          <circle cx="60" cy="40" r="0.5" fill="white"/>
+          <circle cx="100" cy="20" r="1" fill="white"/>
+          <path d="M20 20 Q50 30 60 40" stroke="white" stroke-width="0.3" fill="none"/>
+          <path d="M60 40 Q80 50 100 20" stroke="white" stroke-width="0.3" fill="none"/>
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#neurons)"/>
+    </svg>
+  </div>
+
+  <main class="relative z-10">
+    <!-- ========== HERO ========== -->
+    <section style="overflow: visible;">
+      <div class="container" style="overflow: visible;">
+        <div class="hero-grid">
+      <div>
+        <p class="text-xs lg:text-sm uppercase tracking-widest text-white/90 mb-6">
+          САМЫЕ ГЛУБОКИЕ ОСОЗНАНИЯ С МУРАШКАМИ И СЛЕЗАМИ ДОЛГОЖДАННОГО ОСВОБОЖДЕНИЯ
+        </p>
+        <div class="mb-4">
+          <div class="flex flex-wrap items-start gap-3 mb-2">
+            <span class="hero-brain-icon" aria-hidden="true"></span>
+            <div class="flex flex-wrap items-center gap-4">
+              <span class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight title-neiro">НЕЙРО</span>
+              <span class="hero-badge">ЗАПУСК: 16 июня</span>
+            </div>
+          </div>
+          <p class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight title-trenazhery">ТРЕНАЖЁРЫ</p>
+          <div class="flex items-start gap-5 mt-2">
+            <p class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight title-mozga">МОЗГА</p>
+            <span class="hero-feature-sep" aria-hidden="true"></span>
+            <p class="text-white/90 text-sm leading-relaxed pt-1 max-w-xs">5 аудиозаписей продолжительностью 1,5 часа с глубокой терапией</p>
+          </div>
+        </div>
+        <p class="text-white/90 text-base lg:text-lg leading-relaxed mb-8 max-w-lg">
+          Погрузитесь в мир глубокой работы подсознания с выходом в новую реальность счастливых перемен с нейротренажерами мозга от Анны Камаллаи Хефорс.
+        </p>
+        <div class="cta-wrap mb-8">
+          <a href="#purchase" class="cta">
+            <span class="cta-icon-box"><span class="cta-icon" aria-hidden="true"></span></span>
+            <span class="cta-text">
+              <span class="cta-discount">Скидка до 16 ИЮНЯ</span>
+              <span class="cta-buy">ПРИОБРЕСТИ</span>
+            </span>
+          </a>
+          <div class="flex flex-col">
+            <span class="text-white/50 line-through text-base">33 300 ₽</span>
+            <span class="hero-price-new">17 770 ₽</span>
+          </div>
+        </div>
+        <div class="flex flex-wrap gap-3">
+          <a href="#" class="btn-store">Скачать в App Store</a>
+          <a href="#" class="btn-store">Скачать в Google Play</a>
+        </div>
+      </div>
+
+      <!-- Phones (floating, absolute) -->
+      <div class="phones">
+        <div class="phone-back rounded-[2.5rem] bg-gray-900 p-2 shadow-glow border border-white/10">
+          <div class="aspect-[9/19] rounded-[2rem] bg-gradient-to-b from-purple-900/80 to-purple-950 overflow-hidden flex items-center justify-center text-white/50 text-xs">
+            [ Buddha meditation image ]
+          </div>
+        </div>
+        <div class="phone-front rounded-[2.5rem] bg-gray-900 p-2 shadow-glow-pink border border-white/20">
+          <div class="aspect-[9/19] rounded-[2rem] bg-purple-900/40 backdrop-blur overflow-hidden p-4">
+            <p class="text-white/90 font-semibold text-sm mb-4">Проекты</p>
+            <div class="space-y-2">
+              <div class="glass-card px-3 py-2 text-xs">Код новой реальности</div>
+              <div class="glass-card px-3 py-2 text-xs border-pink-400/30">Нейротренажеры мозга</div>
+              <div class="glass-card px-3 py-2 text-xs">Антистресс</div>
+              <div class="glass-card px-3 py-2 text-xs">DMT медитации</div>
+            </div>
+          </div>
+        </div>
+      </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CONTENT ========== -->
+    <section class="py-20 lg:py-28">
+      <div class="container">
+      <h2 class="text-center text-3xl sm:text-4xl lg:text-5xl font-bold gradient-text mb-16">
+        СОДЕРЖАНИЕ
+      </h2>
+      <div class="max-w-5xl mx-auto relative">
+        <!-- Central brain (placeholder) -->
+        <div class="flex justify-center mb-12">
+          <div class="w-40 h-40 sm:w-52 sm:h-52 rounded-full bg-gradient-to-br from-pink-500/30 to-purple-600/40 backdrop-blur border-2 border-white/20 flex items-center justify-center shadow-glow text-white/60 text-sm text-center px-4">
+            Glowing brain<br/>illustration
+          </div>
+        </div>
+        <!-- Glass cards around -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+          <div class="glass-card p-6 lg:p-8 text-center hover:border-pink-400/30 transition-colors">
+            <h3 class="text-lg font-bold uppercase tracking-wider gradient-text mb-3">Личность</h3>
+            <p class="text-white/80 text-sm leading-relaxed">Открытие сердца. Выход в высшее предназначение.</p>
+          </div>
+          <div class="glass-card p-6 lg:p-8 text-center hover:border-pink-400/30 transition-colors">
+            <h3 class="text-lg font-bold uppercase tracking-wider gradient-text mb-3">Деньги</h3>
+            <p class="text-white/80 text-sm leading-relaxed">Изобилие энергии и развитие бизнес систем.</p>
+          </div>
+          <div class="glass-card p-6 lg:p-8 text-center hover:border-pink-400/30 transition-colors">
+            <h3 class="text-lg font-bold uppercase tracking-wider gradient-text mb-3">Здоровье</h3>
+            <p class="text-white/80 text-sm leading-relaxed">Трансформация тела и восстановление энергии.</p>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

@@ -19,8 +19,8 @@ function getTitleLineClass(line: string): string {
 }
 ---
 
-<section class="home-section home-manifest-section home-section-tone-warm">
-  <div class="max-w-6xl mx-auto px-4 home-surface fade-in">
+<section class="layout-mobile-fit home-section home-manifest-section home-section-tone-warm overflow-hidden px-4">
+  <div class="layout-mobile-inner max-w-6xl mx-auto px-4 home-surface fade-in">
     <div class="home-manifest-shell">
       <div class="home-manifest-card">
         <div class="home-manifest-media">
@@ -42,7 +42,7 @@ function getTitleLineClass(line: string): string {
           </div>
         </div>
 
-        <div class="home-manifest-text">
+        <div class="home-manifest-text break-words">
           <p class="home-manifest-eyebrow">{eyebrow}</p>
           <h2 class="home-manifest-title">
             {titleLines.map((line) => {
