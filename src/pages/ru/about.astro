@@ -44,7 +44,9 @@ const personJsonLd = {
 ---
 
 <BaseLayout meta={meta}>
-  <nav aria-label="Хлебные крошки" class="breadcrumbs text-sm">
+  <div class="about-ds">
+  <!-- DS §15: крошки для SEO — только для скринридеров -->
+  <nav aria-label="Хлебные крошки" class="breadcrumbs sr-only text-sm">
     <ol>
       {breadcrumbs.map((b, i) => (
         <li>
@@ -59,7 +61,7 @@ const personJsonLd = {
     </ol>
   </nav>
 
-  <section class="about-page-bg pt-8 pb-16 relative overflow-hidden">
+  <section class="about-page-bg pt-8 md:pt-20 pb-12 md:pb-16 relative overflow-hidden">
     <div
       class="about-bg-glow hidden md:block absolute top-0 right-0 w-[800px] h-[800px] bg-dom-gold rounded-full opacity-[0.05] blur-[100px] pointer-events-none"
       aria-hidden="true"
@@ -83,59 +85,59 @@ const personJsonLd = {
       aria-hidden="true"
     />
 
-    <div class="max-w-6xl mx-auto px-4 about-surface">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 about-surface">
       <AboutHero {...aboutPageData.hero} />
     </div>
   </section>
 
   <!-- Фоны как на главной: чередование soft / warm (со 2-й секции главной), финальный блок — как Final CTA -->
   <section class="home-section home-section-tone-soft relative">
-    <div class="max-w-6xl mx-auto px-4 home-surface fade-in">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 home-surface fade-in">
       <AboutWhoToday {...aboutPageData.whoToday} />
     </div>
   </section>
   <section class="home-section home-section-tone-warm relative">
-    <div class="max-w-6xl mx-auto px-4 home-surface fade-in">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 home-surface fade-in">
       <AboutPhilanthropy {...aboutPageData.philanthropy} />
     </div>
   </section>
   <section class="home-section home-section-tone-soft relative">
-    <div class="max-w-6xl mx-auto px-4 home-surface fade-in">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 home-surface fade-in">
       <AboutPathLived {...aboutPageData.pathLived} />
     </div>
   </section>
   <section class="home-section home-section-tone-warm relative">
-    <div class="max-w-6xl mx-auto px-4 home-surface fade-in">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 home-surface fade-in">
       <AboutPhilosophy {...aboutPageData.philosophy} />
     </div>
   </section>
   <section class="home-section home-section-tone-soft relative">
-    <div class="max-w-6xl mx-auto px-4 home-surface fade-in">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 home-surface fade-in">
       <AboutEcosystem {...aboutPageData.ecosystem} />
     </div>
   </section>
   <section class="home-section home-section-tone-warm relative">
-    <div class="max-w-6xl mx-auto px-4 home-surface fade-in">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 home-surface fade-in">
       <AboutMethod {...aboutPageData.method} />
     </div>
   </section>
   <section class="home-section home-section-tone-soft relative">
-    <div class="max-w-6xl mx-auto px-4 home-surface fade-in">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 home-surface fade-in">
       <AboutBooks {...aboutPageData.books} />
     </div>
   </section>
   <section class="home-section home-section-tone-warm relative">
-    <div class="max-w-6xl mx-auto px-4 home-surface fade-in">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 home-surface fade-in">
       <AboutApp {...aboutPageData.app} />
     </div>
   </section>
   <section class="home-section home-section-tone-soft relative">
-    <div class="max-w-6xl mx-auto px-4 home-surface fade-in">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 home-surface fade-in">
       <AboutStories {...aboutPageData.stories} />
     </div>
   </section>
   <section class="home-section section-home-final-cta relative">
-    <div class="max-w-6xl mx-auto px-4 home-surface fade-in">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 home-surface fade-in">
       <AboutFinalCta {...aboutPageData.finalCta} />
     </div>
   </section>
@@ -148,4 +150,5 @@ const personJsonLd = {
   />
 
   <script type="application/ld+json" set:html={JSON.stringify(personJsonLd)} />
+  </div>
 </BaseLayout>

@@ -11,22 +11,22 @@ interface Props {
 const { eyebrow, title, paragraphs } = Astro.props;
 ---
 
-<article class="about-light-card rounded-[2.2rem] p-7 md:p-9">
+<article class="about-light-card rounded-2xl p-8 md:p-10">
   <p
-    class="font-montserrat text-[10px] md:text-[11px] uppercase tracking-[0.12em] text-dom-goldDark mb-3 text-center md:text-left"
+    class="font-montserrat text-[11px] uppercase tracking-[0.12em] text-dom-goldDark mb-2 md:mb-3 block text-center md:text-left"
   >
     {eyebrow}
   </p>
   <h2
-    class="font-messiri text-dom-graphite mb-3 md:mb-6 text-[clamp(1.4rem,6vw,1.8rem)] md:text-4xl text-center md:text-left"
+    class="font-messiri text-dom-graphite mb-4 md:mb-6 text-[clamp(1.5rem,7vw,2rem)] md:text-4xl lg:text-5xl text-center md:text-left leading-tight"
   >
     {title}
   </h2>
   {paragraphs.map((text, i) => (
     <p
       class:list={[
-        'font-montserrat text-sm md:text-base text-dom-graphite/78 leading-[1.7] md:leading-relaxed text-left',
-        i < paragraphs.length - 1 ? 'mb-4' : '',
+        'font-montserrat text-sm md:text-base lg:text-lg text-dom-graphite leading-relaxed text-left',
+        i < paragraphs.length - 1 ? 'mb-4 md:mb-6' : '',
       ]}
     >
       {text}

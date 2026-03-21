@@ -12,26 +12,28 @@ interface Props {
 const { title, principles, eyebrow } = Astro.props;
 ---
 
-<article class="about-light-card rounded-[2.2rem] p-7 md:p-9">
+<article class="about-light-card rounded-2xl p-8 md:p-10">
   {eyebrow ? (
     <p
-      class="font-montserrat text-[10px] md:text-[11px] uppercase tracking-[0.12em] text-dom-goldDark mb-3 text-center md:text-left"
+      class="font-montserrat text-[11px] uppercase tracking-[0.12em] text-dom-goldDark mb-2 md:mb-3 block text-center md:text-left"
     >
       {eyebrow}
     </p>
   ) : null}
   <h2
-    class="font-messiri text-dom-graphite mb-4 md:mb-6 text-[clamp(1.4rem,6vw,1.8rem)] md:text-4xl text-center md:text-left"
+    class="font-messiri text-dom-graphite mb-4 md:mb-6 text-[clamp(1.5rem,7vw,2rem)] md:text-4xl lg:text-5xl text-center md:text-left leading-tight"
   >
     {title}
   </h2>
-  <div class="flex flex-col gap-4 md:gap-4">
+  <div class="flex flex-col gap-4 md:gap-6">
     {principles.map((item) => (
-      <div class="about-principle-item bg-white/70 border border-dom-gold/20 rounded-2xl p-5 md:rounded-2xl">
-        <h4 class="font-messiri text-[1.1rem] md:text-2xl text-dom-graphite mb-2 font-semibold md:font-normal">
+      <div
+        class="about-principle-item bg-white rounded-2xl border border-dom-gold/25 p-5 md:p-8 shadow-[0_10px_24px_rgba(126,91,35,0.1)]"
+      >
+        <h3 class="font-messiri text-[clamp(1.1rem,5vw,1.3rem)] md:text-2xl text-dom-graphite mb-2 md:mb-3">
           {item.title}
-        </h4>
-        <p class="font-montserrat text-sm text-dom-graphite/78 leading-[1.7] md:leading-normal">{item.description}</p>
+        </h3>
+        <p class="font-montserrat text-sm md:text-base text-dom-graphite leading-relaxed">{item.description}</p>
       </div>
     ))}
   </div>

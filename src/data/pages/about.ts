@@ -43,10 +43,13 @@ export interface AboutPageData {
     principles: Array<{ title: string; description: string }>;
   };
   ecosystem: {
+    /** Первая строка заголовка (вторая — titleLine2, напр. «DOM») */
     title: string;
+    titleLine2?: string;
     description: string;
     items: string[];
-    image: { src: string; alt: string; width?: number; height?: number };
+    /** Не показывается, если есть gallery — портрет в полосе карточек */
+    image?: { src: string; alt: string; width?: number; height?: number };
     eyebrow?: string;
     cta?: { text: string; url: string };
     gallery?: Array<{ src: string; alt: string; imgClass?: string }>;
@@ -212,14 +215,11 @@ export const aboutPageData: AboutPageData = {
   },
   ecosystem: {
     eyebrow: 'Роль Анны Камаллаи Хефорс: основатель экосистемы DOM',
-    title: 'Основатель экосистемы DOM',
+    title: 'Основатель экосистемы',
+    titleLine2: 'DOM',
     description:
       'Камаллая Хефорс создала DOM как целостную экосистему развития: от стабилизации внешней жизни до зрелой внутренней глубины. Это не разрозненные продукты, а единая архитектура, которая помогает человеку пройти путь последовательно и с опорой.',
-    items: [
-      'Внешняя стабильность и внутренняя глубина в одной системе',
-      'Путь шаг за шагом — с ясной опорой, без хаотичных «точечных» курсов',
-      'Связь продуктов, практик и смысла метода DOM',
-    ],
+    items: [],
     image: {
       src: '/dom-assets/anna-portrait.png',
       alt: 'Камаллая Хефорс — основатель экосистемы DOM',

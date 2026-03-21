@@ -1,4 +1,17 @@
-/* Страница «Об авторе» — фон и карточки (source-DOM/source-DOM.html ~3445–3470) */
+/* Страница «Об авторе» — DOM-Design-System.md (карточки, ритм, только .about-ds) */
+
+/* DS §4: вертикальный ритм секций после hero (не трогаем глобальный .home-section на других страницах) */
+.about-ds .home-section {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+@media (min-width: 768px) {
+  .about-ds .home-section {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+}
+
 .about-page-bg {
   isolation: isolate;
   background:
@@ -39,10 +52,12 @@
   transform: translateZ(0);
 }
 
+/* DS §5 — карточка 2 «Тёплая» */
 .about-light-card {
-  background: linear-gradient(155deg, rgba(255, 255, 255, 0.95), rgba(248, 237, 213, 0.78));
-  border: 1px solid rgba(186, 143, 75, 0.22);
-  box-shadow: 0 16px 38px rgba(131, 97, 39, 0.14);
+  background: linear-gradient(145deg, rgba(255, 252, 244, 0.98), rgba(246, 233, 203, 0.92));
+  border: 1px solid rgba(217, 179, 114, 0.22);
+  border-radius: 1rem;
+  box-shadow: 0 10px 24px rgba(126, 91, 35, 0.1);
 }
 
 /* --- Мобильная страница «Об авторе» — только max-width 767px (ниже Tailwind md:) --- */
@@ -55,8 +70,8 @@
   /* Разделители между блоками (после hero, до финального CTA) */
   /* Компактнее отступы секций (финальный CTA — свои отступы из footer-and-final-cta.css) */
   .about-page-bg ~ .home-section:not(.section-home-final-cta) {
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
     border-bottom: 1px solid rgba(217, 179, 114, 0.15);
   }
 
@@ -69,18 +84,15 @@
     padding-bottom: 0;
   }
 
-  /* Философия: принципы без вложенных карточек */
+  /* Философия (DS §5 мобильный): без тени/рамки, padding 20px */
   .about-principle-item {
     background: transparent !important;
     border: none !important;
     border-radius: 0 !important;
     box-shadow: none !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    padding-top: 0 !important;
-    border-bottom: 1px solid rgba(217, 179, 114, 0.12);
-    padding-bottom: 16px !important;
-    margin-bottom: 16px !important;
+    padding: 20px 0 !important;
+    border-bottom: 1px solid rgba(217, 179, 114, 0.15);
+    margin-bottom: 0 !important;
   }
 
   .about-principle-item:last-child {
@@ -148,7 +160,7 @@
     margin-bottom: 0 !important;
   }
 
-  /* Экосистема: галерея без «карточных» рамок на мобильном */
+  /* Экосистема (старая сетка без founder-layout): галерея без тяжёлых рамок на мобильном */
   .about-eco-gallery-cell {
     border: none !important;
     border-radius: 0.75rem;
@@ -189,7 +201,7 @@
   }
 
   .about-hero-lead {
-    font-size: 15px;
+    font-size: 14px;
     line-height: 1.65;
     text-align: center;
   }
@@ -197,7 +209,7 @@
   .about-hero-ctas {
     flex-direction: column !important;
     width: 100%;
-    gap: 0.625rem !important;
+    gap: 0.75rem !important;
   }
 
   .about-hero-ctas a {
