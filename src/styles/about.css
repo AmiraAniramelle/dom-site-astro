@@ -1,0 +1,220 @@
+/* Страница «Об авторе» — фон и карточки (source-DOM/source-DOM.html ~3445–3470) */
+.about-page-bg {
+  isolation: isolate;
+  background:
+    radial-gradient(circle at 12% 10%, rgba(255, 240, 210, 0.95), rgba(255, 240, 210, 0) 42%),
+    radial-gradient(circle at 88% 12%, rgba(245, 218, 166, 0.65), rgba(245, 218, 166, 0) 40%),
+    linear-gradient(150deg, #fffaf0 0%, #f7ebd3 50%, #f2dfb8 100%);
+}
+
+.about-page-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: url('/images/shared/pattern-rings.png') center/520px repeat;
+  opacity: 0.08;
+  pointer-events: none;
+}
+
+/* Декор вне потока — не влияет на высоту секции */
+.about-bg-glow,
+.about-ornament {
+  position: absolute;
+  pointer-events: none;
+}
+
+/* Слой контента поверх паттерна и blur-glow (избегаем «пустой» main на WebKit) */
+.about-bg-glow {
+  z-index: 0;
+}
+
+.about-ornament {
+  z-index: 0;
+}
+
+.about-surface {
+  position: relative;
+  z-index: 2;
+  transform: translateZ(0);
+}
+
+.about-light-card {
+  background: linear-gradient(155deg, rgba(255, 255, 255, 0.95), rgba(248, 237, 213, 0.78));
+  border: 1px solid rgba(186, 143, 75, 0.22);
+  box-shadow: 0 16px 38px rgba(131, 97, 39, 0.14);
+}
+
+/* --- Мобильная страница «Об авторе» — только max-width 767px (ниже Tailwind md:) --- */
+@media (max-width: 767px) {
+  .about-bg-glow,
+  .about-ornament {
+    display: none !important;
+  }
+
+  /* Разделители между блоками (после hero, до финального CTA) */
+  /* Компактнее отступы секций (финальный CTA — свои отступы из footer-and-final-cta.css) */
+  .about-page-bg ~ .home-section:not(.section-home-final-cta) {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(217, 179, 114, 0.15);
+  }
+
+  .about-page-bg ~ .home-section:not(.section-home-final-cta) .home-surface {
+    padding-bottom: 24px;
+    margin-bottom: 0;
+  }
+
+  .about-page-bg ~ .home-section.section-home-final-cta .home-surface {
+    padding-bottom: 0;
+  }
+
+  /* Философия: принципы без вложенных карточек */
+  .about-principle-item {
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-top: 0 !important;
+    border-bottom: 1px solid rgba(217, 179, 114, 0.12);
+    padding-bottom: 16px !important;
+    margin-bottom: 16px !important;
+  }
+
+  .about-principle-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  /* Метод DOM: два направления плоско + разделитель */
+  .about-method-house {
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    border-bottom: 1px solid rgba(217, 179, 114, 0.15);
+    padding-bottom: 16px !important;
+    margin-bottom: 16px !important;
+  }
+
+  .about-method-house:last-of-type {
+    border-bottom: none;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  /* Книги: строки без карточек */
+  .about-book-row {
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    border-bottom: 1px solid rgba(217, 179, 114, 0.15);
+    padding-bottom: 20px !important;
+    margin-bottom: 20px !important;
+  }
+
+  .about-book-row:last-child {
+    border-bottom: none;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  .about-book-cover-wrap {
+    background: transparent !important;
+    padding: 0 !important;
+    min-height: 0 !important;
+  }
+
+  /* Истории: карточка отзыва плоская, сетка только ≥md */
+  .about-story-card {
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    border-bottom: 1px solid rgba(217, 179, 114, 0.12);
+    padding-bottom: 16px !important;
+    margin-bottom: 16px !important;
+  }
+
+  .about-story-card:last-child {
+    border-bottom: none;
+    margin-bottom: 0 !important;
+  }
+
+  /* Экосистема: галерея без «карточных» рамок на мобильном */
+  .about-eco-gallery-cell {
+    border: none !important;
+    border-radius: 0.75rem;
+    height: auto !important;
+    min-height: 120px;
+  }
+
+  /* Hero: портрет сверху, типографика и кнопки (десктопная вёрстка без order в разметке) */
+  .about-hero-grid {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .about-hero-portrait {
+    order: -1;
+    width: 100%;
+    max-width: 280px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1.25rem;
+  }
+
+  .about-hero-portrait .about-hero-portrait-frame {
+    border-radius: 1rem;
+  }
+
+  .about-hero-portrait img {
+    height: 280px !important;
+  }
+
+  .about-hero-copy {
+    text-align: center;
+  }
+
+  .about-hero-title {
+    font-size: clamp(1.8rem, 7vw, 2.4rem);
+    text-align: center;
+  }
+
+  .about-hero-lead {
+    font-size: 15px;
+    line-height: 1.65;
+    text-align: center;
+  }
+
+  .about-hero-ctas {
+    flex-direction: column !important;
+    width: 100%;
+    gap: 0.625rem !important;
+  }
+
+  .about-hero-ctas a {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .about-hero-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.625rem;
+  }
+
+  .about-hero-stats .about-stat-value {
+    font-size: 1.5rem;
+  }
+
+  .about-hero-stats .about-stat-label {
+    font-size: 12px;
+  }
+}

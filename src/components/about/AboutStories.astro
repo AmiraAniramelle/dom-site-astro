@@ -1,0 +1,87 @@
+---
+/**
+ * Блок 10: Истории людей (about-sections/10-stories.md, source-DOM ~6409–6417)
+ */
+interface Story {
+  name: string;
+  text: string;
+  photo?: string;
+}
+
+interface Props {
+  title: string;
+  stories: Story[];
+  eyebrow?: string;
+  intro?: string;
+  cta?: { text: string; url: string };
+}
+
+const { title, stories, eyebrow, intro, cta } = Astro.props;
+---
+
+<article class="about-light-card rounded-[2.2rem] p-7 md:p-9">
+  {eyebrow ? (
+    <p
+      class="font-montserrat text-[10px] md:text-[11px] uppercase tracking-[0.12em] text-dom-goldDark mb-3 text-center md:text-left"
+    >
+      {eyebrow}
+    </p>
+  ) : null}
+  <h2
+    class="font-messiri text-dom-graphite mb-4 text-[clamp(1.4rem,6vw,1.8rem)] md:text-4xl text-center md:text-left"
+  >
+    {title}
+  </h2>
+  {intro ? (
+    <p
+      class="font-montserrat text-sm md:text-base text-dom-graphite/78 leading-[1.7] md:leading-relaxed mb-5 text-left"
+    >
+      {intro}
+    </p>
+  ) : null}
+  {stories.length > 0 ? (
+    <div class="flex flex-col gap-0 md:grid md:grid-cols-2 md:gap-5 mb-6">
+      {stories.map((s) => (
+        <div class="about-story-card bg-white/75 border border-dom-gold/20 rounded-2xl p-5 shadow-[0_10px_24px_rgba(126,91,35,0.08)]">
+          {s.photo ? (
+            <>
+              <div class="hidden md:block mb-3 rounded-xl overflow-hidden border border-dom-gold/20">
+                <img
+                  src={encodeURI(s.photo)}
+                  alt={s.name}
+                  class="w-full h-40 object-cover"
+                  width="320"
+                  height="160"
+                  loading="lazy"
+                />
+              </div>
+              <div class="flex md:hidden items-center gap-3 mb-2">
+                <img
+                  src={encodeURI(s.photo)}
+                  alt={s.name}
+                  class="w-12 h-12 rounded-full object-cover shrink-0"
+                  width="48"
+                  height="48"
+                  loading="lazy"
+                />
+                <p class="font-messiri text-lg text-dom-graphite">{s.name}</p>
+              </div>
+              <p class="hidden md:block font-messiri text-lg text-dom-graphite mb-2">{s.name}</p>
+            </>
+          ) : (
+            <p class="font-messiri text-lg text-dom-graphite mb-2">{s.name}</p>
+          )}
+          <p class="font-montserrat text-sm text-dom-graphite/78 leading-[1.7] md:leading-relaxed">{s.text}</p>
+        </div>
+      ))}
+    </div>
+  ) : null}
+  {cta ? (
+    <a
+      href={cta.url}
+      class="inline-flex w-full md:w-auto justify-center px-8 py-3 border border-dom-gold/45 text-dom-goldDark rounded-xl hover:bg-dom-gold/15 transition font-montserrat font-semibold uppercase tracking-[0.08em] text-xs no-underline"
+    >
+      {cta.text}
+    </a>
+  ) : null}
+</article>

@@ -1,0 +1,77 @@
+---
+/**
+ * Блок 9: Приложение DOM (about-sections/09-app.md, source-DOM ~6385–6406)
+ */
+interface Props {
+  title: string;
+  /** Один или несколько абзацев через \n\n */
+  description: string;
+  image: { src: string; alt: string; width?: number; height?: number };
+  cta: { text: string; url: string };
+  eyebrow?: string;
+  /** Вторая строка над заголовком («Приложение DOM») */
+  sublabel?: string;
+}
+
+const { title, description, image, cta, eyebrow, sublabel } = Astro.props;
+const imgW = image.width ?? 800;
+const imgH = image.height ?? 1600;
+const imgSrc = encodeURI(image.src);
+const paragraphs = description.split(/\n\n+/).map((p) => p.trim()).filter(Boolean);
+---
+
+<article class="about-light-card rounded-[2.2rem] p-7 md:p-9">
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+    <div class="order-2 lg:order-none lg:col-span-6 text-center lg:text-left">
+      {eyebrow ? (
+        <p
+          class="font-montserrat text-[10px] md:text-[11px] uppercase tracking-[0.12em] text-dom-goldDark mb-3 lg:text-left"
+        >
+          {eyebrow}
+        </p>
+      ) : null}
+      {sublabel ? (
+        <p
+          class="font-montserrat text-xs uppercase tracking-[0.12em] text-dom-goldDark mb-2 lg:text-left"
+        >
+          {sublabel}
+        </p>
+      ) : null}
+      <h2
+        class="font-messiri text-dom-graphite mb-4 text-[clamp(1.4rem,6vw,1.8rem)] md:text-4xl lg:text-left"
+      >
+        {title}
+      </h2>
+      {paragraphs.map((para, i) => (
+        <p
+          class:list={[
+            'font-montserrat text-sm md:text-base text-dom-graphite/78 leading-[1.7] md:leading-relaxed lg:text-left',
+            i < paragraphs.length - 1 ? 'mb-3' : 'mb-6',
+          ]}
+        >
+          {para}
+        </p>
+      ))}
+      <a
+        href={cta.url}
+        class="inline-flex w-full lg:w-auto justify-center px-8 py-3 bg-gold-gradient text-white rounded-xl font-montserrat font-semibold uppercase tracking-[0.08em] text-xs shadow-[0_10px_24px_rgba(166,120,50,0.3)] no-underline"
+      >
+        {cta.text}
+      </a>
+    </div>
+    <div class="order-1 lg:order-none lg:col-span-6 w-full">
+      <div
+        class="rounded-xl overflow-hidden border border-dom-gold/25 bg-[linear-gradient(135deg,rgba(42,33,21,0.96),rgba(88,65,33,0.92))] p-2 md:p-4 md:rounded-[1.8rem] md:shadow-[0_18px_38px_rgba(0,0,0,0.24)]"
+      >
+        <img
+          src={imgSrc}
+          alt={image.alt}
+          class="w-full h-auto rounded-xl border border-dom-gold/25"
+          width={imgW}
+          height={imgH}
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </div>
+</article>

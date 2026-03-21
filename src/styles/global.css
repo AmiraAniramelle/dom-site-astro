@@ -82,6 +82,24 @@ nav[aria-label*="крошк"] {
   --dom-home-tone-warm: linear-gradient(180deg, #efe6d6 0%, #ebe2d2 100%);
 }
 
+/*
+ * «Об авторе» — сброс карточек только на узком экране.
+ * Важно: max-width 767px, чтобы не пересекаться с Tailwind md: (min-width 768px).
+ */
+@media (max-width: 767px) {
+  .about-light-card {
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .about-stat-card {
+    padding: 12px 16px !important;
+  }
+}
+
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
@@ -155,6 +173,14 @@ main {
   to { opacity: 1; transform: translateY(0); }
 }
 .fade-in { animation: fadeIn 0.8s ease-out forwards; }
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-in {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
 .gold-text-glow { text-shadow: 0 0 20px rgba(217, 179, 114, 0.3); }
 
 /* Неактивные пункты: светлый текст, без подчёркивания */

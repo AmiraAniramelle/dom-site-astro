@@ -8,7 +8,7 @@ export interface PageMeta {
   description: string; // До 160 символов
   canonicalUrl: string; // Полный URL
   ogImage?: string; // 1200x630
-  ogType?: 'website' | 'article' | 'product';
+  ogType?: 'website' | 'article' | 'product' | 'profile';
   locale: 'ru_RU' | 'en_US';
   alternateLocales?: { lang: string; url: string }[];
   noIndex?: boolean;

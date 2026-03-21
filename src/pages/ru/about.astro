@@ -1,14 +1,151 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import AboutHero from '../../components/about/AboutHero.astro';
+import AboutWhoToday from '../../components/about/AboutWhoToday.astro';
+import AboutPhilanthropy from '../../components/about/AboutPhilanthropy.astro';
+import AboutPathLived from '../../components/about/AboutPathLived.astro';
+import AboutPhilosophy from '../../components/about/AboutPhilosophy.astro';
+import AboutEcosystem from '../../components/about/AboutEcosystem.astro';
+import AboutMethod from '../../components/about/AboutMethod.astro';
+import AboutBooks from '../../components/about/AboutBooks.astro';
+import AboutApp from '../../components/about/AboutApp.astro';
+import AboutStories from '../../components/about/AboutStories.astro';
+import AboutFinalCta from '../../components/about/AboutFinalCta.astro';
+import MethodSubscribe from '../../components/method/MethodSubscribe.astro';
+import { createPageMeta } from '../../data/seo/defaults';
+import { siteConfig } from '../../data/site';
+import type { Breadcrumb } from '../../types/page';
+import { aboutPageData } from '../../data/pages/about';
+import '../../styles/about.css';
+
+const breadcrumbs: Breadcrumb[] = [
+  { name: 'Главная', url: `${siteConfig.url}/ru/` },
+  { name: 'Об авторе', url: `${siteConfig.url}/ru/about/` },
+];
+
+const meta = createPageMeta({
+  title: aboutPageData.seo.title,
+  description: aboutPageData.seo.description,
+  canonicalUrl: aboutPageData.seo.canonicalUrl,
+  ogType: 'profile',
+  locale: 'ru_RU',
+  breadcrumbs,
+});
+
+const personJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: aboutPageData.personSchema.name,
+  jobTitle: aboutPageData.personSchema.jobTitle,
+  description: aboutPageData.personSchema.description,
+  url: `${siteConfig.url}/ru/about/`,
+  image: `${siteConfig.url}${aboutPageData.personSchema.imagePath.startsWith('/') ? '' : '/'}${aboutPageData.personSchema.imagePath}`,
+};
 ---
 
-<BaseLayout title="Об авторе | DOM" description="Анна Камаллая Хефорс — автор метода DOM, исследователь системной природы жизни.">
-  <section class="home-section home-section-tone-soft">
-    <div class="max-w-4xl mx-auto px-4 home-surface">
-      <h1 class="font-messiri home-title text-dom-graphite mb-6">Об авторе</h1>
-      <p class="home-subtitle font-montserrat text-dom-graphite">
-        Анна Камаллая Хефорс — автор метода DOM. Контент переносится из исходного HTML.
-      </p>
+<BaseLayout meta={meta}>
+  <nav aria-label="Хлебные крошки" class="breadcrumbs text-sm">
+    <ol>
+      {breadcrumbs.map((b, i) => (
+        <li>
+          {i > 0 && ' / '}
+          {i === breadcrumbs.length - 1 ? (
+            <span>{b.name}</span>
+          ) : (
+            <a href={b.url.replace(siteConfig.url, '')}>{b.name}</a>
+          )}
+        </li>
+      ))}
+    </ol>
+  </nav>
+
+  <section class="about-page-bg pt-8 pb-16 relative overflow-hidden">
+    <div
+      class="about-bg-glow hidden md:block absolute top-0 right-0 w-[800px] h-[800px] bg-dom-gold rounded-full opacity-[0.05] blur-[100px] pointer-events-none"
+      aria-hidden="true"
+    ></div>
+    <img
+      src="/dom-assets/ornament-flower.png"
+      alt=""
+      class="about-ornament hidden md:block absolute -top-12 -right-16 w-64 opacity-20 pointer-events-none"
+      width="256"
+      height="256"
+      loading="lazy"
+      aria-hidden="true"
+    />
+    <img
+      src="/dom-assets/ornament-flower.png"
+      alt=""
+      class="about-ornament hidden md:block absolute -bottom-12 -left-16 w-64 opacity-20 pointer-events-none"
+      width="256"
+      height="256"
+      loading="lazy"
+      aria-hidden="true"
+    />
+
+    <div class="max-w-6xl mx-auto px-4 about-surface">
+      <AboutHero {...aboutPageData.hero} />
     </div>
   </section>
+
+  <!-- Фоны как на главной: чередование soft / warm (со 2-й секции главной), финальный блок — как Final CTA -->
+  <section class="home-section home-section-tone-soft relative">
+    <div class="max-w-6xl mx-auto px-4 home-surface fade-in">
+      <AboutWhoToday {...aboutPageData.whoToday} />
+    </div>
+  </section>
+  <section class="home-section home-section-tone-warm relative">
+    <div class="max-w-6xl mx-auto px-4 home-surface fade-in">
+      <AboutPhilanthropy {...aboutPageData.philanthropy} />
+    </div>
+  </section>
+  <section class="home-section home-section-tone-soft relative">
+    <div class="max-w-6xl mx-auto px-4 home-surface fade-in">
+      <AboutPathLived {...aboutPageData.pathLived} />
+    </div>
+  </section>
+  <section class="home-section home-section-tone-warm relative">
+    <div class="max-w-6xl mx-auto px-4 home-surface fade-in">
+      <AboutPhilosophy {...aboutPageData.philosophy} />
+    </div>
+  </section>
+  <section class="home-section home-section-tone-soft relative">
+    <div class="max-w-6xl mx-auto px-4 home-surface fade-in">
+      <AboutEcosystem {...aboutPageData.ecosystem} />
+    </div>
+  </section>
+  <section class="home-section home-section-tone-warm relative">
+    <div class="max-w-6xl mx-auto px-4 home-surface fade-in">
+      <AboutMethod {...aboutPageData.method} />
+    </div>
+  </section>
+  <section class="home-section home-section-tone-soft relative">
+    <div class="max-w-6xl mx-auto px-4 home-surface fade-in">
+      <AboutBooks {...aboutPageData.books} />
+    </div>
+  </section>
+  <section class="home-section home-section-tone-warm relative">
+    <div class="max-w-6xl mx-auto px-4 home-surface fade-in">
+      <AboutApp {...aboutPageData.app} />
+    </div>
+  </section>
+  <section class="home-section home-section-tone-soft relative">
+    <div class="max-w-6xl mx-auto px-4 home-surface fade-in">
+      <AboutStories {...aboutPageData.stories} />
+    </div>
+  </section>
+  <section class="home-section section-home-final-cta relative">
+    <div class="max-w-6xl mx-auto px-4 home-surface fade-in">
+      <AboutFinalCta {...aboutPageData.finalCta} />
+    </div>
+  </section>
+
+  <MethodSubscribe
+    eyebrow={aboutPageData.subscribe.eyebrow}
+    title={aboutPageData.subscribe.title}
+    subtitle={aboutPageData.subscribe.subtitle}
+    form={aboutPageData.subscribe.form}
+  />
+
+  <script type="application/ld+json" set:html={JSON.stringify(personJsonLd)} />
 </BaseLayout>
