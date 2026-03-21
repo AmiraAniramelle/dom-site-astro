@@ -1,0 +1,53 @@
+---
+/**
+ * Блок 2: Автор книг — портрет + заголовок + имя + текст
+ */
+interface Props {
+  title: string;
+  authorName: string;
+  paragraphs: string[];
+  portrait: { src: string; alt: string; width?: number; height?: number };
+}
+
+const { title, authorName, paragraphs, portrait } = Astro.props;
+const imgSrc = encodeURI(portrait.src);
+const w = portrait.width ?? 800;
+const h = portrait.height ?? 1080;
+---
+
+<section class="books-author-block books-author-block--portrait mb-12 fade-in">
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+    <div class="lg:col-span-5 flex justify-center lg:justify-start">
+      <figure class="books-author-photo-wrap">
+        <div class="books-author-photo-ring">
+          <img
+            src={imgSrc}
+            alt={portrait.alt}
+            class="books-author-photo"
+            width={w}
+            height={h}
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+        <figcaption class="sr-only">{authorName}</figcaption>
+      </figure>
+    </div>
+    <div class="lg:col-span-7 text-center lg:text-left">
+      <h2 class="font-messiri text-4xl md:text-5xl text-dom-graphite mb-2 tracking-tight">{title}</h2>
+      <p class="books-author-legal-name font-montserrat text-sm md:text-[0.95rem] text-dom-graphite/60 font-medium tracking-[0.02em] mb-6 md:mb-7">
+        {authorName}
+      </p>
+      {paragraphs.map((text, i) => (
+        <p
+          class:list={[
+            'font-montserrat text-base md:text-lg text-dom-graphite/80 leading-relaxed',
+            i < paragraphs.length - 1 ? 'mb-4' : '',
+          ]}
+        >
+          {text}
+        </p>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,66 @@
+---
+/**
+ * Карточка книги — переиспользуемый блок (books-sections/03-book-card-component.md, source-DOM ~6647–6713)
+ */
+interface Props {
+  chip: string;
+  title: string;
+  paragraphs: string[];
+  meta: string[];
+  buyButton: { text: string; url: string };
+  cover: { src: string; alt: string; width?: number; height?: number };
+}
+
+const { chip, title, paragraphs, meta, buyButton, cover } = Astro.props;
+const coverSrc = encodeURI(cover.src);
+const cw = cover.width ?? 480;
+const ch = cover.height ?? 720;
+---
+
+<article class="books-product-card fade-in">
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+    <div class="lg:col-span-7">
+      <span class="book-domain-chip mb-4">{chip}</span>
+      <h2 class="font-messiri text-4xl md:text-5xl text-dom-graphite mb-4">{title}</h2>
+      {paragraphs.map((text, i) => (
+        <p
+          class:list={[
+            'font-montserrat text-lg text-dom-graphite/82 leading-relaxed',
+            i < paragraphs.length - 1 ? 'mb-4' : 'mb-5',
+          ]}
+        >
+          {text}
+        </p>
+      ))}
+      <div class="books-book-meta mb-6">
+        {meta.map((point, i) => (
+          <>
+            {i > 0 ? <span class="books-book-meta-sep">•</span> : null}
+            <span class="books-book-meta-point">{point}</span>
+          </>
+        ))}
+      </div>
+      <a
+        href={buyButton.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center justify-center book-submit-btn !no-underline"
+      >
+        {buyButton.text}
+      </a>
+    </div>
+    <div class="lg:col-span-5">
+      <figure class="books-book-cover-frame">
+        <img
+          src={coverSrc}
+          alt={cover.alt}
+          class="books-book-cover"
+          width={cw}
+          height={ch}
+          loading="lazy"
+          decoding="async"
+        />
+      </figure>
+    </div>
+  </div>
+</article>

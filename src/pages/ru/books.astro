@@ -1,12 +1,90 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import BooksHero from '../../components/books/BooksHero.astro';
+import BooksAuthor from '../../components/books/BooksAuthor.astro';
+import BookCard from '../../components/books/BookCard.astro';
+import { createPageMeta } from '../../data/seo/defaults';
+import { siteConfig } from '../../data/site';
+import type { Breadcrumb } from '../../types/page';
+import { booksPageData } from '../../data/pages/books';
+import '../../styles/books.css';
+
+const breadcrumbs: Breadcrumb[] = [
+  { name: 'Главная', url: `${siteConfig.url}/ru/` },
+  { name: 'Книги автора', url: `${siteConfig.url}/ru/books/` },
+];
+
+const meta = createPageMeta({
+  title: booksPageData.seo.title,
+  description: booksPageData.seo.description,
+  canonicalUrl: booksPageData.seo.canonicalUrl,
+  ogType: 'website',
+  locale: 'ru_RU',
+  breadcrumbs,
+});
+
+const collectionJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Книги Камаллаи Хефорс',
+  description: 'Авторские книги метода DOM',
+  breadcrumb: {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Главная',
+        item: `${siteConfig.url}/ru/`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Книги автора',
+        item: `${siteConfig.url}/ru/books/`,
+      },
+    ],
+  },
+};
+
+const authorName = 'Анна Камаллая Хефорс';
+const bookJsonLdList = booksPageData.bookCards.map((book) => ({
+  '@context': 'https://schema.org',
+  '@type': 'Book',
+  name: book.title,
+  author: { '@type': 'Person', name: authorName },
+  url: book.buyButton.url,
+}));
 ---
 
-<BaseLayout title="Книги автора | DOM" description="Книги Анны Хефорс по методу DOM и системному мышлению.">
-  <section class="home-section home-section-tone-soft">
-    <div class="max-w-4xl mx-auto px-4 home-surface">
-      <h1 class="font-messiri home-title text-dom-graphite mb-6">Книги автора</h1>
-      <p class="home-subtitle font-montserrat text-dom-graphite">Контент переносится из исходного HTML.</p>
+<BaseLayout meta={meta}>
+  <nav aria-label="Хлебные крошки" class="breadcrumbs text-sm">
+    <ol>
+      {breadcrumbs.map((b, i) => (
+        <li>
+          {i > 0 && ' / '}
+          {i === breadcrumbs.length - 1 ? (
+            <span>{b.name}</span>
+          ) : (
+            <a href={b.url.replace(siteConfig.url, '')}>{b.name}</a>
+          )}
+        </li>
+      ))}
+    </ol>
+  </nav>
+
+  <section class="books-page-bg min-h-screen pt-24 pb-32 relative overflow-hidden" data-books-page>
+    <div class="max-w-7xl mx-auto px-4 relative z-10">
+      <BooksHero {...booksPageData.hero} />
+      <BooksAuthor {...booksPageData.author} />
+      <section class="space-y-8" aria-label="Каталог книг">
+        {booksPageData.bookCards.map((card) => (
+          <BookCard {...card} />
+        ))}
+      </section>
     </div>
   </section>
+
+  <script type="application/ld+json" set:html={JSON.stringify(collectionJsonLd)} />
+  {bookJsonLdList.map((doc) => <script type="application/ld+json" set:html={JSON.stringify(doc)} />)}
 </BaseLayout>

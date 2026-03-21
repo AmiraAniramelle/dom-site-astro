@@ -1,0 +1,39 @@
+---
+/**
+ * Блок 1: Hero — Книги (books-sections/01-hero.md, source-DOM ~6607–6624)
+ */
+interface Props {
+  chip: string;
+  title: string;
+  subtitle: string;
+  heroImage: { src: string; alt: string; width?: number; height?: number };
+  press: { label: string; items: string[] };
+}
+
+const { chip, title, subtitle, heroImage, press } = Astro.props;
+const imgSrc = encodeURI(heroImage.src);
+const w = heroImage.width ?? 1920;
+const h = heroImage.height ?? 1080;
+---
+
+<section class="books-hero mb-12 fade-in">
+  <img
+    src={imgSrc}
+    alt={heroImage.alt}
+    class="books-hero-image"
+    width={w}
+    height={h}
+    loading="lazy"
+    decoding="async"
+  />
+  <div class="books-hero-overlay"></div>
+  <div class="books-hero-content">
+    <span class="books-hero-chip">{chip}</span>
+    <h1 class="books-page-main-title font-messiri text-5xl md:text-6xl text-white mb-4">{title}</h1>
+    <p class="books-page-intro font-montserrat text-lg text-white/85 max-w-3xl mx-auto">{subtitle}</p>
+  </div>
+  <div class="books-hero-press">
+    <span class="books-hero-press-label">{press.label}</span>
+    {press.items.map((item) => <span class="books-hero-press-item">{item}</span>)}
+  </div>
+</section>
