@@ -1,0 +1,40 @@
+/* Блок «Занять место» — страница Карта пути (GetCourse) */
+.path-enroll .path-enroll-form-wrap,
+.path-enroll #getcourse-widget-container-path {
+  min-height: 200px;
+  border-radius: 0.5rem;
+  overflow: visible !important;
+  width: 100%;
+}
+
+.path-enroll #getcourse-widget-container-path > * {
+  overflow: visible !important;
+  max-height: none !important;
+}
+
+.path-enroll .path-enroll-getcourse-placeholder {
+  min-height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.path-enroll #getcourse-widget-container-path iframe {
+  max-width: 100%;
+  width: 100% !important;
+  min-height: 220px;
+  border: none;
+  border-radius: 0.5rem;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .path-enroll .path-enroll-form-wrap,
+  .path-enroll #getcourse-widget-container-path {
+    min-height: 260px;
+  }
+  .path-enroll #getcourse-widget-container-path iframe {
+    min-height: 240px;
+  }
+}

@@ -1,37 +1,73 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PathHero from '../../../components/path/PathHero.astro';
+import PathExternalHouse from '../../../components/path/PathExternalHouse.astro';
+import PathMirror from '../../../components/path/PathMirror.astro';
+import PathInternalHouse from '../../../components/path/PathInternalHouse.astro';
+import PathEnroll from '../../../components/path/PathEnroll.astro';
+import { createPageMeta } from '../../../data/seo/defaults';
+import { siteConfig } from '../../../data/site';
+import type { Breadcrumb } from '../../../types/page';
+import { pathPageData } from '../../../data/pages/path';
+
+const breadcrumbs: Breadcrumb[] = [
+  { name: 'Главная', url: `${siteConfig.url}/ru/` },
+  { name: 'Карта пути', url: `${siteConfig.url}/ru/path/` },
+];
+
+const meta = createPageMeta({
+  title: pathPageData.seo.title,
+  description: pathPageData.seo.description,
+  canonicalUrl: pathPageData.seo.canonicalUrl,
+  ogType: 'website',
+  locale: 'ru_RU',
+  breadcrumbs,
+});
+
+const pathWebPageJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: pathPageData.hero.title,
+  description: pathPageData.seo.description,
+  breadcrumb: {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Главная', item: `${siteConfig.url}/ru/` },
+      { '@type': 'ListItem', position: 2, name: 'Карта пути', item: `${siteConfig.url}/ru/path/` },
+    ],
+  },
+};
 ---
 
-<BaseLayout title="Карта пути | DOM" description="Шесть направлений метода DOM: Деньги, Отношения, Ментальное здоровье, Душа, Осознанность, Мировоззрение.">
-  <section class="home-section home-section-tone-soft">
-    <div class="max-w-7xl mx-auto px-4 home-surface">
-      <h1 class="font-messiri home-title text-dom-graphite mb-8 text-center">Карта пути</h1>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <a href="/ru/path/money/" class="home-panel p-6 block hover:border-dom-gold/50 transition-colors rounded-2xl border border-dom-gold/25">
-          <span class="text-dom-gold font-messiri text-2xl">D</span>
-          <h2 class="font-messiri text-xl text-dom-graphite mt-2">Деньги</h2>
-        </a>
-        <a href="/ru/path/relations/" class="home-panel p-6 block hover:border-dom-gold/50 transition-colors rounded-2xl border border-dom-gold/25">
-          <span class="text-dom-gold font-messiri text-2xl">O</span>
-          <h2 class="font-messiri text-xl text-dom-graphite mt-2">Отношения</h2>
-        </a>
-        <a href="/ru/path/mental/" class="home-panel p-6 block hover:border-dom-gold/50 transition-colors rounded-2xl border border-dom-gold/25">
-          <span class="text-dom-gold font-messiri text-2xl">M</span>
-          <h2 class="font-messiri text-xl text-dom-graphite mt-2">Ментальное здоровье</h2>
-        </a>
-        <a href="/ru/path/soul/" class="home-panel p-6 block hover:border-dom-gold/50 transition-colors rounded-2xl border border-dom-gold/25">
-          <span class="text-dom-gold font-messiri text-2xl">D</span>
-          <h2 class="font-messiri text-xl text-dom-graphite mt-2">Душа</h2>
-        </a>
-        <a href="/ru/path/awareness/" class="home-panel p-6 block hover:border-dom-gold/50 transition-colors rounded-2xl border border-dom-gold/25">
-          <span class="text-dom-gold font-messiri text-2xl">O</span>
-          <h2 class="font-messiri text-xl text-dom-graphite mt-2">Осознанность</h2>
-        </a>
-        <a href="/ru/path/worldview/" class="home-panel p-6 block hover:border-dom-gold/50 transition-colors rounded-2xl border border-dom-gold/25">
-          <span class="text-dom-gold font-messiri text-2xl">M</span>
-          <h2 class="font-messiri text-xl text-dom-graphite mt-2">Мировоззрение</h2>
-        </a>
-      </div>
+<BaseLayout meta={meta}>
+  <section class="bg-dom-beige">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-0 pb-0">
+      <nav aria-label="Хлебные крошки" class="text-sm text-dom-graphite/80">
+        <ol class="flex flex-wrap gap-x-2 gap-y-1">
+          {breadcrumbs.map((b, i) => (
+            <li class="flex items-center gap-2">
+              {i > 0 && <span aria-hidden="true">/</span>}
+              {i === breadcrumbs.length - 1 ? (
+                <span class="text-dom-graphite font-medium">{b.name}</span>
+              ) : (
+                <a href={b.url.replace(siteConfig.url, '')} class="hover:text-dom-gold transition-colors">{b.name}</a>
+              )}
+            </li>
+          ))}
+        </ol>
+      </nav>
     </div>
   </section>
+
+  <PathHero {...pathPageData.hero} />
+
+  <!-- Одна секция: без стыка двух <section> и без margin снизу у внутреннего блока (иначе просвечивает фон body) -->
+  <section class="bg-dom-beige relative overflow-x-clip">
+    <PathExternalHouse {...pathPageData.externalHouse} />
+    <PathMirror {...pathPageData.mirror} />
+    <PathInternalHouse {...pathPageData.internalHouse} />
+    <PathEnroll {...pathPageData.enroll} />
+  </section>
+
+  <script type="application/ld+json" set:html={JSON.stringify(pathWebPageJsonLd)} />
 </BaseLayout>

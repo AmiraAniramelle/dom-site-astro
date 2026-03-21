@@ -1,0 +1,67 @@
+---
+/**
+ * Блок «Внешний DOM» — source-DOM.html ~5796–5825
+ */
+interface Item {
+  letter: string;
+  name: string;
+  description: string;
+  url: string;
+  hasBridge?: boolean;
+  buttonText: string;
+}
+
+interface Props {
+  title: string;
+  subtitle: string;
+  intro: string;
+  items: Item[];
+}
+
+const { title, subtitle, intro, items } = Astro.props;
+---
+
+<div class="path-path-block-gap fade-in path-layer path-layer-top" data-path-block="external" style="animation-delay: 0.1s;">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="bg-white rounded-3xl p-10 md:p-20 relative overflow-hidden border border-dom-gold/25 shadow-xl">
+      <div class="text-center mb-12">
+        <span class="block text-dom-goldDark font-bold tracking-widest uppercase text-sm mb-3 font-montserrat">{subtitle}</span>
+        <h2 class="font-messiri text-4xl md:text-5xl text-dom-graphite mb-6">{title}</h2>
+        <p class="max-w-3xl mx-auto font-montserrat text-lg leading-relaxed text-dom-graphite/70">{intro}</p>
+      </div>
+
+      <div class="path-external-grid grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10 max-w-5xl mx-auto">
+        {items.map((item) => (
+          <a
+            href={item.url}
+            class="path-external-card bg-white p-5 md:p-10 rounded-2xl border border-dom-gold/25 hover:shadow-2xl hover:border-dom-gold transition-all duration-500 flex flex-col items-center text-center group cursor-pointer no-underline text-inherit"
+          >
+            <div class="w-20 h-20 rounded-full bg-dom-beige/50 flex items-center justify-center mb-8 text-dom-gold text-4xl font-messiri group-hover:bg-dom-gold group-hover:text-white transition-colors duration-500 shadow-inner">
+              {item.letter}
+            </div>
+            <h3 class="font-messiri text-3xl text-dom-graphite mb-4 group-hover:text-dom-gold transition-colors flex flex-wrap items-center justify-center gap-2">
+              {item.name}
+              {item.hasBridge ? (
+                <img
+                  src="/images/shared/bridge-element.png"
+                  alt=""
+                  class="bridge-icon shrink-0"
+                  width="20"
+                  height="20"
+                  loading="lazy"
+                  aria-hidden="true"
+                />
+              ) : null}
+            </h3>
+            <p class="text-dom-graphite/70 font-montserrat text-sm mb-8 flex-grow leading-relaxed">{item.description}</p>
+            <span
+              class="px-8 py-3 border border-dom-graphite/20 text-dom-graphite rounded hover:bg-dom-graphite hover:text-white transition w-full font-medium uppercase tracking-wider text-xs inline-block text-center"
+            >
+              {item.buttonText}
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+</div>

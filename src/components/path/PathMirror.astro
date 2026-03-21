@@ -1,0 +1,24 @@
+---
+/**
+ * Разделитель между Внешним и Внутренним DOM — линия + chip «Любовь»
+ */
+interface Props {
+  title: string;
+  subtitle: string;
+}
+
+const { title, subtitle } = Astro.props;
+---
+
+<div
+  class="path-mirror-section mb-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 fade-in"
+  style="animation-delay: 0.16s;"
+  aria-labelledby="path-mirror-title"
+>
+  <div class="path-mirror-line path-mirror-line--stacked">
+    <div id="path-mirror-title" class="path-mirror-chip path-mirror-chip-stacked">
+      <span class="path-mirror-chip-primary font-messiri">{title}</span>
+      <span class="path-mirror-chip-sub font-montserrat">{subtitle}</span>
+    </div>
+  </div>
+</div>
