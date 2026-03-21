@@ -59,15 +59,17 @@ const pathWebPageJsonLd = {
     </div>
   </section>
 
-  <PathHero {...pathPageData.hero} />
+  <div class="path-map-page">
+    <PathHero {...pathPageData.hero} />
 
-  <!-- Одна секция: без стыка двух <section> и без margin снизу у внутреннего блока (иначе просвечивает фон body) -->
-  <section class="bg-dom-beige relative overflow-x-clip">
-    <PathExternalHouse {...pathPageData.externalHouse} />
-    <PathMirror {...pathPageData.mirror} />
-    <PathInternalHouse {...pathPageData.internalHouse} />
-    <PathEnroll {...pathPageData.enroll} />
-  </section>
+    <!-- Одна секция: без стыка двух <section> и без margin снизу у внутреннего блока (иначе просвечивает фон body) -->
+    <section class="path-page-section bg-dom-beige relative overflow-x-clip">
+      <PathExternalHouse {...pathPageData.externalHouse} />
+      <PathMirror {...pathPageData.mirror} />
+      <PathInternalHouse {...pathPageData.internalHouse} />
+      <PathEnroll {...pathPageData.enroll} />
+    </section>
+  </div>
 
   <script type="application/ld+json" set:html={JSON.stringify(pathWebPageJsonLd)} />
 </BaseLayout>

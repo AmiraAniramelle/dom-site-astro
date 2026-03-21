@@ -1,0 +1,21 @@
+---
+/**
+ * Единая оболочка для всех 6 страниц направлений (/ru/path/money|relations|mental|soul|awareness|worldview/).
+ * Сетка продуктов: см. DirectionProductsGrid (2 колонки md+, нечётное N → последняя на всю ширину).
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import DirectionLayout from './DirectionLayout.astro';
+import type { DirectionEntry } from '../../data/pages/path-directions';
+import { createPageMeta } from '../../data/seo/defaults';
+
+interface Props {
+  data: DirectionEntry;
+}
+
+const { data } = Astro.props;
+const meta = createPageMeta(data.seo);
+---
+
+<BaseLayout meta={meta}>
+  <DirectionLayout {...data} />
+</BaseLayout>

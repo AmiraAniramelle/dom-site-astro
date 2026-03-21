@@ -1,0 +1,160 @@
+---
+/**
+ * Карточка — только props из directionsData (классы из source-DOM).
+ */
+interface Badge {
+  text: string;
+  class: string;
+}
+
+interface PreTitle {
+  text: string;
+  class: string;
+}
+
+interface NoteBlock {
+  boxClass: string;
+  strongClass: string;
+  strongText: string;
+  bodyText: string;
+}
+
+/** Светлый флагман: тёплый градиент, золотая рамка, типографика graphite (только theme === 'light') */
+const FLAGSHIP_LIGHT_ROOT =
+  'bg-[linear-gradient(150deg,#fff7e8_0%,#f5e2bc_58%,#f1d8aa_100%)] p-10 rounded-2xl border-2 border-dom-gold/50 shadow-[0_20px_44px_rgba(126,91,35,0.18)] relative overflow-hidden group cursor-pointer block';
+const FLAGSHIP_LIGHT_BADGE =
+  'absolute top-0 right-0 bg-gold-gradient text-white text-xs font-bold uppercase py-2 px-6 rounded-bl-xl shadow-lg';
+const FLAGSHIP_LIGHT_TITLE =
+  'font-messiri text-3xl text-dom-graphite mb-4 mt-4 group-hover:text-dom-gold transition-colors';
+const FLAGSHIP_LIGHT_DESCRIPTION = 'text-base text-dom-graphite/75 mb-8 font-light';
+const FLAGSHIP_LIGHT_CTA =
+  'w-full py-4 bg-gold-gradient text-white font-bold rounded-xl hover:shadow-lg transition text-lg tracking-wider block text-center';
+const FLAGSHIP_LIGHT_PRE_TITLE =
+  'text-xs font-bold uppercase text-dom-goldDark mb-3 block tracking-widest mt-2';
+
+interface Props {
+  gridItemClass?: string;
+  /** Тема направления (сетка передаёт из DirectionProductsGrid) */
+  theme?: 'light' | 'dark';
+  /** На светлой теме — выделенная карточка (градиент/рамка из констант выше) */
+  isFlagship?: boolean;
+  rootTag: 'a' | 'div';
+  rootClass: string;
+  rootHref?: string | null;
+  badge?: Badge;
+  preTitle?: PreTitle;
+  title: string;
+  titleClass: string;
+  description: string;
+  descriptionClass: string;
+  showImage?: boolean;
+  image: string;
+  imageAlt: string;
+  imageClass: string;
+  noteBlock?: NoteBlock;
+  ctaTag: 'span' | 'a';
+  ctaText: string;
+  ctaClass: string;
+  ctaHref?: string | null;
+  ctaTarget?: string;
+  ctaRel?: string;
+}
+
+const {
+  gridItemClass,
+  theme,
+  isFlagship = false,
+  rootTag,
+  rootClass,
+  rootHref,
+  badge,
+  preTitle,
+  title,
+  titleClass,
+  description,
+  descriptionClass,
+  showImage = true,
+  image,
+  imageAlt,
+  imageClass,
+  noteBlock,
+  ctaTag,
+  ctaText,
+  ctaClass,
+  ctaHref,
+  ctaTarget,
+  ctaRel,
+} = Astro.props;
+
+const flagshipLight = theme === 'light' && isFlagship;
+const resolvedRootClass = flagshipLight ? FLAGSHIP_LIGHT_ROOT : rootClass;
+const resolvedBadgeClass = badge && flagshipLight ? FLAGSHIP_LIGHT_BADGE : badge?.class;
+const resolvedPreTitleClass =
+  preTitle && flagshipLight ? FLAGSHIP_LIGHT_PRE_TITLE : preTitle?.class;
+const resolvedTitleClass = flagshipLight ? FLAGSHIP_LIGHT_TITLE : titleClass;
+const resolvedDescriptionClass = flagshipLight ? FLAGSHIP_LIGHT_DESCRIPTION : descriptionClass;
+const resolvedCtaClass = flagshipLight ? FLAGSHIP_LIGHT_CTA : ctaClass;
+
+const wrapClass = gridItemClass ?? '';
+const innerCtaTag = rootTag === 'a' && ctaTag === 'a' ? 'span' : ctaTag;
+const rootFlex = 'flex flex-col h-full min-h-0';
+const imgUniformClass = 'h-48 w-full object-cover rounded-xl shrink-0 mb-4';
+---
+
+<div class:list={[wrapClass, 'flex flex-col h-full w-full min-h-0']} data-path-direction-theme={theme}>
+  {rootTag === 'a' ? (
+    <a href={rootHref ?? '#'} class:list={[resolvedRootClass, 'no-underline', rootFlex]}>
+      {badge && (
+        <div class={resolvedBadgeClass}>
+          {badge.text}
+        </div>
+      )}
+      {preTitle && <span class:list={[resolvedPreTitleClass, 'shrink-0']}>{preTitle.text}</span>}
+      {showImage !== false && (
+        <img src={image} alt={imageAlt} class={imgUniformClass} loading="lazy" />
+      )}
+      <h3 class:list={[resolvedTitleClass, 'shrink-0']}>{title}</h3>
+      <p class:list={[resolvedDescriptionClass, 'flex-grow']}>{description}</p>
+      {noteBlock && (
+        <div class:list={[noteBlock.boxClass, 'shrink-0']}>
+          <strong class={noteBlock.strongClass}>{noteBlock.strongText}</strong>
+          {noteBlock.bodyText}
+        </div>
+      )}
+      {innerCtaTag === 'span' ? (
+        <span class:list={[resolvedCtaClass, 'mt-auto shrink-0']}>{ctaText}</span>
+      ) : (
+        <a href={ctaHref ?? '#'} class:list={[resolvedCtaClass, 'mt-auto shrink-0', 'no-underline']} target={ctaTarget} rel={ctaRel}>
+          {ctaText}
+        </a>
+      )}
+    </a>
+  ) : (
+    <div class:list={[resolvedRootClass, rootFlex]}>
+      {badge && (
+        <div class={resolvedBadgeClass}>
+          {badge.text}
+        </div>
+      )}
+      {preTitle && <span class:list={[resolvedPreTitleClass, 'shrink-0']}>{preTitle.text}</span>}
+      {showImage !== false && (
+        <img src={image} alt={imageAlt} class={imgUniformClass} loading="lazy" />
+      )}
+      <h3 class:list={[resolvedTitleClass, 'shrink-0']}>{title}</h3>
+      <p class:list={[resolvedDescriptionClass, 'flex-grow']}>{description}</p>
+      {noteBlock && (
+        <div class:list={[noteBlock.boxClass, 'shrink-0']}>
+          <strong class={noteBlock.strongClass}>{noteBlock.strongText}</strong>
+          {noteBlock.bodyText}
+        </div>
+      )}
+      {ctaTag === 'span' ? (
+        <span class:list={[resolvedCtaClass, 'mt-auto shrink-0']}>{ctaText}</span>
+      ) : (
+        <a href={ctaHref ?? '#'} class:list={[resolvedCtaClass, 'mt-auto shrink-0', 'no-underline']} target={ctaTarget} rel={ctaRel}>
+          {ctaText}
+        </a>
+      )}
+    </div>
+  )}
+</div>

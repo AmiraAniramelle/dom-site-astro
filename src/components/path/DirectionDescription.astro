@@ -1,0 +1,25 @@
+---
+/**
+ * Описание — wrapper + цитата + абзацы; классы из directionsData.description (source-DOM).
+ */
+interface BodyP {
+  text: string;
+  class: string;
+}
+
+interface Props {
+  wrapperClass: string;
+  highlightClass: string;
+  highlightText: string;
+  paragraphs: BodyP[];
+}
+
+const { wrapperClass, highlightClass, highlightText, paragraphs } = Astro.props;
+---
+
+<div class={wrapperClass}>
+  <p class={highlightClass}>{highlightText}</p>
+  {paragraphs.map((item) => (
+    <p class={item.class}>{item.text}</p>
+  ))}
+</div>

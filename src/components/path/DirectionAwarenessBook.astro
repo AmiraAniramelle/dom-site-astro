@@ -1,0 +1,24 @@
+---
+import type { AwarenessBookData } from '../../data/pages/path-directions';
+
+interface Props extends AwarenessBookData {}
+const b = Astro.props;
+---
+
+<div class={b.sectionClass}>
+  <div class={b.gridClass}>
+    <div class={b.coverWrapClass}>
+      <img src={b.coverSrc} alt={b.coverAlt} class={b.coverImgClass} loading="lazy" decoding="async" />
+    </div>
+    <div class={b.textColClass}>
+      <p class={b.eyebrowClass}>{b.eyebrow}</p>
+      <h4 class={b.titleClass}>{b.title}</h4>
+      <p class={b.textClass}>{b.text}</p>
+      <a
+        href={b.buttonHref}
+        class:list={[b.buttonClass, 'no-underline']}
+        target="_blank"
+        rel="noopener noreferrer">{b.buttonText}</a>
+    </div>
+  </div>
+</div>

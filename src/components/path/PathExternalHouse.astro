@@ -23,10 +23,12 @@ const { title, subtitle, intro, items } = Astro.props;
 
 <div class="path-path-block-gap fade-in path-layer path-layer-top" data-path-block="external" style="animation-delay: 0.1s;">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-    <div class="bg-white rounded-3xl p-10 md:p-20 relative overflow-hidden border border-dom-gold/25 shadow-xl">
-      <div class="text-center mb-12">
-        <span class="block text-dom-goldDark font-bold tracking-widest uppercase text-sm mb-3 font-montserrat">{subtitle}</span>
-        <h2 class="font-messiri text-4xl md:text-5xl text-dom-graphite mb-6">{title}</h2>
+    <div
+      class="path-external-house-shell bg-white rounded-3xl p-10 md:p-20 relative overflow-hidden border border-dom-gold/25 shadow-xl"
+    >
+      <div class="text-center mb-12 path-external-house-intro">
+        <span class="path-map-eyebrow block text-dom-goldDark font-bold tracking-widest uppercase text-sm mb-3 font-montserrat">{subtitle}</span>
+        <h2 class="path-map-heading-external font-messiri text-4xl md:text-5xl text-dom-graphite mb-6">{title}</h2>
         <p class="max-w-3xl mx-auto font-montserrat text-lg leading-relaxed text-dom-graphite/70">{intro}</p>
       </div>
 
@@ -36,10 +38,14 @@ const { title, subtitle, intro, items } = Astro.props;
             href={item.url}
             class="path-external-card bg-white p-5 md:p-10 rounded-2xl border border-dom-gold/25 hover:shadow-2xl hover:border-dom-gold transition-all duration-500 flex flex-col items-center text-center group cursor-pointer no-underline text-inherit"
           >
-            <div class="w-20 h-20 rounded-full bg-dom-beige/50 flex items-center justify-center mb-8 text-dom-gold text-4xl font-messiri group-hover:bg-dom-gold group-hover:text-white transition-colors duration-500 shadow-inner">
+            <div
+              class="path-external-card-icon w-20 h-20 rounded-full bg-dom-beige/50 flex items-center justify-center mb-8 text-dom-gold text-4xl font-messiri group-hover:bg-dom-gold group-hover:text-white transition-colors duration-500 shadow-inner"
+            >
               {item.letter}
             </div>
-            <h3 class="font-messiri text-3xl text-dom-graphite mb-4 group-hover:text-dom-gold transition-colors flex flex-wrap items-center justify-center gap-2">
+            <h3
+              class="path-external-card-title font-messiri text-3xl text-dom-graphite mb-4 group-hover:text-dom-gold transition-colors flex flex-wrap items-center justify-center gap-2 min-w-0 max-w-full"
+            >
               {item.name}
               {item.hasBridge ? (
                 <img

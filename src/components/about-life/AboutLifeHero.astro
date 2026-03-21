@@ -1,0 +1,19 @@
+---
+/**
+ * Блок 1: Hero — История жизни (about-life-sections/01-hero.md, source-DOM ~6442–6448)
+ */
+interface Props {
+  eyebrow: string;
+  title: string;
+  subtitle: string;
+}
+
+const { eyebrow, title, subtitle } = Astro.props;
+---
+
+<div class="text-center mb-14">
+  <span class="text-dom-goldDark font-bold tracking-widest uppercase text-sm mb-3 block font-montserrat">{eyebrow}</span>
+  <h1 class="font-messiri text-5xl md:text-6xl text-dom-graphite mb-6">{title}</h1>
+  <div class="w-20 h-1 bg-dom-gold mx-auto mb-8" aria-hidden="true"></div>
+  <p class="text-dom-graphite/74 text-base md:text-lg max-w-3xl mx-auto font-montserrat">{subtitle}</p>
+</div>

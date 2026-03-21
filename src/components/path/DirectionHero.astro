@@ -1,0 +1,30 @@
+---
+/**
+ * Герой направления — все строки классов из directionsData.hero (source-DOM).
+ */
+interface Props {
+  backLink: { text: string; url: string; class: string };
+  rowClass: string;
+  letterCircleClass: string;
+  letter: string;
+  levelClass: string;
+  level: string;
+  titleClass: string;
+  title: string;
+}
+
+const { backLink, rowClass, letterCircleClass, letter, levelClass, level, titleClass, title } = Astro.props;
+---
+
+<div>
+  <a href={backLink.url} class:list={[backLink.class, 'no-underline']}>
+    {backLink.text}
+  </a>
+  <div class={rowClass}>
+    <div class={letterCircleClass}>{letter}</div>
+    <div>
+      <span class={levelClass}>{level}</span>
+      <h1 class={titleClass}>{title}</h1>
+    </div>
+  </div>
+</div>

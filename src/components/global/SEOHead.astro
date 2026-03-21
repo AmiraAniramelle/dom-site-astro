@@ -39,6 +39,8 @@ const breadcrumbListJsonLd =
         })),
       }
     : null;
+
+const extraJsonLd = meta.jsonLd ?? [];
 ---
 
 <title>{title}</title>
@@ -69,3 +71,6 @@ const breadcrumbListJsonLd =
 {breadcrumbListJsonLd && (
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbListJsonLd)} />
 )}
+{extraJsonLd.map((block) => (
+  <script type="application/ld+json" set:html={JSON.stringify(block)} />
+))}

@@ -1,0 +1,26 @@
+---
+import type { RelationsBookData } from '../../data/pages/path-directions';
+
+interface Props extends RelationsBookData {}
+const b = Astro.props;
+---
+
+<div class={b.containerClass}>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 items-center">
+    <div class="flex justify-center md:justify-start shrink-0">
+      <img
+        src={b.coverSrc}
+        alt={b.coverAlt}
+        class="h-48 w-full max-w-[220px] sm:max-w-[260px] object-contain object-center rounded-xl shadow-[0_12px_28px_rgba(126,91,35,0.15)] border border-dom-gold/20 bg-white/40"
+        loading="lazy"
+        decoding="async"
+      />
+    </div>
+    <div class="min-w-0">
+      <p class={b.eyebrowClass}>{b.eyebrow}</p>
+      <h4 class={b.titleClass}>{b.title}</h4>
+      <p class={b.textClass}>{b.text}</p>
+      <a href={b.buttonHref} class:list={[b.buttonClass, 'no-underline']}>{b.buttonText}</a>
+    </div>
+  </div>
+</div>

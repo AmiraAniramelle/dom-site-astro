@@ -1,12 +1,6 @@
 ---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PathDirectionPage from '../../../components/path/PathDirectionPage.astro';
+import { directionsData } from '../../../data/pages/path-directions';
 ---
 
-<BaseLayout title="Осознанность | Карта пути | DOM" description="Направление «Осознанность» в методе DOM.">
-  <section class="home-section home-section-tone-soft">
-    <div class="max-w-4xl mx-auto px-4 home-surface">
-      <h1 class="font-messiri home-title text-dom-graphite mb-6">Осознанность</h1>
-      <p class="home-subtitle font-montserrat text-dom-graphite">Контент переносится из исходного HTML.</p>
-    </div>
-  </section>
-</BaseLayout>
+<PathDirectionPage data={directionsData.awareness} />

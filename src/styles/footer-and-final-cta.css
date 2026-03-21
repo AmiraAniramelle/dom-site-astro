@@ -7,6 +7,36 @@
  */
 
 /* ========== Footer ========== */
+/**
+ * Общий фон подвала и страниц внутреннего DOM + «тёмных» карточек на светлом фоне
+ * (тот же градиент и pattern-rings, что в PathInternalHouse.astro).
+ */
+.dom-dark-shell {
+  background: linear-gradient(130deg, #0f0d0a 0%, #201911 100%), url("/images/shared/pattern-rings.png") !important;
+  background-size: cover, 380px;
+}
+
+/**
+ * Тёмные карточки (Душа, внутренний DOM): золотая кайма + мягкое внешнее свечение + лёгкий inset.
+ */
+.dom-dark-card-glow {
+  box-shadow:
+    0 0 0 1px rgba(217, 179, 114, 0.4),
+    0 8px 32px rgba(0, 0, 0, 0.55),
+    0 0 40px rgba(197, 160, 89, 0.2),
+    0 0 72px rgba(197, 160, 89, 0.11),
+    inset 0 1px 0 rgba(255, 248, 230, 0.08);
+}
+
+/** Карточка «Золотой геном» — тёплое золотое свечение по контуру */
+.dom-gold-card-glow {
+  box-shadow:
+    0 0 0 1px rgba(244, 228, 206, 0.5),
+    0 14px 40px rgba(90, 60, 25, 0.2),
+    0 0 48px rgba(212, 170, 95, 0.38),
+    0 0 88px rgba(180, 140, 66, 0.15);
+}
+
 footer {
   background: linear-gradient(130deg, #0f0d0a 0%, #201911 100%), url("/images/shared/pattern-rings.png") !important;
   background-size: cover, 380px;

@@ -1,0 +1,76 @@
+---
+/**
+ * Программы направления: единая сетка для всех 6 страниц.
+ * md+: 2 колонки, gap-8; при нечётном числе продуктов последняя — md:col-span-2.
+ * До md: одна колонка (grid-cols-1).
+ */
+import DirectionProductCard from './DirectionProductCard.astro';
+import DirectionSoulInnerJoy from './DirectionSoulInnerJoy.astro';
+import DirectionSoulAppDom from './DirectionSoulAppDom.astro';
+import type { DirectionProductCardData, DirectionProductItem } from '../../data/pages/path-directions';
+
+interface Props {
+  headingClass: string;
+  title: string;
+  products: DirectionProductItem[];
+  theme?: 'light' | 'dark';
+}
+
+const { headingClass, title, products, theme } = Astro.props;
+
+const n = products.length;
+const isOddTotal = n % 2 !== 0;
+
+/** Ширину колонок задаёт только сетка; из данных убираем устаревший md:col-span-2 */
+function stripLayoutSpan(cls?: string): string | undefined {
+  if (!cls) return undefined;
+  const t = cls.replace(/\bmd:col-span-2\b/g, ' ').replace(/\s+/g, ' ').trim();
+  return t || undefined;
+}
+---
+
+<h2 class={headingClass}>{title}</h2>
+
+{products.length === 0 ? (
+  <p>Программы скоро появятся</p>
+) : (
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    {products.map((product, index) => {
+      const isLast = index === n - 1;
+      const fullWidth = isLast && isOddTotal;
+      const cellClass = fullWidth ? 'md:col-span-2' : '';
+
+      if ('kind' in product && product.kind === 'soul-inner-joy') {
+        const { kind: _k, gridItemClass: _g, ...rest } = product;
+        return (
+          <div class:list={[cellClass, 'flex']}>
+            <div class="flex flex-col w-full min-h-0">
+              <DirectionSoulInnerJoy {...rest} gridItemClass={stripLayoutSpan(product.gridItemClass)} theme={theme} />
+            </div>
+          </div>
+        );
+      }
+      if ('kind' in product && product.kind === 'soul-app-dom') {
+        const { kind: _k, gridItemClass: _g, ...rest } = product;
+        return (
+          <div class:list={[cellClass, 'flex']}>
+            <div class="flex flex-col w-full min-h-0">
+              <DirectionSoulAppDom {...rest} gridItemClass={stripLayoutSpan(product.gridItemClass)} theme={theme} />
+            </div>
+          </div>
+        );
+      }
+      const gi = 'gridItemClass' in product ? product.gridItemClass : undefined;
+      return (
+        <div class:list={[cellClass, 'flex']}>
+          <div class="flex flex-col w-full min-h-0">
+            <DirectionProductCard
+              {...{ ...(product as DirectionProductCardData), gridItemClass: stripLayoutSpan(gi) }}
+              theme={theme}
+            />
+          </div>
+        </div>
+      );
+    })}
+  </div>
+)}

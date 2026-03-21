@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Tailwind v4: явно сканируем весь src, чтобы утилиты из новых страниц/компонентов не выпадали из сборки */
+@source "../**/*.{astro,ts,js,mjs,mts}";
+
 /* Хлебные крошки: визуально скрыты, остаются в HTML для SEO (sr-only) */
 .breadcrumbs,
 [class*="breadcrumb"],
@@ -145,6 +148,11 @@ body::after {
 h1, h2, h3, h4, h5, h6,
 .font-messiri {
   font-family: var(--dom-heading-font) !important;
+}
+
+/* Явно как у заголовков: класс font-montserrat встречается в разметке, базовое правило из темы Tailwind может не попасть в чанк */
+.font-montserrat {
+  font-family: "Montserrat", sans-serif;
 }
 
 main {
@@ -1324,6 +1332,155 @@ button:focus-visible {
   text-align: center;
   max-width: 22rem;
 }
+
+/* Карта пути (/ru/path/): только мобильный ≤768px, десктоп не трогаем */
+@media (max-width: 768px) {
+  .path-map-page {
+    font-family: "Montserrat", sans-serif;
+  }
+
+  .path-map-page h1,
+  .path-map-page h2,
+  .path-map-page h3,
+  .path-map-page h4 {
+    font-family: var(--dom-heading-font), "Cinzel", serif !important;
+  }
+
+  .path-map-page h1 {
+    font-size: clamp(1.8rem, 8vw, 2.4rem) !important;
+    line-height: 1.2 !important;
+  }
+
+  .path-map-page h2 {
+    font-size: clamp(1.5rem, 7vw, 2rem) !important;
+    line-height: 1.2 !important;
+  }
+
+  .path-map-page h3 {
+    font-size: clamp(1.3rem, 6vw, 1.6rem) !important;
+    line-height: 1.25 !important;
+  }
+
+  .path-map-page h4 {
+    font-size: clamp(1.1rem, 5vw, 1.3rem) !important;
+    line-height: 1.25 !important;
+  }
+
+  /* Основной текст (Montserrat), кроме eyebrow */
+  .path-map-page p:not(.path-map-eyebrow),
+  .path-map-page .path-hero-sub {
+    font-size: 14px !important;
+    line-height: 1.55 !important;
+  }
+
+  .path-map-page .path-map-eyebrow {
+    font-size: 11px !important;
+  }
+
+  .path-map-page .path-mirror-chip-primary {
+    font-family: var(--dom-heading-font), "Cinzel", serif !important;
+  }
+
+  .path-map-page .path-enroll-note {
+    font-size: 12px !important;
+  }
+
+  .path-map-page .path-enroll-getcourse-placeholder p {
+    font-size: 14px !important;
+  }
+
+  /* Кнопки карточек направлений */
+  .path-page-section .path-external-card > span:last-child,
+  .path-page-section .path-internal-house .grid a.group > span:last-child {
+    font-size: 13px !important;
+  }
+
+  .path-page-section .path-external-house-shell {
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 0 16px !important;
+  }
+
+  .path-page-section .path-internal-house-card.dom-dark-shell {
+    border-radius: 0 !important;
+    padding: 24px 16px !important;
+    margin-left: -16px !important;
+    margin-right: -16px !important;
+    box-shadow: none !important;
+  }
+
+  .path-page-section .path-external-grid {
+    gap: 12px !important;
+  }
+
+  .path-page-section .path-external-card {
+    padding: 20px !important;
+  }
+
+  .path-page-section .path-external-card-icon {
+    width: 3.5rem !important;
+    height: 3.5rem !important;
+    margin-bottom: 0.75rem !important;
+    font-size: 1.25rem !important;
+    line-height: 1.75rem !important;
+  }
+
+  .path-page-section .path-external-card-title {
+    overflow-wrap: break-word !important;
+    word-break: normal;
+  }
+
+  .path-page-section .path-external-card > p {
+    font-size: 14px !important;
+    line-height: 1.5rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .path-page-section .path-external-card > span:last-child {
+    padding-top: 0.625rem !important;
+    padding-bottom: 0.625rem !important;
+  }
+
+  .path-page-section .path-mirror-chip-stacked {
+    padding: 6px 20px !important;
+  }
+
+  .path-page-section .path-mirror-chip-primary {
+    font-size: 13px !important;
+  }
+
+  .path-page-section .path-mirror-chip-sub {
+    font-size: 11px !important;
+  }
+
+  .path-page-section .path-path-block-gap {
+    margin-bottom: 20px !important;
+  }
+
+  .path-page-section .path-mirror-section {
+    margin-bottom: 20px !important;
+  }
+
+  .path-page-section .path-enroll {
+    padding-top: 20px !important;
+  }
+
+  .path-page-section .path-external-house-intro,
+  .path-page-section .path-internal-house-intro {
+    margin-bottom: 1.25rem !important;
+  }
+
+  .path-page-section .path-internal-card-title {
+    overflow-wrap: break-word !important;
+  }
+
+  .path-page-section .path-internal-house .grid a.group > p {
+    font-size: 14px !important;
+  }
+}
+
 @media (max-width: 768px) {
   .method-page-bg .max-w-7xl {
     max-width: 100%;

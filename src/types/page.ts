@@ -16,4 +16,6 @@ export interface PageMeta {
   modifiedTime?: string;
   author?: string;
   breadcrumbs?: Breadcrumb[];
+  /** Дополнительные блоки JSON-LD в <head> (напр. WebPage со вложенным breadcrumb) */
+  jsonLd?: Record<string, unknown>[];
 }

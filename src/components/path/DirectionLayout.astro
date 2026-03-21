@@ -1,0 +1,54 @@
+---
+import DirectionHero from './DirectionHero.astro';
+import DirectionDescription from './DirectionDescription.astro';
+import DirectionProductsGrid from './DirectionProductsGrid.astro';
+import DirectionRelationsBook from './DirectionRelationsBook.astro';
+import DirectionAwarenessBook from './DirectionAwarenessBook.astro';
+import type { DirectionEntry } from '../../data/pages/path-directions';
+import { siteConfig } from '../../data/site';
+import type { Breadcrumb } from '../../types/page';
+
+type Props = DirectionEntry;
+
+const directionData = Astro.props as Props;
+
+const pageUrl = `${siteConfig.url}${directionData.seo.canonicalUrl}`;
+
+const breadcrumbs: Breadcrumb[] = [
+  { name: 'Главная', url: `${siteConfig.url}/ru/` },
+  { name: 'Карта пути', url: `${siteConfig.url}/ru/path/` },
+  { name: directionData.hero.title, url: pageUrl },
+];
+---
+
+<nav aria-label="Хлебные крошки" class="breadcrumbs sr-only text-sm">
+  <ol>
+    {
+      breadcrumbs.map((b, i) => (
+        <li>
+          {i > 0 && ' / '}
+          {i === breadcrumbs.length - 1 ? (
+            <span>{b.name}</span>
+          ) : (
+            <a href={b.url.replace(siteConfig.url, '')}>{b.name}</a>
+          )}
+        </li>
+      ))
+    }
+  </ol>
+</nav>
+
+<section class={directionData.sectionClass}>
+  <div class="max-w-6xl mx-auto px-4 fade-in">
+    <DirectionHero {...directionData.hero} />
+    <DirectionDescription {...directionData.description} />
+    <DirectionProductsGrid
+      headingClass={directionData.programsHeadingClass}
+      title={directionData.programsTitle}
+      products={directionData.products}
+      theme={directionData.theme}
+    />
+    {directionData.relationsBook && <DirectionRelationsBook {...directionData.relationsBook} />}
+    {directionData.awarenessBook && <DirectionAwarenessBook {...directionData.awarenessBook} />}
+  </div>
+</section>
