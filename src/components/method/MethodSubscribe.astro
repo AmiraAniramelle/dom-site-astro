@@ -1,0 +1,68 @@
+---
+/**
+ * Подписка DOM — блок на странице «О методе» (виджет GetCourse, отдельные id от главной).
+ */
+interface Props {
+  eyebrow: string;
+  title: string;
+  subtitle: string;
+  form: {
+    disclaimer: string;
+  };
+}
+
+const { eyebrow, title, subtitle, form } = Astro.props;
+---
+
+<section class="section-method-subscription" aria-labelledby="method-subscription-heading">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="method-subscription-card fade-in">
+      <p class="method-subscription-eyebrow">{eyebrow}</p>
+      <h2 id="method-subscription-heading" class="font-messiri method-subscription-title">
+        {title}
+      </h2>
+      <p class="method-subscription-sub">{subtitle}</p>
+
+      <div
+        class="method-subscription-form-wrap method-subscription-getcourse"
+        aria-label="Форма подписки"
+        id="getcourse-widget-container-method"
+      >
+        <div class="method-subscription-getcourse-placeholder" id="getcourse-placeholder-method">
+          <p class="text-sm text-dom-graphite/70 font-montserrat">Загрузка формы…</p>
+        </div>
+        <script
+          id="method-getcourse-widget-script"
+          src="https://khefors.ru/pl/lite/widget/script?id=1575472"
+          defer
+        ></script>
+        <script is:inline>
+          (function () {
+            function hidePlaceholder() {
+              var el = document.getElementById('getcourse-placeholder-method');
+              if (el) el.style.display = 'none';
+            }
+            if (document.readyState === 'loading') {
+              document.addEventListener('DOMContentLoaded', function check() {
+                setTimeout(function () {
+                  var container = document.getElementById('getcourse-widget-container-method');
+                  if (container && container.querySelector('iframe')) hidePlaceholder();
+                }, 1500);
+              });
+            } else {
+              setTimeout(function () {
+                var container = document.getElementById('getcourse-widget-container-method');
+                if (container && container.querySelector('iframe')) hidePlaceholder();
+              }, 1500);
+            }
+            setInterval(function () {
+              var container = document.getElementById('getcourse-widget-container-method');
+              if (container && container.querySelector('iframe')) hidePlaceholder();
+            }, 800);
+          })();
+        </script>
+      </div>
+      <p class="method-subscription-note">{form.disclaimer}</p>
+    </div>
+  </div>
+</section>

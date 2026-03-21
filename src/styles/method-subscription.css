@@ -1,0 +1,125 @@
+/* Подписка DOM — страница «О методе» (отдельно от главного Final CTA) */
+.section-method-subscription {
+  background: linear-gradient(180deg, #fff8e9 0%, #f5ead5 100%);
+  padding-top: clamp(3rem, 5vw, 4.5rem);
+  padding-bottom: clamp(3rem, 5vw, 4.5rem);
+  overflow: visible;
+}
+
+.section-method-subscription .method-subscription-card {
+  max-width: 920px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid rgba(186, 143, 75, 0.28);
+  border-radius: 1.5rem;
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.92), rgba(249, 236, 208, 0.88));
+  box-shadow: 0 20px 42px rgba(104, 77, 35, 0.12);
+  padding: clamp(1.5rem, 3vw, 2.25rem) clamp(1.25rem, 3vw, 2.5rem) clamp(1.75rem, 3vw, 2.5rem);
+}
+
+.section-method-subscription .method-subscription-eyebrow {
+  font-family: "Montserrat", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(120, 88, 48, 0.85);
+  margin: 0 0 0.85rem;
+}
+
+.section-method-subscription .method-subscription-title {
+  font-size: clamp(1.5rem, 3.2vw, 2.35rem);
+  line-height: 1.15;
+  letter-spacing: 0.01em;
+  color: #2f2416;
+  margin: 0 0 0.75rem;
+}
+
+.section-method-subscription .method-subscription-sub {
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(0.98rem, 1.45vw, 1.12rem);
+  line-height: 1.55;
+  color: rgba(47, 36, 22, 0.82);
+  margin: 0 0 1.25rem;
+  max-width: 56ch;
+}
+
+.section-method-subscription .method-subscription-form-wrap {
+  width: 100%;
+  max-width: 100%;
+  overflow: visible !important;
+}
+
+.section-method-subscription .method-subscription-getcourse,
+.section-method-subscription #getcourse-widget-container-method {
+  min-height: 200px;
+  border-radius: 0.9rem;
+  overflow: visible !important;
+  width: 100%;
+}
+
+.section-method-subscription #getcourse-widget-container-method > * {
+  overflow: visible !important;
+  max-height: none !important;
+}
+
+.section-method-subscription .method-subscription-getcourse-placeholder {
+  min-height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.section-method-subscription .method-subscription-getcourse iframe {
+  max-width: 100%;
+  width: 100% !important;
+  min-height: 220px;
+  border: none;
+  border-radius: 0.9rem;
+  display: block;
+}
+
+.section-method-subscription .method-subscription-note {
+  margin-top: 0.65rem;
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  line-height: 1.45;
+  color: rgba(78, 58, 30, 0.68);
+}
+
+@media (max-width: 768px) {
+  .section-method-subscription {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  .section-method-subscription .method-subscription-card {
+    padding: 24px 20px;
+    border-radius: 20px;
+  }
+  .section-method-subscription .method-subscription-eyebrow {
+    font-size: 10px;
+    text-align: center;
+  }
+  .section-method-subscription .method-subscription-title {
+    font-size: clamp(1.2rem, 5vw, 1.6rem);
+    text-align: center;
+    margin-bottom: 8px;
+  }
+  .section-method-subscription .method-subscription-sub {
+    font-size: 13px;
+    text-align: center;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+  .section-method-subscription .method-subscription-getcourse,
+  .section-method-subscription #getcourse-widget-container-method {
+    min-height: 260px;
+  }
+  .section-method-subscription .method-subscription-getcourse iframe {
+    min-height: 240px;
+  }
+  .section-method-subscription .method-subscription-note {
+    text-align: center;
+    font-size: 12px;
+  }
+}

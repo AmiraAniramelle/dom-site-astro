@@ -1,0 +1,253 @@
+---
+interface QuickCardItem {
+  letter: string;
+  name: string;
+}
+
+interface QuickCard {
+  title: string;
+  items: QuickCardItem[];
+}
+
+interface Props {
+  eyebrow: string;
+  title: string;
+  subtitle: string;
+  starCanvas: boolean;
+  quickCards: QuickCard[];
+}
+
+const { eyebrow, title, subtitle, starCanvas, quickCards } = Astro.props;
+---
+
+<div class="method-star-root text-dom-graphite relative z-10 pt-10 pb-6 max-md:pt-0 max-md:pb-6 md:pt-12 lg:pt-14">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="method-star-panel mb-0 rounded-[2rem] p-6 md:p-10 fade-in">
+      <div class="text-center mb-10">
+        <span class="method-star-eyebrow text-[#38332d]/75 text-xs uppercase tracking-[0.2em] font-montserrat">{eyebrow}</span>
+        <h1 class="method-star-title font-messiri text-4xl md:text-6xl text-[#38332d] mt-3 mb-4">{title}</h1>
+        <p class="method-star-sub method-star-sub-desktop max-w-3xl mx-auto text-[#38332d]/82 text-lg md:text-xl font-light leading-relaxed hidden md:block">{subtitle}</p>
+        <p class="method-star-sub-mobile font-montserrat text-[#38332d]/82 md:hidden">
+          Единая система Внешнего и Внутреннего DOM
+        </p>
+      </div>
+
+      <div class="method-star-main-grid grid grid-cols-1 lg:grid-cols-12 gap-0 md:gap-8 items-center">
+        <div class="lg:col-span-7">
+          <div
+            class="chart-container method-star-chart-wrap flex justify-center items-center relative rounded-none border-0 bg-transparent md:rounded-2xl md:border md:border-[#cca26b]/45 md:bg-[#f4e4ce]/68"
+            style="height: 500px; max-width: 100%;"
+          >
+            {starCanvas && (
+              <canvas
+                id="starCanvas"
+                width="500"
+                height="500"
+                class="max-w-full h-auto drop-shadow-[0_0_30px_rgba(217,179,114,0.35)]"
+              ></canvas>
+            )}
+          </div>
+        </div>
+
+        <div class="method-quick-cards lg:col-span-5 max-md:flex max-md:flex-wrap max-md:justify-center max-md:gap-2 lg:space-y-5">
+          {quickCards.map((card) => (
+            <div class={`method-quick-card ${card.title === 'Любовь' ? 'bg-gold-gradient border border-[#cca26b]/60 rounded-2xl p-6' : 'bg-[#f4e4ce]/82 border border-[#cca26b]/35 rounded-2xl p-6'}`}>
+              {card.title === 'Любовь' ? (
+                <h4 class="method-quick-card-title font-messiri text-[#38332d] text-2xl mb-3 uppercase tracking-widest">{card.title}</h4>
+              ) : (
+                <p class="method-quick-card-title font-messiri text-2xl text-[#38332d] mb-3">{card.title}</p>
+              )}
+              <p class={`method-quick-card-text ${card.title === 'Любовь' ? 'text-[#38332d]/90 font-montserrat text-sm' : 'text-[#38332d]/78 font-montserrat text-sm'}`}>
+                {card.title === 'Любовь'
+                  ? card.items[0]?.name
+                  : card.items.map((item) => `${item.letter}: ${item.name}`).join(', ')}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  function drawMethodStar() {
+    const canvas = document.getElementById('starCanvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+    if (window.__starCleanup) window.__starCleanup();
+
+    const width = canvas.width;
+    const height = canvas.height;
+    const cx = width / 2;
+    const cy = height / 2;
+    const R = 138;
+    const mouse = { x: 0, y: 0 };
+    let raf = null;
+
+    if (!window.__bridgeElementImg) {
+      const img = new Image();
+      img.src = '/images/shared/bridge-element.png';
+      window.__bridgeElementImg = img;
+    }
+    const bridgeImg = window.__bridgeElementImg;
+
+    const onMove = (e) => {
+      const rect = canvas.getBoundingClientRect();
+      mouse.x = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
+      mouse.y = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
+    };
+    const onLeave = () => {
+      mouse.x = 0;
+      mouse.y = 0;
+    };
+    canvas.addEventListener('mousemove', onMove);
+    canvas.addEventListener('mouseleave', onLeave);
+
+    function rotatePoint(x, y, angle) {
+      return {
+        x: x * Math.cos(angle) - y * Math.sin(angle),
+        y: x * Math.sin(angle) + y * Math.cos(angle),
+      };
+    }
+
+    function drawTriangle(points, fill, stroke) {
+      ctx.beginPath();
+      ctx.moveTo(points[0].x, points[0].y);
+      ctx.lineTo(points[1].x, points[1].y);
+      ctx.lineTo(points[2].x, points[2].y);
+      ctx.closePath();
+      ctx.fillStyle = fill;
+      ctx.strokeStyle = stroke;
+      ctx.lineWidth = 2.2;
+      ctx.fill();
+      ctx.stroke();
+    }
+
+    function drawLabel(letter, sub, x, y) {
+      ctx.save();
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+
+      ctx.font = '700 11px "Montserrat", sans-serif';
+      const subWidth = ctx.measureText(sub).width;
+      const w = Math.max(108, Math.min(188, subWidth + 24));
+      const h = 42;
+      const rx = x - w / 2;
+      const ry = y - h / 2;
+
+      ctx.fillStyle = 'rgba(56,51,45,0.8)';
+      ctx.strokeStyle = 'rgba(217,179,114,0.62)';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.roundRect(rx, ry, w, h, 12);
+      ctx.fill();
+      ctx.stroke();
+
+      ctx.font = '700 13px "Montserrat", sans-serif';
+      ctx.fillStyle = '#d9b372';
+      ctx.fillText(letter, x, y - 8);
+
+      ctx.font = '600 11px "Montserrat", sans-serif';
+      ctx.fillStyle = '#f4e4ce';
+      ctx.fillText(sub, x, y + 9);
+      ctx.restore();
+    }
+
+    function render(ts) {
+      const t = ts * 0.001;
+      const spin = t * 0.18 + mouse.x * 0.2;
+      const sway = mouse.y * 12;
+      ctx.clearRect(0, 0, width, height);
+
+      ctx.save();
+      ctx.translate(cx, cy + sway);
+
+      for (let i = 0; i < 4; i++) {
+        ctx.beginPath();
+        ctx.arc(0, 0, 62 + i * 20, 0, Math.PI * 2);
+        ctx.strokeStyle = `rgba(217,179,114,${0.2 - i * 0.035})`;
+        ctx.lineWidth = 1;
+        ctx.stroke();
+      }
+
+      const baseUp = [
+        { x: 0, y: -R },
+        { x: R * 0.866025, y: R * 0.5 },
+        { x: -R * 0.866025, y: R * 0.5 },
+      ];
+      const baseDown = [
+        { x: 0, y: R },
+        { x: -R * 0.866025, y: -R * 0.5 },
+        { x: R * 0.866025, y: -R * 0.5 },
+      ];
+
+      const up = baseUp.map((p) => rotatePoint(p.x, p.y, spin));
+      const down = baseDown.map((p) => rotatePoint(p.x, p.y, -spin * 0.92));
+
+      ctx.shadowColor = 'rgba(217, 179, 114, 0.35)';
+      ctx.shadowBlur = 18;
+      drawTriangle(up, 'rgba(217,179,114,0.10)', 'rgba(217,179,114,0.9)');
+      drawTriangle(down, 'rgba(217,179,114,0.05)', 'rgba(217,179,114,0.85)');
+      ctx.shadowBlur = 0;
+
+      if (bridgeImg && bridgeImg.complete) {
+        const pulse = 1 + Math.sin(t * 1.6) * 0.035;
+        const bridgeW = 196 * pulse;
+        const bridgeH = 186 * pulse;
+        ctx.save();
+        ctx.globalAlpha = 0.72;
+        ctx.rotate(-spin * 0.35);
+        ctx.shadowColor = 'rgba(217,179,114,0.34)';
+        ctx.shadowBlur = 22;
+        ctx.drawImage(bridgeImg, -bridgeW / 2, -bridgeH / 2 - 6, bridgeW, bridgeH);
+        ctx.restore();
+      }
+
+      const labels = [
+        { l: 'D', s: 'Деньги', x: 0, y: -R - 40, a: spin },
+        { l: 'O', s: 'Отношения', x: -R * 0.866025 - 52, y: R * 0.5 + 28, a: spin },
+        { l: 'M', s: 'Ментальность', x: R * 0.866025 + 58, y: R * 0.5 + 28, a: spin },
+        { l: 'D', s: 'Дух', x: 0, y: R + 40, a: -spin * 0.92 },
+        { l: 'O', s: 'Осознанность', x: -R * 0.866025 - 52, y: -R * 0.5 - 28, a: -spin * 0.92 },
+        { l: 'M', s: 'Мировозрение', x: R * 0.866025 + 58, y: -R * 0.5 - 28, a: -spin * 0.92 },
+      ];
+
+      labels.forEach((item) => {
+        const rp = rotatePoint(item.x, item.y, item.a);
+        drawLabel(item.l, item.s, rp.x, rp.y);
+      });
+
+      ctx.shadowColor = 'rgba(224, 193, 136, 0.85)';
+      ctx.shadowBlur = 30;
+      ctx.beginPath();
+      ctx.arc(0, 0, 45, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(255,255,255,0.08)';
+      ctx.fill();
+      ctx.shadowBlur = 0;
+      ctx.strokeStyle = 'rgba(217,179,114,0.5)';
+      ctx.lineWidth = 1.4;
+      ctx.stroke();
+      ctx.fillStyle = '#ffffff';
+      ctx.font = 'bold 15px "Montserrat", sans-serif';
+      ctx.fillText('ЛЮБОВЬ', 0, 0);
+
+      ctx.restore();
+      raf = requestAnimationFrame(render);
+    }
+
+    raf = requestAnimationFrame(render);
+    window.__starCleanup = () => {
+      canvas.removeEventListener('mousemove', onMove);
+      canvas.removeEventListener('mouseleave', onLeave);
+      if (raf) cancelAnimationFrame(raf);
+    };
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', drawMethodStar);
+  } else {
+    drawMethodStar();
+  }
+</script>

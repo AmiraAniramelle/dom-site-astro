@@ -1,17 +1,66 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import MethodStar from '../../components/method/MethodStar.astro';
+import MethodHouses from '../../components/method/MethodHouses.astro';
+import MethodSubscribe from '../../components/method/MethodSubscribe.astro';
+import { createPageMeta } from '../../data/seo/defaults';
+import { siteConfig } from '../../data/site';
+import type { Breadcrumb } from '../../types/page';
+import { methodPageData } from '../../data/pages/method';
+
+const breadcrumbs: Breadcrumb[] = [
+  { name: 'Главная', url: `${siteConfig.url}/ru/` },
+  { name: 'О методе', url: `${siteConfig.url}/ru/method/` },
+];
+
+const meta = createPageMeta({
+  title: 'Метод DOM — Архитектура зрелой жизни | Системный метод Анны Хефорс',
+  description:
+    'Шесть граней единой системы: Деньги, Отношения, Ментальное здоровье, Душа, Осознанность, Мировоззрение. Узнайте как работает метод DOM.',
+  canonicalUrl: '/ru/method/',
+  ogType: 'website',
+  locale: 'ru_RU',
+  breadcrumbs,
+});
+
+const methodWebPageJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Метод DOM',
+  description: 'Архитектура зрелой жизни...',
+  breadcrumb: {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Главная', item: `${siteConfig.url}/ru/` },
+      { '@type': 'ListItem', position: 2, name: 'О методе', item: `${siteConfig.url}/ru/method/` },
+    ],
+  },
+};
 ---
 
-<BaseLayout title="О методе | DOM" description="Структура и философия системного метода DOM — шесть граней единой системы жизни.">
-  <section class="home-section home-section-tone-soft">
-    <div class="max-w-4xl mx-auto px-4 home-surface">
-      <h1 class="font-messiri home-title text-dom-graphite mb-6">О методе DOM</h1>
-      <p class="home-subtitle font-montserrat text-dom-graphite mb-4">
-        Метод DOM — это архитектура зрелой жизни: шесть граней (Деньги, Отношения, Ментальное здоровье, Душа, Осознанность, Мировоззрение), которые образуют единую систему.
-      </p>
-      <p class="home-subtitle font-montserrat text-dom-graphite">
-        Контент этой страницы будет перенесён из исходного HTML. Пока — заглушка.
-      </p>
+<BaseLayout meta={meta}>
+  <section class="bg-dom-beige">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-0 pb-0">
+      <nav aria-label="Хлебные крошки" class="text-sm text-dom-graphite/80">
+        <ol class="flex flex-wrap gap-x-2 gap-y-1">
+          {breadcrumbs.map((b, i) => (
+            <li class="flex items-center gap-2">
+              {i > 0 && <span aria-hidden="true">/</span>}
+              {i === breadcrumbs.length - 1 ? (
+                <span class="text-dom-graphite font-medium">{b.name}</span>
+              ) : (
+                <a href={b.url.replace(siteConfig.url, '')} class="hover:text-dom-gold transition-colors">{b.name}</a>
+              )}
+            </li>
+          ))}
+        </ol>
+      </nav>
     </div>
   </section>
+  <section class="method-page-bg method-architecture-wrap text-dom-graphite relative overflow-hidden">
+    <MethodStar {...methodPageData.star} />
+    <MethodHouses {...methodPageData.houses} />
+  </section>
+  <MethodSubscribe {...methodPageData.subscribe} />
+  <script type="application/ld+json" set:html={JSON.stringify(methodWebPageJsonLd)} />
 </BaseLayout>

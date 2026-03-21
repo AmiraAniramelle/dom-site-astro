@@ -1,0 +1,125 @@
+---
+interface PathItem {
+  title: string;
+  desc: string;
+  letter: string;
+  url: string;
+  hasBridge?: boolean;
+}
+
+interface Props {
+  title: string;
+  subtitle: string;
+  outerHouse: {
+    title: string;
+    items: PathItem[];
+  };
+  innerHouse: {
+    title: string;
+    items: PathItem[];
+  };
+  enrollBlock: {
+    title: string;
+    text: string;
+    cta: { text: string; url: string };
+  };
+}
+
+const { title, subtitle, outerHouse, innerHouse, enrollBlock } = Astro.props;
+---
+
+<section class="bg-dom-beige min-h-screen pt-20 pb-24 relative overflow-hidden futuristic-grid">
+  <div class="max-w-7xl mx-auto px-4 relative z-10">
+    <div class="text-center mb-20 fade-in">
+      <img src="/images/shared/dom-symbol-gold.svg" alt="Символ DOM" class="w-12 h-12 mx-auto mb-5 opacity-90" width="48" height="48" loading="lazy" />
+      <h2 class="font-messiri text-5xl md:text-6xl text-dom-graphite mb-6">{title}</h2>
+      <div class="w-20 h-1 bg-dom-gold mx-auto mb-8"></div>
+      <p class="text-dom-graphite/80 text-xl max-w-3xl mx-auto font-montserrat leading-relaxed font-light">{subtitle}</p>
+    </div>
+
+    <div class="path-reflection-wrap">
+      <div class="mb-24 fade-in path-layer path-layer-top" style="animation-delay: 0.1s;" data-path-block="external">
+        <div class="text-center mb-12">
+          <span class="text-dom-goldDark font-bold tracking-widest uppercase text-sm mb-3 block font-montserrat">Уровень 1</span>
+          <h3 class="font-messiri text-4xl md:text-5xl text-dom-graphite mb-6">{outerHouse.title}</h3>
+          <p class="text-dom-graphite/70 max-w-2xl mx-auto font-montserrat text-lg">
+            Фундамент зрелости. Деньги. Отношения. Ментальное здоровье. Без порядка здесь невозможно построить устойчивость внутри.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+          {outerHouse.items.map((item) => (
+            <a href={item.url} class="bg-white p-10 rounded-2xl border border-dom-gold/25 hover:shadow-2xl hover:border-dom-gold transition-all duration-500 flex flex-col items-center text-center group cursor-pointer">
+              <div class="w-20 h-20 rounded-full bg-dom-beige/50 flex items-center justify-center mb-8 text-dom-gold text-4xl font-messiri group-hover:bg-dom-gold group-hover:text-white transition-colors duration-500 shadow-inner">
+                {item.letter}
+              </div>
+              <h4 class="font-messiri text-3xl text-dom-graphite mb-4 group-hover:text-dom-gold transition-colors flex items-center gap-2">
+                {item.title}
+                {item.hasBridge && (
+                  <img src="/images/shared/bridge-element.png" alt="Иконка моста DOM" class="bridge-icon" width="24" height="24" loading="lazy" />
+                )}
+              </h4>
+              <p class="text-dom-graphite/70 font-montserrat text-sm mb-8 flex-grow leading-relaxed">{item.desc}</p>
+              <span class="px-8 py-3 border border-dom-graphite/20 text-dom-graphite rounded group-hover:bg-dom-graphite group-hover:text-white transition w-full font-medium uppercase tracking-wider text-xs">
+                Войти
+              </span>
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <div class="path-mirror-line fade-in" style="animation-delay: 0.16s;">
+        <span class="path-mirror-chip">Зеркало домов</span>
+      </div>
+
+      <div class="fade-in path-layer path-layer-bottom" style="animation-delay: 0.2s;" data-path-block="internal">
+        <div class="bg-dom-graphite rounded-3xl p-10 md:p-20 relative overflow-hidden border border-dom-gold/30 shadow-2xl">
+          <div class="absolute bottom-0 right-0 -mb-20 -mr-20 w-96 h-96 bg-dom-gold rounded-full opacity-10 filter blur-3xl"></div>
+
+          <div class="relative z-10 text-center text-dom-beige mb-16">
+            <span class="text-dom-gold font-bold tracking-widest uppercase text-sm mb-3 block font-montserrat">Уровень 2</span>
+            <h3 class="font-messiri text-4xl md:text-5xl text-white mb-6">{innerHouse.title}</h3>
+            <p class="text-dom-beige/80 max-w-3xl mx-auto font-montserrat text-lg font-light leading-relaxed">
+              Когда внешний фундамент выстроен, открывается глубина. Это работа с душой, тотальной осознанностью и пересборкой мировоззрения.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-10 relative z-10">
+            {innerHouse.items.map((item) => (
+              <a href={item.url} class="bg-white/5 backdrop-blur-md p-8 rounded-2xl border border-dom-gold/20 hover:bg-white/10 hover:border-dom-gold/50 transition-all duration-300 flex flex-col items-center text-center cursor-pointer group">
+                <div class="w-16 h-16 rounded-full bg-dom-gold/10 border border-dom-gold/30 flex items-center justify-center mb-6 text-dom-gold text-3xl font-messiri group-hover:bg-dom-gold group-hover:text-white transition-all">
+                  {item.letter}
+                </div>
+                <h4 class="font-messiri text-2xl text-white mb-4 flex items-center gap-2">
+                  {item.title}
+                  {item.hasBridge && (
+                    <img src="/images/shared/bridge-element.png" alt="Иконка моста DOM" class="bridge-icon" width="24" height="24" loading="lazy" />
+                  )}
+                </h4>
+                <p class="text-dom-beige/60 font-montserrat text-sm mb-8 flex-grow">{item.desc}</p>
+                <span class="px-6 py-2 border border-dom-gold/50 text-dom-gold rounded group-hover:bg-dom-gold group-hover:text-white transition w-full font-medium text-sm">
+                  Подробнее
+                </span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="mt-16 md:mt-20 fade-in">
+      <div class="bg-white rounded-3xl border border-dom-gold/25 p-7 md:p-10 lg:p-12 shadow-[0_20px_44px_rgba(126,91,35,0.16)]">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+          <div class="lg:col-span-8">
+            <p class="font-montserrat text-[11px] uppercase tracking-[0.12em] text-dom-goldDark mb-2">Следующий шаг</p>
+            <h3 class="font-messiri text-4xl md:text-5xl leading-[1.08] text-dom-graphite mb-5">{enrollBlock.title}</h3>
+            <p class="font-montserrat text-lg leading-relaxed text-dom-graphite/65 max-w-2xl">{enrollBlock.text}</p>
+          </div>
+          <div class="lg:col-span-4 flex items-start lg:justify-end">
+            <a href={enrollBlock.cta.url} class="dom-btn-primary w-full lg:w-auto text-center">{enrollBlock.cta.text}</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>

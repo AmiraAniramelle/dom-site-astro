@@ -1,0 +1,61 @@
+---
+interface HouseItem {
+  letter: string;
+  name: string;
+  desc: string;
+}
+
+interface House {
+  title: string;
+  subtitle: string;
+  triangleDirection: 'up' | 'down';
+  items: HouseItem[];
+}
+
+interface Props {
+  houses: House[];
+  systemLogic: { title: string; paragraphs: string[] };
+  cta: { text: string; url: string };
+}
+
+const { houses, systemLogic, cta } = Astro.props;
+---
+
+<div class="method-houses-root text-dom-graphite relative z-10 pb-24 pt-0">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="space-y-7">
+      <div class="method-houses-grid grid grid-cols-1 lg:grid-cols-2 gap-7">
+        {houses.map((house, idx) => (
+          <article class="method-house-card fade-in" style={idx > 0 ? `animation-delay: ${0.12 * idx}s;` : undefined}>
+            <div class="method-house-head">
+              <div class={`method-triangle ${house.triangleDirection === 'up' ? 'method-triangle-up' : 'method-triangle-down'}`} aria-hidden="true"></div>
+              <div>
+                <p class="method-house-title font-messiri text-3xl text-[#38332d]">{house.title}</p>
+                <p class="method-house-subtitle font-montserrat text-xs uppercase tracking-[0.12em] text-[#6b4d20]">{house.subtitle}</p>
+              </div>
+            </div>
+            <ul class="method-house-list space-y-4">
+              {house.items.map((item) => (
+                <li class="method-house-item font-montserrat text-[#2f2922]">
+                  <strong class="text-[#38332d]">{item.letter} - {item.name}:</strong> {item.desc}
+                </li>
+              ))}
+            </ul>
+          </article>
+        ))}
+      </div>
+
+      <article class="method-logic-card fade-in" style="animation-delay: 0.2s;">
+        <img src="/images/shared/dom-symbol-gold.svg" alt="Символ DOM" class="method-logic-logo w-14 h-14 mx-auto mb-4 opacity-95" width="56" height="56" loading="lazy" />
+        <h4 class="method-logic-title font-messiri text-3xl text-[#38332d] mb-4">{systemLogic.title}</h4>
+        {systemLogic.paragraphs.map((paragraph) => (
+          <p class="method-logic-text font-montserrat text-[#2f2922] text-base leading-relaxed max-w-4xl mx-auto">{paragraph}</p>
+        ))}
+      </article>
+    </div>
+
+    <div class="method-cta-panel fade-in" style="animation-delay: 0.25s;">
+      <a href={cta.url} class="method-cta-btn">{cta.text}</a>
+    </div>
+  </div>
+</div>

@@ -11,7 +11,7 @@ const { stores, gridClass = '' } = Astro.props;
 const qrLinkClass = 'text-center rounded-xl border border-dom-gold/35 bg-white/5 p-2 hover:bg-dom-gold/15 hover:border-dom-gold/70 transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dom-gold/70';
 ---
 
-<div class={`lg:justify-self-start lg:-ml-6 ${gridClass}`}>
+<div class={`footer-app-qr-col lg:justify-self-start lg:-ml-6 ${gridClass}`}>
   <div class="grid grid-cols-1 gap-2 max-w-[150px]">
     {stores.map((store) => (
       <a href={store.href} target="_blank" rel="noopener noreferrer" class={qrLinkClass}>
