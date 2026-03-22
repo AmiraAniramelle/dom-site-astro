@@ -1,0 +1,22 @@
+---
+/**
+ * Блок 1: заголовок страницы блога
+ * @see blog-sections/01-blog-hero.md
+ */
+interface Props {
+  title: string;
+  subtitle: string;
+}
+
+const { title, subtitle } = Astro.props;
+---
+
+<div class="text-center mb-14">
+  <h1 class="font-messiri text-5xl md:text-6xl text-dom-graphite mb-4">
+    {title}
+  </h1>
+  <div class="w-20 h-1 bg-dom-gold mx-auto mb-6" aria-hidden="true"></div>
+  <p class="text-dom-graphite/[0.74] text-base md:text-lg max-w-3xl mx-auto font-montserrat">
+    {subtitle}
+  </p>
+</div>

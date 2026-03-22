@@ -55,8 +55,8 @@ transition-all duration-300 block text-center w-full md:w-auto"
 ```
 class="border border-dom-graphite/20 text-dom-graphite py-3 px-8 
 rounded-xl font-montserrat font-semibold uppercase tracking-[0.08em] text-xs 
-hover:bg-dom-graphite hover:text-white transition-all duration-300 
-block text-center w-full md:w-auto"
+hover:bg-dom-gold/10 hover:border-dom-gold/50 hover:text-dom-goldDark 
+transition-all duration-300 block text-center w-full md:w-auto"
 ```
 
 ### Кнопка 3: Контурная на тёмном фоне
@@ -329,3 +329,30 @@ group-hover:bg-dom-gold group-hover:text-white transition-all"
 - Менять Footer или Navbar
 - Менять десктоп при мобильных правках
 - Менять файлы других страниц
+
+---
+
+## 17. ПРАВИЛА КОНТЕНТА БЛОГА
+
+### Каждая статья (.md файл) ОБЯЗАТЕЛЬНО:
+- title: заголовок
+- slug: транслитерация заголовка (для URL)
+- category: одна из 9 категорий
+- contentType: Статья | Книга
+- tags: минимум 2, максимум 5 из списка тегов
+- date: дата публикации
+- readingTime: время чтения в минутах
+- cover: путь к обложке
+- excerpt: 1-2 предложения описания
+
+### РЕКОМЕНДУЕТСЯ (если подходит):
+- relatedProductId: slug продукта (formula-money, family-unity и т.д.)
+  Ставить ТОЛЬКО если статья реально связана с продуктом.
+  Если не связана — null или не указывать.
+- cta: кнопка действия (купить книгу, перейти к программе)
+
+### ЗАПРЕЩЕНО в статьях:
+- relatedProductId на несуществующий продукт
+- Упоминания Дзена, ссылки на dzen.ru
+- Пустой excerpt
+- Дата в будущем

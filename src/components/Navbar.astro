@@ -1,9 +1,35 @@
 ---
 import { Image } from 'astro:assets';
 import logo from '../assets/images/dom-logo-symbol-gold.png';
-import { navItems, getMobileNavLinks, langSwitcher, type NavItem } from '../data/navbar';
+import {
+  navItems,
+  getMobileNavLinks,
+  langSwitcher,
+  type NavItem,
+  type NavItemChild,
+} from '../data/navbar';
 
 const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
+
+/** Параметр filter для data-blog-nav-filter: '' = весь блог, иначе id фильтра */
+function blogNavFilterParamFromUrl(url: string): string {
+  if (!url.includes('?')) return '';
+  try {
+    return new URL(url, 'https://localhost').searchParams.get('filter') ?? '';
+  } catch {
+    return '';
+  }
+}
+
+function isDropdownChildActive(child: NavItemChild, parentTitle: string): boolean {
+  /** Статическая сборка: у Astro.url нет ?filter= на /ru/blog/ — подсветка только в <script> */
+  if (parentTitle === 'Блог и наука') {
+    return false;
+  }
+  const cp = child.url.replace(/\/$/, '') || '/';
+  if (cp === '/ru') return currentPath === '/ru';
+  return currentPath === cp || currentPath.startsWith(cp + '/');
+}
 
 function isItemActive(item: NavItem): boolean {
   const p = item.url.replace(/\/$/, '') || '/';
@@ -42,10 +68,29 @@ const isRu = currentPath.startsWith('/ru') || currentPath === '/';
                 >
                   {item.title}
                 </a>
-                <div class="blog-nav-dropdown-menu opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all absolute left-1/2 -translate-x-1/2 mt-1">
-                  {item.children.map((child) => (
-                    <a href={child.url} class="blog-nav-dropdown-item block" aria-label={child.title}>{child.title}</a>
-                  ))}
+                <div
+                  class="blog-nav-dropdown-menu opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all absolute left-1/2 -translate-x-1/2 mt-1 z-[80]"
+                  {...(item.title === 'Блог и наука' ? { 'data-blog-nav-submenu': 'true' } : {})}
+                >
+                  {item.children.map((child) => {
+                    const isBlog = item.title === 'Блог и наука';
+                    const blogFilterParam = isBlog ? blogNavFilterParamFromUrl(child.url) : undefined;
+                    const childActive = isDropdownChildActive(child, item.title);
+                    return (
+                    <a
+                      href={child.url}
+                      {...(isBlog ? { 'data-blog-nav-filter': blogFilterParam } : {})}
+                      class:list={[
+                        'blog-nav-dropdown-item block',
+                        childActive && 'blog-nav-dropdown-item--active',
+                      ]}
+                      aria-label={child.title}
+                      aria-current={childActive ? 'page' : undefined}
+                    >
+                      {child.title}
+                    </a>
+                  );
+                  })}
                 </div>
               </div>
             ) : (
@@ -109,4 +154,24 @@ const isRu = currentPath.startsWith('/ru') || currentPath === '/';
     const isOpen = !menu.classList.contains('hidden');
     btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
   });
+
+  /** Подсветка пунктов «Блог и наука» по window.location (?filter=), т.к. при SSG нет query в Astro.url */
+  function syncBlogNavDropdownActive() {
+    const submenu = document.querySelector('[data-blog-nav-submenu]');
+    if (!submenu) return;
+    const path = window.location.pathname.replace(/\/$/, '') || '/';
+    if (path !== '/ru/blog') return;
+    const currentFilter = new URLSearchParams(window.location.search).get('filter') || '';
+    submenu.querySelectorAll('a[data-blog-nav-filter]').forEach((a) => {
+      const wanted = a.getAttribute('data-blog-nav-filter') ?? '';
+      const match = wanted === currentFilter;
+      a.classList.toggle('blog-nav-dropdown-item--active', match);
+      if (match) a.setAttribute('aria-current', 'page');
+      else a.removeAttribute('aria-current');
+    });
+  }
+
+  syncBlogNavDropdownActive();
+  document.addEventListener('DOMContentLoaded', syncBlogNavDropdownActive);
+  window.addEventListener('popstate', syncBlogNavDropdownActive);
 </script>

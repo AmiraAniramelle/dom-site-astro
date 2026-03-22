@@ -1,12 +1,132 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BlogHero from '../../../components/blog/BlogHero.astro';
+import BlogFilters from '../../../components/blog/BlogFilters.astro';
+import BlogGrid from '../../../components/blog/BlogGrid.astro';
+import { createPageMeta } from '../../../data/seo/defaults';
+import { blogPageData } from '../../../data/pages/blog';
+import '../../../styles/blog.css';
+
+const allPosts = await getCollection('blog', ({ data }) => data.published !== false);
+
+const posts = [...allPosts]
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+  .map((post) => ({
+    slug: post.id,
+    title: post.data.title,
+    excerpt: post.data.excerpt,
+    cover: post.data.cover,
+    contentType: post.data.contentType,
+    category: post.data.category,
+    date: post.data.date,
+    readingTime: post.data.readingTime,
+    tags: post.data.tags,
+    viewsCount: post.data.viewsCount ?? 0,
+  }));
+
+const meta = createPageMeta({
+  title: blogPageData.seo.title,
+  description: blogPageData.seo.description,
+  canonicalUrl: blogPageData.seo.canonicalUrl,
+  ogType: 'website',
+  locale: 'ru_RU',
+});
 ---
 
-<BaseLayout title="Блог и наука | DOM" description="Статьи и материалы по системному мышлению и методу DOM.">
-  <section class="home-section home-section-tone-soft">
-    <div class="max-w-4xl mx-auto px-4 home-surface">
-      <h1 class="font-messiri home-title text-dom-graphite mb-6">Блог и наука</h1>
-      <p class="home-subtitle font-montserrat text-dom-graphite">Список статей будет добавлен (Content Collection).</p>
+<BaseLayout meta={meta}>
+  <section class="home-section home-section-tone-soft relative">
+    <div
+      class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 home-surface"
+      data-blog-root
+    >
+      <BlogHero {...blogPageData.hero} />
+      <BlogFilters {...blogPageData.filters} />
+      <BlogGrid posts={posts} />
     </div>
   </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const root = document.querySelector('[data-blog-root]');
+      if (!root) return;
+
+      const grid = root.querySelector('[data-blog-grid]');
+      if (!grid) return;
+
+      const cards = Array.from(root.querySelectorAll('[data-blog-card]'));
+      const countEl = root.querySelector('[data-blog-count]');
+      const countVal = root.querySelector('[data-blog-count-value]');
+      const emptyEl = root.querySelector('[data-blog-empty]');
+
+      const catFilter = root.querySelector('[data-blog-filter="category"]');
+      const typeFilter = root.querySelector('[data-blog-filter="type"]');
+      const tagFilter = root.querySelector('[data-blog-filter="tag"]');
+      const sortFilter = root.querySelector('[data-blog-filter="sort"]');
+      const searchFilter = root.querySelector('[data-blog-filter="search"]');
+
+      function applyFilters() {
+        const cat = catFilter?.value || '';
+        const type = typeFilter?.value || '';
+        const tag = tagFilter?.value || '';
+        const sort = sortFilter?.value || 'new';
+        const search = (searchFilter?.value || '').toLowerCase().trim();
+
+        let visible = cards.filter((card) => {
+          if (cat && card.dataset.category !== cat) return false;
+          if (type && card.dataset.type !== type) return false;
+          if (tag && !(card.dataset.tags || '').split(',').map((t) => t.trim()).includes(tag)) return false;
+          if (search) {
+            const haystack = (
+              (card.dataset.title || '') +
+              ' ' +
+              (card.dataset.excerpt || '') +
+              ' ' +
+              (card.dataset.tags || '')
+            ).toLowerCase();
+            if (!haystack.includes(search)) return false;
+          }
+          return true;
+        });
+
+        if (sort === 'old') {
+          visible.sort(
+            (a, b) => new Date(a.dataset.date || 0).getTime() - new Date(b.dataset.date || 0).getTime()
+          );
+        } else if (sort === 'popular') {
+          visible.sort((a, b) => Number(b.dataset.views || 0) - Number(a.dataset.views || 0));
+        } else {
+          visible.sort(
+            (a, b) => new Date(b.dataset.date || 0).getTime() - new Date(a.dataset.date || 0).getTime()
+          );
+        }
+
+        cards.forEach((card) => {
+          const wrap = card.closest('.blog-card-wrap');
+          wrap?.classList.add('hidden');
+        });
+        visible.forEach((card) => {
+          const wrap = card.closest('.blog-card-wrap');
+          wrap?.classList.remove('hidden');
+        });
+
+        visible.forEach((card) => {
+          const wrap = card.closest('.blog-card-wrap');
+          if (wrap) grid.appendChild(wrap);
+        });
+
+        if (countVal) countVal.textContent = String(visible.length);
+        else if (countEl) countEl.textContent = 'Материалов: ' + visible.length;
+
+        if (emptyEl) emptyEl.classList.toggle('hidden', visible.length > 0);
+      }
+
+      [catFilter, typeFilter, tagFilter, sortFilter].forEach((el) => {
+        el?.addEventListener('change', applyFilters);
+      });
+      searchFilter?.addEventListener('input', applyFilters);
+
+      applyFilters();
+    });
+  </script>
 </BaseLayout>

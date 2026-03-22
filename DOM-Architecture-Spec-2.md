@@ -61,7 +61,6 @@ src/
 │   │   └── ... (16 файлов)
 │   ├── blog/
 │   │   ├── kniga-rasshifrovka-genoma-chelovechnosti.md
-│   │   ├── pochemu-narushenie-poryadkov-lomaet-rezultat.md
 │   │   └── ... (все статьи)
 │   └── reviews/
 │       └── ... (отзывы как коллекция)
@@ -370,7 +369,6 @@ Sitemap: https://dom-site.com/sitemap-index.xml
 ```
 /ru/blog/kniga-rasshifrovka-genoma-chelovechnosti/
 /ru/blog/kniga-garmoniya-v-seme/
-/ru/blog/pochemu-narushenie-poryadkov-lomaet-rezultat/
 /ru/blog/vnutrennyaya-vina-pered-roditelyami/
 /ru/blog/granicy-v-otnosheniyah-s-detmi/
 /ru/blog/kak-ne-teryat-sebya-v-sociume/
@@ -501,11 +499,11 @@ const blog = defineCollection({
     title: z.string(),
     excerpt: z.string(),
     category: z.enum([
-      'system-thinking', 'parents', 'children', 'society',
-      'male-female', 'self-realization', 'money-business',
-      'anxiety-depression', 'physical-mental-health'
+      'science', 'system-thinking', 'spiritual-development', 'life-meanings',
+      'parents', 'children', 'male-female', 'money-business',
+      'anxiety-depression'
     ]),
-    contentType: z.enum(['Статья', 'Пост', 'Практика', 'Разбор', 'Книга']),
+    contentType: z.enum(['Статья', 'Книга']),
     tags: z.array(z.string()),
     date: z.string(),
     readingTime: z.number(),
@@ -866,23 +864,23 @@ export const ui = {
 
 | ID | Название |
 |----|---------|
+| science | Наука |
 | system-thinking | Системное мышление |
+| spiritual-development | Духовное развитие |
+| life-meanings | Смыслы жизни |
 | parents | Отношения с родителями |
 | children | Отношения с детьми |
-| society | Отношения с окружающими |
 | male-female | Мужчина и женщина |
-| self-realization | Реализация себя |
 | money-business | Деньги и бизнес |
 | anxiety-depression | Тревожность и депрессия |
-| physical-mental-health | Физическое и ментальное здоровье |
 
 ### 10.3 Типы контента блога
 
-Статья, Пост, Практика, Разбор, Книга
+Статья, Книга
 
-### 10.4 Теги блога (32 шт.)
+### 10.4 Теги блога (27 шт.)
 
-Принятие, Внутренняя мама, Внутренний папа, Треугольник личности, Позиция взрослого, Роль, Порядки системы, Цель, Самоценность, Внутренняя опора, Энергия, Осознание, Конфликт, Страх, Тревога, Депрессивное состояние, Потерянность, Выгорание, Кризис, Вина, Обида, Непринятие, Зависимость, Развод, Границы, Проявленность, Лидерство, Ответственность, Финансовый рост, Масштабирование, Самореализация, Работа с телом
+Принятие, Позиция взрослого, Роль, Порядки системы, Цель, Самоценность, Внутренняя опора, Энергия, Осознание, Конфликт, Страх, Тревога, Депрессивное состояние, Выгорание, Кризис, Вина, Обида, Непринятие, Зависимость, Развод, Границы, Лидерство, Ответственность, Финансовый рост, Масштабирование, Самореализация, Работа с телом
 
 ---
 

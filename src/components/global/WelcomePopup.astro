@@ -1,0 +1,155 @@
+---
+import type { PopupField } from '../../data/popup';
+
+interface Props {
+  enabled?: boolean;
+  delayMs: number;
+  eyebrow: string;
+  title: string;
+  description: string;
+  subtitle: string;
+  fields: readonly PopupField[];
+  submitText: string;
+  disclaimer: string;
+  image: { src: string; alt: string };
+}
+
+const {
+  delayMs,
+  eyebrow,
+  title,
+  description,
+  subtitle,
+  fields,
+  submitText,
+  disclaimer,
+  image,
+} = Astro.props;
+
+const imgSrc = encodeURI(image.src);
+
+const inputClass =
+  'w-full rounded-xl border border-dom-gold/20 bg-white px-5 py-3.5 md:px-6 md:py-4 font-montserrat text-[15px] md:text-lg text-dom-graphite placeholder:text-dom-graphite/30 outline-none focus:border-dom-gold/60 focus:ring-2 focus:ring-dom-gold/20';
+---
+
+<div
+  id="welcome-popup"
+  class="hidden fixed inset-0 z-50 flex items-start justify-center bg-black/50 backdrop-blur-sm px-4 pt-12 md:pt-20 overflow-y-auto"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="welcome-popup-title"
+>
+  <div
+    class="relative w-full max-w-4xl mx-auto mb-8 max-h-[85vh] overflow-y-auto md:max-h-none md:overflow-visible rounded-3xl bg-white shadow-2xl overflow-hidden md:mt-0"
+    data-popup-panel
+  >
+    <button
+      type="button"
+      class="absolute top-4 right-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-dom-beige/50 text-dom-graphite transition-colors hover:bg-dom-beige focus:outline-none focus:ring-2 focus:ring-dom-gold/40"
+      data-popup-close
+      aria-label="Закрыть"
+    >
+      <span class="text-xl leading-none font-light" aria-hidden="true">×</span>
+    </button>
+
+    <div class="grid grid-cols-1 md:grid-cols-2">
+      <div class="relative hidden min-h-[220px] md:block md:min-h-full">
+        <img
+          src={imgSrc}
+          alt={image.alt}
+          class="h-full min-h-[280px] w-full object-cover object-top"
+          width="600"
+          height="800"
+          loading="lazy"
+        />
+      </div>
+
+      <div class="flex flex-col justify-center p-6 sm:p-8 md:p-10 md:pl-8">
+        <p
+          class="font-montserrat text-[11px] uppercase tracking-[0.12em] text-dom-goldDark mb-3"
+        >
+          {eyebrow}
+        </p>
+        <h2
+          id="welcome-popup-title"
+          class="font-messiri text-3xl md:text-4xl text-dom-graphite mb-4 leading-tight"
+        >
+          {title}
+        </h2>
+        <p class="font-montserrat text-base text-dom-graphite/75 mb-3">
+          {description}
+        </p>
+        <p class="font-montserrat text-base text-dom-graphite/75 mb-6">
+          {subtitle}
+        </p>
+
+        <form class="flex flex-col gap-3" data-popup-form novalidate>
+          {
+            fields.map((field) => (
+              <input
+                type={field.type}
+                name={field.name}
+                placeholder={field.placeholder}
+                autocomplete={field.name === 'email' ? 'email' : 'name'}
+                class={inputClass}
+                required={field.type === 'email'}
+              />
+            ))
+          }
+          <button type="submit" class="dom-btn-primary w-full md:w-auto md:min-w-[240px] mt-2">
+            {submitText}
+          </button>
+        </form>
+
+        <p class="font-montserrat text-xs text-dom-graphite/50 mt-4">
+          {disclaimer}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script define:vars={{ delayMs }}>
+  const STORAGE_KEY = 'dom_popup_shown';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    if (sessionStorage.getItem(STORAGE_KEY)) return;
+
+    const popup = document.getElementById('welcome-popup');
+    if (!popup) return;
+
+    const showPopup = () => {
+      popup.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+      sessionStorage.setItem(STORAGE_KEY, 'true');
+    };
+
+    const hidePopup = () => {
+      popup.classList.add('hidden');
+      document.body.style.overflow = '';
+      sessionStorage.setItem(STORAGE_KEY, 'true');
+    };
+
+    const timer = window.setTimeout(showPopup, delayMs);
+
+    const closeBtn = popup.querySelector('[data-popup-close]');
+    closeBtn?.addEventListener('click', () => {
+      window.clearTimeout(timer);
+      hidePopup();
+    });
+
+    popup.addEventListener('click', (e) => {
+      if (e.target === popup) {
+        window.clearTimeout(timer);
+        hidePopup();
+      }
+    });
+
+    const form = popup.querySelector('[data-popup-form]');
+    form?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      // Здесь позже: отправка в GetCourse / API
+      hidePopup();
+    });
+  });
+</script>

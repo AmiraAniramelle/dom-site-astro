@@ -22,3 +22,10 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# Dzen helper: выгрузки и временные дампы API
+scripts/output/
+scripts/_dzen-*.json
+scripts/_feed.json
+scripts/_article-sample.html
+scripts/_m.html

@@ -1,0 +1,69 @@
+---
+/**
+ * Сетка карточек блога + счётчик + пустое состояние (для клиентской фильтрации).
+ * @see blog-sections/04-blog-grid.md
+ */
+import BlogCard from './BlogCard.astro';
+
+export interface BlogGridPost {
+  slug: string;
+  title: string;
+  excerpt: string;
+  cover: string;
+  contentType: string;
+  category: string;
+  date: string;
+  readingTime: number;
+  tags: string[];
+  viewsCount: number;
+}
+
+interface Props {
+  posts: BlogGridPost[];
+}
+
+const { posts } = Astro.props;
+const count = posts.length;
+---
+
+<div class="blog-grid-section">
+  <p
+    class="font-montserrat text-sm text-dom-graphite mb-4 md:mb-5"
+    data-blog-count
+    aria-live="polite"
+  >
+    Материалов:{' '}
+    <span data-blog-count-value>{count}</span>
+  </p>
+
+  <div
+    class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 items-stretch auto-rows-fr"
+    data-blog-grid
+  >
+    {
+      posts.map((post) => (
+        <div class="blog-card-wrap h-full min-h-0 flex">
+          <BlogCard
+            slug={post.slug}
+            title={post.title}
+            excerpt={post.excerpt}
+            cover={post.cover}
+            contentType={post.contentType}
+            category={post.category}
+            date={post.date}
+            readingTime={post.readingTime}
+            tags={post.tags}
+            viewsCount={post.viewsCount}
+          />
+        </div>
+      ))
+    }
+  </div>
+
+  <p
+    data-blog-empty
+    class="hidden text-center py-12 font-montserrat text-base text-dom-graphite/70 max-w-md mx-auto"
+  >
+    По текущим фильтрам ничего не найдено
+  </p>
+</div>

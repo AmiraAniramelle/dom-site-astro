@@ -7268,18 +7268,18 @@
         }
 
         const BLOG_CATEGORIES = [
+            { id: 'science', title: 'Наука', slug: 'nauka' },
             { id: 'system-thinking', title: 'Системное мышление', slug: 'sistemnoe-myshlenie' },
+            { id: 'spiritual-development', title: 'Духовное развитие', slug: 'duhovnoe-razvitie' },
+            { id: 'life-meanings', title: 'Смыслы жизни', slug: 'smysly-zhizni' },
             { id: 'parents', title: 'Отношения с родителями', slug: 'roditeli' },
             { id: 'children', title: 'Отношения с детьми', slug: 'deti' },
-            { id: 'society', title: 'Отношения с окружающими', slug: 'okruzhayushchie' },
             { id: 'male-female', title: 'Мужчина и женщина', slug: 'muzhchina-i-zhenshchina' },
-            { id: 'self-realization', title: 'Реализация себя', slug: 'realizaciya-sebya' },
             { id: 'money-business', title: 'Деньги и бизнес', slug: 'dengi-i-biznes' },
-            { id: 'anxiety-depression', title: 'Тревожность и депрессия', slug: 'trevozhnost-i-depressiya' },
-            { id: 'physical-mental-health', title: 'Физическое и ментальное здоровье', slug: 'fizicheskoe-i-mentalnoe-zdorove' }
+            { id: 'anxiety-depression', title: 'Тревожность и депрессия', slug: 'trevozhnost-i-depressiya' }
         ];
 
-        const BLOG_CONTENT_TYPES = ['Статья', 'Пост', 'Практика', 'Разбор', 'Книга'];
+        const BLOG_CONTENT_TYPES = ['Статья', 'Книга'];
         const BLOG_MENU_FILTERS = [
             { id: 'science', label: 'Наука' },
             { id: 'system-thinking', label: 'Системное мышление' },
@@ -7290,9 +7290,6 @@
 
         const BLOG_TAGS_ALLOWED = [
             'Принятие',
-            'Внутренняя мама',
-            'Внутренний папа',
-            'Треугольник личности',
             'Позиция взрослого',
             'Роль',
             'Порядки системы',
@@ -7305,7 +7302,6 @@
             'Страх',
             'Тревога',
             'Депрессивное состояние',
-            'Потерянность',
             'Выгорание',
             'Кризис',
             'Вина',
@@ -7314,7 +7310,6 @@
             'Зависимость',
             'Развод',
             'Границы',
-            'Проявленность',
             'Лидерство',
             'Ответственность',
             'Финансовый рост',
@@ -7363,32 +7358,17 @@
                 }
             },
             {
-                id: 'post-system-orders',
-                slug: 'pochemu-narushenie-poryadkov-lomaet-rezultat',
-                category: 'system-thinking',
-                contentType: 'Статья',
-                title: 'Почему нарушение порядков системы ломает результат',
-                excerpt: 'Когда действия идут без структуры, человек выгорает и не видит причинно-следственных связей. Разбираем, как вернуть порядок и роль взрослого в ключевых сферах.',
-                body: 'Системное мышление начинается с признания: у каждой сферы есть свои законы. Если человек игнорирует их, энергия уходит в борьбу с последствиями. Восстановление порядка начинается с роли, границ и ясной цели.',
-                date: '2026-02-14',
-                readingTime: 8,
-                viewsCount: 960,
-                tags: ['Порядки системы', 'Позиция взрослого', 'Ответственность', 'Осознание'],
-                cover: './dom-assets/hero-reference.jpg',
-                relatedProductId: 'business-mission'
-            },
-            {
                 id: 'post-parents-guilt',
                 slug: 'vnutrennyaya-vina-pered-roditelyami',
                 category: 'parents',
-                contentType: 'Разбор',
+                contentType: 'Статья',
                 title: 'Внутренняя вина перед родителями: как выйти из детской роли',
                 excerpt: 'Взрослый возраст не гарантирует взрослую позицию. В разборе показываем, как распознать сценарии вины и вернуть уважение к себе без конфликта с родителями.',
                 body: 'Вина часто выглядит как забота, но внутри остается детская зависимость. В системной работе важно отделить любовь к родителям от подчинения их установкам и вернуть право на собственные решения.',
                 date: '2026-02-09',
                 readingTime: 7,
                 viewsCount: 730,
-                tags: ['Вина', 'Внутренняя мама', 'Внутренний папа', 'Позиция взрослого'],
+                tags: ['Вина', 'Границы', 'Принятие', 'Позиция взрослого'],
                 cover: './dom-assets/hero-reference.jpg',
                 relatedProductId: 'family-unity'
             },
@@ -7396,7 +7376,7 @@
                 id: 'post-children-borders',
                 slug: 'granicy-v-otnosheniyah-s-detmi',
                 category: 'children',
-                contentType: 'Практика',
+                contentType: 'Статья',
                 title: 'Границы с детьми без давления и чувства вины',
                 excerpt: 'Практика для родителей, которые хотят быть теплыми и устойчивыми одновременно. Пошагово разбираем, как установить правила и сохранить контакт.',
                 body: 'Границы не про жесткость, а про безопасность. Когда правила озвучены спокойно и последовательно, ребенок чувствует опору, а родитель перестает метаться между контролем и чувством вины.',
@@ -7410,15 +7390,15 @@
             {
                 id: 'post-society-role',
                 slug: 'kak-ne-teryat-sebya-v-sociume',
-                category: 'society',
-                contentType: 'Пост',
+                category: 'life-meanings',
+                contentType: 'Статья',
                 title: 'Как не терять себя в отношениях с социумом',
                 excerpt: 'Если человек постоянно подстраивается под ожидания окружения, он теряет энергию и точку опоры. Короткий материал о зрелой проявленности в социуме.',
                 body: 'Принятие себя в социуме начинается с честного вопроса: чья это цель? Когда роль выбрана осознанно, человек перестает зависеть от внешней оценки и удерживает собственный курс.',
                 date: '2026-01-26',
                 readingTime: 4,
                 viewsCount: 540,
-                tags: ['Роль', 'Проявленность', 'Самоценность'],
+                tags: ['Роль', 'Осознание', 'Самоценность'],
                 cover: './dom-assets/hero-reference.jpg',
                 relatedProductId: null
             },
@@ -7426,7 +7406,7 @@
                 id: 'post-couple-conflict',
                 slug: 'muzhchina-zhenshina-i-nezakrytye-roli',
                 category: 'male-female',
-                contentType: 'Разбор',
+                contentType: 'Статья',
                 title: 'Мужчина и женщина: как незакрытые роли создают конфликт',
                 excerpt: 'Партнерские кризисы часто связаны не с несовместимостью, а с переносом детских ожиданий в пару. В разборе — механика и шаги к восстановлению контакта.',
                 body: 'Когда в паре нет ясных границ ролей, начинается борьба за признание. Системный подход возвращает зрелый диалог и помогает отличить близость от зависимости.',
@@ -7440,7 +7420,7 @@
             {
                 id: 'post-self-value',
                 slug: 'samocennost-i-realizaciya',
-                category: 'self-realization',
+                category: 'spiritual-development',
                 contentType: 'Статья',
                 title: 'Самоценность как основа реализации себя',
                 excerpt: 'Без внутренней ценности человек зависает между перфекционизмом и прокрастинацией. Статья о том, как вернуть собственный вектор и действовать устойчиво.',
@@ -7471,7 +7451,7 @@
                 id: 'post-money-scale',
                 slug: 'masshtabirovanie-bez-vygoraniya',
                 category: 'money-business',
-                contentType: 'Разбор',
+                contentType: 'Статья',
                 title: 'Масштабирование без выгорания: системная модель',
                 excerpt: 'Когда рост дохода не подкреплен внутренней структурой, нервная система возвращает человека в старый объем. Разбор устойчивого расширения.',
                 body: 'Масштабирование требует не только инструментов, но и новой роли. Без внутреннего порядка рост превращается в перегрузку. Системный подход делает расширение прогнозируемым.',
@@ -7486,7 +7466,7 @@
                 id: 'post-anxiety-body',
                 slug: 'trevoga-i-telo',
                 category: 'anxiety-depression',
-                contentType: 'Практика',
+                contentType: 'Статья',
                 title: 'Тревога и тело: короткий протокол восстановления опоры',
                 excerpt: 'Практика для состояния тревоги, когда мысли не останавливаются. Формируем телесную опору, снижаем внутренний шум и возвращаем ясность решений.',
                 body: 'При тревоге важно сначала стабилизировать физиологию, затем переходить к когнитивной части. Когда тело успокаивается, человек возвращает доступ к роли взрослого и к точным решениям.',
@@ -7500,7 +7480,7 @@
             {
                 id: 'post-burnout-health',
                 slug: 'vygoranie-kak-sistemnyy-sboy',
-                category: 'physical-mental-health',
+                category: 'science',
                 contentType: 'Статья',
                 title: 'Выгорание как системный сбой, а не слабость характера',
                 excerpt: 'Материал о том, как хроническое напряжение разрушает когнитивную устойчивость и почему лечение начинается с восстановления порядка, а не с самокритики.',
@@ -7516,14 +7496,14 @@
                 id: 'post-depression-support',
                 slug: 'depressivnoe-sostoyanie-i-opora',
                 category: 'anxiety-depression',
-                contentType: 'Пост',
+                contentType: 'Статья',
                 title: 'Депрессивное состояние: с чего начинать путь к опоре',
                 excerpt: 'Короткий ориентир для состояния, когда нет сил и смысла. Без давления, с фокусом на минимальные действия и возвращение контакта с жизнью.',
                 body: 'Первый шаг при депрессивном состоянии — убрать внутреннее обвинение. Следом идет восстановление телесного ресурса, простая структура дня и постепенное возвращение инициативы.',
                 date: '2026-01-22',
                 readingTime: 4,
                 viewsCount: 610,
-                tags: ['Депрессивное состояние', 'Потерянность', 'Принятие'],
+                tags: ['Депрессивное состояние', 'Тревога', 'Принятие'],
                 cover: './dom-assets/hero-reference.jpg',
                 relatedProductId: null
             },
@@ -7531,7 +7511,7 @@
                 id: 'post-system-goal',
                 slug: 'cel-i-sistemnaya-disiplina',
                 category: 'system-thinking',
-                contentType: 'Практика',
+                contentType: 'Статья',
                 title: 'Цель и системная дисциплина: практика на 14 дней',
                 excerpt: 'Практика для тех, кто быстро загорается и быстро сходит с дистанции. Помогает закрепить целевой ритм без самонасилия.',
                 body: 'Системная дисциплина строится на ясной цели, измеримых шагах и регулярной проверке роли. Практика фиксирует маршрут, чтобы энергия не уходила в хаос и сомнения.',
@@ -7580,11 +7560,8 @@
         }
 
         function getBlogTypeClass(contentType) {
-            if (contentType === 'Статья') return 'blog-type-statya';
-            if (contentType === 'Пост') return 'blog-type-post';
-            if (contentType === 'Практика') return 'blog-type-praktika';
             if (contentType === 'Книга') return 'blog-type-kniga';
-            return 'blog-type-razbor';
+            return 'blog-type-statya';
         }
 
         function openBookCta(action) {
@@ -7643,19 +7620,16 @@
         function matchesBlogMenuFilter(post, menuFilter) {
             if (!menuFilter) return true;
             if (menuFilter === 'science') {
-                return ['physical-mental-health', 'anxiety-depression', 'system-thinking'].includes(post.category)
-                    || ['Статья', 'Разбор'].includes(post.contentType);
+                return post.category === 'science';
             }
             if (menuFilter === 'system-thinking') {
                 return post.category === 'system-thinking';
             }
             if (menuFilter === 'spiritual-development') {
-                return ['parents', 'children', 'society', 'male-female', 'self-realization'].includes(post.category)
-                    || post.id === 'book-genome-humanity';
+                return post.category === 'spiritual-development';
             }
             if (menuFilter === 'life-meanings') {
-                return ['self-realization', 'anxiety-depression', 'physical-mental-health'].includes(post.category)
-                    || post.tags.some((tag) => ['Цель', 'Самоценность', 'Осознание', 'Внутренняя опора'].includes(tag));
+                return post.category === 'life-meanings';
             }
             return true;
         }

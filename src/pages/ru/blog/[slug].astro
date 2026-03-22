@@ -1,9 +1,15 @@
 ---
-import { getCollection, render } from 'astro:content';
+/**
+ * Страница статьи блога (один шаблон для всех .md).
+ * Маршрут: [slug].astro (в спеке ошибочно указан [...slug] для одноуровневых slug).
+ * @see blog-sections/06-blog-article-page.md
+ */
+import { getCollection, render, getEntry } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { createPageMeta } from '../../../data/seo/defaults';
 import { siteConfig } from '../../../data/site';
 import type { PageMeta, Breadcrumb } from '../../../types/page';
+import '../../../styles/blog.css';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog', (e) => e.data.published && e.data.lang === 'ru');
@@ -23,10 +29,12 @@ const breadcrumbs: Breadcrumb[] = [
   { name: post.title, url: `${siteConfig.url}/ru/blog/${slug}/` },
 ];
 
+const canonicalPath = `/ru/blog/${slug}/`;
+
 const meta: PageMeta = createPageMeta({
   title: post.seo.title,
   description: post.seo.description,
-  canonicalUrl: `${siteConfig.url}/ru/blog/${slug}/`,
+  canonicalUrl: `${siteConfig.url}${canonicalPath}`,
   ogImage: post.seo.ogImage,
   ogType: 'article',
   locale: 'ru_RU',
@@ -35,82 +43,232 @@ const meta: PageMeta = createPageMeta({
   author: siteConfig.author,
 });
 
+const coverSrc = post.cover.startsWith('http') ? post.cover : encodeURI(post.cover);
+const coverAbsolute = post.cover.startsWith('http')
+  ? post.cover
+  : `${siteConfig.url}${post.cover.startsWith('/') ? '' : '/'}${post.cover}`;
+
 const articleJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Article',
   headline: post.title,
   description: post.excerpt,
-  author: { '@type': 'Person', name: siteConfig.author },
   datePublished: post.date,
-  image: post.cover.startsWith('http') ? post.cover : `${siteConfig.url}${post.cover.startsWith('/') ? '' : '/'}${post.cover}`,
+  author: { '@type': 'Person', name: siteConfig.author },
+  image: coverAbsolute,
 };
 
 const { Content } = await render(entry);
+
+const allBlogOthers = await getCollection(
+  'blog',
+  (e) => e.data.published && e.data.lang === 'ru' && e.id !== slug,
+);
+
+const currentTags = post.tags ?? [];
+const similarByTags = allBlogOthers
+  .map((e) => ({
+    entry: e,
+    score: currentTags.filter((t) => e.data.tags.includes(t)).length,
+  }))
+  .filter((x) => x.score > 0)
+  .sort((a, b) => {
+    if (b.score !== a.score) return b.score - a.score;
+    return b.entry.data.date.localeCompare(a.entry.data.date);
+  })
+  .slice(0, 5)
+  .map((x) => x.entry);
+
+const sameCategoryPosts = allBlogOthers
+  .filter((e) => e.data.category === post.category)
+  .sort((a, b) => b.data.date.localeCompare(a.data.date))
+  .slice(0, 4);
+
+const relatedProductEntry =
+  post.relatedProductId != null
+    ? await getEntry('products', post.relatedProductId)
+    : undefined;
+const relatedProduct =
+  relatedProductEntry &&
+  relatedProductEntry.data.published &&
+  relatedProductEntry.data.lang === 'ru'
+    ? relatedProductEntry
+    : null;
+
+const showTagBlock = similarByTags.length > 0;
+const showCategoryBlock = sameCategoryPosts.length > 0;
+
+const ctaHref = post.cta?.url
+  ? post.cta.url
+  : post.cta?.action
+    ? `#${post.cta.action.replace(/^#/, '')}`
+    : null;
+const ctaIsExternal = post.cta?.url ? /^https?:\/\//i.test(post.cta.url) : false;
+const isBook = post.contentType === 'Книга';
 ---
 
 <BaseLayout meta={meta}>
-  <article class="max-w-3xl mx-auto px-4 py-10">
-    <nav aria-label="Хлебные крошки" class="text-sm text-dom-graphite/80 mb-6">
-      <ol class="flex flex-wrap gap-x-2 gap-y-1">
-        {breadcrumbs.map((b, i) => (
-          <li class="flex items-center gap-2">
-            {i > 0 && <span aria-hidden="true">/</span>}
-            {i === breadcrumbs.length - 1 ? (
-              <span class="text-dom-graphite font-medium">{b.name}</span>
-            ) : (
-              <a href={b.url.startsWith('http') ? b.url.replace(siteConfig.url, '') : b.url} class="hover:text-dom-gold transition-colors">{b.name}</a>
-            )}
-          </li>
-        ))}
-      </ol>
-    </nav>
+  <article class="bg-white min-h-screen pt-12 pb-24">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <a
+        href="/ru/blog/"
+        class="text-dom-goldDark hover:text-dom-graphite font-montserrat font-bold uppercase tracking-wider text-sm transition-colors inline-flex items-center mb-8 no-underline"
+      >
+        ← К списку материалов
+      </a>
 
-    <header class="mb-8">
-      <p class="font-montserrat text-xs uppercase tracking-widest text-dom-gold mb-2">{post.contentType} · {post.category}</p>
-      <h1 class="font-messiri text-4xl md:text-5xl text-dom-graphite mb-4">{post.title}</h1>
-      <p class="text-dom-graphite/80 mb-2">{post.date} · {post.readingTime} мин чтения</p>
-      {post.tags.length > 0 && (
-        <p class="text-sm text-dom-graphite/70">
-          {post.tags.map((t) => (
-            <span class="inline-block mr-2">#{t}</span>
-          ))}
-        </p>
-      )}
-    </header>
-
-    {post.cover && (
-      <figure class="mb-8 rounded-xl overflow-hidden">
+      <div
+        class:list={[
+          'relative rounded-2xl mb-8 border border-dom-gold/15',
+          isBook
+            ? 'h-72 md:h-96 overflow-hidden bg-dom-beige/45 px-6 py-6 md:px-10 md:py-8'
+            : 'h-72 md:h-96 overflow-hidden',
+        ]}
+      >
         <img
-          src={post.cover.startsWith('http') ? post.cover : post.cover}
-          alt=""
+          src={coverSrc}
+          alt={post.title}
+          class:list={[
+            'h-full w-full',
+            isBook ? 'object-contain object-center' : 'object-cover object-top',
+          ]}
           width="1200"
-          height="630"
-          class="w-full h-auto object-cover"
+          height="675"
           loading="eager"
+          fetchpriority="high"
+          onerror="this.onerror=null;this.src='/images/blog/placeholder.jpg'"
         />
-      </figure>
-    )}
+        <span
+          class="absolute top-4 left-4 px-4 py-1.5 rounded-full bg-dom-gold/90 text-white text-xs font-montserrat font-bold uppercase tracking-wider"
+        >
+          {post.contentType}
+        </span>
+      </div>
 
-    <div class="prose prose-dom max-w-none">
-      <Content />
+      <div class="mb-6">
+        <p class="font-montserrat text-sm text-dom-graphite/50 mb-3">
+          {post.date} · {post.readingTime} мин чтения
+        </p>
+        <h1 class="font-messiri text-4xl md:text-5xl text-dom-graphite mb-4 leading-tight">
+          {post.title}
+        </h1>
+        {
+          post.tags?.length > 0 && (
+            <div class="flex flex-wrap gap-2 mb-6">
+              {post.tags.map((tag) => (
+                <span class="px-3 py-1 rounded-full bg-dom-beige/50 text-xs font-montserrat text-dom-graphite/60">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )
+        }
+      </div>
+
+      <div
+        class="blog-article-prose prose prose-lg max-w-none font-montserrat text-dom-graphite/85 leading-relaxed"
+      >
+        <Content />
+      </div>
+
+      {
+        (relatedProduct || showTagBlock || showCategoryBlock) && (
+          <div class="mt-12 space-y-8">
+            {relatedProduct && (
+              <aside class="rounded-2xl border border-dom-gold/20 bg-dom-beige/20 p-6 md:p-8">
+                <p
+                  class="font-montserrat text-xs font-bold uppercase tracking-[0.2em] text-dom-goldDark mb-3"
+                >
+                  Связанный продукт
+                </p>
+                <h3 class="font-messiri text-2xl md:text-3xl text-dom-graphite mb-4 leading-snug">
+                  {relatedProduct.data.title}
+                </h3>
+                <p class="font-montserrat text-dom-graphite/80 leading-relaxed mb-6">
+                  {relatedProduct.data.shortDesc}
+                </p>
+                <a
+                  href={`/ru/products/${relatedProduct.id}/`}
+                  class="inline-flex items-center justify-center rounded-xl bg-gold-gradient px-8 py-3.5 font-montserrat text-sm font-bold uppercase tracking-wider text-white shadow-md transition-all duration-300 hover:shadow-lg no-underline"
+                >
+                  Перейти к продукту
+                </a>
+              </aside>
+            )}
+
+            {
+              (showTagBlock || showCategoryBlock) && (
+                <div class="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
+                  {showTagBlock && (
+                    <section
+                      class:list={[
+                        'rounded-2xl border border-dom-gold/20 bg-dom-beige/20 p-6',
+                        !showCategoryBlock && 'md:col-span-2',
+                      ]}
+                    >
+                      <h3 class="font-messiri text-xl md:text-2xl text-dom-graphite mb-4">
+                        Похожие по тегам
+                      </h3>
+                      <ul class="list-none space-y-3 p-0 m-0">
+                        {similarByTags.map((p) => (
+                          <li>
+                            <a
+                              href={`/ru/blog/${p.id}/`}
+                              class="font-montserrat text-sm md:text-base text-dom-graphite/90 hover:text-dom-goldDark transition-colors no-underline underline-offset-4 hover:underline leading-snug block"
+                            >
+                              {p.data.title}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </section>
+                  )}
+                  {showCategoryBlock && (
+                    <section
+                      class:list={[
+                        'rounded-2xl border border-dom-gold/20 bg-dom-beige/20 p-6',
+                        !showTagBlock && 'md:col-span-2',
+                      ]}
+                    >
+                      <h3 class="font-messiri text-xl md:text-2xl text-dom-graphite mb-4">
+                        Материалы из той же категории
+                      </h3>
+                      <ul class="list-none space-y-3 p-0 m-0">
+                        {sameCategoryPosts.map((p) => (
+                          <li>
+                            <a
+                              href={`/ru/blog/${p.id}/`}
+                              class="font-montserrat text-sm md:text-base text-dom-graphite/90 hover:text-dom-goldDark transition-colors no-underline underline-offset-4 hover:underline leading-snug block"
+                            >
+                              {p.data.title}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </section>
+                  )}
+                </div>
+              )
+            }
+          </div>
+        )
+      }
+
+      {
+        post.cta && ctaHref && (
+          <div class="mt-12 text-center">
+            <a
+              href={ctaHref}
+              target={ctaIsExternal ? '_blank' : undefined}
+              rel={ctaIsExternal ? 'noopener noreferrer' : undefined}
+              class="inline-flex items-center justify-center bg-gold-gradient text-white py-4 px-8 rounded-xl font-montserrat font-bold uppercase tracking-wider text-sm shadow-lg hover:shadow-xl transition-all duration-300 no-underline"
+            >
+              {post.cta.label}
+            </a>
+          </div>
+        )
+      }
     </div>
-
-    {post.relatedProductId && (
-      <aside class="mt-10 p-6 rounded-2xl border border-dom-gold/20 bg-dom-beige/30">
-        <p class="font-montserrat text-xs uppercase tracking-widest text-dom-gold mb-2">Связанный продукт</p>
-        <a href={`/ru/products/${post.relatedProductId}/`} class="font-messiri text-xl text-dom-graphite hover:text-dom-gold transition-colors">
-          Открыть программу →
-        </a>
-      </aside>
-    )}
-
-    {post.cta && (
-      <p class="mt-6">
-        <a href={`#${post.cta.action}`} class="px-6 py-3 bg-gold-gradient text-white rounded-xl font-montserrat text-sm uppercase tracking-wider">
-          {post.cta.label}
-        </a>
-      </p>
-    )}
   </article>
 
   <script type="application/ld+json" set:html={JSON.stringify(articleJsonLd)} />

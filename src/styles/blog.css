@@ -1,0 +1,61 @@
+/* Заголовки карточек блога: не капс (глобальные стили ссылок/секций не должны перебивать) */
+[data-blog-card] h3 {
+  text-transform: none !important;
+}
+
+/* Список блога — панель фильтров (blog-sections/02-blog-filters.md) */
+.blog-filter-item select.blog-filter-select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23a4814a'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E");
+  background-size: 1rem;
+  background-position: right 0.75rem center;
+  background-repeat: no-repeat;
+  padding-right: 2.5rem;
+}
+
+/* Тело статьи (blog-sections/06); без @tailwindcss/typography */
+.blog-article-prose :where(h2) {
+  font-family: var(--dom-heading-font, serif);
+  font-size: clamp(1.25rem, 4vw, 1.75rem);
+  font-weight: 600;
+  color: var(--color-dom-graphite, #38332d);
+  margin-top: 2.25rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.25;
+}
+
+.blog-article-prose :where(h3) {
+  font-family: var(--dom-heading-font, serif);
+  font-size: clamp(1.1rem, 3vw, 1.35rem);
+  font-weight: 600;
+  color: var(--color-dom-graphite, #38332d);
+  margin-top: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.blog-article-prose :where(p) {
+  margin-bottom: 1rem;
+}
+
+.blog-article-prose :where(ul, ol) {
+  margin-bottom: 1rem;
+  padding-left: 1.35rem;
+}
+
+.blog-article-prose :where(li) {
+  margin-bottom: 0.35rem;
+}
+
+.blog-article-prose :where(a) {
+  color: var(--color-dom-gold-dark, #a4814a);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.blog-article-prose :where(a:hover) {
+  color: var(--color-dom-graphite, #38332d);
+}
+
+.blog-article-prose :where(strong) {
+  font-weight: 600;
+  color: var(--color-dom-graphite, #38332d);
+}

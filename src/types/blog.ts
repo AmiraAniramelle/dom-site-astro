@@ -1,15 +1,15 @@
 export type BlogCategory =
+  | 'science'
   | 'system-thinking'
+  | 'spiritual-development'
+  | 'life-meanings'
   | 'parents'
   | 'children'
-  | 'society'
   | 'male-female'
-  | 'self-realization'
   | 'money-business'
-  | 'anxiety-depression'
-  | 'physical-mental-health';
+  | 'anxiety-depression';
 
-export type BlogContentType = 'Статья' | 'Пост' | 'Практика' | 'Разбор' | 'Книга';
+export type BlogContentType = 'Статья' | 'Книга';
 
 export interface BlogCTA {
   label: string;

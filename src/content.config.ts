@@ -57,28 +57,38 @@ const blog = defineCollection({
   loader: glob({ base: './src/content/blog', pattern: '**/*.md' }),
   schema: z.object({
     title: z.string(),
+    /** Дублирует URL-слаг (имя файла без .md); опционально для совместимости с импортом из Дзена */
+    slug: z.string().optional(),
     excerpt: z.string(),
     category: z.enum([
+      'science',
       'system-thinking',
+      'spiritual-development',
+      'life-meanings',
       'parents',
       'children',
-      'society',
       'male-female',
-      'self-realization',
       'money-business',
       'anxiety-depression',
-      'physical-mental-health',
     ]),
-    contentType: z.enum(['Статья', 'Пост', 'Практика', 'Разбор', 'Книга']),
+    contentType: z.enum(['Статья', 'Книга']),
     tags: z.array(z.string()),
     date: z.string(),
     readingTime: z.number(),
+    /** Просмотры (например с Дзена); в сетке блога, по умолчанию 0 */
+    viewsCount: z.number().optional().default(0),
     cover: z.string(),
     relatedProductId: z.string().nullable(),
     cta: z
       .object({
         label: z.string(),
-        action: z.string(),
+        /** Якорь на странице, например #section */
+        action: z.string().optional(),
+        /** Внешняя или внутренняя ссылка (блок 06) */
+        url: z.string().optional(),
+      })
+      .refine((d) => Boolean(d.url || d.action), {
+        message: 'cta: укажите url или action',
       })
       .optional(),
     seo: z.object({

@@ -2,6 +2,8 @@
  * Данные навбара. Меняйте здесь или подставляйте из CMS — меню рендерится по этому массиву.
  */
 
+import { blogMenuFilters } from './pages/blog';
+
 export interface NavItemChild {
   title: string;
   url: string;
@@ -46,7 +48,17 @@ export const navItems: NavItem[] = [
       { title: 'История жизни', url: '/ru/about-life/' },
     ],
   },
-  { title: 'Блог и наука', url: '/ru/blog/' },
+  {
+    title: 'Блог и наука',
+    url: '/ru/blog/',
+    children: [
+      ...blogMenuFilters.map((f) => ({
+        title: f.label,
+        url: `/ru/blog/?filter=${f.id}`,
+      })),
+      { title: 'Смотреть весь блог', url: '/ru/blog/' },
+    ],
+  },
   { title: 'Отзывы', url: '/ru/reviews/' },
   { title: 'Магазин', url: '/ru/shop/' },
 ];
@@ -62,6 +74,11 @@ export function getMobileNavLinks(): { title: string; url: string }[] {
     { title: 'История жизни', url: '/ru/about-life/' },
     { title: 'Приложение DOM', url: '/ru/app-dom/' },
     { title: 'Блог и наука', url: '/ru/blog/' },
+    ...blogMenuFilters.map((f) => ({
+      title: `Блог: ${f.label}`,
+      url: `/ru/blog/?filter=${f.id}`,
+    })),
+    { title: 'Блог: весь каталог', url: '/ru/blog/' },
     { title: 'Отзывы', url: '/ru/reviews/' },
     { title: 'Магазин', url: '/ru/shop/' },
   ];

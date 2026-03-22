@@ -1,0 +1,146 @@
+---
+/**
+ * Панель фильтрации блога (клиентская логика — отдельный блок).
+ * @see blog-sections/02-blog-filters.md
+ */
+import { blogUrlFilterMap } from '../../data/pages/blog';
+
+interface Props {
+  eyebrow: string;
+  hint: string;
+  categories: Array<{ id: string; title: string }>;
+  contentTypes: string[];
+  tags: string[];
+  sortOptions: Array<{ value: string; label: string }>;
+  searchPlaceholder: string;
+}
+
+const {
+  eyebrow,
+  hint,
+  categories,
+  contentTypes,
+  tags,
+  sortOptions,
+  searchPlaceholder,
+} = Astro.props;
+
+const inputClass =
+  'blog-filter-select w-full rounded-xl border border-dom-gold/20 bg-white px-4 py-3 md:px-5 md:py-3.5 font-montserrat text-[15px] md:text-base text-dom-graphite outline-none focus:border-dom-gold/60 focus:ring-2 focus:ring-dom-gold/20 appearance-none cursor-pointer';
+---
+
+<div class="blog-filter-panel mb-8">
+  <p
+    class="font-montserrat text-[11px] uppercase tracking-[0.12em] text-dom-goldDark mb-2 block text-center md:text-left"
+  >
+    {eyebrow}
+  </p>
+  <p
+    class="font-montserrat text-sm md:text-base text-dom-graphite/80 mb-5 md:mb-6 text-center md:text-left max-w-3xl"
+  >
+    {hint}
+  </p>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-3">
+    <div class="blog-filter-item">
+      <label for="blog-filter-category" class="font-montserrat text-xs uppercase tracking-wide text-dom-goldDark mb-1.5 block">
+        Категория
+      </label>
+      <select id="blog-filter-category" data-blog-filter="category" class={inputClass}>
+        <option value="">Все категории</option>
+        {categories.map((c) => (
+          <option value={c.id}>{c.title}</option>
+        ))}
+      </select>
+    </div>
+
+    <div class="blog-filter-item">
+      <label for="blog-filter-type" class="font-montserrat text-xs uppercase tracking-wide text-dom-goldDark mb-1.5 block">
+        Тип
+      </label>
+      <select id="blog-filter-type" data-blog-filter="type" class={inputClass}>
+        <option value="">Все типы</option>
+        {contentTypes.map((t) => (
+          <option value={t}>{t}</option>
+        ))}
+      </select>
+    </div>
+
+    <div class="blog-filter-item">
+      <label for="blog-filter-tag" class="font-montserrat text-xs uppercase tracking-wide text-dom-goldDark mb-1.5 block">
+        Запрос / теги
+      </label>
+      <select id="blog-filter-tag" data-blog-filter="tag" class={inputClass}>
+        <option value="">Все запросы</option>
+        {tags.map((tag) => (
+          <option value={tag}>{tag}</option>
+        ))}
+      </select>
+    </div>
+
+    <div class="blog-filter-item">
+      <label for="blog-filter-sort" class="font-montserrat text-xs uppercase tracking-wide text-dom-goldDark mb-1.5 block">
+        Сортировать
+      </label>
+      <select id="blog-filter-sort" data-blog-filter="sort" class={inputClass}>
+        {sortOptions.map((o) => (
+          <option value={o.value} selected={o.value === 'new'}>
+            {o.label}
+          </option>
+        ))}
+      </select>
+    </div>
+
+    <div class="blog-filter-item md:col-span-2 xl:col-span-1">
+      <label for="blog-filter-search" class="font-montserrat text-xs uppercase tracking-wide text-dom-goldDark mb-1.5 block">
+        Поиск
+      </label>
+      <input
+        id="blog-filter-search"
+        type="search"
+        data-blog-filter="search"
+        placeholder={searchPlaceholder}
+        autocomplete="off"
+        class="w-full rounded-xl border border-dom-gold/20 bg-white px-4 py-3 md:px-6 md:py-4 font-montserrat text-[15px] md:text-lg text-dom-graphite placeholder:text-dom-graphite/30 outline-none focus:border-dom-gold/60 focus:ring-2 focus:ring-dom-gold/20"
+      />
+    </div>
+  </div>
+
+</div>
+
+<script define:vars={{ blogUrlFilterMap }}>
+  /**
+   * Синхронизация с ?filter= из навбара (/ru/blog/?filter=science и т.д.).
+   * Выполняется до скрипта страницы, который вызывает applyFilters().
+   */
+  function applyBlogFilterFromUrl() {
+    const path = window.location.pathname.replace(/\/$/, '') || '/';
+    if (path !== '/ru/blog') return;
+
+    const root = document.querySelector('[data-blog-root]');
+    if (!root) return;
+
+    const catFilter = root.querySelector('[data-blog-filter="category"]');
+    const typeFilter = root.querySelector('[data-blog-filter="type"]');
+    const tagFilter = root.querySelector('[data-blog-filter="tag"]');
+    if (!catFilter && !typeFilter && !tagFilter) return;
+
+    const key = new URLSearchParams(window.location.search).get('filter');
+    if (!key) {
+      if (catFilter) catFilter.value = '';
+      if (typeFilter) typeFilter.value = '';
+      if (tagFilter) tagFilter.value = '';
+      return;
+    }
+
+    const m = blogUrlFilterMap[key];
+    if (!m) return;
+
+    if (m.category != null && catFilter) catFilter.value = m.category;
+    if (m.tag != null && tagFilter) tagFilter.value = m.tag;
+    if (m.contentType != null && typeFilter) typeFilter.value = m.contentType;
+  }
+
+  applyBlogFilterFromUrl();
+  document.addEventListener('DOMContentLoaded', applyBlogFilterFromUrl);
+</script>

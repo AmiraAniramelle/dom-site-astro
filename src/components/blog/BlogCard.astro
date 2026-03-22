@@ -1,0 +1,132 @@
+---
+/**
+ * Карточка статьи в списке блога (данные для клиентской фильтрации — data-*).
+ * @see blog-sections/03-blog-card.md
+ */
+interface Props {
+  slug: string;
+  title: string;
+  excerpt: string;
+  cover: string;
+  contentType: string;
+  category: string;
+  date: string;
+  readingTime: number;
+  tags: string[];
+  /** Для data-views; в frontmatter пока опционально */
+  viewsCount?: number;
+}
+
+const {
+  slug,
+  title,
+  excerpt,
+  cover,
+  contentType,
+  category,
+  date,
+  readingTime,
+  tags,
+  viewsCount = 0,
+} = Astro.props;
+
+const href = `/ru/blog/${slug}/`;
+const coverSrc = encodeURI(cover);
+const tagsAttr = tags.join(',');
+const tagPills = tags.slice(0, 3);
+
+/** Дата YYYY-MM-DD → «20 марта 2026» (без «г.»), без сдвига из‑за UTC */
+function formatBlogCardDateRu(dateStr: string): string {
+  const m = dateStr.trim().match(/^(\d{4})-(\d{2})-(\d{2})/);
+  if (m) {
+    const y = Number(m[1]);
+    const mo = Number(m[2]) - 1;
+    const d = Number(m[3]);
+    const local = new Date(y, mo, d);
+    return new Intl.DateTimeFormat('ru-RU', {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+    })
+      .format(local)
+      .replace(/\s*г\.?$/, '')
+      .trim();
+  }
+  const t = Date.parse(dateStr);
+  if (Number.isNaN(t)) return dateStr;
+  return new Intl.DateTimeFormat('ru-RU', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  })
+    .format(new Date(t))
+    .replace(/\s*г\.?$/, '')
+    .trim();
+}
+
+const dateLabel = formatBlogCardDateRu(date);
+/** Обложки книг часто «высокие» — object-cover в h-56 обрезает верх; contain показывает целиком */
+const isBook = contentType === 'Книга';
+---
+
+<a
+  href={href}
+  class="group flex flex-col h-full w-full min-h-0 rounded-2xl overflow-hidden border border-dom-gold/20 bg-white hover:shadow-xl hover:border-dom-gold/40 transition-all duration-300 no-underline text-inherit"
+  data-blog-card
+  data-category={category}
+  data-type={contentType}
+  data-tags={tagsAttr}
+  data-date={date}
+  data-views={viewsCount}
+  data-title={title}
+  data-excerpt={excerpt}
+>
+  <div
+    class:list={[
+      'relative overflow-hidden',
+      isBook ? 'h-64 bg-dom-beige/45 p-4 sm:p-5' : 'h-56',
+    ]}
+  >
+    <img
+      src={coverSrc}
+      alt={title}
+      class:list={[
+        'h-full w-full transition-transform duration-500',
+        isBook
+          ? 'object-contain object-center group-hover:scale-[1.03]'
+          : 'object-cover object-top origin-top group-hover:scale-105',
+      ]}
+      width="800"
+      height="450"
+      loading="lazy"
+    />
+    <span
+      class="absolute top-4 left-4 px-4 py-1.5 rounded-full bg-dom-gold/90 text-white text-xs font-montserrat font-bold uppercase tracking-wider"
+    >
+      {contentType}
+    </span>
+  </div>
+
+  <div class="p-6 flex flex-col flex-1 min-h-0">
+    <p class="font-montserrat text-xs text-dom-graphite/50 mb-2 shrink-0">
+      {dateLabel} · {readingTime} мин
+    </p>
+    <h3
+      class="font-messiri text-xl normal-case text-dom-graphite mb-3 group-hover:text-dom-gold transition-colors leading-snug shrink-0"
+    >
+      {title}
+    </h3>
+    <p class="font-montserrat text-sm text-dom-graphite/70 mb-4 line-clamp-3 flex-grow min-h-0">
+      {excerpt}
+    </p>
+    <div class="mt-auto flex flex-wrap gap-2 shrink-0">
+      {tagPills.map((tag) => (
+        <span
+          class="px-3 py-1 rounded-full bg-dom-beige/50 text-xs font-montserrat text-dom-graphite/60"
+        >
+          {tag}
+        </span>
+      ))}
+    </div>
+  </div>
+</a>

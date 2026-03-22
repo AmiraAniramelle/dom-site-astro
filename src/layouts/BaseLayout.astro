@@ -4,6 +4,8 @@ import { siteConfig } from '../data/site';
 import SEOHead from '../components/global/SEOHead.astro';
 import Navbar from '../components/Navbar.astro';
 import FooterSection from '../components/Footer/FooterSection.astro';
+import WelcomePopup from '../components/global/WelcomePopup.astro';
+import { popupData } from '../data/popup';
 import '../styles/global.css';
 import '../styles/buttons.css';
 import '../styles/footer-and-final-cta.css';
@@ -56,5 +58,6 @@ const meta: PageMeta = metaProp ?? {
       </div>
     </main>
     <FooterSection />
+    {popupData.enabled && <WelcomePopup {...popupData} />}
   </body>
 </html>

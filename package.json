@@ -9,12 +9,22 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "dzen:best": "node scripts/dzen-best-articles.mjs",
+    "dzen:best:full": "node scripts/dzen-best-articles.mjs --scrape-full",
+    "dzen:import": "node scripts/dzen-import-blog.mjs",
+    "dzen:covers": "node scripts/dzen-sync-covers.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.1",
     "@tailwindcss/vite": "^4.2.1",
     "astro": "^6.0.3",
     "tailwindcss": "^4.2.1"
+  },
+  "devDependencies": {
+    "gray-matter": "^4.0.3",
+    "playwright": "^1.58.2",
+    "transliteration": "^2.6.1",
+    "turndown": "^7.2.2"
   }
 }
