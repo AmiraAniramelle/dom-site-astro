@@ -9,7 +9,6 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { createPageMeta } from '../../../data/seo/defaults';
 import { siteConfig } from '../../../data/site';
 import type { PageMeta, Breadcrumb } from '../../../types/page';
-import '../../../styles/blog.css';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog', (e) => e.data.published && e.data.lang === 'ru');
@@ -108,18 +107,19 @@ const isBook = post.contentType === 'Книга';
 ---
 
 <BaseLayout meta={meta}>
-  <article class="bg-white min-h-screen pt-12 pb-24">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+  <article class="blog-article-page bg-white min-h-screen pt-12 pb-24">
+    <div class="blog-article-inner max-w-4xl mx-auto px-4 sm:px-6">
       <a
         href="/ru/blog/"
-        class="text-dom-goldDark hover:text-dom-graphite font-montserrat font-bold uppercase tracking-wider text-sm transition-colors inline-flex items-center mb-8 no-underline"
+        class="blog-article-back text-dom-goldDark hover:text-dom-graphite font-montserrat font-bold uppercase tracking-wider text-sm transition-colors inline-flex items-center mb-8 no-underline"
       >
-        ← К списку материалов
+        <span class="md:hidden">← К списку</span>
+        <span class="hidden md:inline">← К списку материалов</span>
       </a>
 
       <div
         class:list={[
-          'relative rounded-2xl mb-8 border border-dom-gold/15',
+          'blog-article-cover relative rounded-2xl mb-8 border border-dom-gold/15',
           isBook
             ? 'h-72 md:h-96 overflow-hidden bg-dom-beige/45 px-6 py-6 md:px-10 md:py-8'
             : 'h-72 md:h-96 overflow-hidden bg-dom-beige/30',
@@ -139,24 +139,24 @@ const isBook = post.contentType === 'Книга';
           onerror="this.onerror=null;this.src='/images/blog/placeholder.jpg'"
         />
         <span
-          class="absolute top-4 left-4 px-4 py-1.5 rounded-full bg-dom-gold/90 text-white text-xs font-montserrat font-bold uppercase tracking-wider"
+          class="blog-article-cover-badge absolute top-4 left-4 px-4 py-1.5 rounded-full bg-dom-gold/90 text-white text-xs font-montserrat font-bold uppercase tracking-wider"
         >
           {post.contentType}
         </span>
       </div>
 
-      <div class="mb-6">
-        <p class="font-montserrat text-sm text-dom-graphite/50 mb-3">
+      <div class="blog-article-header mb-6">
+        <p class="blog-article-meta font-montserrat text-sm text-dom-graphite/50 mb-3">
           {post.date} · {post.readingTime} мин чтения
         </p>
-        <h1 class="font-messiri text-4xl md:text-5xl text-dom-graphite mb-4 leading-tight">
+        <h1 class="blog-article-title font-messiri text-4xl md:text-5xl text-dom-graphite mb-4 leading-tight">
           {post.title}
         </h1>
         {
           post.tags?.length > 0 && (
-            <div class="flex flex-wrap gap-2 mb-6">
+            <div class="blog-article-tags flex flex-wrap gap-2 mb-6">
               {post.tags.map((tag) => (
-                <span class="px-3 py-1 rounded-full bg-dom-beige/50 text-xs font-montserrat text-dom-graphite/60">
+                <span class="blog-article-tag px-3 py-1 rounded-full bg-dom-beige/50 text-xs font-montserrat text-dom-graphite/60">
                   {tag}
                 </span>
               ))}
@@ -175,13 +175,13 @@ const isBook = post.contentType === 'Книга';
         (relatedProduct || showTagBlock || showCategoryBlock) && (
           <div class="mt-12 space-y-8">
             {relatedProduct && (
-              <aside class="rounded-2xl border border-dom-gold/20 bg-dom-beige/20 p-6 md:p-8">
+              <aside class="blog-related-product rounded-2xl border border-dom-gold/20 bg-dom-beige/20 p-6 md:p-8">
                 <p
                   class="font-montserrat text-xs font-bold uppercase tracking-[0.2em] text-dom-goldDark mb-3"
                 >
                   Связанный продукт
                 </p>
-                <h3 class="font-messiri text-2xl md:text-3xl text-dom-graphite mb-4 leading-snug">
+                <h3 class="blog-related-product-title font-messiri text-2xl md:text-3xl text-dom-graphite mb-4 leading-snug">
                   {relatedProduct.data.title}
                 </h3>
                 <p class="font-montserrat text-dom-graphite/80 leading-relaxed mb-6">
@@ -189,7 +189,7 @@ const isBook = post.contentType === 'Книга';
                 </p>
                 <a
                   href={`/ru/products/${relatedProduct.id}/`}
-                  class="inline-flex items-center justify-center rounded-xl bg-gold-gradient px-8 py-3.5 font-montserrat text-sm font-bold uppercase tracking-wider text-white shadow-md transition-all duration-300 hover:shadow-lg no-underline"
+                  class="blog-related-product-cta inline-flex items-center justify-center rounded-xl bg-gold-gradient px-8 py-3.5 font-montserrat text-sm font-bold uppercase tracking-wider text-white shadow-md transition-all duration-300 hover:shadow-lg no-underline"
                 >
                   Перейти к продукту
                 </a>
@@ -198,11 +198,11 @@ const isBook = post.contentType === 'Книга';
 
             {
               (showTagBlock || showCategoryBlock) && (
-                <div class="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
+                <div class="blog-related-grid grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
                   {showTagBlock && (
                     <section
                       class:list={[
-                        'rounded-2xl border border-dom-gold/20 bg-dom-beige/20 p-6',
+                        'blog-related-section rounded-2xl border border-dom-gold/20 bg-dom-beige/20 p-6',
                         !showCategoryBlock && 'md:col-span-2',
                       ]}
                     >
@@ -214,9 +214,12 @@ const isBook = post.contentType === 'Книга';
                           <li>
                             <a
                               href={`/ru/blog/${p.id}/`}
-                              class="font-montserrat text-sm md:text-base text-dom-graphite/90 hover:text-dom-goldDark transition-colors no-underline underline-offset-4 hover:underline leading-snug block"
+                              class="blog-related-link font-montserrat text-sm md:text-base text-dom-graphite/90 hover:text-dom-goldDark transition-colors no-underline underline-offset-4 hover:underline leading-snug block"
                             >
-                              {p.data.title}
+                              <span class="blog-related-title block">{p.data.title}</span>
+                              <span class="blog-related-date block font-montserrat text-xs text-dom-graphite/50 mt-0.5">
+                                {p.data.date}
+                              </span>
                             </a>
                           </li>
                         ))}
@@ -226,7 +229,7 @@ const isBook = post.contentType === 'Книга';
                   {showCategoryBlock && (
                     <section
                       class:list={[
-                        'rounded-2xl border border-dom-gold/20 bg-dom-beige/20 p-6',
+                        'blog-related-section rounded-2xl border border-dom-gold/20 bg-dom-beige/20 p-6',
                         !showTagBlock && 'md:col-span-2',
                       ]}
                     >
@@ -238,9 +241,12 @@ const isBook = post.contentType === 'Книга';
                           <li>
                             <a
                               href={`/ru/blog/${p.id}/`}
-                              class="font-montserrat text-sm md:text-base text-dom-graphite/90 hover:text-dom-goldDark transition-colors no-underline underline-offset-4 hover:underline leading-snug block"
+                              class="blog-related-link font-montserrat text-sm md:text-base text-dom-graphite/90 hover:text-dom-goldDark transition-colors no-underline underline-offset-4 hover:underline leading-snug block"
                             >
-                              {p.data.title}
+                              <span class="blog-related-title block">{p.data.title}</span>
+                              <span class="blog-related-date block font-montserrat text-xs text-dom-graphite/50 mt-0.5">
+                                {p.data.date}
+                              </span>
                             </a>
                           </li>
                         ))}
@@ -256,12 +262,12 @@ const isBook = post.contentType === 'Книга';
 
       {
         post.cta && ctaHref && (
-          <div class="mt-12 text-center">
+          <div class="blog-article-cta mt-12 text-center">
             <a
               href={ctaHref}
               target={ctaIsExternal ? '_blank' : undefined}
               rel={ctaIsExternal ? 'noopener noreferrer' : undefined}
-              class="inline-flex items-center justify-center bg-gold-gradient text-white py-4 px-8 rounded-xl font-montserrat font-bold uppercase tracking-wider text-sm shadow-lg hover:shadow-xl transition-all duration-300 no-underline"
+              class="blog-article-cta-link inline-flex items-center justify-center bg-gold-gradient text-white py-4 px-8 rounded-xl font-montserrat font-bold uppercase tracking-wider text-sm shadow-lg hover:shadow-xl transition-all duration-300 no-underline"
             >
               {post.cta.label}
             </a>

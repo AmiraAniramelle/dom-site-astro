@@ -83,7 +83,7 @@ const isBook = contentType === 'Книга';
 >
   <div
     class:list={[
-      'relative overflow-hidden bg-dom-beige/30',
+      'blog-card-cover relative overflow-hidden bg-dom-beige/30',
       isBook ? 'h-64 bg-dom-beige/45 p-4 sm:p-5' : 'h-56',
     ]}
   >
@@ -102,28 +102,28 @@ const isBook = contentType === 'Книга';
       decoding="async"
     />
     <span
-      class="absolute top-4 left-4 px-4 py-1.5 rounded-full bg-dom-gold/90 text-white text-xs font-montserrat font-bold uppercase tracking-wider"
+      class="blog-card-badge absolute top-4 left-4 px-4 py-1.5 rounded-full bg-dom-gold/90 text-white text-xs font-montserrat font-bold uppercase tracking-wider"
     >
       {contentType}
     </span>
   </div>
 
-  <div class="p-6 flex flex-col flex-1 min-h-0">
-    <p class="font-montserrat text-xs text-dom-graphite/50 mb-2 shrink-0">
+  <div class="blog-card-body p-6 flex flex-col flex-1 min-h-0">
+    <p class="blog-card-date font-montserrat text-xs text-dom-graphite/50 mb-2 shrink-0">
       {dateLabel} · {readingTime} мин
     </p>
     <h3
-      class="font-messiri text-xl normal-case text-dom-graphite mb-3 group-hover:text-dom-gold transition-colors leading-snug shrink-0"
+      class="blog-card-title font-messiri text-xl normal-case text-dom-graphite mb-3 group-hover:text-dom-gold transition-colors leading-snug shrink-0"
     >
       {title}
     </h3>
-    <p class="font-montserrat text-sm text-dom-graphite/70 mb-4 line-clamp-3 flex-grow min-h-0">
+    <p class="blog-card-excerpt font-montserrat text-sm text-dom-graphite/70 mb-4 line-clamp-3 flex-grow min-h-0">
       {excerpt}
     </p>
-    <div class="mt-auto flex flex-wrap gap-2 shrink-0">
+    <div class="blog-card-tags mt-auto flex flex-wrap gap-2 shrink-0">
       {tagPills.map((tag) => (
         <span
-          class="px-3 py-1 rounded-full bg-dom-beige/50 text-xs font-montserrat text-dom-graphite/60"
+          class="blog-card-tag px-3 py-1 rounded-full bg-dom-beige/50 text-xs font-montserrat text-dom-graphite/60"
         >
           {tag}
         </span>

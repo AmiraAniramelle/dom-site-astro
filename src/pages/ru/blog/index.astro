@@ -6,7 +6,6 @@ import BlogFilters from '../../../components/blog/BlogFilters.astro';
 import BlogGrid from '../../../components/blog/BlogGrid.astro';
 import { createPageMeta } from '../../../data/seo/defaults';
 import { blogPageData } from '../../../data/pages/blog';
-import '../../../styles/blog.css';
 
 const allPosts = await getCollection('blog', ({ data }) => data.published !== false);
 
@@ -35,7 +34,7 @@ const meta = createPageMeta({
 ---
 
 <BaseLayout meta={meta}>
-  <section class="home-section home-section-tone-soft relative">
+  <section class="home-section home-section-tone-soft relative blog-list-section">
     <div
       class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 home-surface"
       data-blog-root
