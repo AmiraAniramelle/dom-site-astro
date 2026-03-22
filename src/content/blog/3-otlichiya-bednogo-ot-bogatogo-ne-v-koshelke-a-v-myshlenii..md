@@ -16,7 +16,7 @@ date: '2025-10-20'
 readingTime: 2
 viewsCount: 5
 cover: >-
-  /images/blog/covers/3-otlichiya-bednogo-ot-bogatogo-ne-v-koshelke-a-v-myshlenii..png
+  /images/blog/covers/3-otlichiya-bednogo-ot-bogatogo-ne-v-koshelke-a-v-myshlenii..webp
 relatedProductId: null
 seo:
   title: >-
@@ -27,14 +27,14 @@ seo:
     когда можешь себе позволить больше. Но настоящие различия глубже. Они не в
     цифрах, а в т
   ogImage: >-
-    /images/blog/covers/3-otlichiya-bednogo-ot-bogatogo-ne-v-koshelke-a-v-myshlenii..png
+    /images/blog/covers/3-otlichiya-bednogo-ot-bogatogo-ne-v-koshelke-a-v-myshlenii..webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aPXh81_C1XlirOFu).
 
-![3 отличия бедного от богатого: не в кошельке, а в мышлении. Анна Камаллая Хефорс](/images/blog/covers/3-otlichiya-bednogo-ot-bogatogo-ne-v-koshelke-a-v-myshlenii..png)
+![3 отличия бедного от богатого: не в кошельке, а в мышлении. Анна Камаллая Хефорс](/images/blog/covers/3-otlichiya-bednogo-ot-bogatogo-ne-v-koshelke-a-v-myshlenii..webp)
 Многие думают, что бедность — это когда не хватает денег, а богатство — когда можешь себе позволить больше. Но настоящие различия глубже. Они не в цифрах, а в том, как человек смотрит на жизнь. Как он реагирует на трудности, как решает вопросы, и главное — из какого чувства живёт: страха или уверенности. ♦️Бедный боится потерять, богатый верит, что найдёт. Бедный человек часто живёт с мыслью: «Надо держаться за то, что есть, а то вдруг не будет». Он экономит силы, эмоции, время — и живёт в постоянном напряжении...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

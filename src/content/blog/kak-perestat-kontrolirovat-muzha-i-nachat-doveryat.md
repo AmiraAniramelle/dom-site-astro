@@ -13,7 +13,7 @@ tags:
 date: '2025-11-04'
 readingTime: 4
 viewsCount: 17
-cover: /images/blog/covers/kak-perestat-kontrolirovat-muzha-i-nachat-doveryat.png
+cover: /images/blog/covers/kak-perestat-kontrolirovat-muzha-i-nachat-doveryat.webp
 relatedProductId: null
 seo:
   title: Как перестать контролировать мужа и начать доверять? Анна Хефорс | DOM
@@ -21,14 +21,14 @@ seo:
     Когда женщина говорит «я просто волнуюсь за него», часто за этими словами
     скрывается не забота, а страх. Страх потерять контроль, влияние,
     стабильность.
-  ogImage: /images/blog/covers/kak-perestat-kontrolirovat-muzha-i-nachat-doveryat.png
+  ogImage: /images/blog/covers/kak-perestat-kontrolirovat-muzha-i-nachat-doveryat.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aQmuIVSKz2xbLFgc).
 
-![Как перестать контролировать мужа и начать доверять? Анна Хефорс](/images/blog/covers/kak-perestat-kontrolirovat-muzha-i-nachat-doveryat.png)
+![Как перестать контролировать мужа и начать доверять? Анна Хефорс](/images/blog/covers/kak-perestat-kontrolirovat-muzha-i-nachat-doveryat.webp)
 Когда женщина говорит «я просто волнуюсь за него», часто за этими словами скрывается не забота, а страх. Страх потерять контроль, влияние, стабильность. Контроль кажется защитой, но на деле превращает любовь в наблюдение, а партнёрство в некий экзамен. Понять это непросто, потому что контроль часто выглядит как проявление любви. Но на самом деле это обратная её сторона и чаще там, где доверие ещё не выросло. Откуда берётся потребность контролировать? Анна Камаллая Хефорс объясняет: «Контроль — это не про власть, а про тревогу...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

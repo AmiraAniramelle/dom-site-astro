@@ -13,7 +13,7 @@ tags:
 date: '2025-09-28'
 readingTime: 2
 viewsCount: 11
-cover: /images/blog/covers/chto-pochitat-na-dosuge-kniga-garmoniya-v-seme-..jpg
+cover: /images/blog/covers/chto-pochitat-na-dosuge-kniga-garmoniya-v-seme-..webp
 relatedProductId: null
 seo:
   title: Что почитать на досуге? Книга "Гармония в семье". | DOM
@@ -21,14 +21,14 @@ seo:
     Мы часто думаем, что счастливая семья — это про везение: кому-то повезло с
     партнёром, кому-то с детьми. Но правда в том, что гармония строится шаг за
     шагом, из 
-  ogImage: /images/blog/covers/chto-pochitat-na-dosuge-kniga-garmoniya-v-seme-..jpg
+  ogImage: /images/blog/covers/chto-pochitat-na-dosuge-kniga-garmoniya-v-seme-..webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aNgDlmgCEFPDF6z_).
 
-![Что почитать на досуге? Книга "Гармония в семье".](/images/blog/covers/chto-pochitat-na-dosuge-kniga-garmoniya-v-seme-..jpg)
+![Что почитать на досуге? Книга "Гармония в семье".](/images/blog/covers/chto-pochitat-na-dosuge-kniga-garmoniya-v-seme-..webp)
 Мы часто думаем, что счастливая семья — это про везение: кому-то повезло с партнёром, кому-то с детьми. Но правда в том, что гармония строится шаг за шагом, из нашего выбора и состояния. Именно об этом новая книга Анны Камаллаи Хефорс — «Гармония в семье». Эта книга особенная: в ней — не сухая теория, а живые истории самой Камаллаи. Опыт женщины, матери и психолога, который прошёл проверку жизнью. Почему это работает? Анна прожила множество кризисов: развод родителей, свои собственные ошибки в отношениях, 4 брака, поиск настоящего места в жизни...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

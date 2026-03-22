@@ -15,7 +15,7 @@ date: '2025-12-15'
 readingTime: 3
 viewsCount: 47
 cover: >-
-  /images/blog/covers/chto-chelovek-teryaet-kogda-vsyo-vremya-staraetsya-byt-udobnym.png
+  /images/blog/covers/chto-chelovek-teryaet-kogda-vsyo-vremya-staraetsya-byt-udobnym.webp
 relatedProductId: null
 seo:
   title: >-
@@ -25,14 +25,14 @@ seo:
     Есть люди, которых все называют хорошими: они вежливые, надёжные, всегда
     идут навстречу. Не спорят, не отказывают, не создают проблем.
   ogImage: >-
-    /images/blog/covers/chto-chelovek-teryaet-kogda-vsyo-vremya-staraetsya-byt-udobnym.png
+    /images/blog/covers/chto-chelovek-teryaet-kogda-vsyo-vremya-staraetsya-byt-udobnym.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aUA91aScAUfPZKI-).
 
-![Что человек теряет, когда всё время старается быть удобным? Анна Камаллая Хефорс](/images/blog/covers/chto-chelovek-teryaet-kogda-vsyo-vremya-staraetsya-byt-udobnym.png)
+![Что человек теряет, когда всё время старается быть удобным? Анна Камаллая Хефорс](/images/blog/covers/chto-chelovek-teryaet-kogda-vsyo-vremya-staraetsya-byt-udobnym.webp)
 Есть люди, которых все называют хорошими: они вежливые, надёжные, всегда идут навстречу. Не спорят, не отказывают, не создают проблем. И чаще всего именно у этих людей: 🔹больше всего усталости, 🔹меньше всего радости, 🔹и ощущение, что жизнь проходит мимо. Почему так происходит? Потому что у «удобства» есть цена. Давайте рассмотрим «цену» удобства: 🔸Человек теряет себя. Когда ты всё время подстраиваешься под других, ты постепенно перестаёшь слышать себя. Ты уже не знаешь: чего ты хочешь на самом деле, где тебе больно, а где ты просто терпишь...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

@@ -13,7 +13,7 @@ date: '2025-12-12'
 readingTime: 4
 viewsCount: 23
 cover: >-
-  /images/blog/covers/pochemu-ne-stoit-borotsya-s-zhiznyu-i-kak-zhit-s-ney-v-soglasii.png
+  /images/blog/covers/pochemu-ne-stoit-borotsya-s-zhiznyu-i-kak-zhit-s-ney-v-soglasii.webp
 relatedProductId: null
 seo:
   title: >-
@@ -23,14 +23,14 @@ seo:
     Многие люди живут так, будто жизнь находится по другую сторону баррикад.
     Будто она что-то требует, давит, проверяет на прочность.
   ogImage: >-
-    /images/blog/covers/pochemu-ne-stoit-borotsya-s-zhiznyu-i-kak-zhit-s-ney-v-soglasii.png
+    /images/blog/covers/pochemu-ne-stoit-borotsya-s-zhiznyu-i-kak-zhit-s-ney-v-soglasii.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aTxNgF5OCEmFvSTW).
 
-![Почему не стоит бороться с жизнью и как жить с ней в согласии? Анна Хефорс](/images/blog/covers/pochemu-ne-stoit-borotsya-s-zhiznyu-i-kak-zhit-s-ney-v-soglasii.png)
+![Почему не стоит бороться с жизнью и как жить с ней в согласии? Анна Хефорс](/images/blog/covers/pochemu-ne-stoit-borotsya-s-zhiznyu-i-kak-zhit-s-ney-v-soglasii.webp)
 Многие люди живут так, будто жизнь находится по другую сторону баррикад. Будто она что-то требует, давит, проверяет на прочность. Внутри появляется напряжение, ощущение постоянной борьбы, словно нужно всё время доказывать право на спокойствие, радость или успех. И чем больше человек сопротивляется, тем тяжелее становится путь. Но жизнь не устроена как противник. Она не воюет и не наказывает. Чаще всего она просто отражает то, в каком состоянии человек находится внутри. И когда человек начинает бороться, жизнь отвечает сопротивлением...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

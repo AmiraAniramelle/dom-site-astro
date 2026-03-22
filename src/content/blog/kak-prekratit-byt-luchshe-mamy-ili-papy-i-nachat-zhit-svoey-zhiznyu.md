@@ -16,7 +16,7 @@ date: '2025-11-03'
 readingTime: 3
 viewsCount: 5
 cover: >-
-  /images/blog/covers/kak-prekratit-byt-luchshe-mamy-ili-papy-i-nachat-zhit-svoey-zhiznyu.png
+  /images/blog/covers/kak-prekratit-byt-luchshe-mamy-ili-papy-i-nachat-zhit-svoey-zhiznyu.webp
 relatedProductId: null
 seo:
   title: >-
@@ -27,14 +27,14 @@ seo:
     чаще всего - своим родителям. Стараемся быть лучше, успешнее, справедливее.
     Говорим
   ogImage: >-
-    /images/blog/covers/kak-prekratit-byt-luchshe-mamy-ili-papy-i-nachat-zhit-svoey-zhiznyu.png
+    /images/blog/covers/kak-prekratit-byt-luchshe-mamy-ili-papy-i-nachat-zhit-svoey-zhiznyu.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aQh7EBI7ymL0H8ia).
 
-![Как прекратить быть «лучше мамы или папы» и начать жить своей жизнью? Анна Хефорс](/images/blog/covers/kak-prekratit-byt-luchshe-mamy-ili-papy-i-nachat-zhit-svoey-zhiznyu.png)
+![Как прекратить быть «лучше мамы или папы» и начать жить своей жизнью? Анна Хефорс](/images/blog/covers/kak-prekratit-byt-luchshe-mamy-ili-papy-i-nachat-zhit-svoey-zhiznyu.webp)
 Иногда мы живем с ощущением, что постоянно что-то доказываем. Себе, миру, но чаще всего - своим родителям. Стараемся быть лучше, успешнее, справедливее. Говорим: «Я не повторю их ошибок». Но чем сильнее пытаемся убежать от их сценариев, тем глубже оказываемся в их орбите. Потому что, доказывая, что мы «другие», мы всё равно вращаемся вокруг них. Почему возникает желание быть лучше родителей? Анна Камаллая Хефорс объясняет: «каждый человек рождается не отдельно, а внутри семейного поля. Мы впитываем не только любовь и привычки, но и страхи, способы выживания, убеждения родителей...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

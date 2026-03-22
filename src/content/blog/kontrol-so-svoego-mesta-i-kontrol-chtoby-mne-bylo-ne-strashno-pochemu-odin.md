@@ -17,7 +17,7 @@ date: '2026-03-07'
 readingTime: 6
 viewsCount: 5
 cover: >-
-  /images/blog/covers/kontrol-so-svoego-mesta-i-kontrol-chtoby-mne-bylo-ne-strashno-pochemu-odin.png
+  /images/blog/covers/kontrol-so-svoego-mesta-i-kontrol-chtoby-mne-bylo-ne-strashno-pochemu-odin.webp
 relatedProductId: null
 seo:
   title: >-
@@ -28,14 +28,14 @@ seo:
     часто связано с жесткостью, давлением и ощущением, что рядом с вами как
     будто станов
   ogImage: >-
-    /images/blog/covers/kontrol-so-svoego-mesta-i-kontrol-chtoby-mne-bylo-ne-strashno-pochemu-odin.png
+    /images/blog/covers/kontrol-so-svoego-mesta-i-kontrol-chtoby-mne-bylo-ne-strashno-pochemu-odin.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aawH38IaASJf-mJt).
 
-![Контроль «со своего места» и контроль «чтобы мне было не страшно»: почему один собирает жизнь, а второй «кормит» тревогу](/images/blog/covers/kontrol-so-svoego-mesta-i-kontrol-chtoby-mne-bylo-ne-strashno-pochemu-odin.png)
+![Контроль «со своего места» и контроль «чтобы мне было не страшно»: почему один собирает жизнь, а второй «кормит» тревогу](/images/blog/covers/kontrol-so-svoego-mesta-i-kontrol-chtoby-mne-bylo-ne-strashno-pochemu-odin.webp)
 Слово «контроль» у многих вызывает внутреннее сопротивление, потому что оно часто связано с жесткостью, давлением и ощущением, что рядом с вами как будто становится тесно. Но Камаллая описывает контроль, как функцию, которая может служить жизни, росту и выживанию системы, а может превращаться в «маску», которая начинает контролировать уже вас, забирая энергию и усиливая страх. Разница проходит не по линии «контроль это плохо или хорошо», а по линии «места», из которого вы действуете. Камаллая говорит:...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

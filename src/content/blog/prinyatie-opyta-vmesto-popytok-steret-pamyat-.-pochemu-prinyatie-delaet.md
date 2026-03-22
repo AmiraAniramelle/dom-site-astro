@@ -15,7 +15,7 @@ date: '2026-02-26'
 readingTime: 5
 viewsCount: 35
 cover: >-
-  /images/blog/covers/prinyatie-opyta-vmesto-popytok-steret-pamyat-.-pochemu-prinyatie-delaet.png
+  /images/blog/covers/prinyatie-opyta-vmesto-popytok-steret-pamyat-.-pochemu-prinyatie-delaet.webp
 relatedProductId: null
 seo:
   title: >-
@@ -25,14 +25,14 @@ seo:
     Когда прошлое вспоминается не как история, а как удар током, мозг делает
     логичный для себя вывод: нужно убрать источник.
   ogImage: >-
-    /images/blog/covers/prinyatie-opyta-vmesto-popytok-steret-pamyat-.-pochemu-prinyatie-delaet.png
+    /images/blog/covers/prinyatie-opyta-vmesto-popytok-steret-pamyat-.-pochemu-prinyatie-delaet.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aaCICJAQRHcKou_6).
 
-![Принятие опыта вместо попыток «стереть память». Почему принятие делает прошлое нейтральным и перестаёт запускать тревогу](/images/blog/covers/prinyatie-opyta-vmesto-popytok-steret-pamyat-.-pochemu-prinyatie-delaet.png)
+![Принятие опыта вместо попыток «стереть память». Почему принятие делает прошлое нейтральным и перестаёт запускать тревогу](/images/blog/covers/prinyatie-opyta-vmesto-popytok-steret-pamyat-.-pochemu-prinyatie-delaet.webp)
 Когда прошлое вспоминается не как история, а как удар током, мозг делает логичный для себя вывод: нужно убрать источник. Если бы можно было вычеркнуть, забыть, перестать помнить, тогда не будет ни боли, ни тревоги, ни этих внезапных реакций. Но Анна Камаллая объясняет иначе: мозг пытается не избавиться от фактов, он пытается избавиться от состояния, которое факты запускают. И пока состояние не переработано, любая похожая деталь в настоящем будет включать ту же сигнализацию. Память не стирается, но меняется смысл...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

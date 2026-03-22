@@ -15,7 +15,7 @@ date: '2025-11-07'
 readingTime: 4
 viewsCount: 4
 cover: >-
-  /images/blog/covers/pochemu-vazhno-oshibatsya-kak-neudachi-treniruyut-novye-neyronnye-puti.png
+  /images/blog/covers/pochemu-vazhno-oshibatsya-kak-neudachi-treniruyut-novye-neyronnye-puti.webp
 relatedProductId: null
 seo:
   title: >-
@@ -25,14 +25,14 @@ seo:
     Мы привыкли бояться ошибок. С детства нас учили, что ошибаться - это плохо,
     что «неправильно» значит «стыдно».
   ogImage: >-
-    /images/blog/covers/pochemu-vazhno-oshibatsya-kak-neudachi-treniruyut-novye-neyronnye-puti.png
+    /images/blog/covers/pochemu-vazhno-oshibatsya-kak-neudachi-treniruyut-novye-neyronnye-puti.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aQ3eASKcTFY0bovW).
 
-![Почему важно ошибаться: как неудачи тренируют новые нейронные пути? Анна Хефорс](/images/blog/covers/pochemu-vazhno-oshibatsya-kak-neudachi-treniruyut-novye-neyronnye-puti.png)
+![Почему важно ошибаться: как неудачи тренируют новые нейронные пути? Анна Хефорс](/images/blog/covers/pochemu-vazhno-oshibatsya-kak-neudachi-treniruyut-novye-neyronnye-puti.webp)
 Мы привыкли бояться ошибок. С детства нас учили, что ошибаться - это плохо, что «неправильно» значит «стыдно». И даже когда мы взрослеем, где-то внутри живёт тихое напряжение: а вдруг опять не получится? Но именно в момент ошибки мозг становится живым, гибким и обучающимся. Неудачи - это не доказательство нашей несостоятельности, а инструмент эволюции и роста. Почему мозг боится ошибок? Анна Камаллая Хефорс объясняет: «Мозг создан для сохранения жизни, а не для развития. Его базовая задача — избегать боли, даже если ради этого приходится оставаться в ограниченном опыте»...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

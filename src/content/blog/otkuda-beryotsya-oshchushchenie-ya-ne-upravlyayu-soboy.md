@@ -12,7 +12,7 @@ tags:
 date: '2026-01-23'
 readingTime: 5
 viewsCount: 1
-cover: /images/blog/covers/otkuda-beryotsya-oshchushchenie-ya-ne-upravlyayu-soboy.jpg
+cover: /images/blog/covers/otkuda-beryotsya-oshchushchenie-ya-ne-upravlyayu-soboy.webp
 relatedProductId: null
 seo:
   title: Откуда берётся ощущение «я не управляю собой»?Анна Камаллая Хефорс | DOM
@@ -20,14 +20,14 @@ seo:
     Здравствуйте, дорогие читатели. Замечали ли вы за собой, что ощущение «я не
     управляю собой» - приходит резко, почти даже физически.
   ogImage: >-
-    /images/blog/covers/otkuda-beryotsya-oshchushchenie-ya-ne-upravlyayu-soboy.jpg
+    /images/blog/covers/otkuda-beryotsya-oshchushchenie-ya-ne-upravlyayu-soboy.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aXMnImGDOTE_urwf).
 
-![Откуда берётся ощущение «я не управляю собой»?Анна Камаллая Хефорс](/images/blog/covers/otkuda-beryotsya-oshchushchenie-ya-ne-upravlyayu-soboy.jpg)
+![Откуда берётся ощущение «я не управляю собой»?Анна Камаллая Хефорс](/images/blog/covers/otkuda-beryotsya-oshchushchenie-ya-ne-upravlyayu-soboy.webp)
 Здравствуйте, дорогие читатели. Замечали ли вы за собой, что ощущение «я не управляю собой» - приходит резко, почти даже физически. Например, вы что-то сказали и тут же пожалели, сорвались там, где хотели быть спокойной, пообещали себе не реагировать и снова сделали ровно наоборот. Будто есть какая то сила, которая включается сама, без вашего согласия, и ведёт туда, куда вы вовсе не собирались. Это состояние напрягает не потому, что мы совершаем ошибки. Ошибаются все. А оно пугает потому, что затрагивает...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

@@ -13,7 +13,7 @@ date: '2025-09-24'
 readingTime: 2
 viewsCount: 16
 cover: >-
-  /images/blog/covers/vrachi-udivleny.-istoriya-uchastnicy-posle-proekta-semeynoe-edinstvo.png
+  /images/blog/covers/vrachi-udivleny.-istoriya-uchastnicy-posle-proekta-semeynoe-edinstvo.webp
 relatedProductId: null
 seo:
   title: Врачи удивлены. История участницы после проекта "Семейное Единство" | DOM
@@ -22,14 +22,14 @@ seo:
     проектов Анны Камаллаи Хефорс. Приветствую всех! Меня зовут Ксения, мне 41
     год.
   ogImage: >-
-    /images/blog/covers/vrachi-udivleny.-istoriya-uchastnicy-posle-proekta-semeynoe-edinstvo.png
+    /images/blog/covers/vrachi-udivleny.-istoriya-uchastnicy-posle-proekta-semeynoe-edinstvo.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aNId7HG8VBIM4RmH).
 
-![Врачи удивлены. История участницы после проекта "Семейное Единство"](/images/blog/covers/vrachi-udivleny.-istoriya-uchastnicy-posle-proekta-semeynoe-edinstvo.png)
+![Врачи удивлены. История участницы после проекта "Семейное Единство"](/images/blog/covers/vrachi-udivleny.-istoriya-uchastnicy-posle-proekta-semeynoe-edinstvo.webp)
 Дорогие читатели! Предлагаем прочесть удивительную историю участницы проектов Анны Камаллаи Хефорс. Приветствую всех! Меня зовут Ксения, мне 41 год. Я хочу поделиться своей историей и результатами прохождения проектов Анны Камаллаи «Сила Принятия» и «Семейное Единство». В 2015 году у нас с мужем родился сын. Абсолютно спокойная беременность, без осложнений, обернулась для нас серьёзным испытанием. Сын появился на свет с тяжёлыми нарушениями. Пять лет мы боролись с его состоянием — ДЦП, эпилепсия...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

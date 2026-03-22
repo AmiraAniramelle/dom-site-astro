@@ -16,7 +16,7 @@ date: '2026-03-12'
 readingTime: 6
 viewsCount: 8
 cover: >-
-  /images/blog/covers/pro-algoritmy-kotorye-ne-dayut-otkatitsya-v-proshloe-i-vozvrashchayut-k.jpg
+  /images/blog/covers/pro-algoritmy-kotorye-ne-dayut-otkatitsya-v-proshloe-i-vozvrashchayut-k.webp
 relatedProductId: null
 seo:
   title: >-
@@ -27,14 +27,14 @@ seo:
     делаешь, строишь планы, а потом происходит что-то такое казалось бы
     небольшое: слово
   ogImage: >-
-    /images/blog/covers/pro-algoritmy-kotorye-ne-dayut-otkatitsya-v-proshloe-i-vozvrashchayut-k.jpg
+    /images/blog/covers/pro-algoritmy-kotorye-ne-dayut-otkatitsya-v-proshloe-i-vozvrashchayut-k.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/abLkJr4vGVgF4IQW).
 
-![Про алгоритмы, которые не дают «откатиться» в прошлое и возвращают к движению вперёд. Анна Камаллая Хефорс](/images/blog/covers/pro-algoritmy-kotorye-ne-dayut-otkatitsya-v-proshloe-i-vozvrashchayut-k.jpg)
+![Про алгоритмы, которые не дают «откатиться» в прошлое и возвращают к движению вперёд. Анна Камаллая Хефорс](/images/blog/covers/pro-algoritmy-kotorye-ne-dayut-otkatitsya-v-proshloe-i-vozvrashchayut-k.webp)
 Есть один момент, который происходит практически у всех: ты вроде бы идёшь, делаешь, строишь планы, а потом происходит что-то такое казалось бы небольшое: слово, взгляд, задержка ответа, чужая оценка, неудача. И вот, тебя словно отбрасывает назад: внутри поднимается не нынешний ты, а тот, который когда-то выживал. Это старые разговоры, старые обиды, старые попытки доказать, заслужить, удержать. И если честно, в такие минуты не хочется никакой философии, а хочется простого, короткого и работающего, как команда для навигации...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

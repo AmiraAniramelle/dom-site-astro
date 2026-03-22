@@ -14,7 +14,7 @@ date: '2025-12-14'
 readingTime: 5
 viewsCount: 408
 cover: >-
-  /images/blog/covers/kak-nachat-vyhodit-iz-depressii-dazhe-kogda-bolshe-net-sil.png
+  /images/blog/covers/kak-nachat-vyhodit-iz-depressii-dazhe-kogda-bolshe-net-sil.webp
 relatedProductId: null
 seo:
   title: >-
@@ -25,14 +25,14 @@ seo:
     ускорить, убрать, исправить. Но для человека, который живёт в этом
     состоянии, депрессия н
   ogImage: >-
-    /images/blog/covers/kak-nachat-vyhodit-iz-depressii-dazhe-kogda-bolshe-net-sil.png
+    /images/blog/covers/kak-nachat-vyhodit-iz-depressii-dazhe-kogda-bolshe-net-sil.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aT75_3AUElDUmbU9).
 
-![Как начать выходить из депрессии, даже когда больше нет сил? Анна Хефорс](/images/blog/covers/kak-nachat-vyhodit-iz-depressii-dazhe-kogda-bolshe-net-sil.png)
+![Как начать выходить из депрессии, даже когда больше нет сил? Анна Хефорс](/images/blog/covers/kak-nachat-vyhodit-iz-depressii-dazhe-kogda-bolshe-net-sil.webp)
 О депрессии редко говорят прямо и честно. Чаще её стараются объяснить, ускорить, убрать, исправить. Но для человека, который живёт в этом состоянии, депрессия не выглядит как диагноз или проблема. Она ощущается как усталость, хроническая усталость, которая не проходит, чтобы он не делал. Это ощущается, как тишина внутри, в которой раньше что-то жило. Как чувство, что ты есть, но в то же время и нет. Как-будто жизнь проходит, а тебя нет в ней. В материалах Камаллаи депрессия не описывается как поломка или слабость...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

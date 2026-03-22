@@ -3,7 +3,8 @@ import type { PopupField } from '../../data/popup';
 
 interface Props {
   enabled?: boolean;
-  delayMs: number;
+  triggerType?: 'scroll';
+  scrollPercent: number;
   eyebrow: string;
   title: string;
   description: string;
@@ -15,7 +16,7 @@ interface Props {
 }
 
 const {
-  delayMs,
+  scrollPercent,
   eyebrow,
   title,
   description,
@@ -109,7 +110,7 @@ const inputClass =
   </div>
 </div>
 
-<script define:vars={{ delayMs }}>
+<script define:vars={{ scrollPercent }}>
   const STORAGE_KEY = 'dom_popup_shown';
 
   document.addEventListener('DOMContentLoaded', () => {
@@ -130,17 +131,24 @@ const inputClass =
       sessionStorage.setItem(STORAGE_KEY, 'true');
     };
 
-    const timer = window.setTimeout(showPopup, delayMs);
+    function onScroll() {
+      const scrolled =
+        (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+      if (scrolled >= scrollPercent) {
+        window.removeEventListener('scroll', onScroll);
+        showPopup();
+      }
+    }
+
+    window.addEventListener('scroll', onScroll);
 
     const closeBtn = popup.querySelector('[data-popup-close]');
     closeBtn?.addEventListener('click', () => {
-      window.clearTimeout(timer);
       hidePopup();
     });
 
     popup.addEventListener('click', (e) => {
       if (e.target === popup) {
-        window.clearTimeout(timer);
         hidePopup();
       }
     });

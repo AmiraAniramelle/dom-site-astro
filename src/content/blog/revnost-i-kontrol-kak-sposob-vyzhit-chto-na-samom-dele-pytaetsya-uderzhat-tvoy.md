@@ -16,7 +16,7 @@ date: '2026-02-16'
 readingTime: 5
 viewsCount: 1
 cover: >-
-  /images/blog/covers/revnost-i-kontrol-kak-sposob-vyzhit-chto-na-samom-dele-pytaetsya-uderzhat-tvoy.jpg
+  /images/blog/covers/revnost-i-kontrol-kak-sposob-vyzhit-chto-na-samom-dele-pytaetsya-uderzhat-tvoy.webp
 relatedProductId: null
 seo:
   title: >-
@@ -26,14 +26,14 @@ seo:
     Анна Камаллая на встречах часто возвращает к такой мысли, которая звучит для
     нас отрезвляюще: ревность редко появляется потому, что человек «такой».
   ogImage: >-
-    /images/blog/covers/revnost-i-kontrol-kak-sposob-vyzhit-chto-na-samom-dele-pytaetsya-uderzhat-tvoy.jpg
+    /images/blog/covers/revnost-i-kontrol-kak-sposob-vyzhit-chto-na-samom-dele-pytaetsya-uderzhat-tvoy.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aZNNr2JoY2rgzImE).
 
-![Ревность и контроль как способ выжить: что на самом деле пытается удержать твой мозг. Анна Камаллая Хефорс](/images/blog/covers/revnost-i-kontrol-kak-sposob-vyzhit-chto-na-samom-dele-pytaetsya-uderzhat-tvoy.jpg)
+![Ревность и контроль как способ выжить: что на самом деле пытается удержать твой мозг. Анна Камаллая Хефорс](/images/blog/covers/revnost-i-kontrol-kak-sposob-vyzhit-chto-na-samom-dele-pytaetsya-uderzhat-tvoy.webp)
 Анна Камаллая на встречах часто возвращает к такой мысли, которая звучит для нас отрезвляюще: ревность редко появляется потому, что человек «такой». Чаще она включается как режим выживания, когда внутри поднимается страх потерять связь, потерять место, потерять чувство безопасности. В этот момент, мозг перестает интересоваться реальностью и начинает интересоваться контролем, потому что контроль кажется самым быстрым способом удержать жизнь в привычной картинке. Что мозг на самом деле пытается удержать? Когда человек ревнует, он обычно думает, что удерживает партнера...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

@@ -16,7 +16,7 @@ date: '2025-10-31'
 readingTime: 4
 viewsCount: 36
 cover: >-
-  /images/blog/covers/pochemu-mozg-soprotivlyaetsya-peremenam-i-chto-s-etim-delat.png
+  /images/blog/covers/pochemu-mozg-soprotivlyaetsya-peremenam-i-chto-s-etim-delat.webp
 relatedProductId: null
 seo:
   title: >-
@@ -27,14 +27,14 @@ seo:
     отношения, образ жизни,- и будто бы сама жизнь начинает вставлять палки в
     колёса.
   ogImage: >-
-    /images/blog/covers/pochemu-mozg-soprotivlyaetsya-peremenam-i-chto-s-etim-delat.png
+    /images/blog/covers/pochemu-mozg-soprotivlyaetsya-peremenam-i-chto-s-etim-delat.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aQS5GOP0rXQblbR4).
 
-![Почему мозг сопротивляется переменам? И что с этим делать? Анна Камаллая Хефорс](/images/blog/covers/pochemu-mozg-soprotivlyaetsya-peremenam-i-chto-s-etim-delat.png)
+![Почему мозг сопротивляется переменам? И что с этим делать? Анна Камаллая Хефорс](/images/blog/covers/pochemu-mozg-soprotivlyaetsya-peremenam-i-chto-s-etim-delat.webp)
 Вы наверняка замечали: стоит только принять решение что-то поменять -работу, отношения, образ жизни,- и будто бы сама жизнь начинает вставлять палки в колёса. Возникают сомнения, усталость, лень, тревога, или всё вдруг идёт «не так». И кажется, что мир против вас. Но на самом деле сопротивляется не жизнь. Сопротивляется ваш мозг. Мозг не враг, он просто хочет вас защитить. Анна Камаллая Хефорс часто говорит: «Мозг — это не злодей, он всего лишь ваш телохранитель, который привык действовать по старому сценарию»...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

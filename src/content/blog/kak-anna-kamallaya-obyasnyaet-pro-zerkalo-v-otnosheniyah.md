@@ -14,7 +14,7 @@ date: '2026-02-13'
 readingTime: 5
 viewsCount: 15
 cover: >-
-  /images/blog/covers/kak-anna-kamallaya-obyasnyaet-pro-zerkalo-v-otnosheniyah.jpg
+  /images/blog/covers/kak-anna-kamallaya-obyasnyaet-pro-zerkalo-v-otnosheniyah.webp
 relatedProductId: null
 seo:
   title: Как Анна Камаллая объясняет про «зеркало» в отношениях? | DOM
@@ -23,14 +23,14 @@ seo:
     сильнее всего цепляет не само поведение человека, а то, как внутри на него
     откликается тел
   ogImage: >-
-    /images/blog/covers/kak-anna-kamallaya-obyasnyaet-pro-zerkalo-v-otnosheniyah.jpg
+    /images/blog/covers/kak-anna-kamallaya-obyasnyaet-pro-zerkalo-v-otnosheniyah.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aY9umBAvLQ9cMymC).
 
-![Как Анна Камаллая объясняет про «зеркало» в отношениях?](/images/blog/covers/kak-anna-kamallaya-obyasnyaet-pro-zerkalo-v-otnosheniyah.jpg)
+![Как Анна Камаллая объясняет про «зеркало» в отношениях?](/images/blog/covers/kak-anna-kamallaya-obyasnyaet-pro-zerkalo-v-otnosheniyah.webp)
 На своих встречах Анна Камаллая часто начинает с простого наблюдения: сильнее всего цепляет не само поведение человека, а то, как внутри на него откликается тело и психика. Слова при этом могут быть обычными, ситуация рядовой, но внутри вдруг поднимается волна, и именно эта волна становится важнее сюжета. Она предлагает смотреть не только на то, что сделал другой, но и на то, что в этот момент происходит внутри, потому что там обычно спрятана важная для него тема, которую человек старается не трогать...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

@@ -16,7 +16,7 @@ date: '2026-03-04'
 readingTime: 7
 viewsCount: 107
 cover: >-
-  /images/blog/covers/mikroprivychki-na-7-10-dney-mostik-dlya-mozga-kotoryy-snizhaet-vspyshki.png
+  /images/blog/covers/mikroprivychki-na-7-10-dney-mostik-dlya-mozga-kotoryy-snizhaet-vspyshki.webp
 relatedProductId: null
 seo:
   title: >-
@@ -27,14 +27,14 @@ seo:
     Тревога появляется не из причины, а часто из новостей, разговоров, писем,
     звука уведомле
   ogImage: >-
-    /images/blog/covers/mikroprivychki-na-7-10-dney-mostik-dlya-mozga-kotoryy-snizhaet-vspyshki.png
+    /images/blog/covers/mikroprivychki-na-7-10-dney-mostik-dlya-mozga-kotoryy-snizhaet-vspyshki.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aahHdV4QexpKXISx).
 
-![Микропривычки на 7–10 дней: «мостик» для мозга, который снижает вспышки тревожности. Анна Камаллая](/images/blog/covers/mikroprivychki-na-7-10-dney-mostik-dlya-mozga-kotoryy-snizhaet-vspyshki.png)
+![Микропривычки на 7–10 дней: «мостик» для мозга, который снижает вспышки тревожности. Анна Камаллая](/images/blog/covers/mikroprivychki-na-7-10-dney-mostik-dlya-mozga-kotoryy-snizhaet-vspyshki.webp)
 В наше время, тревога стала постоянным спутником современного человека. Тревога появляется не из причины, а часто из новостей, разговоров, писем, звука уведомления, взгляда близкого, и внутри уже поднимается волна. Камаллая отмечает: «В такие моменты мозг ведет себя как «маленький ежик», который защищается от мира и воспринимает его как небезопасный. Он делает это потому, что так он когда-то научился выживать. И когда вы начинаете делать простые повторяющиеся действия, мозг постепенно убеждается, что новый способ жить не опасен, и что он не «умирает», если вы меняете реакцию...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

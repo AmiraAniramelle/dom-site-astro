@@ -13,7 +13,7 @@ date: '2025-12-16'
 readingTime: 3
 viewsCount: 17
 cover: >-
-  /images/blog/covers/chto-chelovek-chuvstvuet-kogda-perestayot-sporit-s-soboy.jpg
+  /images/blog/covers/chto-chelovek-chuvstvuet-kogda-perestayot-sporit-s-soboy.webp
 relatedProductId: null
 seo:
   title: >-
@@ -23,14 +23,14 @@ seo:
     Большинство людей живут так, словно внутри них постоянно идёт разговор, чаще
     он проявляется как спор.
   ogImage: >-
-    /images/blog/covers/chto-chelovek-chuvstvuet-kogda-perestayot-sporit-s-soboy.jpg
+    /images/blog/covers/chto-chelovek-chuvstvuet-kogda-perestayot-sporit-s-soboy.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aUGkCO0nJxEi15e9).
 
-![Что человек чувствует, когда перестаёт спорить с собой? Анна Камаллая Хефорс](/images/blog/covers/chto-chelovek-chuvstvuet-kogda-perestayot-sporit-s-soboy.jpg)
+![Что человек чувствует, когда перестаёт спорить с собой? Анна Камаллая Хефорс](/images/blog/covers/chto-chelovek-chuvstvuet-kogda-perestayot-sporit-s-soboy.webp)
 Большинство людей живут так, словно внутри них постоянно идёт разговор, чаще он проявляется как спор. Тихий, почти незаметный, но очень утомительный: «надо потерпеть», «ну еще чуть-чуть»; «а нет, я больше не могу»; «ну давай же соберись»; «я так устал»; «нет, я должен это сделать», «а если я не хочу?» Этот внутренний диалог может длиться годами. И человек привыкает к нему так сильно, что начинает считать его нормой. Он становится фоном. Как шум, который всегда с тобой. Но однажды происходит странная вещь...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

@@ -16,7 +16,7 @@ date: '2025-11-16'
 readingTime: 4
 viewsCount: 115
 cover: >-
-  /images/blog/covers/vygoranie-nachinaetsya-togda-kogda-energiya-uhodit-v-proshloe.-kak-eto-vovremya.png
+  /images/blog/covers/vygoranie-nachinaetsya-togda-kogda-energiya-uhodit-v-proshloe.-kak-eto-vovremya.webp
 relatedProductId: null
 seo:
   title: >-
@@ -26,14 +26,14 @@ seo:
     Выгорание часто воспринимают как следствие перегрузки: слишком много задач,
     дедлайнов, обязательств. Но на самом деле оно начинается гораздо раньше.
   ogImage: >-
-    /images/blog/covers/vygoranie-nachinaetsya-togda-kogda-energiya-uhodit-v-proshloe.-kak-eto-vovremya.png
+    /images/blog/covers/vygoranie-nachinaetsya-togda-kogda-energiya-uhodit-v-proshloe.-kak-eto-vovremya.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aRnZcQywITzKMoZr).
 
-![Выгорание начинается тогда, когда энергия уходит в прошлое. Как это вовремя увидеть? Анна Хефорс](/images/blog/covers/vygoranie-nachinaetsya-togda-kogda-energiya-uhodit-v-proshloe.-kak-eto-vovremya.png)
+![Выгорание начинается тогда, когда энергия уходит в прошлое. Как это вовремя увидеть? Анна Хефорс](/images/blog/covers/vygoranie-nachinaetsya-togda-kogda-energiya-uhodit-v-proshloe.-kak-eto-vovremya.webp)
 Выгорание часто воспринимают как следствие перегрузки: слишком много задач, дедлайнов, обязательств. Но на самом деле оно начинается гораздо раньше. Не тогда, когда силы кончились, а тогда, когда внимание и энергия перестают принадлежать настоящему моменту и начинают утекать в прошлое. Это движение незаметно. Оно проявляется не в действиях, а в таких микросостояниях - в рассеянности, тяжести в груди, ощущении, что «что-то не так, но не могу понять что». И если успеть заметить эти сигналы, выгорание можно предотвратить, пока оно не стало разрушительным...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

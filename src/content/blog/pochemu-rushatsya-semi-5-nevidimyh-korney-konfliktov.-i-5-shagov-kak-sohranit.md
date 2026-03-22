@@ -15,7 +15,7 @@ date: '2025-10-02'
 readingTime: 3
 viewsCount: 63
 cover: >-
-  /images/blog/covers/pochemu-rushatsya-semi-5-nevidimyh-korney-konfliktov.-i-5-shagov-kak-sohranit.jpg
+  /images/blog/covers/pochemu-rushatsya-semi-5-nevidimyh-korney-konfliktov.-i-5-shagov-kak-sohranit.webp
 relatedProductId: null
 seo:
   title: >-
@@ -25,14 +25,14 @@ seo:
     На первый взгляд кажется, что пары ссорятся из-за денег, быта или того, как
     воспитывать детей. Но это лишь поверхность.
   ogImage: >-
-    /images/blog/covers/pochemu-rushatsya-semi-5-nevidimyh-korney-konfliktov.-i-5-shagov-kak-sohranit.jpg
+    /images/blog/covers/pochemu-rushatsya-semi-5-nevidimyh-korney-konfliktov.-i-5-shagov-kak-sohranit.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aNvK3e4I7lfxexvX).
 
-![Почему рушатся семьи: 5 невидимых корней конфликтов. И 5 шагов как сохранить семью](/images/blog/covers/pochemu-rushatsya-semi-5-nevidimyh-korney-konfliktov.-i-5-shagov-kak-sohranit.jpg)
+![Почему рушатся семьи: 5 невидимых корней конфликтов. И 5 шагов как сохранить семью](/images/blog/covers/pochemu-rushatsya-semi-5-nevidimyh-korney-konfliktov.-i-5-shagov-kak-sohranit.webp)
 На первый взгляд кажется, что пары ссорятся из-за денег, быта или того, как воспитывать детей. Но это лишь поверхность. Настоящие трещины в отношениях рождаются глубже — там, где перепутаны роли и забыто своё место в системе семьи. Подробнее про системный подход (ссылка на статью) Анна Хефорс подчеркивает: когда мы смотрим в суть, оказывается, конфликты — это не случайность и не «плохой характер», а следствие старых сценариев, которые незаметно управляют людьми. 5 скрытых причин, разрушающих семью: 🔹Жизнь в ожиданиях, а не в реальности...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

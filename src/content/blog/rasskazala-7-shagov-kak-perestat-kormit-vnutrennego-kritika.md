@@ -16,7 +16,7 @@ date: '2026-01-28'
 readingTime: 4
 viewsCount: 4
 cover: >-
-  /images/blog/covers/rasskazala-7-shagov-kak-perestat-kormit-vnutrennego-kritika.png
+  /images/blog/covers/rasskazala-7-shagov-kak-perestat-kormit-vnutrennego-kritika.webp
 relatedProductId: null
 seo:
   title: >-
@@ -27,14 +27,14 @@ seo:
     сейчас говорит. Анна предлагает очень человеческий ориентир: в отношениях с
     собой ва
   ogImage: >-
-    /images/blog/covers/rasskazala-7-shagov-kak-perestat-kormit-vnutrennego-kritika.png
+    /images/blog/covers/rasskazala-7-shagov-kak-perestat-kormit-vnutrennego-kritika.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aXm_0ApCQ3cllZ7R).
 
-![Нейробиолог Анна Хефорс рассказала 7 шагов, как перестать кормить внутреннего критика?](/images/blog/covers/rasskazala-7-shagov-kak-perestat-kormit-vnutrennego-kritika.png)
+![Нейробиолог Анна Хефорс рассказала 7 шагов, как перестать кормить внутреннего критика?](/images/blog/covers/rasskazala-7-shagov-kak-perestat-kormit-vnutrennego-kritika.webp)
 Продолжение статьи про самооценку. Начало тут. Сначала поймайте, кто внутри сейчас говорит. Анна предлагает очень человеческий ориентир: в отношениях с собой важно различать голоса. Внутренний критик давит “ты недостаточно хорош”. Внутренний ребёнок шепчет “мне страшно, мне нужна поддержка”. Внутренний родитель командует “ты должен”. Пока вы не различаете, кто говорит, вы воспринимаете это как истину о себе. Как только различили, появляется пространство выбрать взрослую позицию, которая умеет признавать и ошибки, и успехи...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

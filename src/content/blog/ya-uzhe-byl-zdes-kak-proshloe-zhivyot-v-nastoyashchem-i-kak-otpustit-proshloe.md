@@ -16,7 +16,7 @@ date: '2026-01-08'
 readingTime: 5
 viewsCount: 15
 cover: >-
-  /images/blog/covers/ya-uzhe-byl-zdes-kak-proshloe-zhivyot-v-nastoyashchem-i-kak-otpustit-proshloe.png
+  /images/blog/covers/ya-uzhe-byl-zdes-kak-proshloe-zhivyot-v-nastoyashchem-i-kak-otpustit-proshloe.webp
 relatedProductId: null
 seo:
   title: >-
@@ -27,14 +27,14 @@ seo:
     ощущение: ситуация выглядит новой, люди другие, обстоятельства вроде бы
     иные, но внутри под
   ogImage: >-
-    /images/blog/covers/ya-uzhe-byl-zdes-kak-proshloe-zhivyot-v-nastoyashchem-i-kak-otpustit-proshloe.png
+    /images/blog/covers/ya-uzhe-byl-zdes-kak-proshloe-zhivyot-v-nastoyashchem-i-kak-otpustit-proshloe.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aV_kRRebV0GsA8xs).
 
-![«Я уже был здесь»: как прошлое живёт в настоящем? И как отпустить прошлое? Анна Хефорс](/images/blog/covers/ya-uzhe-byl-zdes-kak-proshloe-zhivyot-v-nastoyashchem-i-kak-otpustit-proshloe.png)
+![«Я уже был здесь»: как прошлое живёт в настоящем? И как отпустить прошлое? Анна Хефорс](/images/blog/covers/ya-uzhe-byl-zdes-kak-proshloe-zhivyot-v-nastoyashchem-i-kak-otpustit-proshloe.webp)
 Как часто в жизни возникает кажется не заметное, но очень узнаваемое ощущение: ситуация выглядит новой, люди другие, обстоятельства вроде бы иные, но внутри поднимается чувство, будто всё это уже происходило. Это даже не как воспоминание и не как картинка из прошлого, а как состояние, знакомое до мелочей. В такие моменты человек редко может объяснить, что именно он чувствует, но внутри появляется фраза, сказанная почти шёпотом: «я уже был здесь». Это узнавание не связано с памятью в привычном смысле...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

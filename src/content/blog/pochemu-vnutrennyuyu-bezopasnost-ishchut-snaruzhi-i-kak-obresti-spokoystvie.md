@@ -16,7 +16,7 @@ date: '2026-01-06'
 readingTime: 3
 viewsCount: 20
 cover: >-
-  /images/blog/covers/pochemu-vnutrennyuyu-bezopasnost-ishchut-snaruzhi-i-kak-obresti-spokoystvie.png
+  /images/blog/covers/pochemu-vnutrennyuyu-bezopasnost-ishchut-snaruzhi-i-kak-obresti-spokoystvie.webp
 relatedProductId: null
 seo:
   title: >-
@@ -27,14 +27,14 @@ seo:
     стабильность, контроль, предсказуемость, внешние опоры. Но даже когда жизнь
     выглядит
   ogImage: >-
-    /images/blog/covers/pochemu-vnutrennyuyu-bezopasnost-ishchut-snaruzhi-i-kak-obresti-spokoystvie.png
+    /images/blog/covers/pochemu-vnutrennyuyu-bezopasnost-ishchut-snaruzhi-i-kak-obresti-spokoystvie.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aV1FuFuMh35Wrd2j).
 
-![Почему внутреннюю безопасность ищут снаружи и как обрести спокойствие? Анна Хефорс](/images/blog/covers/pochemu-vnutrennyuyu-bezopasnost-ishchut-snaruzhi-i-kak-obresti-spokoystvie.png)
+![Почему внутреннюю безопасность ищут снаружи и как обрести спокойствие? Анна Хефорс](/images/blog/covers/pochemu-vnutrennyuyu-bezopasnost-ishchut-snaruzhi-i-kak-obresti-spokoystvie.webp)
 Есть состояние, которое многие пытаются создать через обстоятельства. Через стабильность, контроль, предсказуемость, внешние опоры. Но даже когда жизнь выглядит устроенной, внутри часто остаётся напряжение. Как будто расслабляться по-настоящему нельзя: но это не парадокс и не личная особенность. Часто так проявляется способ, которым мозг научился выживать. Как мозг распознаёт безопасность? Ощущение безопасности складывается не из логических выводов и не из понимания ситуации. Оно формируется из телесных и эмоциональных сигналов, которые мозг получает снова и снова...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

@@ -14,7 +14,7 @@ date: '2025-10-25'
 readingTime: 3
 viewsCount: 2
 cover: >-
-  /images/blog/covers/pochemu-podrostki-uhodyat-v-telefon-.-i-kak-vernut-kontakt.jpg
+  /images/blog/covers/pochemu-podrostki-uhodyat-v-telefon-.-i-kak-vernut-kontakt.webp
 relatedProductId: null
 seo:
   title: >-
@@ -25,14 +25,14 @@ seo:
     смотришь на ребёнка - он рядом, но и как-будто далеко. Телефон в руках,
     наушники в ушах, в
   ogImage: >-
-    /images/blog/covers/pochemu-podrostki-uhodyat-v-telefon-.-i-kak-vernut-kontakt.jpg
+    /images/blog/covers/pochemu-podrostki-uhodyat-v-telefon-.-i-kak-vernut-kontakt.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aPxfLWEu9UUhmSDv).
 
-![Почему подростки уходят "в телефон". И как вернуть контакт? Анна Хефорс](/images/blog/covers/pochemu-podrostki-uhodyat-v-telefon-.-i-kak-vernut-kontakt.jpg)
+![Почему подростки уходят "в телефон". И как вернуть контакт? Анна Хефорс](/images/blog/covers/pochemu-podrostki-uhodyat-v-telefon-.-i-kak-vernut-kontakt.webp)
 Если вы родитель подростка, вы наверняка знаете это чувство, когда ты смотришь на ребёнка - он рядом, но и как-будто далеко. Телефон в руках, наушники в ушах, взгляд в экран. А когда пытаешься заговорить, в ответ — короткое «угу» или раздражённое «отстань». Кажется, будто связь оборвалась. Но на самом деле подросток не отстранился от вас — он просто ищет себя. Анна Камаллая Хефорс говорит: «Когда подросток уходит в телефон — он не уходит от вас, он уходит от внутреннего напряжения, которое не умеет выразить иначе»...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

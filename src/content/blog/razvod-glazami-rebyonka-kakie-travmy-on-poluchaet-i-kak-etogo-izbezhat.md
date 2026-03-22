@@ -14,7 +14,7 @@ date: '2025-09-22'
 readingTime: 2
 viewsCount: 110
 cover: >-
-  /images/blog/covers/razvod-glazami-rebyonka-kakie-travmy-on-poluchaet-i-kak-etogo-izbezhat.jpg
+  /images/blog/covers/razvod-glazami-rebyonka-kakie-travmy-on-poluchaet-i-kak-etogo-izbezhat.webp
 relatedProductId: null
 seo:
   title: 'Развод глазами ребёнка: какие травмы он получает и как этого избежать? | DOM'
@@ -23,14 +23,14 @@ seo:
     целостность) Для взрослых развод — это конец отношений пары. Но для ребёнка
     это не просто
   ogImage: >-
-    /images/blog/covers/razvod-glazami-rebyonka-kakie-travmy-on-poluchaet-i-kak-etogo-izbezhat.jpg
+    /images/blog/covers/razvod-glazami-rebyonka-kakie-travmy-on-poluchaet-i-kak-etogo-izbezhat.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aNAOMyoO-kAtsoBj).
 
-![Развод глазами ребёнка: какие травмы он получает и как этого избежать?](/images/blog/covers/razvod-glazami-rebyonka-kakie-travmy-on-poluchaet-i-kak-etogo-izbezhat.jpg)
+![Развод глазами ребёнка: какие травмы он получает и как этого избежать?](/images/blog/covers/razvod-glazami-rebyonka-kakie-travmy-on-poluchaet-i-kak-etogo-izbezhat.webp)
 (В конце статьи — техника, которая помогает вернуть ребёнку внутреннюю целостность) Для взрослых развод — это конец отношений пары. Но для ребёнка это не просто история про маму и папу. Это потрясение всей его маленькой вселенной. Ведь ребёнок чувствует мир через связь родителей. Когда эта связь рушится, внутри возникает пустота: «Где теперь моё место?» Как ребёнок переживает развод? 1. Забирает часть напряжения на себя. До 18 лет ребёнок находится в поле мамы. Если мама тревожится, ребёнок бессознательно «считывает» её состояние и берёт часть напряжения на себя...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

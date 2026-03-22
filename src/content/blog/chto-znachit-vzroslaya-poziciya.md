@@ -12,21 +12,21 @@ tags:
 date: '2025-10-09'
 readingTime: 3
 viewsCount: 35
-cover: /images/blog/covers/chto-znachit-vzroslaya-poziciya.png
+cover: /images/blog/covers/chto-znachit-vzroslaya-poziciya.webp
 relatedProductId: null
 seo:
   title: Что значит "взрослая позиция"? Анна Хефорс | DOM
   description: >-
     Здравствуйте, дорогие читатели. Сегодня мы разберем такую тему, как взрослая
     позиция. Кого то это слово сразу начинает триггерить. Давайте разбираться.
-  ogImage: /images/blog/covers/chto-znachit-vzroslaya-poziciya.png
+  ogImage: /images/blog/covers/chto-znachit-vzroslaya-poziciya.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aOfqqkY2TnEXamtA).
 
-![Что значит "взрослая позиция"? Анна Хефорс](/images/blog/covers/chto-znachit-vzroslaya-poziciya.png)
+![Что значит "взрослая позиция"? Анна Хефорс](/images/blog/covers/chto-znachit-vzroslaya-poziciya.webp)
 Здравствуйте, дорогие читатели. Сегодня мы разберем такую тему, как взрослая позиция. Кого то это слово сразу начинает триггерить. Давайте разбираться. В жизни бывают моменты, когда мы вдруг начинаем замечать: вроде всё есть— работа, семья, цели, — а внутри всё равно тревожно. И кажется, что кто-то другой живёт твою жизнь. Это знак, что где-то по дороге вы «вышли» из взрослой позиции. А значит — пора вернуть себе её. Что такое взрослая позиция на самом деле? Взрослая позиция — это не просто «быть ответственным»...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

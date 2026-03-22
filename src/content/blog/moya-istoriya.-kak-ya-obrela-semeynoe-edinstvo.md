@@ -13,7 +13,7 @@ tags:
 date: '2025-10-06'
 readingTime: 4
 viewsCount: 102
-cover: /images/blog/covers/moya-istoriya.-kak-ya-obrela-semeynoe-edinstvo.png
+cover: /images/blog/covers/moya-istoriya.-kak-ya-obrela-semeynoe-edinstvo.webp
 relatedProductId: null
 seo:
   title: Моя история. Как я обрела Семейное Единство | DOM
@@ -21,14 +21,14 @@ seo:
     Здравствуйте, меня зовут Наталья. Мне 41 год. Сегодня я расскажу вам свою
     историю из жизни. У нас у каждого своя жизнь. И многие люди не знают как ее
     улучшить: 
-  ogImage: /images/blog/covers/moya-istoriya.-kak-ya-obrela-semeynoe-edinstvo.png
+  ogImage: /images/blog/covers/moya-istoriya.-kak-ya-obrela-semeynoe-edinstvo.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aOH-XpKM6AEetPvM).
 
-![Моя история. Как я обрела Семейное Единство](/images/blog/covers/moya-istoriya.-kak-ya-obrela-semeynoe-edinstvo.png)
+![Моя история. Как я обрела Семейное Единство](/images/blog/covers/moya-istoriya.-kak-ya-obrela-semeynoe-edinstvo.webp)
 Здравствуйте, меня зовут Наталья. Мне 41 год. Сегодня я расскажу вам свою историю из жизни. У нас у каждого своя жизнь. И многие люди не знают как ее улучшить: страдают, ссорятся, обижаются. А решение есть. Я выросла без мамы — она ушла, когда мне было восемь. Папа был всё время занят своей личной жизнью, пытался выстроить отношения, и я часто оставалась дома одна. Бабушка не жила с нами: работала на двух работах и приходила лишь вечером, чтобы помочь с домом и едой. С самого детства я привыкла полагаться только на себя...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

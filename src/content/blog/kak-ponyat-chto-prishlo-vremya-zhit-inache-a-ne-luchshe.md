@@ -14,7 +14,7 @@ date: '2025-12-18'
 readingTime: 4
 viewsCount: 5
 cover: >-
-  /images/blog/covers/kak-ponyat-chto-prishlo-vremya-zhit-inache-a-ne-luchshe.png
+  /images/blog/covers/kak-ponyat-chto-prishlo-vremya-zhit-inache-a-ne-luchshe.webp
 relatedProductId: null
 seo:
   title: 'Как понять, что пришло время жить иначе, а не лучше? Анна Хефорс | DOM'
@@ -23,14 +23,14 @@ seo:
     Внешне всё вроде бы налажено: есть определенные навыки и опыт, понимание как
     жить правил
   ogImage: >-
-    /images/blog/covers/kak-ponyat-chto-prishlo-vremya-zhit-inache-a-ne-luchshe.png
+    /images/blog/covers/kak-ponyat-chto-prishlo-vremya-zhit-inache-a-ne-luchshe.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aUQQmoeIT3T8_j9n).
 
-![Как понять, что пришло время жить иначе, а не лучше? Анна Хефорс](/images/blog/covers/kak-ponyat-chto-prishlo-vremya-zhit-inache-a-ne-luchshe.png)
+![Как понять, что пришло время жить иначе, а не лучше? Анна Хефорс](/images/blog/covers/kak-ponyat-chto-prishlo-vremya-zhit-inache-a-ne-luchshe.webp)
 Вы когда-нибудь замечали, что часто мы ловим себя на странном ощущении. Внешне всё вроде бы налажено: есть определенные навыки и опыт, понимание как жить правильно тоже есть. Но внутри нет движения и нет ощущения живости. Есть только попытка ещё немного подтянуть, улучшить, доработать то, что давно перестало откликаться. В такие моменты вопрос звучит уже не как «как стать лучше», а как «почему я всё время чиню то, в чём больше не хочу жить». Мы привыкли думать, что развитие это постоянное улучшение: быть эффективнее, сильнее, осознаннее, спокойнее...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

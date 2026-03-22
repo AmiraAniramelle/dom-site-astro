@@ -13,7 +13,7 @@ tags:
 date: '2025-10-17'
 readingTime: 3
 viewsCount: 82
-cover: /images/blog/covers/kak-otpustit-proshloe-i-zhit-nastoyashchim..jpg
+cover: /images/blog/covers/kak-otpustit-proshloe-i-zhit-nastoyashchim..webp
 relatedProductId: null
 seo:
   title: Как отпустить прошлое и жить настоящим. Анна Хефорс | DOM
@@ -21,14 +21,14 @@ seo:
     Здравствуйте, дорогие читатели. Замечали ли вы за собой, что живете как
     будто не сегодня. Наше тело здесь, а мысли — где-то там между «если бы» и
     «почему тогда»
-  ogImage: /images/blog/covers/kak-otpustit-proshloe-i-zhit-nastoyashchim..jpg
+  ogImage: /images/blog/covers/kak-otpustit-proshloe-i-zhit-nastoyashchim..webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aPEZZSm3RiznZydz).
 
-![Как отпустить прошлое и жить настоящим. Анна Хефорс](/images/blog/covers/kak-otpustit-proshloe-i-zhit-nastoyashchim..jpg)
+![Как отпустить прошлое и жить настоящим. Анна Хефорс](/images/blog/covers/kak-otpustit-proshloe-i-zhit-nastoyashchim..webp)
 Здравствуйте, дорогие читатели. Замечали ли вы за собой, что живете как будто не сегодня. Наше тело здесь, а мысли — где-то там между «если бы» и «почему тогда».Мы держим внутри старые слова, обиды, потери, проживаем их снова и снова. Это так похоже на «глюки» заезженной пластинки или кадра. И кажется, будто прошлое управляет нами больше. Но жизнь не там, где было. Жизнь вот она - здесь и сейчас. Но так сложно находиться в этом состоянии. Почему мы держимся за прошлое? Потому что там как-будто «незавершённые дела»...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

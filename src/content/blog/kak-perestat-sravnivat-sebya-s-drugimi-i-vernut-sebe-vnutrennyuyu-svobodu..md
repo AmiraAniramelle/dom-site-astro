@@ -16,7 +16,7 @@ date: '2025-11-01'
 readingTime: 3
 viewsCount: 6
 cover: >-
-  /images/blog/covers/kak-perestat-sravnivat-sebya-s-drugimi-i-vernut-sebe-vnutrennyuyu-svobodu..png
+  /images/blog/covers/kak-perestat-sravnivat-sebya-s-drugimi-i-vernut-sebe-vnutrennyuyu-svobodu..webp
 relatedProductId: null
 seo:
   title: >-
@@ -27,14 +27,14 @@ seo:
     жизнь в бесконечную витрину чужих успехов: кто-то красивее, кто-то богаче,
     кто-то «успел
   ogImage: >-
-    /images/blog/covers/kak-perestat-sravnivat-sebya-s-drugimi-i-vernut-sebe-vnutrennyuyu-svobodu..png
+    /images/blog/covers/kak-perestat-sravnivat-sebya-s-drugimi-i-vernut-sebe-vnutrennyuyu-svobodu..webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aQWtRiMXJVvzUtQn).
 
-![Как перестать сравнивать себя с другими — и вернуть себе внутреннюю свободу. Анна Хефорс](/images/blog/covers/kak-perestat-sravnivat-sebya-s-drugimi-i-vernut-sebe-vnutrennyuyu-svobodu..png)
+![Как перестать сравнивать себя с другими — и вернуть себе внутреннюю свободу. Анна Хефорс](/images/blog/covers/kak-perestat-sravnivat-sebya-s-drugimi-i-vernut-sebe-vnutrennyuyu-svobodu..webp)
 Мы живём в мире, где сравнение стало нормой. Социальные сети превращают жизнь в бесконечную витрину чужих успехов: кто-то красивее, кто-то богаче, кто-то «успел больше». Мы смотрим и чувствуем — будто с нами что-то не так. Но самое коварное в этом не то, что мы сравниваем. А то, что перестаём чувствовать себя живыми в собственной жизни. Почему мозг так любит сравнивать? Анна Камаллая Хефорс объясняет это просто: «Сравнение — это инстинкт выживания, а не способ самооценки». Ещё в древности мозг следил за тем, кто сильнее, кто быстрее, кто опаснее — чтобы знать, где безопасно...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

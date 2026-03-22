@@ -15,7 +15,7 @@ date: '2025-10-30'
 readingTime: 3
 viewsCount: 1
 cover: >-
-  /images/blog/covers/oshibki-detskogo-magicheskogo-myshleniya-.i-kak-perestat-zhdat-chudo-kogda.png
+  /images/blog/covers/oshibki-detskogo-magicheskogo-myshleniya-.i-kak-perestat-zhdat-chudo-kogda.webp
 relatedProductId: null
 seo:
   title: >-
@@ -25,14 +25,14 @@ seo:
     Иногда взрослый человек ведет себя так, как-будто он всё ещё ребёнок. Он
     ждёт, что кто-то заметит, похвалит, спасёт.
   ogImage: >-
-    /images/blog/covers/oshibki-detskogo-magicheskogo-myshleniya-.i-kak-perestat-zhdat-chudo-kogda.png
+    /images/blog/covers/oshibki-detskogo-magicheskogo-myshleniya-.i-kak-perestat-zhdat-chudo-kogda.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aQL296oc2hzB8t4Y).
 
-![Ошибки «детского магического мышления».И как перестать ждать чудо, когда время стать собой. Анна Хефорс](/images/blog/covers/oshibki-detskogo-magicheskogo-myshleniya-.i-kak-perestat-zhdat-chudo-kogda.png)
+![Ошибки «детского магического мышления».И как перестать ждать чудо, когда время стать собой. Анна Хефорс](/images/blog/covers/oshibki-detskogo-magicheskogo-myshleniya-.i-kak-perestat-zhdat-chudo-kogda.webp)
 Иногда взрослый человек ведет себя так, как-будто он всё ещё ребёнок. Он ждёт, что кто-то заметит, похвалит, спасёт. А кто-то надеется, что всё «само сложится» - в нужный день, с нужным человеком, без решения, без шага, без усилия. И вроде бы человек умный, осознанный, но внутри всё равно живёт детское ожидание чуда. Анна Камаллая Хефорс говорит: «Человек взрослеет не тогда, когда он берёт ответственность, а когда он перестаёт ждать, что кто-то сделает это вместо него.» Что такое детское магическое мышление? В детстве это нормально...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

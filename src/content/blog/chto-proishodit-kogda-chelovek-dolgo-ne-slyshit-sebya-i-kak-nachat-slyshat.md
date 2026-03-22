@@ -15,7 +15,7 @@ date: '2025-12-20'
 readingTime: 4
 viewsCount: 13
 cover: >-
-  /images/blog/covers/chto-proishodit-kogda-chelovek-dolgo-ne-slyshit-sebya-i-kak-nachat-slyshat.png
+  /images/blog/covers/chto-proishodit-kogda-chelovek-dolgo-ne-slyshit-sebya-i-kak-nachat-slyshat.webp
 relatedProductId: null
 seo:
   title: >-
@@ -25,14 +25,14 @@ seo:
     Есть процессы, которые развиваются медленно и почти незаметно. Они не
     выглядят как кризис и не сопровождаются резкими событиями.
   ogImage: >-
-    /images/blog/covers/chto-proishodit-kogda-chelovek-dolgo-ne-slyshit-sebya-i-kak-nachat-slyshat.png
+    /images/blog/covers/chto-proishodit-kogda-chelovek-dolgo-ne-slyshit-sebya-i-kak-nachat-slyshat.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aUaUcR-hyWnCo9rN).
 
-![Что происходит, когда человек долго не слышит себя? И как начать слышать? Анна Хефорс](/images/blog/covers/chto-proishodit-kogda-chelovek-dolgo-ne-slyshit-sebya-i-kak-nachat-slyshat.png)
+![Что происходит, когда человек долго не слышит себя? И как начать слышать? Анна Хефорс](/images/blog/covers/chto-proishodit-kogda-chelovek-dolgo-ne-slyshit-sebya-i-kak-nachat-slyshat.webp)
 Есть процессы, которые развиваются медленно и почти незаметно. Они не выглядят как кризис и не сопровождаются резкими событиями. Человек просто продолжает жить, делать привычные вещи, выполнять обязательства, быть включённым в жизнь. А внутри незаметно формируется некий разрыв. И это далеко не между людьми и не между целями, а между внешними действиями и внутренним состоянием. Почему так происходит? Когда человек долго не слышит себя, он не перестает это чувствовать сразу. Он скорее перестаёт придавать своим ощущениям значение...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

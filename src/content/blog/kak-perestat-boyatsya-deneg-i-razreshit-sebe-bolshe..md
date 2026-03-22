@@ -14,7 +14,7 @@ tags:
 date: '2025-10-21'
 readingTime: 2
 viewsCount: 174
-cover: /images/blog/covers/kak-perestat-boyatsya-deneg-i-razreshit-sebe-bolshe..png
+cover: /images/blog/covers/kak-perestat-boyatsya-deneg-i-razreshit-sebe-bolshe..webp
 relatedProductId: null
 seo:
   title: >-
@@ -24,14 +24,14 @@ seo:
     Здравствуйте, дорогие читатели, продолжаем тему «денег и мышления». Иногда
     кажется, что дело в обстоятельствах: «мало возможностей», «не то время», «я
     не из тех
-  ogImage: /images/blog/covers/kak-perestat-boyatsya-deneg-i-razreshit-sebe-bolshe..png
+  ogImage: /images/blog/covers/kak-perestat-boyatsya-deneg-i-razreshit-sebe-bolshe..webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aPclozlGcjti-TAd).
 
-![Как перестать бояться денег и разрешить себе больше. Анна Камаллая Хефорс](/images/blog/covers/kak-perestat-boyatsya-deneg-i-razreshit-sebe-bolshe..png)
+![Как перестать бояться денег и разрешить себе больше. Анна Камаллая Хефорс](/images/blog/covers/kak-perestat-boyatsya-deneg-i-razreshit-sebe-bolshe..webp)
 Здравствуйте, дорогие читатели, продолжаем тему «денег и мышления». Иногда кажется, что дело в обстоятельствах: «мало возможностей», «не то время», «я не из тех семей». Но на самом деле чаще всего деньги останавливает не жизнь — наш внутренний страх. Страх попросить. Страх получить. Страх быть видимым. Страх, что если станет больше — не справлюсь, потеряю, не удержу. Анна Камаллая Хефорс говорит: «Деньги — это не цель. Это форма движения энергии. Они приходят туда, где человек готов жить шире»...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

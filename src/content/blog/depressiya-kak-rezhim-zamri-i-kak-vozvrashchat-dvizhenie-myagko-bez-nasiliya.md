@@ -16,7 +16,7 @@ date: '2026-02-02'
 readingTime: 7
 viewsCount: 3
 cover: >-
-  /images/blog/covers/depressiya-kak-rezhim-zamri-i-kak-vozvrashchat-dvizhenie-myagko-bez-nasiliya.png
+  /images/blog/covers/depressiya-kak-rezhim-zamri-i-kak-vozvrashchat-dvizhenie-myagko-bez-nasiliya.webp
 relatedProductId: null
 seo:
   title: >-
@@ -26,14 +26,14 @@ seo:
     Здравствуйте, дорогие подписчики. Бывает так, что депрессия ощущается не как
     буря, а как выключенный звук.
   ogImage: >-
-    /images/blog/covers/depressiya-kak-rezhim-zamri-i-kak-vozvrashchat-dvizhenie-myagko-bez-nasiliya.png
+    /images/blog/covers/depressiya-kak-rezhim-zamri-i-kak-vozvrashchat-dvizhenie-myagko-bez-nasiliya.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aYDc4uvdozbTYly7).
 
-![Нейробиолог Анна Хефорс: Депрессия как режим «замри» и как возвращать движение мягко, без насилия над собой?](/images/blog/covers/depressiya-kak-rezhim-zamri-i-kak-vozvrashchat-dvizhenie-myagko-bez-nasiliya.png)
+![Нейробиолог Анна Хефорс: Депрессия как режим «замри» и как возвращать движение мягко, без насилия над собой?](/images/blog/covers/depressiya-kak-rezhim-zamri-i-kak-vozvrashchat-dvizhenie-myagko-bez-nasiliya.webp)
 Здравствуйте, дорогие подписчики. Бывает так, что депрессия ощущается не как буря, а как выключенный звук. Внешне жизнь может продолжаться: вы можете даже что то делать по инерции, но внутри словно серый фильтр, как-будто тело живёт отдельно, а чувства где то далеко. В такие моменты особенно легко начать давить на себя, требовать бодрости, собранности, продуктивности, и именно это давление часто закрепляет оцепенение, потому что мозг воспринимает его как ещё одну угрозу. В материалах Анны Камаллаи,...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

@@ -12,21 +12,21 @@ tags:
 date: '2025-11-28'
 readingTime: 5
 viewsCount: 17
-cover: /images/blog/covers/pochemu-nas-triggeryat-blizkie-i-kak-s-etim-rabotat.png
+cover: /images/blog/covers/pochemu-nas-triggeryat-blizkie-i-kak-s-etim-rabotat.webp
 relatedProductId: null
 seo:
   title: Почему нас триггерят близкие? И как с этим работать? Анна Хефорс | DOM
   description: >-
     Триггеры - это не про людей. Это про те места внутри нас, где связь ещё не
     восстановлена.
-  ogImage: /images/blog/covers/pochemu-nas-triggeryat-blizkie-i-kak-s-etim-rabotat.png
+  ogImage: /images/blog/covers/pochemu-nas-triggeryat-blizkie-i-kak-s-etim-rabotat.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aSmzucaHRB2OULeP).
 
-![Почему нас триггерят близкие? И как с этим работать? Анна Хефорс](/images/blog/covers/pochemu-nas-triggeryat-blizkie-i-kak-s-etim-rabotat.png)
+![Почему нас триггерят близкие? И как с этим работать? Анна Хефорс](/images/blog/covers/pochemu-nas-triggeryat-blizkie-i-kak-s-etim-rabotat.webp)
 Триггеры - это не про людей. Это про те места внутри нас, где связь ещё не восстановлена. Триггер - это мгновенная эмоциональная реакция, возникающая не из-за ситуации здесь и сейчас, а из-за старых нейронных цепочек, которые активируются в моменте. Именно поэтому близкие люди могут выводить нас из равновесия сильнее, чем кто бы то ни было. Они непреднамеренно запускают те области мозга, где хранятся наш опыт, эмоциональная память и старые защитные реакции. Чтобы понять, что происходит внутри нас в момент триггера, нужно сначала разобраться в работе нейро системы...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

@@ -9,7 +9,8 @@ export type PopupField = {
 
 export const popupData = {
   enabled: true,
-  delayMs: 5000,
+  triggerType: 'scroll' as const,
+  scrollPercent: 60,
   eyebrow: 'ПОДАРОК ОТ DOM',
   title: 'Подарок для вашего первого шага',
   description:

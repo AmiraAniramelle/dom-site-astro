@@ -16,7 +16,7 @@ date: '2025-11-25'
 readingTime: 5
 viewsCount: 105
 cover: >-
-  /images/blog/covers/pochemu-vam-kazhetsya-chto-vy-ustali-ot-zhizni-a-ne-ot-zadach-kak-snyat-etu.jpg
+  /images/blog/covers/pochemu-vam-kazhetsya-chto-vy-ustali-ot-zhizni-a-ne-ot-zadach-kak-snyat-etu.webp
 relatedProductId: null
 seo:
   title: >-
@@ -27,14 +27,14 @@ seo:
     жизни, а от системного напряжения, которое годами накапливалось в мозге и в
     реакциях, 
   ogImage: >-
-    /images/blog/covers/pochemu-vam-kazhetsya-chto-vy-ustali-ot-zhizni-a-ne-ot-zadach-kak-snyat-etu.jpg
+    /images/blog/covers/pochemu-vam-kazhetsya-chto-vy-ustali-ot-zhizni-a-ne-ot-zadach-kak-snyat-etu.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aSXr0NtG6wtQMrEl).
 
-![Почему вам кажется, что вы устали от жизни (а не от задач)? Как снять эту усталость. Анна Камаллая Хефорс](/images/blog/covers/pochemu-vam-kazhetsya-chto-vy-ustali-ot-zhizni-a-ne-ot-zadach-kak-snyat-etu.jpg)
+![Почему вам кажется, что вы устали от жизни (а не от задач)? Как снять эту усталость. Анна Камаллая Хефорс](/images/blog/covers/pochemu-vam-kazhetsya-chto-vy-ustali-ot-zhizni-a-ne-ot-zadach-kak-snyat-etu.webp)
 Когда человек говорит «я устал от жизни», чаще всего он устал не от самой жизни, а от системного напряжения, которое годами накапливалось в мозге и в реакциях, т.к. именно это искажение делает любую задачу непомерно тяжёлой. Почему это важно сейчас? Многие воспринимают собственную усталость как слабость или показатель того, что «жизнь не складывается». Но Камаллая отмечает, что усталость почти всегда - это не дефицит сил, а дефицит пространства внутри сознания. Мозг фиксируется на узком коридоре...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

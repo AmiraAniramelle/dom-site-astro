@@ -17,7 +17,7 @@ date: '2025-12-05'
 readingTime: 5
 viewsCount: 258
 cover: >-
-  /images/blog/covers/kak-mysli-stanovyatsya-materiey.-ili-kak-menyat-fokus-tak-chtoby-menyalas-zhizn.png
+  /images/blog/covers/kak-mysli-stanovyatsya-materiey.-ili-kak-menyat-fokus-tak-chtoby-menyalas-zhizn.webp
 relatedProductId: null
 seo:
   title: >-
@@ -28,14 +28,14 @@ seo:
     начинает проявляться в реальности. Сначала это единичное совпадение, потом и
     закономерност
   ogImage: >-
-    /images/blog/covers/kak-mysli-stanovyatsya-materiey.-ili-kak-menyat-fokus-tak-chtoby-menyalas-zhizn.png
+    /images/blog/covers/kak-mysli-stanovyatsya-materiey.-ili-kak-menyat-fokus-tak-chtoby-menyalas-zhizn.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aTMIxeakUXCKjnAH).
 
-![Как мысли становятся материей. Или как менять фокус так, чтобы менялась жизнь? Анна Хефорс](/images/blog/covers/kak-mysli-stanovyatsya-materiey.-ili-kak-menyat-fokus-tak-chtoby-menyalas-zhizn.png)
+![Как мысли становятся материей. Или как менять фокус так, чтобы менялась жизнь? Анна Хефорс](/images/blog/covers/kak-mysli-stanovyatsya-materiey.-ili-kak-menyat-fokus-tak-chtoby-menyalas-zhizn.webp)
 У каждого человека есть опыт, когда мысль, которая кажется случайной, начинает проявляться в реальности. Сначала это единичное совпадение, потом и закономерность. Человек о чём-то долго думает, и вдруг начинает видеть подтверждения повсюду. Или, наоборот, долго удерживает тревожную мысль, и оказывается в сценарии, которого хотел избежать. Снаружи это может выглядеть мистично. Но если смотреть на процесс глубже, через логику внутренних систем, становится ясно: здесь нет магии. Есть механизм, который работает у каждого...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

@@ -16,7 +16,7 @@ date: '2026-02-19'
 readingTime: 4
 viewsCount: 16
 cover: >-
-  /images/blog/covers/semeynaya-sistema-i-deti-gde-my-teryaem-kontakt-i-pochemu-eto-nachinaetsya-ne-s.jpg
+  /images/blog/covers/semeynaya-sistema-i-deti-gde-my-teryaem-kontakt-i-pochemu-eto-nachinaetsya-ne-s.webp
 relatedProductId: null
 seo:
   title: >-
@@ -26,14 +26,14 @@ seo:
     Когда контакт с ребёнком «ломается», мы обычно ищем причину не там где
     необходимо искать.
   ogImage: >-
-    /images/blog/covers/semeynaya-sistema-i-deti-gde-my-teryaem-kontakt-i-pochemu-eto-nachinaetsya-ne-s.jpg
+    /images/blog/covers/semeynaya-sistema-i-deti-gde-my-teryaem-kontakt-i-pochemu-eto-nachinaetsya-ne-s.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aZdK_MO7LhtrZDTh).
 
-![Семейная система и дети: где мы теряем контакт и почему это начинается не с ребёнка? Анна Камаллая Хефорс](/images/blog/covers/semeynaya-sistema-i-deti-gde-my-teryaem-kontakt-i-pochemu-eto-nachinaetsya-ne-s.jpg)
+![Семейная система и дети: где мы теряем контакт и почему это начинается не с ребёнка? Анна Камаллая Хефорс](/images/blog/covers/semeynaya-sistema-i-deti-gde-my-teryaem-kontakt-i-pochemu-eto-nachinaetsya-ne-s.webp)
 Когда контакт с ребёнком «ломается», мы обычно ищем причину не там где необходимо искать. Почти всегда, это выглядит одинаково: ребёнок стал резким, замкнулся, перестал делиться, начал спорить или как-будто перестал слышать. Родители берутся за дисциплину, разговоры, гаджеты, режим, психолога, и это может быть полезно, но часто не даёт главного: потому, что потеря контакта нередко начинается не с ребёнка, а с того, что взрослые незаметно уходят со своего места в «семейной системе». Семья, это прежде всего, система, и ребёнок в ней всегда «считывает поле»...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

@@ -15,7 +15,7 @@ date: '2026-01-21'
 readingTime: 7
 viewsCount: 51
 cover: >-
-  /images/blog/covers/pochemu-otnosheniya-menyayutsya-a-reakcii-ostayutsya-prezhnimi-6-shagov-chtoby.jpg
+  /images/blog/covers/pochemu-otnosheniya-menyayutsya-a-reakcii-ostayutsya-prezhnimi-6-shagov-chtoby.webp
 relatedProductId: null
 seo:
   title: >-
@@ -26,14 +26,14 @@ seo:
     отношений. Так как отношения являются важной сферой в жизни каждого
     человека.
   ogImage: >-
-    /images/blog/covers/pochemu-otnosheniya-menyayutsya-a-reakcii-ostayutsya-prezhnimi-6-shagov-chtoby.jpg
+    /images/blog/covers/pochemu-otnosheniya-menyayutsya-a-reakcii-ostayutsya-prezhnimi-6-shagov-chtoby.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aXD9LMyPSyolm1xl).
 
-![Почему отношения меняются, а реакции остаются прежними? 6 шагов, чтобы реакции начали меняться вместе с отношениями. Анн](/images/blog/covers/pochemu-otnosheniya-menyayutsya-a-reakcii-ostayutsya-prezhnimi-6-shagov-chtoby.jpg)
+![Почему отношения меняются, а реакции остаются прежними? 6 шагов, чтобы реакции начали меняться вместе с отношениями. Анн](/images/blog/covers/pochemu-otnosheniya-menyayutsya-a-reakcii-ostayutsya-prezhnimi-6-shagov-chtoby.webp)
 Здравствуйте, дорогие подписчики. Сегодня у нас практическая статья на тему отношений. Так как отношения являются важной сферой в жизни каждого человека. Часто бывает так, что вы выходите из прошлого союза и входите в новый: взрослеете, учитесь говорить словами, а не молчанием, начинаете уважать границы. И в какой то момент случается снова привычная сцена: кто-то не ответил вовремя, сказал не тем тоном, попросил чуть больше, чем вы готовы дать, и внутри будто нажали некую «красную» кнопку: вспышка, обида, желание защищаться или оправдываться, холод, контроль, уход в тишину...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

@@ -83,7 +83,7 @@ const isBook = contentType === 'Книга';
 >
   <div
     class:list={[
-      'relative overflow-hidden',
+      'relative overflow-hidden bg-dom-beige/30',
       isBook ? 'h-64 bg-dom-beige/45 p-4 sm:p-5' : 'h-56',
     ]}
   >
@@ -99,6 +99,7 @@ const isBook = contentType === 'Книга';
       width="800"
       height="450"
       loading="lazy"
+      decoding="async"
     />
     <span
       class="absolute top-4 left-4 px-4 py-1.5 rounded-full bg-dom-gold/90 text-white text-xs font-montserrat font-bold uppercase tracking-wider"

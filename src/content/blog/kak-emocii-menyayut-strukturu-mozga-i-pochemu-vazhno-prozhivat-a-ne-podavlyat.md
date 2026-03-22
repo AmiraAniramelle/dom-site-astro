@@ -15,7 +15,7 @@ date: '2025-11-10'
 readingTime: 5
 viewsCount: 78
 cover: >-
-  /images/blog/covers/kak-emocii-menyayut-strukturu-mozga-i-pochemu-vazhno-prozhivat-a-ne-podavlyat.png
+  /images/blog/covers/kak-emocii-menyayut-strukturu-mozga-i-pochemu-vazhno-prozhivat-a-ne-podavlyat.webp
 relatedProductId: null
 seo:
   title: >-
@@ -25,14 +25,14 @@ seo:
     Мы привыкли считать эмоции чем-то непостоянным — вспышкой, которую можно
     заглушить, если нужно «держать себя в руках».
   ogImage: >-
-    /images/blog/covers/kak-emocii-menyayut-strukturu-mozga-i-pochemu-vazhno-prozhivat-a-ne-podavlyat.png
+    /images/blog/covers/kak-emocii-menyayut-strukturu-mozga-i-pochemu-vazhno-prozhivat-a-ne-podavlyat.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aRGXX-LaEVR2X1N5).
 
-![Как эмоции меняют структуру мозга - и почему важно проживать, а не подавлять? Анна Хефорс](/images/blog/covers/kak-emocii-menyayut-strukturu-mozga-i-pochemu-vazhno-prozhivat-a-ne-podavlyat.png)
+![Как эмоции меняют структуру мозга - и почему важно проживать, а не подавлять? Анна Хефорс](/images/blog/covers/kak-emocii-menyayut-strukturu-mozga-i-pochemu-vazhno-prozhivat-a-ne-podavlyat.webp)
 Мы привыкли считать эмоции чем-то непостоянным — вспышкой, которую можно заглушить, если нужно «держать себя в руках». Но нейробиология последних десятилетий говорит об обратном: каждая непрожитая эмоция оставляет след в мозге. Не в метафорическом, а в буквальном смысле — меняет структуру нейронных связей, формируя новый сценарий восприятия реальности. Почему эмоции — это язык мозга? Мозг — не статичный орган, а динамичная сеть, где каждое чувство, каждая мысль или воспоминание создаёт новые связи...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

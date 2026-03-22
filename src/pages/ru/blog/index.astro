@@ -48,6 +48,7 @@ const meta = createPageMeta({
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+      const PAGE_SIZE = 12;
       const root = document.querySelector('[data-blog-root]');
       if (!root) return;
 
@@ -58,6 +59,7 @@ const meta = createPageMeta({
       const countEl = root.querySelector('[data-blog-count]');
       const countVal = root.querySelector('[data-blog-count-value]');
       const emptyEl = root.querySelector('[data-blog-empty]');
+      const loadMoreBtn = root.querySelector('[data-blog-load-more]');
 
       const catFilter = root.querySelector('[data-blog-filter="category"]');
       const typeFilter = root.querySelector('[data-blog-filter="type"]');
@@ -65,7 +67,11 @@ const meta = createPageMeta({
       const sortFilter = root.querySelector('[data-blog-filter="sort"]');
       const searchFilter = root.querySelector('[data-blog-filter="search"]');
 
-      function applyFilters() {
+      /** @type {HTMLElement[]} */
+      let filteredOrder = [];
+      let revealedCount = PAGE_SIZE;
+
+      function computeFilteredOrder() {
         const cat = catFilter?.value || '';
         const type = typeFilter?.value || '';
         const tag = tagFilter?.value || '';
@@ -101,14 +107,7 @@ const meta = createPageMeta({
           );
         }
 
-        cards.forEach((card) => {
-          const wrap = card.closest('.blog-card-wrap');
-          wrap?.classList.add('hidden');
-        });
-        visible.forEach((card) => {
-          const wrap = card.closest('.blog-card-wrap');
-          wrap?.classList.remove('hidden');
-        });
+        filteredOrder = visible;
 
         visible.forEach((card) => {
           const wrap = card.closest('.blog-card-wrap');
@@ -121,10 +120,39 @@ const meta = createPageMeta({
         if (emptyEl) emptyEl.classList.toggle('hidden', visible.length > 0);
       }
 
+      function applyPaginationVisibility() {
+        cards.forEach((card) => {
+          const wrap = card.closest('.blog-card-wrap');
+          if (!wrap) return;
+          const idx = filteredOrder.indexOf(card);
+          if (idx === -1) {
+            wrap.classList.add('hidden');
+            return;
+          }
+          const show = idx < revealedCount;
+          wrap.classList.toggle('hidden', !show);
+        });
+
+        const hasMore = filteredOrder.length > revealedCount;
+        loadMoreBtn?.classList.toggle('hidden', !hasMore);
+      }
+
+      function applyFilters() {
+        revealedCount = PAGE_SIZE;
+        computeFilteredOrder();
+        applyPaginationVisibility();
+      }
+
+      function loadMore() {
+        revealedCount += PAGE_SIZE;
+        applyPaginationVisibility();
+      }
+
       [catFilter, typeFilter, tagFilter, sortFilter].forEach((el) => {
         el?.addEventListener('change', applyFilters);
       });
       searchFilter?.addEventListener('input', applyFilters);
+      loadMoreBtn?.addEventListener('click', loadMore);
 
       applyFilters();
     });

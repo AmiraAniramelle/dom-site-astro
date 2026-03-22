@@ -17,7 +17,7 @@ date: '2025-11-10'
 readingTime: 4
 viewsCount: 279
 cover: >-
-  /images/blog/covers/pochemu-mozg-tak-boitsya-neopredelyonnosti-i-kak-perestat-boyatsya-budushchego.png
+  /images/blog/covers/pochemu-mozg-tak-boitsya-neopredelyonnosti-i-kak-perestat-boyatsya-budushchego.webp
 relatedProductId: null
 seo:
   title: >-
@@ -28,14 +28,14 @@ seo:
     время пытается угадать, что будет дальше: кто позвонит, как отреагирует
     собеседник, успе
   ogImage: >-
-    /images/blog/covers/pochemu-mozg-tak-boitsya-neopredelyonnosti-i-kak-perestat-boyatsya-budushchego.png
+    /images/blog/covers/pochemu-mozg-tak-boitsya-neopredelyonnosti-i-kak-perestat-boyatsya-budushchego.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aRGWv-LaEVR2XjCp).
 
-![Почему мозг так боится неопределённости и как перестать бояться будущего? Анна Хефорс](/images/blog/covers/pochemu-mozg-tak-boitsya-neopredelyonnosti-i-kak-perestat-boyatsya-budushchego.png)
+![Почему мозг так боится неопределённости и как перестать бояться будущего? Анна Хефорс](/images/blog/covers/pochemu-mozg-tak-boitsya-neopredelyonnosti-i-kak-perestat-boyatsya-budushchego.webp)
 Мозг так устроен, что он все время пытается что- то предсказать. Он всё время пытается угадать, что будет дальше: кто позвонит, как отреагирует собеседник, успеем ли всё сделать вовремя. Но это не стремление к порядку, а инстинкт выживания. Когда мозг не понимает, что будет, он пугается. А когда пугается - начинает выстраивать иллюзию контроля: списки, планы, прогнозы, контроль над другими, даже над собственными чувствами. Но реальность устроена по-другому: она не обязана быть предсказуемой. И чем сильнее человек цепляется за контроль, тем меньше у него сил остается на жизнь...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

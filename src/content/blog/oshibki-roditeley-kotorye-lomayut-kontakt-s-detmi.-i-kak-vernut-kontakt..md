@@ -16,7 +16,7 @@ date: '2025-10-26'
 readingTime: 3
 viewsCount: 14
 cover: >-
-  /images/blog/covers/oshibki-roditeley-kotorye-lomayut-kontakt-s-detmi.-i-kak-vernut-kontakt..png
+  /images/blog/covers/oshibki-roditeley-kotorye-lomayut-kontakt-s-detmi.-i-kak-vernut-kontakt..webp
 relatedProductId: null
 seo:
   title: >-
@@ -27,14 +27,14 @@ seo:
     сделать жизнь проще. Но иногда, сами того не замечая, мы теряем с детьми
     самое главно
   ogImage: >-
-    /images/blog/covers/oshibki-roditeley-kotorye-lomayut-kontakt-s-detmi.-i-kak-vernut-kontakt..png
+    /images/blog/covers/oshibki-roditeley-kotorye-lomayut-kontakt-s-detmi.-i-kak-vernut-kontakt..webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aP251K4xeEPlOJ95).
 
-![Ошибки родителей, которые ломают контакт с детьми. И как вернуть контакт. Анна Хефорс](/images/blog/covers/oshibki-roditeley-kotorye-lomayut-kontakt-s-detmi.-i-kak-vernut-kontakt..png)
+![Ошибки родителей, которые ломают контакт с детьми. И как вернуть контакт. Анна Хефорс](/images/blog/covers/oshibki-roditeley-kotorye-lomayut-kontakt-s-detmi.-i-kak-vernut-kontakt..webp)
 Каждый родитель хочет быть хорошим. Дать ребёнку лучшее, защитить от боли, сделать жизнь проще. Но иногда, сами того не замечая, мы теряем с детьми самое главное - это живой контакт. Он не рвётся громко, не случается за один день. Он просто тонко ослабевает, где-то через слова, интонации или привычные “воспитательные” реакции. Анна Камаллая Хефорс говорит: «Дети не слушают слова — они слышат наше внутреннее состояние». И если в нас тревога, обида или усталость, ребёнок чувствует это раньше, чем мы успеваем что-то объяснить...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

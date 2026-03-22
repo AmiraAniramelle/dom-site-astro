@@ -13,7 +13,7 @@ tags:
 date: '2025-10-16'
 readingTime: 3
 viewsCount: 5
-cover: /images/blog/covers/chto-znachit-propisat-vklad-metod-anny-hefors.png
+cover: /images/blog/covers/chto-znachit-propisat-vklad-metod-anny-hefors.webp
 relatedProductId: null
 seo:
   title: Что значит «прописать вклад»? Метод Анны Хефорс | DOM
@@ -21,14 +21,14 @@ seo:
     Здравствуйте, дорогие читатели. Сегодня хотим поделиться статьей на тему
     принятия. А именно, разберем, что такое вклад и для чего его необходимо
     прописать. Иног
-  ogImage: /images/blog/covers/chto-znachit-propisat-vklad-metod-anny-hefors.png
+  ogImage: /images/blog/covers/chto-znachit-propisat-vklad-metod-anny-hefors.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aO-ucHVoLRNrqOiQ).
 
-![Что значит «прописать вклад»? Метод Анны Хефорс](/images/blog/covers/chto-znachit-propisat-vklad-metod-anny-hefors.png)
+![Что значит «прописать вклад»? Метод Анны Хефорс](/images/blog/covers/chto-znachit-propisat-vklad-metod-anny-hefors.webp)
 Здравствуйте, дорогие читатели. Сегодня хотим поделиться статьей на тему принятия. А именно, разберем, что такое вклад и для чего его необходимо прописать. Иногда мы смотрим на прошлое как на череду ошибок. «Я потратила годы не туда», «зря терпела», «надо было уйти раньше»… Но пока мы называем прошлое «пустым», мы как будто теряем часть своей энергии и силы. Потому что каждое “не туда” всё равно привело нас в точку, где мы есть сейчас. «Прописать вклад прошлого» — значит перестать осуждать себя за прошлое...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

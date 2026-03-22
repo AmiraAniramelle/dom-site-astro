@@ -13,7 +13,7 @@ date: '2025-09-25'
 readingTime: 3
 viewsCount: 74
 cover: >-
-  /images/blog/covers/pochemu-deti-povtoryayut-sudbu-roditeley.-ili-kak-ne-povtorit-chuzhoy-scenariy.png
+  /images/blog/covers/pochemu-deti-povtoryayut-sudbu-roditeley.-ili-kak-ne-povtorit-chuzhoy-scenariy.webp
 relatedProductId: null
 seo:
   title: >-
@@ -23,14 +23,14 @@ seo:
     В каждом из нас живёт история нашей семьи. Иногда мы осознаём её, а иногда
     она проявляется незаметно — в поступках, словах, судьбоносных выборах.
   ogImage: >-
-    /images/blog/covers/pochemu-deti-povtoryayut-sudbu-roditeley.-ili-kak-ne-povtorit-chuzhoy-scenariy.png
+    /images/blog/covers/pochemu-deti-povtoryayut-sudbu-roditeley.-ili-kak-ne-povtorit-chuzhoy-scenariy.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aNIUTeoEGxwDxMnE).
 
-![Почему дети повторяют судьбу родителей. Или как не повторить чужой сценарий?](/images/blog/covers/pochemu-deti-povtoryayut-sudbu-roditeley.-ili-kak-ne-povtorit-chuzhoy-scenariy.png)
+![Почему дети повторяют судьбу родителей. Или как не повторить чужой сценарий?](/images/blog/covers/pochemu-deti-povtoryayut-sudbu-roditeley.-ili-kak-ne-povtorit-chuzhoy-scenariy.webp)
 В каждом из нас живёт история нашей семьи. Иногда мы осознаём её, а иногда она проявляется незаметно — в поступках, словах, судьбоносных выборах. Дочь может выйти замуж за человека, похожего на отца, даже если обещала себе никогда не повторять маминых ошибок. Сын оказывается в долгах, как когда-то его отец. Это не совпадение. Это законы системы семьи, которые действуют, даже если мы о них не знаем. Анна Хефорс подчеркивает, что семья — это система. Она как водопад, что течет сверху вниз, от бабушек и дедушек к родителям, от родителей к детям...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

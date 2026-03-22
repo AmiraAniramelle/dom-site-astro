@@ -13,7 +13,7 @@ date: '2026-01-01'
 readingTime: 5
 viewsCount: 5
 cover: >-
-  /images/blog/covers/pochemu-ya-vsyo-ponimayu-ne-menyaet-scenariy-zhizni-i-kak-nachat-menyat.png
+  /images/blog/covers/pochemu-ya-vsyo-ponimayu-ne-menyaet-scenariy-zhizni-i-kak-nachat-menyat.webp
 relatedProductId: null
 seo:
   title: >-
@@ -21,14 +21,14 @@ seo:
     Хефорс | DOM
   description: "С Новым годом, дорогие читатели \U0001F384. Благодарим вас, за что, что вы есть и продолжаете быть с нами. Есть состояние, знакомое многим взрослым людям."
   ogImage: >-
-    /images/blog/covers/pochemu-ya-vsyo-ponimayu-ne-menyaet-scenariy-zhizni-i-kak-nachat-menyat.png
+    /images/blog/covers/pochemu-ya-vsyo-ponimayu-ne-menyaet-scenariy-zhizni-i-kak-nachat-menyat.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aVZmaQa-OSe47hs5).
 
-![Почему «я всё понимаю» не меняет сценарий жизни? И как начать менять? Анна Хефорс](/images/blog/covers/pochemu-ya-vsyo-ponimayu-ne-menyaet-scenariy-zhizni-i-kak-nachat-menyat.png)
+![Почему «я всё понимаю» не меняет сценарий жизни? И как начать менять? Анна Хефорс](/images/blog/covers/pochemu-ya-vsyo-ponimayu-ne-menyaet-scenariy-zhizni-i-kak-nachat-menyat.webp)
 С Новым годом, дорогие читатели 🎄. Благодарим вас, за что, что вы есть и продолжаете быть с нами. Есть состояние, знакомое многим взрослым людям. Ты многое прочитал, многое понял, умеешь объяснить себе, что происходит, видишь причины, называешь их правильными словами, но жизнь при этом остаётся прежней: те же реакции, те же выборы, те же развилки, на которых ты снова идёшь знакомой дорогой. И в какой-то момент возникает незаметное, но тяжёлое недоумение: если я всё понимаю, почему ничего не меняется? И это не вопрос о слабости, а также не вопрос о недостатке знаний...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

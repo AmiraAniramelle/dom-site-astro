@@ -15,7 +15,7 @@ date: '2025-11-06'
 readingTime: 4
 viewsCount: 5
 cover: >-
-  /images/blog/covers/oshibki-zhenshchin-kotorye-prevrashchayut-muzhchinu-v-rebyonka-..png
+  /images/blog/covers/oshibki-zhenshchin-kotorye-prevrashchayut-muzhchinu-v-rebyonka-..webp
 relatedProductId: null
 seo:
   title: 'Ошибки женщин, которые превращают мужчину в «ребёнка». Анна Хефорс | DOM'
@@ -24,14 +24,14 @@ seo:
     теряет силу? Был активным, решительным, а теперь будто стал мягким,
     зависимым, потерял
   ogImage: >-
-    /images/blog/covers/oshibki-zhenshchin-kotorye-prevrashchayut-muzhchinu-v-rebyonka-..png
+    /images/blog/covers/oshibki-zhenshchin-kotorye-prevrashchayut-muzhchinu-v-rebyonka-..webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aQxNlbacH1hza6BJ).
 
-![Ошибки женщин, которые превращают мужчину в «ребёнка». Анна Хефорс](/images/blog/covers/oshibki-zhenshchin-kotorye-prevrashchayut-muzhchinu-v-rebyonka-..png)
+![Ошибки женщин, которые превращают мужчину в «ребёнка». Анна Хефорс](/images/blog/covers/oshibki-zhenshchin-kotorye-prevrashchayut-muzhchinu-v-rebyonka-..webp)
 Иногда женщина удивляется: почему рядом с ней взрослый мужчина постепенно теряет силу? Был активным, решительным, а теперь будто стал мягким, зависимым, потерял инициативу. Она раздражается, обижается, чувствует, что всё тянет на себе. А потом говорит: «Он как ребёнок». Но самое важное -не искать виноватого. Потому что в любой паре инфантильность одного всегда поддерживается поведением другого. Почему мужчина «уходит в ребёнка»? Анна Камаллая Хефорс объясняет: «Каждая пара — это система, где роли формируются не случайно...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

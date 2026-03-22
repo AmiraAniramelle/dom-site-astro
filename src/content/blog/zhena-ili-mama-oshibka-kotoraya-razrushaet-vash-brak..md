@@ -13,7 +13,7 @@ tags:
 date: '2025-09-16'
 readingTime: 4
 viewsCount: 41
-cover: /images/blog/covers/zhena-ili-mama-oshibka-kotoraya-razrushaet-vash-brak..png
+cover: /images/blog/covers/zhena-ili-mama-oshibka-kotoraya-razrushaet-vash-brak..webp
 relatedProductId: null
 seo:
   title: 'Жена или мама? Ошибка, которая разрушает ваш брак. | DOM'
@@ -22,14 +22,14 @@ seo:
     такой теме: как роли. Если представить наш мир, как что то одно единое
     целое, то вну
   ogImage: >-
-    /images/blog/covers/zhena-ili-mama-oshibka-kotoraya-razrushaet-vash-brak..png
+    /images/blog/covers/zhena-ili-mama-oshibka-kotoraya-razrushaet-vash-brak..webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aMkk6re_eSGv23Ab).
 
-![Жена или мама? Ошибка, которая разрушает ваш брак.](/images/blog/covers/zhena-ili-mama-oshibka-kotoraya-razrushaet-vash-brak..png)
+![Жена или мама? Ошибка, которая разрушает ваш брак.](/images/blog/covers/zhena-ili-mama-oshibka-kotoraya-razrushaet-vash-brak..webp)
 Приветствуем всех, кто заглянул на наш канал в Дзен! Сегодня мы поговорим о такой теме: как роли. Если представить наш мир, как что то одно единое целое, то внутри этого мира есть некие части - системы. Системы могут быть разными - государства, здравоохранения, образования,культуры, семьи и тд. У каждой из систем есть свои правила и порядки. И зная эти правила, можно жить свою счастливую жизнь. Хочется отдельно отметить, что в каждой системе у человека есть свои роли. Но так как, у большинства людей нет знаний о том, как устроен мир - чаще человек живет в хаосе...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

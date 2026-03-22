@@ -14,7 +14,7 @@ date: '2025-12-23'
 readingTime: 4
 viewsCount: 51
 cover: >-
-  /images/blog/covers/pochemu-inogda-vazhno-ne-iskat-otvety-a-pozvolit-im-priyti.png
+  /images/blog/covers/pochemu-inogda-vazhno-ne-iskat-otvety-a-pozvolit-im-priyti.webp
 relatedProductId: null
 seo:
   title: >-
@@ -25,14 +25,14 @@ seo:
     настойчиво: что делать дальше, куда идти, оставаться или менять, продолжать
     или остановит
   ogImage: >-
-    /images/blog/covers/pochemu-inogda-vazhno-ne-iskat-otvety-a-pozvolit-im-priyti.png
+    /images/blog/covers/pochemu-inogda-vazhno-ne-iskat-otvety-a-pozvolit-im-priyti.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aUrVfQmHima5hik6).
 
-![Почему иногда важно не искать ответы, а позволить им прийти? Анна Хефорс](/images/blog/covers/pochemu-inogda-vazhno-ne-iskat-otvety-a-pozvolit-im-priyti.png)
+![Почему иногда важно не искать ответы, а позволить им прийти? Анна Хефорс](/images/blog/covers/pochemu-inogda-vazhno-ne-iskat-otvety-a-pozvolit-im-priyti.webp)
 В жизни каждого человека бывают периоды, когда вопросы звучат особенно настойчиво: что делать дальше, куда идти, оставаться или менять, продолжать или остановиться? И в такие моменты первая реакция почти всегда одна и та же: найти ответ, понять, разложить по полочкам. Принять решение как можно быстрее, чтобы вернуть ощущение опоры. Но именно в этих точках поиск ответа часто не помогает. Чем больше мы думаем, тем сильнее запутываемся и чем активнее анализируем, тем больше ощущаем внутренний шум...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

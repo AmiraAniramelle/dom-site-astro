@@ -13,7 +13,8 @@
     "dzen:best": "node scripts/dzen-best-articles.mjs",
     "dzen:best:full": "node scripts/dzen-best-articles.mjs --scrape-full",
     "dzen:import": "node scripts/dzen-import-blog.mjs",
-    "dzen:covers": "node scripts/dzen-sync-covers.mjs"
+    "dzen:covers": "node scripts/dzen-sync-covers.mjs",
+    "blog:optimize-covers": "node scripts/optimize-blog-covers.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.1",
@@ -22,6 +23,7 @@
     "tailwindcss": "^4.2.1"
   },
   "devDependencies": {
+    "sharp": "^0.34.1",
     "gray-matter": "^4.0.3",
     "playwright": "^1.58.2",
     "transliteration": "^2.6.1",

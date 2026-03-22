@@ -17,7 +17,7 @@ date: '2026-01-18'
 readingTime: 4
 viewsCount: 5
 cover: >-
-  /images/blog/covers/chto-takoe-soglasie-s-realnostyu-i-kak-ona-vliyaet-na-nashu-zhizn.png
+  /images/blog/covers/chto-takoe-soglasie-s-realnostyu-i-kak-ona-vliyaet-na-nashu-zhizn.webp
 relatedProductId: null
 seo:
   title: >-
@@ -28,14 +28,14 @@ seo:
     немного раскроем эту тему подробнее, так как именно согласие с реальностью
     играет важн
   ogImage: >-
-    /images/blog/covers/chto-takoe-soglasie-s-realnostyu-i-kak-ona-vliyaet-na-nashu-zhizn.png
+    /images/blog/covers/chto-takoe-soglasie-s-realnostyu-i-kak-ona-vliyaet-na-nashu-zhizn.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aWzIgLz9xAmT6ova).
 
-![Что такое согласие с реальностью и как она влияет на нашу жизнь? Анна Камаллая Хефорс](/images/blog/covers/chto-takoe-soglasie-s-realnostyu-i-kak-ona-vliyaet-na-nashu-zhizn.png)
+![Что такое согласие с реальностью и как она влияет на нашу жизнь? Анна Камаллая Хефорс](/images/blog/covers/chto-takoe-soglasie-s-realnostyu-i-kak-ona-vliyaet-na-nashu-zhizn.webp)
 В одной из предыдущих статей , мы рассмотрели тему принятия. Давайте, еще немного раскроем эту тему подробнее, так как именно согласие с реальностью играет важную роль в жизни каждого из нас. Очень часто человек живёт в состоянии внутреннего спора с тем, что происходит. Ему кажется, что реальность как будто всё время не та: не вовремя, не так, не с теми, не в том объёме. Внешне, это может выглядеть как активность, поиск решений, движение, но внутри при этом много напряжения и ощущения, что жизнь всё время требует сопротивления...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

@@ -16,7 +16,7 @@ date: '2025-11-22'
 readingTime: 4
 viewsCount: 30
 cover: >-
-  /images/blog/covers/mozhno-li-izmenit-sebya-posle-30-40-50-chto-govorit-neyroplastichnost-mify-i.png
+  /images/blog/covers/mozhno-li-izmenit-sebya-posle-30-40-50-chto-govorit-neyroplastichnost-mify-i.webp
 relatedProductId: null
 seo:
   title: >-
@@ -27,14 +27,14 @@ seo:
     массовом сознании. Кто-то убеждён, что после 30 любые изменения - это почти
     подвиг,
   ogImage: >-
-    /images/blog/covers/mozhno-li-izmenit-sebya-posle-30-40-50-chto-govorit-neyroplastichnost-mify-i.png
+    /images/blog/covers/mozhno-li-izmenit-sebya-posle-30-40-50-chto-govorit-neyroplastichnost-mify-i.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aSHDt5YvOSbfPEhK).
 
-![Можно ли изменить себя после 30, 40, 50? Что говорит нейропластичность: мифы и реальные возможности мозга. Анна Хефорс](/images/blog/covers/mozhno-li-izmenit-sebya-posle-30-40-50-chto-govorit-neyroplastichnost-mify-i.png)
+![Можно ли изменить себя после 30, 40, 50? Что говорит нейропластичность: мифы и реальные возможности мозга. Анна Хефорс](/images/blog/covers/mozhno-li-izmenit-sebya-posle-30-40-50-chto-govorit-neyroplastichnost-mify-i.webp)
 Идея, что человек «заканчивает формироваться» к 25 годам, до сих пор живёт в массовом сознании. Кто-то убеждён, что после 30 любые изменения - это почти подвиг, после 40 - это слишком поздно, а после 50 - это бесполезно. Но если смотреть на это с точки зрения внутренних процессов, которые описывает Анна Хефорс, становится ясно: возраст не определяет способность к изменениям. Определяет состояние системы мозга - куда уходит энергия, что удерживается внутри, насколько человек застрял в старых сценариях и есть ли внутренняя готовность перестраивать привычные решения...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

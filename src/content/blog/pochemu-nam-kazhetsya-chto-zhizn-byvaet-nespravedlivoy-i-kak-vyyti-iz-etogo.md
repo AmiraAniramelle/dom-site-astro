@@ -15,7 +15,7 @@ date: '2025-12-10'
 readingTime: 4
 viewsCount: 5
 cover: >-
-  /images/blog/covers/pochemu-nam-kazhetsya-chto-zhizn-byvaet-nespravedlivoy-i-kak-vyyti-iz-etogo.png
+  /images/blog/covers/pochemu-nam-kazhetsya-chto-zhizn-byvaet-nespravedlivoy-i-kak-vyyti-iz-etogo.webp
 relatedProductId: null
 seo:
   title: >-
@@ -25,14 +25,14 @@ seo:
     Иногда наступает период, когда человек смотрит на свою жизнь и чувствует,
     что она течет как будто мимо.
   ogImage: >-
-    /images/blog/covers/pochemu-nam-kazhetsya-chto-zhizn-byvaet-nespravedlivoy-i-kak-vyyti-iz-etogo.png
+    /images/blog/covers/pochemu-nam-kazhetsya-chto-zhizn-byvaet-nespravedlivoy-i-kak-vyyti-iz-etogo.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aTmdV_lF7Cb7rCfG).
 
-![Почему нам кажется, что жизнь бывает несправедливой? И как выйти из этого ощущения? Анна Камаллая Хефорс](/images/blog/covers/pochemu-nam-kazhetsya-chto-zhizn-byvaet-nespravedlivoy-i-kak-vyyti-iz-etogo.png)
+![Почему нам кажется, что жизнь бывает несправедливой? И как выйти из этого ощущения? Анна Камаллая Хефорс](/images/blog/covers/pochemu-nam-kazhetsya-chto-zhizn-byvaet-nespravedlivoy-i-kak-vyyti-iz-etogo.webp)
 Иногда наступает период, когда человек смотрит на свою жизнь и чувствует, что она течет как будто мимо. Кто то рядом достигает результатов быстрее, кому то достается больше возможностей, а ты стоишь на месте и задаешься вопросом: «почему». В такие моменты поднимается тяжесть и появляется ощущение, что жизнь устроена неравномерно. Это чувство знакомо многим и приходит оно не случайно. Когда человек говорит себе что жизнь несправедлива, он редко говорит о реальности. Чаще он говорит о своей боли...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

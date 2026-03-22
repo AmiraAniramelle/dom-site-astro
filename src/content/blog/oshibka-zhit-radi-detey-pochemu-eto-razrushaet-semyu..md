@@ -13,7 +13,7 @@ tags:
 date: '2025-10-24'
 readingTime: 3
 viewsCount: 56
-cover: /images/blog/covers/oshibka-zhit-radi-detey-pochemu-eto-razrushaet-semyu..png
+cover: /images/blog/covers/oshibka-zhit-radi-detey-pochemu-eto-razrushaet-semyu..webp
 relatedProductId: null
 seo:
   title: 'Ошибка «жить ради детей»: почему это разрушает семью. Анна Хефорс | DOM'
@@ -22,14 +22,14 @@ seo:
     терплю, ради них всё». И звучит это как подвиг. Но если посмотреть глубже —
     именно здесь 
   ogImage: >-
-    /images/blog/covers/oshibka-zhit-radi-detey-pochemu-eto-razrushaet-semyu..png
+    /images/blog/covers/oshibka-zhit-radi-detey-pochemu-eto-razrushaet-semyu..webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aPsdU5iwUi-WxNBN).
 
-![Ошибка «жить ради детей»: почему это разрушает семью. Анна Хефорс](/images/blog/covers/oshibka-zhit-radi-detey-pochemu-eto-razrushaet-semyu..png)
+![Ошибка «жить ради детей»: почему это разрушает семью. Анна Хефорс](/images/blog/covers/oshibka-zhit-radi-detey-pochemu-eto-razrushaet-semyu..webp)
 Иногда женщина говорит: «Я живу ради детей. Ради них держусь, ради них терплю, ради них всё». И звучит это как подвиг. Но если посмотреть глубже — именно здесь часто начинается разрушение. Анна Камаллая Хефорс говорит: «Когда мать живёт ради детей, она ставит их выше жизни. А тогда дети перестают чувствовать опору — ведь их мама уже не живая женщина, а мама по умолчанию». Почему так происходит? У многих женщин есть страх, что если она подумает о себе — станет «плохой матерью». Она перестаёт чувствовать, чего хочет сама, перестаёт радоваться, отдыхать, мечтать...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

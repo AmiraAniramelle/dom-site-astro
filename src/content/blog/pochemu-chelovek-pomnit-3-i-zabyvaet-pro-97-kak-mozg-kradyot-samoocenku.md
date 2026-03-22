@@ -16,7 +16,7 @@ date: '2026-01-25'
 readingTime: 4
 viewsCount: 2
 cover: >-
-  /images/blog/covers/pochemu-chelovek-pomnit-3-i-zabyvaet-pro-97-kak-mozg-kradyot-samoocenku.png
+  /images/blog/covers/pochemu-chelovek-pomnit-3-i-zabyvaet-pro-97-kak-mozg-kradyot-samoocenku.webp
 relatedProductId: null
 seo:
   title: >-
@@ -27,14 +27,14 @@ seo:
     взрослый человек может быть сильным, умным, состоявшимся, но внутри всё
     равно жить с ощущен
   ogImage: >-
-    /images/blog/covers/pochemu-chelovek-pomnit-3-i-zabyvaet-pro-97-kak-mozg-kradyot-samoocenku.png
+    /images/blog/covers/pochemu-chelovek-pomnit-3-i-zabyvaet-pro-97-kak-mozg-kradyot-samoocenku.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aXYaZMr2KjWTSQjI).
 
-![Почему человек помнит 3 % и забывает про 97: как мозг крадёт самооценку? Анна Хефорс](/images/blog/covers/pochemu-chelovek-pomnit-3-i-zabyvaet-pro-97-kak-mozg-kradyot-samoocenku.png)
+![Почему человек помнит 3 % и забывает про 97: как мозг крадёт самооценку? Анна Хефорс](/images/blog/covers/pochemu-chelovek-pomnit-3-i-zabyvaet-pro-97-kak-mozg-kradyot-samoocenku.webp)
 Есть один школьный образ, который неожиданно точно объясняет, почему взрослый человек может быть сильным, умным, состоявшимся, но внутри всё равно жить с ощущением, что он недостаточно хорош. Анна Хефорс часто возвращает людей к тетрадке с диктантом, где красной ручкой обведены две ошибки, а всё остальное, сделанное правильно, осталось без внимания. Ребёнок смотрит на лист и видит не текст, который получился, а красные отметки, и мозг запоминает это как правило жизни: важнее то, где я ошибся, чем то, где я справился...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

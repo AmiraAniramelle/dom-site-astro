@@ -12,21 +12,21 @@ tags:
 date: '2025-10-24'
 readingTime: 3
 viewsCount: 11
-cover: /images/blog/covers/kak-perestat-revnovat-i-vernut-spokoystvie..png
+cover: /images/blog/covers/kak-perestat-revnovat-i-vernut-spokoystvie..webp
 relatedProductId: null
 seo:
   title: Как перестать ревновать и вернуть спокойствие. Анна Хефорс | DOM
   description: >-
     Ревность — чувство, которое умеет тихо разрушать изнутри. Сначала — лёгкая
     тревога, потом — мысли, которые не отпускают.
-  ogImage: /images/blog/covers/kak-perestat-revnovat-i-vernut-spokoystvie..png
+  ogImage: /images/blog/covers/kak-perestat-revnovat-i-vernut-spokoystvie..webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aPsgHpiIykpxFtK2).
 
-![Как перестать ревновать и вернуть спокойствие. Анна Хефорс](/images/blog/covers/kak-perestat-revnovat-i-vernut-spokoystvie..png)
+![Как перестать ревновать и вернуть спокойствие. Анна Хефорс](/images/blog/covers/kak-perestat-revnovat-i-vernut-spokoystvie..webp)
 Ревность — чувство, которое умеет тихо разрушать изнутри. Сначала — лёгкая тревога, потом — мысли, которые не отпускают. Ты понимаешь, что не хочешь это чувствовать, но внутри всё равно крутится: «Почему он так посмотрел?», «А вдруг она ему нравится?» Многие думают, что ревность — это про любовь. Если ревную, значит, не всё равно. Но на самом деле ревность - это почти всегда про нас. Анна Камаллая Хефорс говорит: «Ревность — это не про измену, это про внутреннюю потерю связи с собой». Почему мы ревнуем? Ревность — это не слабость и не каприз...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

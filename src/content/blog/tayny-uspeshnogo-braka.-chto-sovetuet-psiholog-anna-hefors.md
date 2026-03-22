@@ -14,7 +14,7 @@ date: '2025-09-20'
 readingTime: 3
 viewsCount: 34
 cover: >-
-  /images/blog/covers/tayny-uspeshnogo-braka.-chto-sovetuet-psiholog-anna-hefors.png
+  /images/blog/covers/tayny-uspeshnogo-braka.-chto-sovetuet-psiholog-anna-hefors.webp
 relatedProductId: null
 seo:
   title: Тайны успешного брака. Что советует психолог Анна Хефорс? | DOM
@@ -23,14 +23,14 @@ seo:
     повышения квалификации в сферах семейной психологии, психологии личности и
     нейронаук, 
   ogImage: >-
-    /images/blog/covers/tayny-uspeshnogo-braka.-chto-sovetuet-psiholog-anna-hefors.png
+    /images/blog/covers/tayny-uspeshnogo-braka.-chto-sovetuet-psiholog-anna-hefors.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aM7tOu4hgjP2q1dv).
 
-![Тайны успешного брака. Что советует психолог Анна Хефорс?](/images/blog/covers/tayny-uspeshnogo-braka.-chto-sovetuet-psiholog-anna-hefors.png)
+![Тайны успешного брака. Что советует психолог Анна Хефорс?](/images/blog/covers/tayny-uspeshnogo-braka.-chto-sovetuet-psiholog-anna-hefors.webp)
 Немного об авторе. Анна Камаллая Хефорс - психолог с постоянной практикой повышения квалификации в сферах семейной психологии, психологии личности и нейронаук, в том числе нейропсихологии. Филантроп, оказывающий помощь детям, оказавшимся под угрозой серьёзных заболеваний мозга. Основатель Международного велнес проекта IT BRAIN, объединяющего людей, стремящихся к продлению жизни и молодости. Автор методики «Нейропрорыв», способствующей улучшению эмоционального, психического здоровья в целях создания условий для достижения счастья как высокого качества жизни человека и его семьи...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

@@ -13,7 +13,7 @@ date: '2025-09-19'
 readingTime: 4
 viewsCount: 1300
 cover: >-
-  /images/blog/covers/10-veshchey-kotorye-vy-delaete-a-oni-razrushayut-otnosheniya..png
+  /images/blog/covers/10-veshchey-kotorye-vy-delaete-a-oni-razrushayut-otnosheniya..webp
 relatedProductId: null
 seo:
   title: '10 вещей, которые вы делаете, а они разрушают отношения. | DOM'
@@ -21,14 +21,14 @@ seo:
     Если вы сейчас находитесь на грани развода, то эта статья для вас. Отношения
     разрушить легко. Легче чем построить или удержать на плаву.
   ogImage: >-
-    /images/blog/covers/10-veshchey-kotorye-vy-delaete-a-oni-razrushayut-otnosheniya..png
+    /images/blog/covers/10-veshchey-kotorye-vy-delaete-a-oni-razrushayut-otnosheniya..webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aM0PCmE-xzD1yVIW).
 
-![10 вещей, которые вы делаете, а они разрушают отношения.](/images/blog/covers/10-veshchey-kotorye-vy-delaete-a-oni-razrushayut-otnosheniya..png)
+![10 вещей, которые вы делаете, а они разрушают отношения.](/images/blog/covers/10-veshchey-kotorye-vy-delaete-a-oni-razrushayut-otnosheniya..webp)
 Если вы сейчас находитесь на грани развода, то эта статья для вас. Отношения разрушить легко. Легче чем построить или удержать на плаву. Вспомните себя, когда вы только встретились: трепет от встреч, звонки, приятные sms, признания в любви и нежные объятия. Куда это все уходит, когда проходит какое- то время? Изначально, партнеры, когда вступают в отношения - всегда равны. Все начинается, когда ожидания одного не совпадают с ожиданиями другого. А откуда же берутся эти ожидания? Ответ прост: от мамы и папы...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

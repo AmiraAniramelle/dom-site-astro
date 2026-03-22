@@ -13,7 +13,7 @@ tags:
 date: '2026-01-30'
 readingTime: 3
 viewsCount: 26
-cover: /images/blog/covers/pochemu-mozg-sabotiruet-dazhe-vygodnye-resheniya.png
+cover: /images/blog/covers/pochemu-mozg-sabotiruet-dazhe-vygodnye-resheniya.webp
 relatedProductId: null
 seo:
   title: 'Нейробиолог Анна Хефорс: Почему мозг саботирует даже выгодные решения? | DOM'
@@ -21,14 +21,14 @@ seo:
     Здравствуйте, дорогие подписчики. Как часто вы замечали, что всё вроде бы
     выглядит логично: решение просчитано, польза очевидна, риски понятны. Все
     разумно, вов
-  ogImage: /images/blog/covers/pochemu-mozg-sabotiruet-dazhe-vygodnye-resheniya.png
+  ogImage: /images/blog/covers/pochemu-mozg-sabotiruet-dazhe-vygodnye-resheniya.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aXz5giEWjXGl712O).
 
-![Нейробиолог Анна Хефорс: Почему мозг саботирует даже выгодные решения?](/images/blog/covers/pochemu-mozg-sabotiruet-dazhe-vygodnye-resheniya.png)
+![Нейробиолог Анна Хефорс: Почему мозг саботирует даже выгодные решения?](/images/blog/covers/pochemu-mozg-sabotiruet-dazhe-vygodnye-resheniya.webp)
 Здравствуйте, дорогие подписчики. Как часто вы замечали, что всё вроде бы выглядит логично: решение просчитано, польза очевидна, риски понятны. Все разумно, вовремя, и даже выгодно. Но внутри некий голос будто тянет назад. Начинается откладывание, прокрастинация, внезапная усталость, сомнения на ровном месте. Мозг словно саботирует то, что должно улучшить жизнь. Анна Хефорс называет это не слабостью характера и не ленью, а работой глубинных механизмов выживания. Наш мозг не создан для счастья, роста или реализации...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

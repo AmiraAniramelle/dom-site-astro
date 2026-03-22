@@ -16,7 +16,7 @@ date: '2026-01-04'
 readingTime: 4
 viewsCount: 156
 cover: >-
-  /images/blog/covers/pochemu-vzroslyy-chelovek-reagiruet-kak-rebyonok-hotya-vsyo-ponimaet-i-kak.png
+  /images/blog/covers/pochemu-vzroslyy-chelovek-reagiruet-kak-rebyonok-hotya-vsyo-ponimaet-i-kak.webp
 relatedProductId: null
 seo:
   title: >-
@@ -27,14 +27,14 @@ seo:
     умны, осознанны, многое понимают про себя и свою жизнь, могут объяснить
     причины свои
   ogImage: >-
-    /images/blog/covers/pochemu-vzroslyy-chelovek-reagiruet-kak-rebyonok-hotya-vsyo-ponimaet-i-kak.png
+    /images/blog/covers/pochemu-vzroslyy-chelovek-reagiruet-kak-rebyonok-hotya-vsyo-ponimaet-i-kak.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aVrAd9LHgkQMeO1T).
 
-![Почему взрослый человек реагирует как ребёнок, хотя всё понимает и как перестать реагировать по-детски? Анна Хефорс](/images/blog/covers/pochemu-vzroslyy-chelovek-reagiruet-kak-rebyonok-hotya-vsyo-ponimaet-i-kak.png)
+![Почему взрослый человек реагирует как ребёнок, хотя всё понимает и как перестать реагировать по-детски? Анна Хефорс](/images/blog/covers/pochemu-vzroslyy-chelovek-reagiruet-kak-rebyonok-hotya-vsyo-ponimaet-i-kak.webp)
 Замечали ли вы, что иногда взрослые люди живут с внутренним парадоксом: они умны, осознанны, многое понимают про себя и свою жизнь, могут объяснить причины своих реакций и даже заранее знают, что сейчас «накроет». Но в моменте всё равно срываются, обижаются, защищаются, замыкаются или реагируют слишком остро, будто внутри вдруг включился совсем другой возраст. А потом приходит стыд, раздражение на себя и мысль: как так, я же всё понимаю. Важно сразу сказать главное: это не связано с откатами или инфантильностью и слабостью...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

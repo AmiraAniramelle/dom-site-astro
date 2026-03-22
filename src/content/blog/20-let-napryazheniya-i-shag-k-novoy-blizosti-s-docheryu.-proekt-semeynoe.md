@@ -16,7 +16,7 @@ date: '2025-10-04'
 readingTime: 2
 viewsCount: 17
 cover: >-
-  /images/blog/covers/20-let-napryazheniya-i-shag-k-novoy-blizosti-s-docheryu.-proekt-semeynoe.png
+  /images/blog/covers/20-let-napryazheniya-i-shag-k-novoy-blizosti-s-docheryu.-proekt-semeynoe.webp
 relatedProductId: null
 seo:
   title: >-
@@ -27,14 +27,14 @@ seo:
     отношений матери и дочери после бесплатного благотворительного проекта
     «Семейное Еди
   ogImage: >-
-    /images/blog/covers/20-let-napryazheniya-i-shag-k-novoy-blizosti-s-docheryu.-proekt-semeynoe.png
+    /images/blog/covers/20-let-napryazheniya-i-shag-k-novoy-blizosti-s-docheryu.-proekt-semeynoe.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aN1BkZ9KZilXwBwv).
 
-![20 лет напряжения и шаг к новой близости с дочерью. Проект «Семейное Единство».](/images/blog/covers/20-let-napryazheniya-i-shag-k-novoy-blizosti-s-docheryu.-proekt-semeynoe.png)
+![20 лет напряжения и шаг к новой близости с дочерью. Проект «Семейное Единство».](/images/blog/covers/20-let-napryazheniya-i-shag-k-novoy-blizosti-s-docheryu.-proekt-semeynoe.webp)
 Дорогие читатели, хотим поделиться еще одной чудесной историей преображения отношений матери и дочери после бесплатного благотворительного проекта «Семейное Единство». Здравствуйте! Меня зовут Людмила, мне 51 год. Мы живем вместе со взрослой дочерью. Я врач. Дочь — красавица, талантливый дизайнер, творческая натура. Она много путешествует, занимается спортом, развивается. И внешне могло показаться, что у нас в семье всё прекрасно. Но за этим фасадом более двадцати лет скрывались сложные, напряжённые отношения: молчаливые обиды, холодность, отчуждение...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

@@ -14,7 +14,7 @@ tags:
 date: '2026-01-12'
 readingTime: 4
 viewsCount: 8
-cover: /images/blog/covers/kak-vyglyadit-zrelost-bez-zhyostkosti-i-kontrolya.png
+cover: /images/blog/covers/kak-vyglyadit-zrelost-bez-zhyostkosti-i-kontrolya.webp
 relatedProductId: null
 seo:
   title: Как выглядит зрелость без жёсткости и контроля? Анна Хефорс | DOM
@@ -22,14 +22,14 @@ seo:
     Какая интересная сегодня у нас тема. Давайте ее разберем. Зрелость часто
     представляют как умение держать себя в постоянной собранности: не срываться,
     не расслаб
-  ogImage: /images/blog/covers/kak-vyglyadit-zrelost-bez-zhyostkosti-i-kontrolya.png
+  ogImage: /images/blog/covers/kak-vyglyadit-zrelost-bez-zhyostkosti-i-kontrolya.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aWVKSlzyQ0e5VeTx).
 
-![Как выглядит зрелость без жёсткости и контроля? Анна Хефорс](/images/blog/covers/kak-vyglyadit-zrelost-bez-zhyostkosti-i-kontrolya.png)
+![Как выглядит зрелость без жёсткости и контроля? Анна Хефорс](/images/blog/covers/kak-vyglyadit-zrelost-bez-zhyostkosti-i-kontrolya.webp)
 Какая интересная сегодня у нас тема. Давайте ее разберем. Зрелость часто представляют как умение держать себя в постоянной собранности: не срываться, не расслабляться, не показывать слабости, всегда быть «в форме». В этой логике «взрослость» равна внутреннему напряжению, а устойчивость достигается через контроль. Со временем такой способ жить начинает восприниматься как норма. Человек привыкает к состоянию сжатости и перестаёт замечать, что платит за это усталостью, раздражением и потерей живого отклика к жизни...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

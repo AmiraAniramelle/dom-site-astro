@@ -16,7 +16,7 @@ date: '2025-12-06'
 readingTime: 5
 viewsCount: 24
 cover: >-
-  /images/blog/covers/mozhno-li-perezagruzit-mozg-posle-vygoraniya-kak-rabotaet-mehanizm.png
+  /images/blog/covers/mozhno-li-perezagruzit-mozg-posle-vygoraniya-kak-rabotaet-mehanizm.webp
 relatedProductId: null
 seo:
   title: >-
@@ -26,14 +26,14 @@ seo:
     Выгорание редко наступает внезапно. Оно накапливается медленно, пока система
     пытается удерживать привычный ритм.
   ogImage: >-
-    /images/blog/covers/mozhno-li-perezagruzit-mozg-posle-vygoraniya-kak-rabotaet-mehanizm.png
+    /images/blog/covers/mozhno-li-perezagruzit-mozg-posle-vygoraniya-kak-rabotaet-mehanizm.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aTQirbtzKFXf3Jkj).
 
-![Можно ли «перезагрузить» мозг после выгорания: как работает механизм восстановления ресурса? Анна Хефорс](/images/blog/covers/mozhno-li-perezagruzit-mozg-posle-vygoraniya-kak-rabotaet-mehanizm.png)
+![Можно ли «перезагрузить» мозг после выгорания: как работает механизм восстановления ресурса? Анна Хефорс](/images/blog/covers/mozhno-li-perezagruzit-mozg-posle-vygoraniya-kak-rabotaet-mehanizm.webp)
 Выгорание редко наступает внезапно. Оно накапливается медленно, пока система пытается удерживать привычный ритм. Снаружи всё выглядит как обычная усталость, но внутри уже нарушен баланс: энергия уходит быстрее, чем возвращается. И в какой-то момент человек чувствует, что больше не может: пропадает ясность, исчезает интерес, тело словно проваливается в туман. И возникает главный вопрос: можно ли «перезагрузить» мозг так же, как компьютер? Возможно ли вернуть ресурс, если он кажется безнадёжно утраченным? Да можно...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

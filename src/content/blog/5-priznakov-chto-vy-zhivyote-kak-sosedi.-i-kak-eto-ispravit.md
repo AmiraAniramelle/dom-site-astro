@@ -14,7 +14,7 @@ date: '2025-10-03'
 readingTime: 3
 viewsCount: 64
 cover: >-
-  /images/blog/covers/5-priznakov-chto-vy-zhivyote-kak-sosedi.-i-kak-eto-ispravit.png
+  /images/blog/covers/5-priznakov-chto-vy-zhivyote-kak-sosedi.-i-kak-eto-ispravit.webp
 relatedProductId: null
 seo:
   title: >-
@@ -25,14 +25,14 @@ seo:
     статья для вас. Многие пары живут в браке по несколько лет, но внутри
     отношений всё давн
   ogImage: >-
-    /images/blog/covers/5-priznakov-chto-vy-zhivyote-kak-sosedi.-i-kak-eto-ispravit.png
+    /images/blog/covers/5-priznakov-chto-vy-zhivyote-kak-sosedi.-i-kak-eto-ispravit.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aNgHT23Fjw2GBBqk).
 
-![5 признаков, что вы живёте как соседи. И как это исправить? Анна Хефорс](/images/blog/covers/5-priznakov-chto-vy-zhivyote-kak-sosedi.-i-kak-eto-ispravit.png)
+![5 признаков, что вы живёте как соседи. И как это исправить? Анна Хефорс](/images/blog/covers/5-priznakov-chto-vy-zhivyote-kak-sosedi.-i-kak-eto-ispravit.webp)
 Если вы с годами перестали чувствовать любовь к своей половинке, то эта статья для вас. Многие пары живут в браке по несколько лет, но внутри отношений всё давно перестало напоминать партнёрство двух любящих людей. Вроде бы вместе: общий дом, дети, счета, планы на отпуск. Но глубины, близости, ощущения «мы» уже нет. Такое состояние Анна Камаллая Хефорс называет «соседскими отношениями». Когда люди остаются рядом физически, но эмоционально и духовно живут параллельными жизнями. Давайте рассмотрим 5 признаков, что вы живете как соседи: 1...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

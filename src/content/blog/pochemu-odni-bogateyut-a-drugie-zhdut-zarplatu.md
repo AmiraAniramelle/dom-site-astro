@@ -12,21 +12,21 @@ tags:
 date: '2025-10-22'
 readingTime: 1
 viewsCount: 9
-cover: /images/blog/covers/pochemu-odni-bogateyut-a-drugie-zhdut-zarplatu.png
+cover: /images/blog/covers/pochemu-odni-bogateyut-a-drugie-zhdut-zarplatu.webp
 relatedProductId: null
 seo:
   title: 'Почему одни богатеют, а другие — ждут зарплату? Анна Хефорс. | DOM'
   description: >-
     Ты наверняка знаешь таких людей: Они не работают на износ. Не бегают вечно с
     отчётами. Не экономят на кофе. Но деньги у них есть всегда.
-  ogImage: /images/blog/covers/pochemu-odni-bogateyut-a-drugie-zhdut-zarplatu.png
+  ogImage: /images/blog/covers/pochemu-odni-bogateyut-a-drugie-zhdut-zarplatu.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aPiXugiPy2-qIA_b).
 
-![Почему одни богатеют, а другие — ждут зарплату? Анна Хефорс.](/images/blog/covers/pochemu-odni-bogateyut-a-drugie-zhdut-zarplatu.png)
+![Почему одни богатеют, а другие — ждут зарплату? Анна Хефорс.](/images/blog/covers/pochemu-odni-bogateyut-a-drugie-zhdut-zarplatu.webp)
 Ты наверняка знаешь таких людей: Они не работают на износ. Не бегают вечно с отчётами. Не экономят на кофе. Но деньги у них есть всегда. Они говорят спокойно: «Я инвестировал», «Запустила проект», «Сделала x2 за квартал». А другие в это время: ждут, когда «капнет аванс», считают до копейки и мечтают «хотя бы дожить до зарплаты». Почему так? Ведь знаний у всех хватает. Времени у всех 24 часа. А результат — разный. Все дело в мышлении. 🔸Мышление: из изобилия или из нехватки. Те, кто богатеют, живут...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

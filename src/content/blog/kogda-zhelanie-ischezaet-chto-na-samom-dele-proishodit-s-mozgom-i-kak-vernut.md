@@ -15,7 +15,7 @@ date: '2025-12-27'
 readingTime: 4
 viewsCount: 0
 cover: >-
-  /images/blog/covers/kogda-zhelanie-ischezaet-chto-na-samom-dele-proishodit-s-mozgom-i-kak-vernut.png
+  /images/blog/covers/kogda-zhelanie-ischezaet-chto-na-samom-dele-proishodit-s-mozgom-i-kak-vernut.webp
 relatedProductId: null
 seo:
   title: >-
@@ -26,14 +26,14 @@ seo:
     получается», а с гораздо более тихим и тревожным ощущением: «мне больше
     ничего не хочется».
   ogImage: >-
-    /images/blog/covers/kogda-zhelanie-ischezaet-chto-na-samom-dele-proishodit-s-mozgom-i-kak-vernut.png
+    /images/blog/covers/kogda-zhelanie-ischezaet-chto-na-samom-dele-proishodit-s-mozgom-i-kak-vernut.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aVArd4auBiNQHdTq).
 
-![Когда желание исчезает: что на самом деле происходит с мозгом и как вернуть доступ к импульсу жизни? Анна Хефорс](/images/blog/covers/kogda-zhelanie-ischezaet-chto-na-samom-dele-proishodit-s-mozgom-i-kak-vernut.png)
+![Когда желание исчезает: что на самом деле происходит с мозгом и как вернуть доступ к импульсу жизни? Анна Хефорс](/images/blog/covers/kogda-zhelanie-ischezaet-chto-na-samom-dele-proishodit-s-mozgom-i-kak-vernut.webp)
 Бывает так, что человек приходит не с вопросом «почему у меня не получается», а с гораздо более тихим и тревожным ощущением: «мне больше ничего не хочется». Не в смысле усталости и не как временный спад, а как будто внутри выключили источник движения. В такие моменты часто начинают искать мотивацию, вдохновение или цель, но все эти слова не находят отклика, потому что проблема находится не на уровне намерений. Она глубже и связана с тем, как мозг адаптировался к жизни в длительном напряжении. Желание как функция безопасности, а не силы воли...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

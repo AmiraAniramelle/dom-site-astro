@@ -16,7 +16,7 @@ date: '2026-03-20'
 readingTime: 7
 viewsCount: 0
 cover: >-
-  /images/blog/covers/blaga-po-pravu-rozhdeniya-kak-perestat-zasluzhivat-i-nachat-prinimat.png
+  /images/blog/covers/blaga-po-pravu-rozhdeniya-kak-perestat-zasluzhivat-i-nachat-prinimat.webp
 relatedProductId: null
 seo:
   title: >-
@@ -27,14 +27,14 @@ seo:
     шанс или его зовут в отношения, предлагают поддержку деньгами или
     возможностью, а он в
   ogImage: >-
-    /images/blog/covers/blaga-po-pravu-rozhdeniya-kak-perestat-zasluzhivat-i-nachat-prinimat.png
+    /images/blog/covers/blaga-po-pravu-rozhdeniya-kak-perestat-zasluzhivat-i-nachat-prinimat.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/ab18ct2o6l7xVmvL).
 
-!["Блага по праву рождения", как перестать заслуживать и начать принимать? Анна Камаллая Хефорс.](/images/blog/covers/blaga-po-pravu-rozhdeniya-kak-perestat-zasluzhivat-i-nachat-prinimat.png)
+!["Блага по праву рождения", как перестать заслуживать и начать принимать? Анна Камаллая Хефорс.](/images/blog/covers/blaga-po-pravu-rozhdeniya-kak-perestat-zasluzhivat-i-nachat-prinimat.webp)
 Анна Камаллая Хефорс называет это «внутренним сбоем», когда человеку дают шанс или его зовут в отношения, предлагают поддержку деньгами или возможностью, а он вместо естественной радости начинает собираться, как перед экзаменом, и невольно ищет, где подвох, где цена, где нужно срочно доказать, что он достоин удержать это хорошее. Привычка «заслужить» как старая система безопасности. По словам Камаллаи, привычка «заслужить» редко выглядит как проблема, чаще она маскируется под ответственность и здравый смысл...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

@@ -15,7 +15,7 @@ date: '2025-10-29'
 readingTime: 4
 viewsCount: 12
 cover: >-
-  /images/blog/covers/detskoe-magicheskoe-myshlenie-pochemu-ono-ostayotsya-s-nami-i-kak-vliyaet-na.png
+  /images/blog/covers/detskoe-magicheskoe-myshlenie-pochemu-ono-ostayotsya-s-nami-i-kak-vliyaet-na.webp
 relatedProductId: null
 seo:
   title: >-
@@ -25,14 +25,14 @@ seo:
     Когда ребёнок закрывает глаза и думает, что мир исчез, он не шутит — в его
     восприятии это реально.
   ogImage: >-
-    /images/blog/covers/detskoe-magicheskoe-myshlenie-pochemu-ono-ostayotsya-s-nami-i-kak-vliyaet-na.png
+    /images/blog/covers/detskoe-magicheskoe-myshlenie-pochemu-ono-ostayotsya-s-nami-i-kak-vliyaet-na.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aQHkuEIn3hrfIUsF).
 
-![Детское магическое мышление: почему оно остаётся с нами и как влияет на взрослую жизнь. Анна Хефорс](/images/blog/covers/detskoe-magicheskoe-myshlenie-pochemu-ono-ostayotsya-s-nami-i-kak-vliyaet-na.png)
+![Детское магическое мышление: почему оно остаётся с нами и как влияет на взрослую жизнь. Анна Хефорс](/images/blog/covers/detskoe-magicheskoe-myshlenie-pochemu-ono-ostayotsya-s-nami-i-kak-vliyaet-na.webp)
 Когда ребёнок закрывает глаза и думает, что мир исчез, он не шутит — в его восприятии это реально. В этом и есть суть магического мышления: вера в то, что мысли, желания и поступки напрямую меняют реальность, без связи с реальными действиями и законами мира. У детей это естественный этап развития, но проблема в том, что многие взрослые так из него и не выходят. Почему это важно понимать? Анна Камаллая Хефорс в своем проекте о «Семейном Единстве» часто говорит о том, что магическое мышление — это...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

@@ -16,7 +16,7 @@ date: '2026-02-24'
 readingTime: 6
 viewsCount: 3
 cover: >-
-  /images/blog/covers/chuzhie-golosa-v-golove-kak-unasledovannye-programmy-i-kak-nachat-zamechat-ih.jpg
+  /images/blog/covers/chuzhie-golosa-v-golove-kak-unasledovannye-programmy-i-kak-nachat-zamechat-ih.webp
 relatedProductId: null
 seo:
   title: >-
@@ -27,14 +27,14 @@ seo:
     именно своей узнаваемостью: они звучат привычным тоном, похожи на
     собственные мысли и по
   ogImage: >-
-    /images/blog/covers/chuzhie-golosa-v-golove-kak-unasledovannye-programmy-i-kak-nachat-zamechat-ih.jpg
+    /images/blog/covers/chuzhie-golosa-v-golove-kak-unasledovannye-programmy-i-kak-nachat-zamechat-ih.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aZ3BtbkTaEgFPrHq).
 
-![«Чужие голоса» в голове как унаследованные программы, и как начать замечать их? Анна Камаллая Хефорс](/images/blog/covers/chuzhie-golosa-v-golove-kak-unasledovannye-programmy-i-kak-nachat-zamechat-ih.jpg)
+![«Чужие голоса» в голове как унаследованные программы, и как начать замечать их? Анна Камаллая Хефорс](/images/blog/covers/chuzhie-golosa-v-golove-kak-unasledovannye-programmy-i-kak-nachat-zamechat-ih.webp)
 Анна Камаллая Хефорс часто говорит, что «чужие голоса» в голове коварны именно своей узнаваемостью: они звучат привычным тоном, похожи на собственные мысли и поэтому легко принимаются за правду. В реальности, это чаще не истина о человеке, а набор унаследованных программ, которые когда то помогали выжить, вписаться, не конфликтовать, не потерять любовь или безопасность. Эти голоса могут быть из семьи, школы, культурной среды, из отношений, где приходилось подстраиваться. И когда они включаются, человек незаметно живёт не из себя, а из чужого сценария...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

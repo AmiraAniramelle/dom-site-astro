@@ -14,7 +14,7 @@ date: '2025-08-15'
 readingTime: 2
 viewsCount: 13
 cover: >-
-  /images/blog/covers/ty-ne-poverish-imet-schastlivye-otnosheniya-v-seme-eto-legko.png
+  /images/blog/covers/ty-ne-poverish-imet-schastlivye-otnosheniya-v-seme-eto-legko.webp
 relatedProductId: null
 seo:
   title: Ты не поверишь! Иметь счастливые отношения в семье - это легко! | DOM
@@ -23,14 +23,14 @@ seo:
     терпение. Но правда в том, что после медового месяца отношения в быту бывают
     разные… и ч
   ogImage: >-
-    /images/blog/covers/ty-ne-poverish-imet-schastlivye-otnosheniya-v-seme-eto-legko.png
+    /images/blog/covers/ty-ne-poverish-imet-schastlivye-otnosheniya-v-seme-eto-legko.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aJ8OG7E6fxyxP0en).
 
-![Ты не поверишь! Иметь счастливые отношения в семье - это легко!](/images/blog/covers/ty-ne-poverish-imet-schastlivye-otnosheniya-v-seme-eto-legko.png)
+![Ты не поверишь! Иметь счастливые отношения в семье - это легко!](/images/blog/covers/ty-ne-poverish-imet-schastlivye-otnosheniya-v-seme-eto-legko.webp)
 Большинство людей думают, что для счастья в семье нужны только любовь и терпение. Но правда в том, что после медового месяца отношения в быту бывают разные… и чаще всего связь между партнерами теряется, когда внутри накапливается усталость, обиды и ощущение, что тебя не слышат. И терпение превращается в холодную дистанцию. Именно поэтому семьи распадаются не из-за «нехватки чувств», а из-за того, что люди не знают простых законов системы «Семья», которые позволяют по-настоящему быть рядом и оставаться собой...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

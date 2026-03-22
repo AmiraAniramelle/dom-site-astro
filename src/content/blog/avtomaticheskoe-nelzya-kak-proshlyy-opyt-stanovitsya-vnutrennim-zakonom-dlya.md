@@ -16,7 +16,7 @@ date: '2025-12-29'
 readingTime: 4
 viewsCount: 14
 cover: >-
-  /images/blog/covers/avtomaticheskoe-nelzya-kak-proshlyy-opyt-stanovitsya-vnutrennim-zakonom-dlya.png
+  /images/blog/covers/avtomaticheskoe-nelzya-kak-proshlyy-opyt-stanovitsya-vnutrennim-zakonom-dlya.webp
 relatedProductId: null
 seo:
   title: >-
@@ -27,14 +27,14 @@ seo:
     не делает. Он внутри себя словно знает, что: «это не для меня», «я не
     достоин», «та
   ogImage: >-
-    /images/blog/covers/avtomaticheskoe-nelzya-kak-proshlyy-opyt-stanovitsya-vnutrennim-zakonom-dlya.png
+    /images/blog/covers/avtomaticheskoe-nelzya-kak-proshlyy-opyt-stanovitsya-vnutrennim-zakonom-dlya.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aVKnCcPkRSDCDeB-).
 
-![Автоматическое «нельзя»: как прошлый опыт становится внутренним законом для мозга? Анна Хефорс](/images/blog/covers/avtomaticheskoe-nelzya-kak-proshlyy-opyt-stanovitsya-vnutrennim-zakonom-dlya.png)
+![Автоматическое «нельзя»: как прошлый опыт становится внутренним законом для мозга? Анна Хефорс](/images/blog/covers/avtomaticheskoe-nelzya-kak-proshlyy-opyt-stanovitsya-vnutrennim-zakonom-dlya.webp)
 В жизни бывает так, что человек даже не задаёт себе вопрос, почему он что-то не делает. Он внутри себя словно знает, что: «это не для меня», «я не достоин», «так не бывает», «лучше не лезть», «я не такой». Такие фразы обычно звучат внутри себя спокойно, именно, поэтому почти никогда не подвергаются сомнению. Они часто воспринимаются как здравый смысл, или как реалистичный взгляд на жизнь, как зрелость. Но за этим спокойствием, как правило, стоит не выбор, а автоматическое «нельзя», сформированное прошлым опытом...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

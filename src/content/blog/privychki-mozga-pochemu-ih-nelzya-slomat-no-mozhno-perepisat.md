@@ -14,7 +14,7 @@ date: '2025-11-11'
 readingTime: 5
 viewsCount: 17
 cover: >-
-  /images/blog/covers/privychki-mozga-pochemu-ih-nelzya-slomat-no-mozhno-perepisat.png
+  /images/blog/covers/privychki-mozga-pochemu-ih-nelzya-slomat-no-mozhno-perepisat.webp
 relatedProductId: null
 seo:
   title: >-
@@ -25,14 +25,14 @@ seo:
     понедельника, бросить, перестать, начать заново. Но проходит неделя, и всё
     возвращается на круг
   ogImage: >-
-    /images/blog/covers/privychki-mozga-pochemu-ih-nelzya-slomat-no-mozhno-perepisat.png
+    /images/blog/covers/privychki-mozga-pochemu-ih-nelzya-slomat-no-mozhno-perepisat.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aRMx4K7auy4kga6E).
 
-![Привычки мозга: почему их нельзя «сломать», но можно переписать? Анна Хефорс](/images/blog/covers/privychki-mozga-pochemu-ih-nelzya-slomat-no-mozhno-perepisat.png)
+![Привычки мозга: почему их нельзя «сломать», но можно переписать? Анна Хефорс](/images/blog/covers/privychki-mozga-pochemu-ih-nelzya-slomat-no-mozhno-perepisat.webp)
 Каждый год миллионы людей ставят себе одинаковые цели - начать с понедельника, бросить, перестать, начать заново. Но проходит неделя, и всё возвращается на круги своя. Мозг будто сопротивляется, саботирует, подсовывает старые сценарии. На деле - он просто выполняет свою работу. Привычки -это не слабость воли, а архитектура мозга. И чтобы их изменить, нужно не бороться, а переписать сам механизм. Что такое привычка с точки зрения нейробиологии? Привычка - это автоматическая программа, записанная в нейронных связях...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

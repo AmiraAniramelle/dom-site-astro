@@ -13,7 +13,7 @@ tags:
 date: '2025-10-27'
 readingTime: 3
 viewsCount: 70
-cover: /images/blog/covers/kak-razgovarivat-s-podrostkom-bez-krika.png
+cover: /images/blog/covers/kak-razgovarivat-s-podrostkom-bez-krika.webp
 relatedProductId: null
 seo:
   title: Как разговаривать с подростком без крика? Анна Хефорс | DOM
@@ -21,14 +21,14 @@ seo:
     Подростковый возраст — это время, когда всё в семье меняется. Вчера он
     обнимал тебя перед сном, а сегодня — закрывает дверь в комнату. Ты зовёшь
     ужинать, а в от
-  ogImage: /images/blog/covers/kak-razgovarivat-s-podrostkom-bez-krika.png
+  ogImage: /images/blog/covers/kak-razgovarivat-s-podrostkom-bez-krika.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aP7csA_7lGCFeB1f).
 
-![Как разговаривать с подростком без крика? Анна Хефорс](/images/blog/covers/kak-razgovarivat-s-podrostkom-bez-krika.png)
+![Как разговаривать с подростком без крика? Анна Хефорс](/images/blog/covers/kak-razgovarivat-s-podrostkom-bez-krika.webp)
 Подростковый возраст — это время, когда всё в семье меняется. Вчера он обнимал тебя перед сном, а сегодня — закрывает дверь в комнату. Ты зовёшь ужинать, а в ответ слышишь: «Я потом!» или просто тишину. Многие родители говорят: «Я не хочу кричать, но иначе он не слышит». Но крик не делает громче. Он только отдаляет. Анна Камаллая Хефорс говорит:«Подросток не уходит из семьи. Он ищет себя. Если родитель остаётся рядом сердцем — он всегда найдёт дорогу обратно». Почему мы кричим? Потому что страшно...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

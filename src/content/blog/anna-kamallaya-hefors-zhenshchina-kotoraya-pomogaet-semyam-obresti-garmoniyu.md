@@ -14,7 +14,7 @@ date: '2025-09-27'
 readingTime: 3
 viewsCount: 7
 cover: >-
-  /images/blog/covers/anna-kamallaya-hefors-zhenshchina-kotoraya-pomogaet-semyam-obresti-garmoniyu.jpg
+  /images/blog/covers/anna-kamallaya-hefors-zhenshchina-kotoraya-pomogaet-semyam-obresti-garmoniyu.webp
 relatedProductId: null
 seo:
   title: >-
@@ -25,14 +25,14 @@ seo:
     давлением: быстрый ритм жизни, нестабильность, внутренние конфликты,
     эмоциональная ус
   ogImage: >-
-    /images/blog/covers/anna-kamallaya-hefors-zhenshchina-kotoraya-pomogaet-semyam-obresti-garmoniyu.jpg
+    /images/blog/covers/anna-kamallaya-hefors-zhenshchina-kotoraya-pomogaet-semyam-obresti-garmoniyu.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aNf_lO4I7lfxx6Cg).
 
-![Анна Камаллая Хефорс: женщина, которая помогает семьям обрести гармонию](/images/blog/covers/anna-kamallaya-hefors-zhenshchina-kotoraya-pomogaet-semyam-obresti-garmoniyu.jpg)
+![Анна Камаллая Хефорс: женщина, которая помогает семьям обрести гармонию](/images/blog/covers/anna-kamallaya-hefors-zhenshchina-kotoraya-pomogaet-semyam-obresti-garmoniyu.webp)
 Почему это важно сейчас? В современном мире семья всё чаще оказывается под давлением: быстрый ритм жизни, нестабильность, внутренние конфликты, эмоциональная усталость. По словам Камаллаи, именно семья — это точка силы и опоры, откуда растёт счастливое будущее для наших детей. Поэтому её путь — это не только личная история преодолений, но и масштабная миссия: сохранить семьи, помочь каждому человеку вернуть контакт с собой и научиться строить отношения, где царят доверие и любовь. Кто такая Анна Камаллая Хефорс? 🔸Психолог и нейроэксперт с более чем 20-летним опытом работы...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

@@ -14,7 +14,7 @@ tags:
 date: '2025-09-29'
 readingTime: 2
 viewsCount: 130
-cover: /images/blog/covers/kak-govorit-s-muzhem-bez-uprekov-psiholog.png
+cover: /images/blog/covers/kak-govorit-s-muzhem-bez-uprekov-psiholog.webp
 relatedProductId: null
 seo:
   title: Как говорить с мужем без упреков? Психолог Анна Хефорс | DOM
@@ -22,14 +22,14 @@ seo:
     Сколько раз мы ловили себя на мысли: «Он меня не слышит», «Я опять одна тащу
     всё на себе», «Стоит начать разговор — и снова ссора»? Вроде бы просто
     говорим мужу
-  ogImage: /images/blog/covers/kak-govorit-s-muzhem-bez-uprekov-psiholog.png
+  ogImage: /images/blog/covers/kak-govorit-s-muzhem-bez-uprekov-psiholog.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aNU01mIjdkPEsYLS).
 
-![Как говорить с мужем без упреков? Психолог Анна Хефорс](/images/blog/covers/kak-govorit-s-muzhem-bez-uprekov-psiholog.png)
+![Как говорить с мужем без упреков? Психолог Анна Хефорс](/images/blog/covers/kak-govorit-s-muzhem-bez-uprekov-psiholog.webp)
 Сколько раз мы ловили себя на мысли: «Он меня не слышит», «Я опять одна тащу всё на себе», «Стоит начать разговор — и снова ссора»? Вроде бы просто говорим мужу, но до него как-будто не доходит. Причина чаще не в теме разговора, а в том, из какой роли мы говорим.Когда женщина разговаривает с мужем из позиции «мамы» — поправляет, учит, контролирует — он отвечает как «ребёнок»: спорит, замыкается, уходит в тишину. Когда жена говорит из накопленной обиды — в её голосе звучит не просьба, а обвинение...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

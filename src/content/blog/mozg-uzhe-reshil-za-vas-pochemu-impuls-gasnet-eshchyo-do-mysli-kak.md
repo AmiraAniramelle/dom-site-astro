@@ -17,7 +17,7 @@ date: '2025-12-28'
 readingTime: 4
 viewsCount: 1
 cover: >-
-  /images/blog/covers/mozg-uzhe-reshil-za-vas-pochemu-impuls-gasnet-eshchyo-do-mysli-kak.png
+  /images/blog/covers/mozg-uzhe-reshil-za-vas-pochemu-impuls-gasnet-eshchyo-do-mysli-kak.webp
 relatedProductId: null
 seo:
   title: >-
@@ -28,14 +28,14 @@ seo:
     просто не хочу», и в его голосе нет ни сомнений, ни внутреннего конфликта.
     Он не чувств
   ogImage: >-
-    /images/blog/covers/mozg-uzhe-reshil-za-vas-pochemu-impuls-gasnet-eshchyo-do-mysli-kak.png
+    /images/blog/covers/mozg-uzhe-reshil-za-vas-pochemu-impuls-gasnet-eshchyo-do-mysli-kak.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aVEg0igG2Xcyzp5g).
 
-![Мозг уже решил за вас: почему импульс гаснет ещё до мысли? Как возвращается доступ к импульсу? Анна Хефорс](/images/blog/covers/mozg-uzhe-reshil-za-vas-pochemu-impuls-gasnet-eshchyo-do-mysli-kak.png)
+![Мозг уже решил за вас: почему импульс гаснет ещё до мысли? Как возвращается доступ к импульсу? Анна Хефорс](/images/blog/covers/mozg-uzhe-reshil-za-vas-pochemu-impuls-gasnet-eshchyo-do-mysli-kak.webp)
 Когда перед человеком стоит выбор: какое решение принять? Он говорит: «Я просто не хочу», и в его голосе нет ни сомнений, ни внутреннего конфликта. Он не чувствует страха, не борется с собой, не переживает. Со стороны это часто выглядит как лень или отсутствие амбиций, но внутри всё ощущается спокойно и логично, будто решение давно принято. И в этом месте важно сказать честно: в большинстве таких случаев решение действительно уже принято, только не человеком в привычном смысле, а его мозгом....
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

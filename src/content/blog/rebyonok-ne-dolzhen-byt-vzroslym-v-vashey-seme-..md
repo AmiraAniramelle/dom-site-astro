@@ -13,7 +13,7 @@ tags:
 date: '2026-01-29'
 readingTime: 4
 viewsCount: 68
-cover: /images/blog/covers/rebyonok-ne-dolzhen-byt-vzroslym-v-vashey-seme-..png
+cover: /images/blog/covers/rebyonok-ne-dolzhen-byt-vzroslym-v-vashey-seme-..webp
 relatedProductId: null
 seo:
   title: >-
@@ -23,14 +23,14 @@ seo:
     Здравствуйте, дорогие читатели. Сегодня затронем тему о детях и ролях в
     семье. Как же красиво и заботливо выглядит со стороны, когда ребенок
     внимательно слушает
-  ogImage: /images/blog/covers/rebyonok-ne-dolzhen-byt-vzroslym-v-vashey-seme-..png
+  ogImage: /images/blog/covers/rebyonok-ne-dolzhen-byt-vzroslym-v-vashey-seme-..webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aXsamez5hBoz9gBY).
 
-![Нейробиолог Анна Хефорс: «Ребёнок не должен быть взрослым в вашей семье».](/images/blog/covers/rebyonok-ne-dolzhen-byt-vzroslym-v-vashey-seme-..png)
+![Нейробиолог Анна Хефорс: «Ребёнок не должен быть взрослым в вашей семье».](/images/blog/covers/rebyonok-ne-dolzhen-byt-vzroslym-v-vashey-seme-..webp)
 Здравствуйте, дорогие читатели. Сегодня затронем тему о детях и ролях в семье. Как же красиво и заботливо выглядит со стороны, когда ребенок внимательно слушает, как прошёл ваш день, утешает, когда вы расстроены, становится главным человеком, рядом с которым легче дышать. Многие родители называют это близостью и зрелостью, но Анна отмечает этот момент иначе: ребёнок приходит в систему жизни не для того, чтобы закрывать дефициты родителя. Он является самостоятельным элементом, который приходит для развития жизни...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

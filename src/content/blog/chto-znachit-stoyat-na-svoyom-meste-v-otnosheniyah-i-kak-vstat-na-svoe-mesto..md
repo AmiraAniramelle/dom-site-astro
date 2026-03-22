@@ -16,7 +16,7 @@ date: '2025-10-05'
 readingTime: 3
 viewsCount: 65
 cover: >-
-  /images/blog/covers/chto-znachit-stoyat-na-svoyom-meste-v-otnosheniyah-i-kak-vstat-na-svoe-mesto..png
+  /images/blog/covers/chto-znachit-stoyat-na-svoyom-meste-v-otnosheniyah-i-kak-vstat-na-svoe-mesto..webp
 relatedProductId: null
 seo:
   title: >-
@@ -27,14 +27,14 @@ seo:
     кто-то из нас встал не туда. Поменялся местами. Взял не свою
     ответственность. Понёс ч
   ogImage: >-
-    /images/blog/covers/chto-znachit-stoyat-na-svoyom-meste-v-otnosheniyah-i-kak-vstat-na-svoe-mesto..png
+    /images/blog/covers/chto-znachit-stoyat-na-svoyom-meste-v-otnosheniyah-i-kak-vstat-na-svoe-mesto..webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aOJy7MOcNkFNYZmp).
 
-![Что значит стоять на своём месте в отношениях? И как встать на свое место. Анна Хефорс](/images/blog/covers/chto-znachit-stoyat-na-svoyom-meste-v-otnosheniyah-i-kak-vstat-na-svoe-mesto..png)
+![Что значит стоять на своём месте в отношениях? И как встать на свое место. Анна Хефорс](/images/blog/covers/chto-znachit-stoyat-na-svoyom-meste-v-otnosheniyah-i-kak-vstat-na-svoe-mesto..webp)
 Иногда в любви становится тесно. Не потому что ушло чувство — а потому что кто-то из нас встал не туда. Поменялся местами. Взял не свою ответственность. Понёс чужую боль. И тогда отношения начинают болеть. Но всё можно вернуть — просто встав на своё место. Ты можешь чувствовать, что делаешь всё правильно — заботишься, вдохновляешь, поддерживаешь. Но вдруг замечаешь: в ответ — тишина. Он не слышит, не видит, не делает шагов. И тогда внутри поднимается волна: «Ну почему же я должна всё тянуть?»...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

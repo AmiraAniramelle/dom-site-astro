@@ -14,7 +14,7 @@ date: '2025-11-05'
 readingTime: 4
 viewsCount: 8
 cover: >-
-  /images/blog/covers/krizis-v-pare-chto-delat-esli-odin-razvivaetsya-a-drugoy-net..png
+  /images/blog/covers/krizis-v-pare-chto-delat-esli-odin-razvivaetsya-a-drugoy-net..webp
 relatedProductId: null
 seo:
   title: >-
@@ -25,14 +25,14 @@ seo:
     вперёд, а другой будто остаётся на месте. Кто-то начинает читать,
     осознавать, менять прив
   ogImage: >-
-    /images/blog/covers/krizis-v-pare-chto-delat-esli-odin-razvivaetsya-a-drugoy-net..png
+    /images/blog/covers/krizis-v-pare-chto-delat-esli-odin-razvivaetsya-a-drugoy-net..webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aQslI1JvwHBwmOfD).
 
-![Кризис в паре: что делать, если один развивается, а другой — нет. Анна Хефорс](/images/blog/covers/krizis-v-pare-chto-delat-esli-odin-razvivaetsya-a-drugoy-net..png)
+![Кризис в паре: что делать, если один развивается, а другой — нет. Анна Хефорс](/images/blog/covers/krizis-v-pare-chto-delat-esli-odin-razvivaetsya-a-drugoy-net..webp)
 Каждая пара хотя бы раз в жизни проходит через момент, когда один идёт вперёд, а другой будто остаётся на месте. Кто-то начинает читать, осознавать, менять привычки, работать с собой. А рядом человек, с которым вы начинали путь, продолжает жить «по-старому». Сначала кажется, что это временно. Потом — что это невыносимо. Возникает вопрос: «А мы теперь вместе или нет?» Этот вопрос не о разрыве, а скорее, о точке взросления отношений. Почему развитие часто идёт неравномерно? Анна Камаллая Хефорс объясняет: «Люди развиваются не синхронно, а волнами...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

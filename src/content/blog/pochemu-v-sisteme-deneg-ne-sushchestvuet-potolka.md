@@ -13,7 +13,7 @@ tags:
 date: '2025-10-07'
 readingTime: 2
 viewsCount: 7
-cover: /images/blog/covers/pochemu-v-sisteme-deneg-ne-sushchestvuet-potolka.png
+cover: /images/blog/covers/pochemu-v-sisteme-deneg-ne-sushchestvuet-potolka.webp
 relatedProductId: null
 seo:
   title: Почему в системе денег не существует «потолка»? Анна Хефорс | DOM
@@ -21,14 +21,14 @@ seo:
     Всех приветствуем! Сегодня мы поговорим о деньгах. Давайте прямо сейчас
     остановимся и подумаем: кто придумал, что у денег есть предел? Что есть
     какая-то сумма —
-  ogImage: /images/blog/covers/pochemu-v-sisteme-deneg-ne-sushchestvuet-potolka.png
+  ogImage: /images/blog/covers/pochemu-v-sisteme-deneg-ne-sushchestvuet-potolka.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aOIEPYWBEksDef_C).
 
-![Почему в системе денег не существует «потолка»? Анна Хефорс](/images/blog/covers/pochemu-v-sisteme-deneg-ne-sushchestvuet-potolka.png)
+![Почему в системе денег не существует «потолка»? Анна Хефорс](/images/blog/covers/pochemu-v-sisteme-deneg-ne-sushchestvuet-potolka.webp)
 Всех приветствуем! Сегодня мы поговорим о деньгах. Давайте прямо сейчас остановимся и подумаем: кто придумал, что у денег есть предел? Что есть какая-то сумма — «всё, дальше нельзя»? Анна Хефорс говорит: «Потолок существует только в голове. В самой системе денег нет границ. Деньги — это поток, дыхание Жизни. И он расширяется ровно настолько, насколько вы позволяете себе встать во взрослое место.» Иллюзия потолка. Представьте, что вы идёте по дороге, и вдруг упираетесь в стеклянную стену. Вы видите свет, простор, но каждый раз возвращаетесь назад, думая: «дальше нельзя»...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

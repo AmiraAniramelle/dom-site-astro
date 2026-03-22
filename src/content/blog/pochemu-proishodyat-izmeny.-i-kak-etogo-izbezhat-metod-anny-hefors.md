@@ -15,7 +15,7 @@ date: '2025-09-26'
 readingTime: 3
 viewsCount: 552
 cover: >-
-  /images/blog/covers/pochemu-proishodyat-izmeny.-i-kak-etogo-izbezhat-metod-anny-hefors.jpg
+  /images/blog/covers/pochemu-proishodyat-izmeny.-i-kak-etogo-izbezhat-metod-anny-hefors.webp
 relatedProductId: null
 seo:
   title: Почему происходят измены. И как этого избежать? Метод Анны Хефорс | DOM
@@ -24,14 +24,14 @@ seo:
     Измена редко случается «вдруг». Обычно это не случайность, а следствие
     глубоких процессов
   ogImage: >-
-    /images/blog/covers/pochemu-proishodyat-izmeny.-i-kak-etogo-izbezhat-metod-anny-hefors.jpg
+    /images/blog/covers/pochemu-proishodyat-izmeny.-i-kak-etogo-izbezhat-metod-anny-hefors.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aNK7GK9XVBIJVoKB).
 
-![Почему происходят измены. И как этого избежать? Метод Анны Хефорс](/images/blog/covers/pochemu-proishodyat-izmeny.-i-kak-etogo-izbezhat-metod-anny-hefors.jpg)
+![Почему происходят измены. И как этого избежать? Метод Анны Хефорс](/images/blog/covers/pochemu-proishodyat-izmeny.-i-kak-etogo-izbezhat-metod-anny-hefors.webp)
 (В конце статьи чек-лист "5 шагов, чтобы защитить отношения от измены) Измена редко случается «вдруг». Обычно это не случайность, а следствие глубоких процессов внутри семьи и самой системы отношений. Чаще всего за изменой стоит не тяга к новизне, а пустота, которая появилась между супругами. Эта пустота может быть заполнена обидами, недосказанностью, непринятыми ролями или детскими сценариями, которые оба продолжают проигрывать, сами того не осознавая. Системный взгляд в отношениях позволяет увидеть измену не как трагедию или «предательство», а как сигнал...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

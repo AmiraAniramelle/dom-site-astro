@@ -16,7 +16,7 @@ date: '2026-03-03'
 readingTime: 5
 viewsCount: 3
 cover: >-
-  /images/blog/covers/kogda-ne-poluchaetsya-zaberemenet-chto-my-realno-mozhem-menyat-esli-ne.png
+  /images/blog/covers/kogda-ne-poluchaetsya-zaberemenet-chto-my-realno-mozhem-menyat-esli-ne.webp
 relatedProductId: null
 seo:
   title: >-
@@ -27,14 +27,14 @@ seo:
     получается забеременеть? Камаллая говорит: бывает так, что женщина приходит
     к этой теме к
   ogImage: >-
-    /images/blog/covers/kogda-ne-poluchaetsya-zaberemenet-chto-my-realno-mozhem-menyat-esli-ne.png
+    /images/blog/covers/kogda-ne-poluchaetsya-zaberemenet-chto-my-realno-mozhem-menyat-esli-ne.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aaatFEWy4T8iFkU9).
 
-![Когда не получается забеременеть: что мы реально можем менять, если не занимаемся волшебством? Анна Камаллая Хефорс](/images/blog/covers/kogda-ne-poluchaetsya-zaberemenet-chto-my-realno-mozhem-menyat-esli-ne.png)
+![Когда не получается забеременеть: что мы реально можем менять, если не занимаемся волшебством? Анна Камаллая Хефорс](/images/blog/covers/kogda-ne-poluchaetsya-zaberemenet-chto-my-realno-mozhem-menyat-esli-ne.webp)
 Здравствуйте, дорогие читатели. Сегодня мы поговорим, о том, почему не получается забеременеть? Камаллая говорит: бывает так, что женщина приходит к этой теме как к некой «двери», которая по всем законам должна открываться, а она не открывается. Вроде бы все сделано правильно, анализы сданы, врачи пройдены, цикл отслежен, отношения есть, желание ясное. И при этом месяц за месяцем остается одно и то же чувство, будто жизнь рядом, но не входит. В такие моменты особенно легко попасть в ловушку, где...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

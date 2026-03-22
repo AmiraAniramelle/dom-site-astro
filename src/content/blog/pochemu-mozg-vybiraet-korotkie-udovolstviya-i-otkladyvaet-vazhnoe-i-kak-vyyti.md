@@ -17,7 +17,7 @@ date: '2025-11-29'
 readingTime: 4
 viewsCount: 20
 cover: >-
-  /images/blog/covers/pochemu-mozg-vybiraet-korotkie-udovolstviya-i-otkladyvaet-vazhnoe-i-kak-vyyti.png
+  /images/blog/covers/pochemu-mozg-vybiraet-korotkie-udovolstviya-i-otkladyvaet-vazhnoe-i-kak-vyyti.webp
 relatedProductId: null
 seo:
   title: >-
@@ -28,14 +28,14 @@ seo:
     заранее или наконец заняться чем-то значимым. Но мозг снова тянет в сторону
     быстрых 
   ogImage: >-
-    /images/blog/covers/pochemu-mozg-vybiraet-korotkie-udovolstviya-i-otkladyvaet-vazhnoe-i-kak-vyyti.png
+    /images/blog/covers/pochemu-mozg-vybiraet-korotkie-udovolstviya-i-otkladyvaet-vazhnoe-i-kak-vyyti.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aSsvZVFa5B0wRu_l).
 
-![Почему мозг выбирает короткие удовольствия и откладывает важное? И как выйти из этого. Анна Хефорс](/images/blog/covers/pochemu-mozg-vybiraet-korotkie-udovolstviya-i-otkladyvaet-vazhnoe-i-kak-vyyti.png)
+![Почему мозг выбирает короткие удовольствия и откладывает важное? И как выйти из этого. Анна Хефорс](/images/blog/covers/pochemu-mozg-vybiraet-korotkie-udovolstviya-i-otkladyvaet-vazhnoe-i-kak-vyyti.webp)
 Мы часто обещаем себе начать «новую жизнь» с понедельника, выполнить задачу заранее или наконец заняться чем-то значимым. Но мозг снова тянет в сторону быстрых удовольствий: телефон, сериалы, перекусы, прокрутка ленты. Это не слабость и не лень - это биология. Когда человек сталкивается с важной задачей, особенно если она масштабная или требует усилий, мозг оценивает её не так, как оценивает мы сами. Мы видим цель. А мозг видит расход энергии, неопределённость и потенциальный стресс. Поэтому он выбирает то, что даст быстрый, предсказуемый и лёгкий всплеск удовольствия...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

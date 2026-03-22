@@ -14,7 +14,7 @@ date: '2026-01-25'
 readingTime: 4
 viewsCount: 3
 cover: >-
-  /images/blog/covers/anna-hefors-o-liderah-novogo-vremeni.-gde-nachinaetsya-liderstvo.png
+  /images/blog/covers/anna-hefors-o-liderah-novogo-vremeni.-gde-nachinaetsya-liderstvo.webp
 relatedProductId: null
 seo:
   title: Анна Хефорс о лидерах нового времени. Где начинается лидерство? | DOM
@@ -23,14 +23,14 @@ seo:
     отвечают почти автоматически, что нет. Они говорят так не из кокетства и не
     из ложно
   ogImage: >-
-    /images/blog/covers/anna-hefors-o-liderah-novogo-vremeni.-gde-nachinaetsya-liderstvo.png
+    /images/blog/covers/anna-hefors-o-liderah-novogo-vremeni.-gde-nachinaetsya-liderstvo.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aXYeovbcN1aE3ryF).
 
-![Анна Хефорс о лидерах нового времени. Где начинается лидерство?](/images/blog/covers/anna-hefors-o-liderah-novogo-vremeni.-gde-nachinaetsya-liderstvo.png)
+![Анна Хефорс о лидерах нового времени. Где начинается лидерство?](/images/blog/covers/anna-hefors-o-liderah-novogo-vremeni.-gde-nachinaetsya-liderstvo.webp)
 Здравствуйте, дорогие читатели. Если спросить человека, лидер ли он, многие отвечают почти автоматически, что нет. Они говорят так не из кокетства и не из ложной скромности, а как-будто это уже факт биографии. И в этот момент становится видно, что слово «лидер» для нас часто означает должность, громкость, публичность, харизму, а ещё постоянную готовность быть впереди. А Анна Хефорс отмечает, что лидерство начинается совсем не там. Оно начинается в голове, в том месте, где человек либо признаёт себя центром собственной жизни, либо отдаёт это место кому угодно, только не себе...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

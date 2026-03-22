@@ -16,7 +16,7 @@ date: '2025-12-04'
 readingTime: 5
 viewsCount: 23
 cover: >-
-  /images/blog/covers/pochemu-my-bolshe-vsego-ranim-teh-kogo-lyubim-i-kak-ne-ranit-svoih-lyubimyh..png
+  /images/blog/covers/pochemu-my-bolshe-vsego-ranim-teh-kogo-lyubim-i-kak-ne-ranit-svoih-lyubimyh..webp
 relatedProductId: null
 seo:
   title: >-
@@ -27,14 +27,14 @@ seo:
     теми, кто для нас действительно важен, всплывают самые резкие слова и самые
     болезне
   ogImage: >-
-    /images/blog/covers/pochemu-my-bolshe-vsego-ranim-teh-kogo-lyubim-i-kak-ne-ranit-svoih-lyubimyh..png
+    /images/blog/covers/pochemu-my-bolshe-vsego-ranim-teh-kogo-lyubim-i-kak-ne-ranit-svoih-lyubimyh..webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aTE1IPyxBVTCOT6C).
 
-![Почему мы больше всего раним тех, кого любим? И как не ранить своих любимых. Анна Хефорс](/images/blog/covers/pochemu-my-bolshe-vsego-ranim-teh-kogo-lyubim-i-kak-ne-ranit-svoih-lyubimyh..png)
+![Почему мы больше всего раним тех, кого любим? И как не ранить своих любимых. Анна Хефорс](/images/blog/covers/pochemu-my-bolshe-vsego-ranim-teh-kogo-lyubim-i-kak-ne-ranit-svoih-lyubimyh..webp)
 Мы можем быть внимательными и бережными со многими людьми, но именно рядом с теми, кто для нас действительно важен, всплывают самые резкие слова и самые болезненные реакции. Это не говорит о недостатке любви. Это говорит о том, что близость касается наших самых чувствительных зон. Если присмотреться, становится заметно: самые острые ссоры происходят не с коллегами и не со случайными знакомыми. Они возникают в отношениях с партнёрами, детьми, родителями и людьми, которые занимают внутри нас особое место...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

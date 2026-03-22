@@ -13,7 +13,7 @@ tags:
 date: '2025-10-13'
 readingTime: 3
 viewsCount: 188
-cover: /images/blog/covers/kak-rodovye-scenarii-upravlyayut-vashey-sudboy.png
+cover: /images/blog/covers/kak-rodovye-scenarii-upravlyayut-vashey-sudboy.webp
 relatedProductId: null
 seo:
   title: Как родовые сценарии управляют вашей судьбой? Анна Хефорс | DOM
@@ -21,14 +21,14 @@ seo:
     Недавно в нашем Клубе «Сила Жизни» прошел эфир Анны Хефорс «Разделение с
     родовыми сценариями». Это была мощная работа с собой, где каждый участник
     получил освоб
-  ogImage: /images/blog/covers/kak-rodovye-scenarii-upravlyayut-vashey-sudboy.png
+  ogImage: /images/blog/covers/kak-rodovye-scenarii-upravlyayut-vashey-sudboy.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aOyZRbCmOza_2rgg).
 
-![Как родовые сценарии управляют вашей судьбой? Анна Хефорс](/images/blog/covers/kak-rodovye-scenarii-upravlyayut-vashey-sudboy.png)
+![Как родовые сценарии управляют вашей судьбой? Анна Хефорс](/images/blog/covers/kak-rodovye-scenarii-upravlyayut-vashey-sudboy.webp)
 Недавно в нашем Клубе «Сила Жизни» прошел эфир Анны Хефорс «Разделение с родовыми сценариями». Это была мощная работа с собой, где каждый участник получил освобождение. Мы часто думаем, что живём своей жизнью. Что решения — наши, чувства — наши, и ошибки — тоже. Но иногда в самых важных моментах будто что-то ведёт нас — не туда, куда хотим, а туда, куда привычно. И мы не замечаем, как повторяем судьбы тех, о ком, может быть, даже не знали. Что такое родовой сценарий? Родовой сценарий — это не “мистическая программа” и не наказание...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

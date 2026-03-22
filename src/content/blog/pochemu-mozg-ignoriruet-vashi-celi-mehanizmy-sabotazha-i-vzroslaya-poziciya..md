@@ -16,7 +16,7 @@ date: '2025-11-24'
 readingTime: 4
 viewsCount: 5
 cover: >-
-  /images/blog/covers/pochemu-mozg-ignoriruet-vashi-celi-mehanizmy-sabotazha-i-vzroslaya-poziciya..png
+  /images/blog/covers/pochemu-mozg-ignoriruet-vashi-celi-mehanizmy-sabotazha-i-vzroslaya-poziciya..webp
 relatedProductId: null
 seo:
   title: >-
@@ -27,14 +27,14 @@ seo:
     возвращаются в ту же точку: действия рассыпаются, мотивация пропадает, а
     внутренний ди
   ogImage: >-
-    /images/blog/covers/pochemu-mozg-ignoriruet-vashi-celi-mehanizmy-sabotazha-i-vzroslaya-poziciya..png
+    /images/blog/covers/pochemu-mozg-ignoriruet-vashi-celi-mehanizmy-sabotazha-i-vzroslaya-poziciya..webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aSRLjRB9U0OVyHtc).
 
-![Почему мозг игнорирует ваши цели: механизмы саботажа и взрослая позиция. Анна Хефорс](/images/blog/covers/pochemu-mozg-ignoriruet-vashi-celi-mehanizmy-sabotazha-i-vzroslaya-poziciya..png)
+![Почему мозг игнорирует ваши цели: механизмы саботажа и взрослая позиция. Анна Хефорс](/images/blog/covers/pochemu-mozg-ignoriruet-vashi-celi-mehanizmy-sabotazha-i-vzroslaya-poziciya..webp)
 Многие ставят цели искренне, с надеждой на перемены, однако спустя неделю возвращаются в ту же точку: действия рассыпаются, мотивация пропадает, а внутренний диалог сводится к знакомому «не получается». Анна Хефорс отмечает: Когда мы работаем с целеполаганием и нейронными реакциями мозга, эта тема поднимается снова и снова: человек заявляет цель, но мозг её не слышит или откровенно сопротивляется. И именно это сопротивление становится отправной точкой для анализа, потому что без понимания причин невозможно выстроить путь к реальным изменениям...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

@@ -16,7 +16,7 @@ date: '2026-03-16'
 readingTime: 7
 viewsCount: 3
 cover: >-
-  /images/blog/covers/triggery-kak-trenazhyor-dlya-mozga-kak-razorvat-ciklichnuyu-plastinku-v-golove.png
+  /images/blog/covers/triggery-kak-trenazhyor-dlya-mozga-kak-razorvat-ciklichnuyu-plastinku-v-golove.webp
 relatedProductId: null
 seo:
   title: >-
@@ -27,14 +27,14 @@ seo:
     поднимается реакция и бывает, достаточно одной интонации, паузы в ответе,
     фразы, на кото
   ogImage: >-
-    /images/blog/covers/triggery-kak-trenazhyor-dlya-mozga-kak-razorvat-ciklichnuyu-plastinku-v-golove.png
+    /images/blog/covers/triggery-kak-trenazhyor-dlya-mozga-kak-razorvat-ciklichnuyu-plastinku-v-golove.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/abgkcK6rNAFjxIQZ).
 
-![Триггеры как «тренажёр» для мозга: как разорвать цикличную «пластинку» в голове и собрать новую реакцию? Анна Хефорс](/images/blog/covers/triggery-kak-trenazhyor-dlya-mozga-kak-razorvat-ciklichnuyu-plastinku-v-golove.png)
+![Триггеры как «тренажёр» для мозга: как разорвать цикличную «пластинку» в голове и собрать новую реакцию? Анна Хефорс](/images/blog/covers/triggery-kak-trenazhyor-dlya-mozga-kak-razorvat-ciklichnuyu-plastinku-v-golove.webp)
 Замечали ли вы за собой такие моменты, когда вам что-то сказали и у вас поднимается реакция и бывает, достаточно одной интонации, паузы в ответе, фразы, на которую вроде бы и реагировать не нужно, и внутри уже запускается знакомая «дорожка». Но вы слышите не человека перед собой, а весь свой прошлый опыт, и дальше мозг делает то, что умеет лучше всего: включает заранее заготовленную запись. Анна называет это очень точно: одна и та же ссора может тянуться как «цикличная пластинка», потому что мозг...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

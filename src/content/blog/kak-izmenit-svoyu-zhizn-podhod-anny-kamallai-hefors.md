@@ -13,7 +13,7 @@ tags:
 date: '2025-05-19'
 readingTime: 4
 viewsCount: 294
-cover: /images/blog/covers/kak-izmenit-svoyu-zhizn-podhod-anny-kamallai-hefors.png
+cover: /images/blog/covers/kak-izmenit-svoyu-zhizn-podhod-anny-kamallai-hefors.webp
 relatedProductId: null
 seo:
   title: 'Как изменить свою жизнь: подход Анны Камаллаи Хефорс | DOM'
@@ -21,14 +21,14 @@ seo:
     Почему одни живут полной жизнью, в которой есть радость, благополучие и
     постоянный рост, а другие — топчутся на месте, бесконечно проживая старые
     травмы, повтор
-  ogImage: /images/blog/covers/kak-izmenit-svoyu-zhizn-podhod-anny-kamallai-hefors.png
+  ogImage: /images/blog/covers/kak-izmenit-svoyu-zhizn-podhod-anny-kamallai-hefors.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aCsJhsPGq2pHynob).
 
-![Как изменить свою жизнь: подход Анны Камаллаи Хефорс](/images/blog/covers/kak-izmenit-svoyu-zhizn-podhod-anny-kamallai-hefors.png)
+![Как изменить свою жизнь: подход Анны Камаллаи Хефорс](/images/blog/covers/kak-izmenit-svoyu-zhizn-podhod-anny-kamallai-hefors.webp)
 Почему одни живут полной жизнью, в которой есть радость, благополучие и постоянный рост, а другие — топчутся на месте, бесконечно проживая старые травмы, повторяя те же ошибки, будто находятся в заколдованном круге? Все мы стремимся к счастью. Но иногда оно может казаться недоступным. Так бывает, когда человек теряет качественный контакт с самим собой, перестает себя слышать. Этот важный контакт можно восстановить — став настоящим хозяином своей жизни. Стремиться к лучшему — естественное желание каждого...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

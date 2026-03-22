@@ -15,7 +15,7 @@ date: '2025-11-18'
 readingTime: 5
 viewsCount: 5
 cover: >-
-  /images/blog/covers/vy-ne-obyazany-zasluzhivat-lyubov-detskaya-strategiya-kotoraya-sozdayot-bol..png
+  /images/blog/covers/vy-ne-obyazany-zasluzhivat-lyubov-detskaya-strategiya-kotoraya-sozdayot-bol..webp
 relatedProductId: null
 seo:
   title: >-
@@ -25,14 +25,14 @@ seo:
     В обществе часто звучит мысль: любовь нужно заработать. Старайся, будь
     удобным, будь правильным, будь лучше - и тогда тебя оценят, примут, полюбят.
   ogImage: >-
-    /images/blog/covers/vy-ne-obyazany-zasluzhivat-lyubov-detskaya-strategiya-kotoraya-sozdayot-bol..png
+    /images/blog/covers/vy-ne-obyazany-zasluzhivat-lyubov-detskaya-strategiya-kotoraya-sozdayot-bol..webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aRyNsydxXFZrOyMl).
 
-![Вы не обязаны заслуживать любовь: детская стратегия, которая создаёт боль. Анна Хефорс](/images/blog/covers/vy-ne-obyazany-zasluzhivat-lyubov-detskaya-strategiya-kotoraya-sozdayot-bol..png)
+![Вы не обязаны заслуживать любовь: детская стратегия, которая создаёт боль. Анна Хефорс](/images/blog/covers/vy-ne-obyazany-zasluzhivat-lyubov-detskaya-strategiya-kotoraya-sozdayot-bol..webp)
 В обществе часто звучит мысль: любовь нужно заработать. Старайся, будь удобным, будь правильным, будь лучше - и тогда тебя оценят, примут, полюбят. Но если посмотреть на эту установку глубже, становится видно, что она не взрослая. Это стратегия, которая возникает в той части психики, где человек ещё зависим от одобрения и боится потерять контакт. Стратегия ребёнка, а не личности. Во взрослой жизни она проявляется тихо: человек адаптируется под других, пытается угадать ожидания, боится отказа,...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

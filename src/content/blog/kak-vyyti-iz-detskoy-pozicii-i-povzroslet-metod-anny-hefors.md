@@ -14,7 +14,7 @@ date: '2025-10-01'
 readingTime: 3
 viewsCount: 68
 cover: >-
-  /images/blog/covers/kak-vyyti-iz-detskoy-pozicii-i-povzroslet-metod-anny-hefors.png
+  /images/blog/covers/kak-vyyti-iz-detskoy-pozicii-i-povzroslet-metod-anny-hefors.webp
 relatedProductId: null
 seo:
   title: Как выйти из детской позиции и повзрослеть? Метод Анны Хефорс | DOM
@@ -23,14 +23,14 @@ seo:
     сразу, но проявляется в отношениях, в работе, в семье. Кто-то ждёт, что
     партнёр угадает ж
   ogImage: >-
-    /images/blog/covers/kak-vyyti-iz-detskoy-pozicii-i-povzroslet-metod-anny-hefors.png
+    /images/blog/covers/kak-vyyti-iz-detskoy-pozicii-i-povzroslet-metod-anny-hefors.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aNvIxEorFByIApo_).
 
-![Как выйти из детской позиции и повзрослеть? Метод Анны Хефорс](/images/blog/covers/kak-vyyti-iz-detskoy-pozicii-i-povzroslet-metod-anny-hefors.png)
+![Как выйти из детской позиции и повзрослеть? Метод Анны Хефорс](/images/blog/covers/kak-vyyti-iz-detskoy-pozicii-i-povzroslet-metod-anny-hefors.webp)
 Многие взрослые люди продолжают жить так, будто они дети. Это не видно сразу, но проявляется в отношениях, в работе, в семье. Кто-то ждёт, что партнёр угадает желания. Кто-то обижается и хлопает дверью. Кто-то спорит и доказывает «я сама знаю». Всё это — детские позиции, которые незаметно крадут силы и мешают построить зрелую жизнь. В семейных системах Анна Хефорс говорит о трёх позициях: родитель, ребёнок и взрослый. Если мы оказываемся в «детском состоянии», то начинаем жить ожиданиями и капризами...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

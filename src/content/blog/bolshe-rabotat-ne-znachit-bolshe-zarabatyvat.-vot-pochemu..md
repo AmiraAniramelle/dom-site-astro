@@ -15,7 +15,7 @@ date: '2025-11-19'
 readingTime: 5
 viewsCount: 7
 cover: >-
-  /images/blog/covers/bolshe-rabotat-ne-znachit-bolshe-zarabatyvat.-vot-pochemu..png
+  /images/blog/covers/bolshe-rabotat-ne-znachit-bolshe-zarabatyvat.-vot-pochemu..webp
 relatedProductId: null
 seo:
   title: >-
@@ -26,14 +26,14 @@ seo:
     переработки - признаком надёжности. Кажется логичным: чем больше усилий, тем
     ближе результа
   ogImage: >-
-    /images/blog/covers/bolshe-rabotat-ne-znachit-bolshe-zarabatyvat.-vot-pochemu..png
+    /images/blog/covers/bolshe-rabotat-ne-znachit-bolshe-zarabatyvat.-vot-pochemu..webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aR21ROqLKih44s9h).
 
-![Больше работать - не значит больше зарабатывать. Вот почему. Анна Хефорс](/images/blog/covers/bolshe-rabotat-ne-znachit-bolshe-zarabatyvat.-vot-pochemu..png)
+![Больше работать - не значит больше зарабатывать. Вот почему. Анна Хефорс](/images/blog/covers/bolshe-rabotat-ne-znachit-bolshe-zarabatyvat.-vot-pochemu..webp)
 Мы живём в культуре, где усталость стала символом ответственности, а переработки - признаком надёжности. Кажется логичным: чем больше усилий, тем ближе результаты. Но если посмотреть на систему глубже, становится видно другое. Человек может работать по десять часов в день, вкладываться, стараться, держать всё на своих плечах - и при этом годами стоять на месте. Другой - делает меньше действий, но при этом растёт, расширяется, принимает лучшие решения и зарабатывает больше. Почему? Потому что заработок связан не с количеством часов, а с состоянием системы «личность - энергия - фокус»...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

@@ -17,7 +17,7 @@ date: '2026-01-10'
 readingTime: 4
 viewsCount: 10
 cover: >-
-  /images/blog/covers/neyroplastichnost-bez-illyuziy-pochemu-izmeneniya-ne-proishodyat-ot-usiliya-kak.png
+  /images/blog/covers/neyroplastichnost-bez-illyuziy-pochemu-izmeneniya-ne-proishodyat-ot-usiliya-kak.webp
 relatedProductId: null
 seo:
   title: >-
@@ -28,14 +28,14 @@ seo:
     некое напряжение. Как правило, это через усилие, контроль, самодисциплину,
     внутреннее да
   ogImage: >-
-    /images/blog/covers/neyroplastichnost-bez-illyuziy-pochemu-izmeneniya-ne-proishodyat-ot-usiliya-kak.png
+    /images/blog/covers/neyroplastichnost-bez-illyuziy-pochemu-izmeneniya-ne-proishodyat-ot-usiliya-kak.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aWIZUMPkRSDCrNKV).
 
-![Нейропластичность без иллюзий: почему изменения не происходят от усилия? Как прийти к изменениям? Анна Хефорс](/images/blog/covers/neyroplastichnost-bez-illyuziy-pochemu-izmeneniya-ne-proishodyat-ot-usiliya-kak.png)
+![Нейропластичность без иллюзий: почему изменения не происходят от усилия? Как прийти к изменениям? Анна Хефорс](/images/blog/covers/neyroplastichnost-bez-illyuziy-pochemu-izmeneniya-ne-proishodyat-ot-usiliya-kak.webp)
 Как часто мы замечаем, что некоторые изменения в жизни происходят через некое напряжение. Как правило, это через усилие, контроль, самодисциплину, внутреннее давление. Но кажется же логичным: если я буду больше стараться, сильнее держать себя в руках, строже требовать от себя, то жизнь начнёт меняться? Но именно здесь возникает главное разочарование: усилий становится больше, а изменений либо нет, либо они краткосрочные и быстро откатываются назад. Это происходит потому, что наш мозг устроен так, что он не меняется от усилия...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

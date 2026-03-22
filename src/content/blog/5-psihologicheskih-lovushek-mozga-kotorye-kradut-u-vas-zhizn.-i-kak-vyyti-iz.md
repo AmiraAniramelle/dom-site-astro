@@ -16,7 +16,7 @@ date: '2025-11-13'
 readingTime: 6
 viewsCount: 5
 cover: >-
-  /images/blog/covers/5-psihologicheskih-lovushek-mozga-kotorye-kradut-u-vas-zhizn.-i-kak-vyyti-iz.png
+  /images/blog/covers/5-psihologicheskih-lovushek-mozga-kotorye-kradut-u-vas-zhizn.-i-kak-vyyti-iz.webp
 relatedProductId: null
 seo:
   title: >-
@@ -27,14 +27,14 @@ seo:
     делается легко. Главное, чтобы было желание и действия. Наш мозг меняется
     только че
   ogImage: >-
-    /images/blog/covers/5-psihologicheskih-lovushek-mozga-kotorye-kradut-u-vas-zhizn.-i-kak-vyyti-iz.png
+    /images/blog/covers/5-psihologicheskih-lovushek-mozga-kotorye-kradut-u-vas-zhizn.-i-kak-vyyti-iz.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aRX6vpYvOSbfTP2-).
 
-![5 психологических ловушек мозга, которые крадут у вас жизнь. И как выйти из них. Анна Хефорс](/images/blog/covers/5-psihologicheskih-lovushek-mozga-kotorye-kradut-u-vas-zhizn.-i-kak-vyyti-iz.png)
+![5 психологических ловушек мозга, которые крадут у вас жизнь. И как выйти из них. Анна Хефорс](/images/blog/covers/5-psihologicheskih-lovushek-mozga-kotorye-kradut-u-vas-zhizn.-i-kak-vyyti-iz.webp)
 Мозг - это удивительная система реакций. Заменить реакции мозга можно. И это делается легко. Главное, чтобы было желание и действия. Наш мозг меняется только через опыт. Он не перестраивается, если человек просто «понимает, как надо». Трансформация мышления - это не мотивация, не сила воли и не «начать новую жизнь с понедельника». Это постепенное переписывание связей внутри нервной системы. Анна Хефорс объясняет: человек начинает меняться, когда понимает, как работает его мозг, и перестаёт бороться с автоматическими реакциями...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

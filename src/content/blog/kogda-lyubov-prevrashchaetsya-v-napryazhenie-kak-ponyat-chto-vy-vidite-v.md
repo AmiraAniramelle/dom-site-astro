@@ -16,7 +16,7 @@ date: '2026-02-09'
 readingTime: 5
 viewsCount: 83
 cover: >-
-  /images/blog/covers/kogda-lyubov-prevrashchaetsya-v-napryazhenie-kak-ponyat-chto-vy-vidite-v.jpg
+  /images/blog/covers/kogda-lyubov-prevrashchaetsya-v-napryazhenie-kak-ponyat-chto-vy-vidite-v.webp
 relatedProductId: null
 seo:
   title: >-
@@ -27,14 +27,14 @@ seo:
     Анна Хефорс описывает как знакомую многим сцену: вы вроде бы строите
     отношения с реальн
   ogImage: >-
-    /images/blog/covers/kogda-lyubov-prevrashchaetsya-v-napryazhenie-kak-ponyat-chto-vy-vidite-v.jpg
+    /images/blog/covers/kogda-lyubov-prevrashchaetsya-v-napryazhenie-kak-ponyat-chto-vy-vidite-v.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aYobg8ua0UnzDzTE).
 
-![Когда любовь превращается в напряжение: как понять, что вы видите в отношениях не партнёра, а свою прошлую память? Анна ](/images/blog/covers/kogda-lyubov-prevrashchaetsya-v-napryazhenie-kak-ponyat-chto-vy-vidite-v.jpg)
+![Когда любовь превращается в напряжение: как понять, что вы видите в отношениях не партнёра, а свою прошлую память? Анна ](/images/blog/covers/kogda-lyubov-prevrashchaetsya-v-napryazhenie-kak-ponyat-chto-vy-vidite-v.webp)
 Здравствуйте, дорогие читатели. Замечали ли вы такой момент, про который Анна Хефорс описывает как знакомую многим сцену: вы вроде бы строите отношения с реальным партнером, но ощущение такое, словно в комнате постоянно присутствует кто - то еще. Это может быть бывший, которого вы исключили и обесценили, это могут быть мамины или папины глаза, через которые вы оцениваете партнера, это может быть старая боль, которая поднимается всякий раз, когда ситуация хотя бы чуть чуть похожа на прошлое. И тогда...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

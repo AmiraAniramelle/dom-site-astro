@@ -17,7 +17,7 @@ date: '2026-03-09'
 readingTime: 5
 viewsCount: 5
 cover: >-
-  /images/blog/covers/chto-znachit-stoyat-na-svoyom-meste-v-otnosheniyah-i-kak-v-nego-vernutsya.png
+  /images/blog/covers/chto-znachit-stoyat-na-svoyom-meste-v-otnosheniyah-i-kak-v-nego-vernutsya.webp
 relatedProductId: null
 seo:
   title: >-
@@ -28,14 +28,14 @@ seo:
     равно будто не хватает места. Часто, это происходит потому что в паре кто-то
     незаме
   ogImage: >-
-    /images/blog/covers/chto-znachit-stoyat-na-svoyom-meste-v-otnosheniyah-i-kak-v-nego-vernutsya.png
+    /images/blog/covers/chto-znachit-stoyat-na-svoyom-meste-v-otnosheniyah-i-kak-v-nego-vernutsya.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aa6783dFS1ms-agD).
 
-![Что значит стоять на своём месте в отношениях и как в него вернуться? Анна Камаллая Хефорс](/images/blog/covers/chto-znachit-stoyat-na-svoyom-meste-v-otnosheniyah-i-kak-v-nego-vernutsya.png)
+![Что значит стоять на своём месте в отношениях и как в него вернуться? Анна Камаллая Хефорс](/images/blog/covers/chto-znachit-stoyat-na-svoyom-meste-v-otnosheniyah-i-kak-v-nego-vernutsya.webp)
 Бывает, что в любви становится тесно: чувства могут быть живыми, а рядом все равно будто не хватает места. Часто, это происходит потому что в паре кто-то незаметно сместился со своей позиции. Что это значит? Камаллая отмечает: Один начинает жить за двоих: берет лишнюю ответственность, тащит чужую тревогу и пытается закрыть собой то, что должно держаться на двух взрослых людях. Тогда отношения начинают «болеть», и это чувствуется не только в мыслях, но и телом. Обычно это выглядит так: Женщина старается изо всех сил...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

@@ -16,7 +16,7 @@ date: '2025-12-25'
 readingTime: 4
 viewsCount: 21
 cover: >-
-  /images/blog/covers/pochemu-vnutrennee-odinochestvo-ne-lechitsya-obshcheniem-chto-delat-chtoby-ne.png
+  /images/blog/covers/pochemu-vnutrennee-odinochestvo-ne-lechitsya-obshcheniem-chto-delat-chtoby-ne.webp
 relatedProductId: null
 seo:
   title: >-
@@ -27,14 +27,14 @@ seo:
     переписываетесь, встречаетесь, но при этом внутри остаётся ощущение пустоты.
     И оно не связано с от
   ogImage: >-
-    /images/blog/covers/pochemu-vnutrennee-odinochestvo-ne-lechitsya-obshcheniem-chto-delat-chtoby-ne.png
+    /images/blog/covers/pochemu-vnutrennee-odinochestvo-ne-lechitsya-obshcheniem-chto-delat-chtoby-ne.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aU1UT9AcUR5eszOt).
 
-![Почему внутреннее одиночество не лечится общением? Что делать, чтобы не чувствовать себя одиноким? Анна Хефорс](/images/blog/covers/pochemu-vnutrennee-odinochestvo-ne-lechitsya-obshcheniem-chto-delat-chtoby-ne.png)
+![Почему внутреннее одиночество не лечится общением? Что делать, чтобы не чувствовать себя одиноким? Анна Хефорс](/images/blog/covers/pochemu-vnutrennee-odinochestvo-ne-lechitsya-obshcheniem-chto-delat-chtoby-ne.webp)
 Вы замечали, что вы вроде бы окружены людьми, разговариваете, переписываетесь, встречаетесь, но при этом внутри остаётся ощущение пустоты. И оно не связано с отсутствием контактов. Скорее наоборот, чем больше внешнего общения, тем заметнее становится ваше тихое внутреннее одиночество. Его трудно объяснить, потому что формально всё у вас есть: люди рядом, происходят диалоги. Но внутри как будто нет того, с кем можно по настоящему быть. Внутреннее одиночество часто путают с социальной изоляцией. Кажется, что если добавить общения, найти «своих», быть чаще среди людей, это состояние исчезнет...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

@@ -15,7 +15,7 @@ date: '2025-09-18'
 readingTime: 2
 viewsCount: 31
 cover: >-
-  /images/blog/covers/sistemnyy-vzglyad-na-zhizn-kak-ponimanie-roley-v-sisteme-pomogayut-navesti.png
+  /images/blog/covers/sistemnyy-vzglyad-na-zhizn-kak-ponimanie-roley-v-sisteme-pomogayut-navesti.webp
 relatedProductId: null
 seo:
   title: >-
@@ -25,14 +25,14 @@ seo:
     Анна Камаллая Хефорс не раз говорила, что мир - это многослойная структура,
     где все части сложены как в «матрешке» или «луковице».
   ogImage: >-
-    /images/blog/covers/sistemnyy-vzglyad-na-zhizn-kak-ponimanie-roley-v-sisteme-pomogayut-navesti.png
+    /images/blog/covers/sistemnyy-vzglyad-na-zhizn-kak-ponimanie-roley-v-sisteme-pomogayut-navesti.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aMwsdLexHzlrFag6).
 
-![Системный взгляд на жизнь: как понимание ролей в системе помогают навести порядок в голове?](/images/blog/covers/sistemnyy-vzglyad-na-zhizn-kak-ponimanie-roley-v-sisteme-pomogayut-navesti.png)
+![Системный взгляд на жизнь: как понимание ролей в системе помогают навести порядок в голове?](/images/blog/covers/sistemnyy-vzglyad-na-zhizn-kak-ponimanie-roley-v-sisteme-pomogayut-navesti.webp)
 Анна Камаллая Хефорс не раз говорила, что мир - это многослойная структура, где все части сложены как в «матрешке» или «луковице». В каждой сфере — будь то семья, работа, отношения или деньги — действуют свои правила и порядки. В каждой системе свои роли. И как только мы начинаем понимать правила этой «игры», в жизни появляется больше ясности, спокойствия и силы. Самая большая система - это система Жизни. Жизнь, в свою очередь, вбирает в себя множество систем. Возьмем те системы, с которыми мы взаимодействуем ежедневно...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

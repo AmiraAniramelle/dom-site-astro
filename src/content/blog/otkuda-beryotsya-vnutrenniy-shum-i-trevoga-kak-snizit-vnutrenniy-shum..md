@@ -17,7 +17,7 @@ date: '2025-12-03'
 readingTime: 5
 viewsCount: 47
 cover: >-
-  /images/blog/covers/otkuda-beryotsya-vnutrenniy-shum-i-trevoga-kak-snizit-vnutrenniy-shum..png
+  /images/blog/covers/otkuda-beryotsya-vnutrenniy-shum-i-trevoga-kak-snizit-vnutrenniy-shum..webp
 relatedProductId: null
 seo:
   title: >-
@@ -28,14 +28,14 @@ seo:
     перегруженный ум, который пытается удержать слишком много старых связей. Это
     не врожденная 
   ogImage: >-
-    /images/blog/covers/otkuda-beryotsya-vnutrenniy-shum-i-trevoga-kak-snizit-vnutrenniy-shum..png
+    /images/blog/covers/otkuda-beryotsya-vnutrenniy-shum-i-trevoga-kak-snizit-vnutrenniy-shum..webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aS_ktpNJAQ5rU8-H).
 
-![Откуда берётся внутренний шум и тревога? Как снизить внутренний шум. Анна Камаллая Хефорс](/images/blog/covers/otkuda-beryotsya-vnutrenniy-shum-i-trevoga-kak-snizit-vnutrenniy-shum..png)
+![Откуда берётся внутренний шум и тревога? Как снизить внутренний шум. Анна Камаллая Хефорс](/images/blog/covers/otkuda-beryotsya-vnutrenniy-shum-i-trevoga-kak-snizit-vnutrenniy-shum..webp)
 То, что мы называем тревожностью, на самом деле чаще всего похоже на перегруженный ум, который пытается удержать слишком много старых связей. Это не врожденная особенность характера и не приговор. Это реакция нервной системы на накопленный опыт, незавершенные переживания и постоянное напряжение внутри. Когда человек говорит что он живет в состоянии внутреннего шума, то он описывает особое явление. Мысли становятся громкими и беспорядочными. Тело реагирует ускорением дыхания и легкой дрожью. Внимание рассыпается на мелочи...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

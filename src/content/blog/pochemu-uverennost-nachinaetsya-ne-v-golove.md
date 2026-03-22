@@ -13,7 +13,7 @@ tags:
 date: '2026-01-16'
 readingTime: 4
 viewsCount: 5
-cover: /images/blog/covers/pochemu-uverennost-nachinaetsya-ne-v-golove.png
+cover: /images/blog/covers/pochemu-uverennost-nachinaetsya-ne-v-golove.webp
 relatedProductId: null
 seo:
   title: Почему уверенность начинается не в голове? Анна Камаллая Хефорс | DOM
@@ -21,14 +21,14 @@ seo:
     Всем здравствуйте! Сегодня мы поговорим об уверенности. Когда человеку не
     хватает уверенности, он обычно начинает думать и «идёт в голову»: начинает
     убеждать се
-  ogImage: /images/blog/covers/pochemu-uverennost-nachinaetsya-ne-v-golove.png
+  ogImage: /images/blog/covers/pochemu-uverennost-nachinaetsya-ne-v-golove.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aWpz2yghulUTygrb).
 
-![Почему уверенность начинается не в голове? Анна Камаллая Хефорс](/images/blog/covers/pochemu-uverennost-nachinaetsya-ne-v-golove.png)
+![Почему уверенность начинается не в голове? Анна Камаллая Хефорс](/images/blog/covers/pochemu-uverennost-nachinaetsya-ne-v-golove.webp)
 Всем здравствуйте! Сегодня мы поговорим об уверенности. Когда человеку не хватает уверенности, он обычно начинает думать и «идёт в голову»: начинает убеждать себя, настраиваться, повторять правильные слова, собирать аргументы, почему он может, имеет право и справится. Иногда это даёт краткий эффект и на время становится легче. Но в реальных ситуациях уверенность снова ускользает: в теле появляется напряжение, голос меняется, решения даются тяжелее, чем казалось в мыслях. Происходит это потому, что уверенность не формируется на уровне рассуждений...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

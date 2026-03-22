@@ -17,7 +17,7 @@ date: '2025-11-15'
 readingTime: 3
 viewsCount: 309
 cover: >-
-  /images/blog/covers/eto-ne-len-chto-na-samom-dele-stoit-za-vashey-prokrastinaciey-i-kak-iz-nee-vyyti.png
+  /images/blog/covers/eto-ne-len-chto-na-samom-dele-stoit-za-vashey-prokrastinaciey-i-kak-iz-nee-vyyti.webp
 relatedProductId: null
 seo:
   title: >-
@@ -28,14 +28,14 @@ seo:
     знаете, как их начать… но сидите, смотрите на задачу - и будто что-то внутри
     тихо говори
   ogImage: >-
-    /images/blog/covers/eto-ne-len-chto-na-samom-dele-stoit-za-vashey-prokrastinaciey-i-kak-iz-nee-vyyti.png
+    /images/blog/covers/eto-ne-len-chto-na-samom-dele-stoit-za-vashey-prokrastinaciey-i-kak-iz-nee-vyyti.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aRgxpIEv3lPK8j7Z).
 
-![Это не лень: что на самом деле стоит за вашей прокрастинацией? И как из нее выйти? Анна Хефорс](/images/blog/covers/eto-ne-len-chto-na-samom-dele-stoit-za-vashey-prokrastinaciey-i-kak-iz-nee-vyyti.png)
+![Это не лень: что на самом деле стоит за вашей прокрастинацией? И как из нее выйти? Анна Хефорс](/images/blog/covers/eto-ne-len-chto-na-samom-dele-stoit-za-vashey-prokrastinaciey-i-kak-iz-nee-vyyti.webp)
 Вы когда-нибудь замечали странную вещь? Когда вы хотите изменений, даже знаете, как их начать… но сидите, смотрите на задачу - и будто что-то внутри тихо говорит: «Не сейчас». Вы понимаете, что дело важное, нужное, желанное. Но тело становится тяжёлым, голова мутнеет, внимание уходит в сторону. И вы снова откладываете. Не потому что вам всё равно. А потому что что-то в вас не готово сделать шаг. И вот тут важно признать главное: прокрастинация - это не лень. Это защитная реакция мозга, когда ваше состояние не совпадает с задачей...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

@@ -16,7 +16,7 @@ date: '2026-02-04'
 readingTime: 4
 viewsCount: 8
 cover: >-
-  /images/blog/covers/lyubov-bez-vozduha-kak-pamyat-o-proshlom-prevrashchaet-novye-otnosheniya-v.jpg
+  /images/blog/covers/lyubov-bez-vozduha-kak-pamyat-o-proshlom-prevrashchaet-novye-otnosheniya-v.webp
 relatedProductId: null
 seo:
   title: >-
@@ -27,14 +27,14 @@ seo:
     в начале отношений напряжение часто появляется не потому, что с партнером
     что то не 
   ogImage: >-
-    /images/blog/covers/lyubov-bez-vozduha-kak-pamyat-o-proshlom-prevrashchaet-novye-otnosheniya-v.jpg
+    /images/blog/covers/lyubov-bez-vozduha-kak-pamyat-o-proshlom-prevrashchaet-novye-otnosheniya-v.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aYOJjunFxSyBrfyD).
 
-![Любовь без воздуха: как память о прошлом превращает новые отношения в борьбу. Разбираем ошибки. Анна Хефорс](/images/blog/covers/lyubov-bez-vozduha-kak-pamyat-o-proshlom-prevrashchaet-novye-otnosheniya-v.jpg)
+![Любовь без воздуха: как память о прошлом превращает новые отношения в борьбу. Разбираем ошибки. Анна Хефорс](/images/blog/covers/lyubov-bez-vozduha-kak-pamyat-o-proshlom-prevrashchaet-novye-otnosheniya-v.webp)
 Анна Хефорс - нейробиолог, исследователь с многолетним опытом отмечает, что в начале отношений напряжение часто появляется не потому, что с партнером что то не так, а потому что в пару незаметно входит «память». Это может быть опыт прошлой связи, семейные правила, которые звучат внутри как закон, или чужие ожидания, которыми человек смотрит на себя и на другого. Тогда разговоры не лечат, потому что слова идут поверх реакции, а сама реакция рождается глубже и адресована не тому, кто стоит напротив...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

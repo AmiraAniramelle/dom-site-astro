@@ -17,7 +17,7 @@ date: '2026-03-14'
 readingTime: 8
 viewsCount: 2
 cover: >-
-  /images/blog/covers/roli-i-detskie-pozicii-v-kotoryh-mozg-zastrevaet.-i-pochemu-vozvrashchenie-na.png
+  /images/blog/covers/roli-i-detskie-pozicii-v-kotoryh-mozg-zastrevaet.-i-pochemu-vozvrashchenie-na.webp
 relatedProductId: null
 seo:
   title: >-
@@ -28,14 +28,14 @@ seo:
     может быть нормально, но внутри будто постоянно надо держать оборону,
     доказывать, контр
   ogImage: >-
-    /images/blog/covers/roli-i-detskie-pozicii-v-kotoryh-mozg-zastrevaet.-i-pochemu-vozvrashchenie-na.png
+    /images/blog/covers/roli-i-detskie-pozicii-v-kotoryh-mozg-zastrevaet.-i-pochemu-vozvrashchenie-na.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/abT9A6bYWw_SGvsQ).
 
-![Роли и "детские позиции", в которых мозг застревает. И почему возвращение на своё место снижает страх? Анна Камаллая](/images/blog/covers/roli-i-detskie-pozicii-v-kotoryh-mozg-zastrevaet.-i-pochemu-vozvrashchenie-na.png)
+![Роли и "детские позиции", в которых мозг застревает. И почему возвращение на своё место снижает страх? Анна Камаллая](/images/blog/covers/roli-i-detskie-pozicii-v-kotoryh-mozg-zastrevaet.-i-pochemu-vozvrashchenie-na.webp)
 Каждый человек по статистике чувствует внутреннее напряжение: внешне все может быть нормально, но внутри будто постоянно надо держать оборону, доказывать, контролировать, предугадывать чужие реакции, а если что-то пошло не так, то тело сжимается и поднимается старый страх. Камаллая отмечает, что в такие моменты многие думают, что проблема в обстоятельствах, в людях или в недостатке силы воли, хотя по факту часто происходит другое. Мозг просто выкидывает нас в роль, которая когда-то помогала выжить, а сейчас заставляет жить не со своего места...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

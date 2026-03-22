@@ -13,7 +13,7 @@ tags:
 date: '2025-12-09'
 readingTime: 4
 viewsCount: 3
-cover: /images/blog/covers/kak-prinimat-reshenie-tak-chtoby-ono-bylo-vernym.png
+cover: /images/blog/covers/kak-prinimat-reshenie-tak-chtoby-ono-bylo-vernym.webp
 relatedProductId: null
 seo:
   title: 'Как принимать решение так, чтобы оно было верным? Анна Камаллая Хефорс | DOM'
@@ -21,14 +21,14 @@ seo:
     У каждого человека бывают моменты, когда необходимо сделать выбор. Иногда
     это маленький шаг, а иногда решение может менять целый ход жизни. В такие
     минуты внутр
-  ogImage: /images/blog/covers/kak-prinimat-reshenie-tak-chtoby-ono-bylo-vernym.png
+  ogImage: /images/blog/covers/kak-prinimat-reshenie-tak-chtoby-ono-bylo-vernym.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aTh_P3gJQCSEc9Y5).
 
-![Как принимать решение так, чтобы оно было верным? Анна Камаллая Хефорс](/images/blog/covers/kak-prinimat-reshenie-tak-chtoby-ono-bylo-vernym.png)
+![Как принимать решение так, чтобы оно было верным? Анна Камаллая Хефорс](/images/blog/covers/kak-prinimat-reshenie-tak-chtoby-ono-bylo-vernym.webp)
 У каждого человека бывают моменты, когда необходимо сделать выбор. Иногда это маленький шаг, а иногда решение может менять целый ход жизни. В такие минуты внутри поднимается волнение. Хочется сделать всё правильно, но чем сильнее напряжение, тем туманнее становится мысль. И здесь важно заметить один простой факт. Верное решение не рождается из спешки или страха. Оно появляется тогда, когда человек возвращается к себе и опирается на то, что внутри него уже есть. Чем больше тревоги, тем больше наш мозг начинает создавать лишний шум...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

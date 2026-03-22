@@ -16,7 +16,7 @@ date: '2026-02-06'
 readingTime: 4
 viewsCount: 2
 cover: >-
-  /images/blog/covers/tochka-a-v-otnosheniyah-s-kakogo-mesta-vy-v-nih-vhodite-i-pochemu-eto-tak.jpg
+  /images/blog/covers/tochka-a-v-otnosheniyah-s-kakogo-mesta-vy-v-nih-vhodite-i-pochemu-eto-tak.webp
 relatedProductId: null
 seo:
   title: >-
@@ -27,14 +27,14 @@ seo:
     встречах подчеркивает, что в отношения всегда заходят из точки А, потому что
     вход в 
   ogImage: >-
-    /images/blog/covers/tochka-a-v-otnosheniyah-s-kakogo-mesta-vy-v-nih-vhodite-i-pochemu-eto-tak.jpg
+    /images/blog/covers/tochka-a-v-otnosheniyah-s-kakogo-mesta-vy-v-nih-vhodite-i-pochemu-eto-tak.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aYYgw_rainLPc1Vl).
 
-![Точка А в отношениях: с какого места вы в них входите и почему это так важно?Нейробиолог Анна Хефорс](/images/blog/covers/tochka-a-v-otnosheniyah-s-kakogo-mesta-vy-v-nih-vhodite-i-pochemu-eto-tak.jpg)
+![Точка А в отношениях: с какого места вы в них входите и почему это так важно?Нейробиолог Анна Хефорс](/images/blog/covers/tochka-a-v-otnosheniyah-s-kakogo-mesta-vy-v-nih-vhodite-i-pochemu-eto-tak.webp)
 Точка А есть всегда, вопрос только какая она. Анна Камаллая Хефорс на своих встречах подчеркивает, что в отношения всегда заходят из точки А, потому что вход в любую систему идет через «Я», а именно, через центр и через точку опоры. Поэтому формулировка «я заходила не из точки А» чаще всего описывает не отсутствие точки, а то, что человек не видел, чем именно была занята его точка опоры в момент входа. Почему это меняет всю динамику пары? Анна объясняет это через системную логику: Когда человек стоит в центре своей жизни, он способен быть в отношениях как взрослый...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

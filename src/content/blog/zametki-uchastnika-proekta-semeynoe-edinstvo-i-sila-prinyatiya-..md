@@ -14,7 +14,7 @@ date: '2025-09-17'
 readingTime: 4
 viewsCount: 186
 cover: >-
-  /images/blog/covers/zametki-uchastnika-proekta-semeynoe-edinstvo-i-sila-prinyatiya-..png
+  /images/blog/covers/zametki-uchastnika-proekta-semeynoe-edinstvo-i-sila-prinyatiya-..webp
 relatedProductId: null
 seo:
   title: Заметки участника проекта «Семейное Единство» и «Сила Принятия» . | DOM
@@ -23,14 +23,14 @@ seo:
     прекрасным мужчиной и у нас 3 любимых детей. У нас замечательная семья. Но
     так было не 
   ogImage: >-
-    /images/blog/covers/zametki-uchastnika-proekta-semeynoe-edinstvo-i-sila-prinyatiya-..png
+    /images/blog/covers/zametki-uchastnika-proekta-semeynoe-edinstvo-i-sila-prinyatiya-..webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aMosR-AWQXmu-Pyg).
 
-![Заметки участника проекта «Семейное Единство» и «Сила Принятия» .](/images/blog/covers/zametki-uchastnika-proekta-semeynoe-edinstvo-i-sila-prinyatiya-..png)
+![Заметки участника проекта «Семейное Единство» и «Сила Принятия» .](/images/blog/covers/zametki-uchastnika-proekta-semeynoe-edinstvo-i-sila-prinyatiya-..webp)
 (Имена изменены) Всем привет! Меня зовут Ирина. Мне 40 лет. Я замужем за прекрасным мужчиной и у нас 3 любимых детей. У нас замечательная семья. Но так было не всегда. В этой заметке я оставлю свой опыт, который поможет многим женщинам, которые оказались в подобной жизненной ситуации. Когда я выходила замуж, я мечтала быть хорошей женой. Думала: будем заботиться друг о друге, вместе будем растить детей, решать какие-то вопросы. Жить в счастье и согласии. Но реальность оказалась совсем другой:...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

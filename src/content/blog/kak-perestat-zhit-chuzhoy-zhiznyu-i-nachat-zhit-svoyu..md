@@ -13,7 +13,7 @@ tags:
 date: '2025-11-02'
 readingTime: 3
 viewsCount: 11
-cover: /images/blog/covers/kak-perestat-zhit-chuzhoy-zhiznyu-i-nachat-zhit-svoyu..png
+cover: /images/blog/covers/kak-perestat-zhit-chuzhoy-zhiznyu-i-nachat-zhit-svoyu..webp
 relatedProductId: null
 seo:
   title: Как перестать жить чужой жизнью и начать жить свою. Анна Хефорс | DOM
@@ -22,14 +22,14 @@ seo:
     выполняем обязанности, даже улыбаемся, когда не хочется. А потом вдруг
     осознаём , что 
   ogImage: >-
-    /images/blog/covers/kak-perestat-zhit-chuzhoy-zhiznyu-i-nachat-zhit-svoyu..png
+    /images/blog/covers/kak-perestat-zhit-chuzhoy-zhiznyu-i-nachat-zhit-svoyu..webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aQebsWz0_HS__SoE).
 
-![Как перестать жить чужой жизнью и начать жить свою. Анна Хефорс](/images/blog/covers/kak-perestat-zhit-chuzhoy-zhiznyu-i-nachat-zhit-svoyu..png)
+![Как перестать жить чужой жизнью и начать жить свою. Анна Хефорс](/images/blog/covers/kak-perestat-zhit-chuzhoy-zhiznyu-i-nachat-zhit-svoyu..webp)
 Иногда кажется, что мы всё делаем «как надо»: работаем, строим отношения, выполняем обязанности, даже улыбаемся, когда не хочется. А потом вдруг осознаём , что внутри пусто. Будто живёшь не своей жизнью, а в чужом сценарии, написанном кем-то давно: родителями, обществом, страхом. Этот момент очень болезненный, но честный. И именно с него начинается путь к себе. Почему мы начинаем жить не своей жизнью? Анна Камаллая Хефорс объясняет это через системный взгляд: «Каждый человек рождается не в вакууме, а в поле семьи...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

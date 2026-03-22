@@ -16,7 +16,7 @@ date: '2025-11-17'
 readingTime: 4
 viewsCount: 22
 cover: >-
-  /images/blog/covers/perfekcionizm-kak-detskaya-strategiya-vyzhivaniya-pochemu-on-lomaet-vzrosluyu.png
+  /images/blog/covers/perfekcionizm-kak-detskaya-strategiya-vyzhivaniya-pochemu-on-lomaet-vzrosluyu.webp
 relatedProductId: null
 seo:
   title: >-
@@ -27,14 +27,14 @@ seo:
     высокий стандарт, умение «делать лучше других». Но если смотреть глубже,
     перфекционизм - э
   ogImage: >-
-    /images/blog/covers/perfekcionizm-kak-detskaya-strategiya-vyzhivaniya-pochemu-on-lomaet-vzrosluyu.png
+    /images/blog/covers/perfekcionizm-kak-detskaya-strategiya-vyzhivaniya-pochemu-on-lomaet-vzrosluyu.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aRndzgywITzKOmGA).
 
-![Перфекционизм как детская стратегия выживания: почему он ломает взрослую жизнь и как выйти из него? Анна Хефорс](/images/blog/covers/perfekcionizm-kak-detskaya-strategiya-vyzhivaniya-pochemu-on-lomaet-vzrosluyu.png)
+![Перфекционизм как детская стратегия выживания: почему он ломает взрослую жизнь и как выйти из него? Анна Хефорс](/images/blog/covers/perfekcionizm-kak-detskaya-strategiya-vyzhivaniya-pochemu-on-lomaet-vzrosluyu.webp)
 Перфекционизм часто подают как качество сильных: стремление к идеалу, высокий стандарт, умение «делать лучше других». Но если смотреть глубже, перфекционизм - это не про силу. Это про страх. И чаще всего, - про страх ребёнка, который когда-то решил: «Чтобы меня любили, мне нужно быть идеальным». Эта стратегия действительно помогала выжить в детстве. Но во взрослой жизни она начинает ломать внутреннюю опору, отношения, карьеру и способность действовать свободно. Откуда берётся перфекционизм: взгляд...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

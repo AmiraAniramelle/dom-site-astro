@@ -15,7 +15,7 @@ date: '2025-09-30'
 readingTime: 3
 viewsCount: 1917
 cover: >-
-  /images/blog/covers/kakuyu-zhenshchinu-muzhchiny-po-nastoyashchemu-bogotvoryat-i-eto-ne-pro.png
+  /images/blog/covers/kakuyu-zhenshchinu-muzhchiny-po-nastoyashchemu-bogotvoryat-i-eto-ne-pro.webp
 relatedProductId: null
 seo:
   title: >-
@@ -25,14 +25,14 @@ seo:
     Сегодня мы хотим затронуть тему, которая близка каждой женщине: какую
     женщину мужчины ценят, уважают и даже боготворят.
   ogImage: >-
-    /images/blog/covers/kakuyu-zhenshchinu-muzhchiny-po-nastoyashchemu-bogotvoryat-i-eto-ne-pro.png
+    /images/blog/covers/kakuyu-zhenshchinu-muzhchiny-po-nastoyashchemu-bogotvoryat-i-eto-ne-pro.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aNuZL2gCEFPDz2Uj).
 
-![Какую женщину мужчины по-настоящему "боготворят" (и это не про идеальность). Анна Хефорс](/images/blog/covers/kakuyu-zhenshchinu-muzhchiny-po-nastoyashchemu-bogotvoryat-i-eto-ne-pro.png)
+![Какую женщину мужчины по-настоящему "боготворят" (и это не про идеальность). Анна Хефорс](/images/blog/covers/kakuyu-zhenshchinu-muzhchiny-po-nastoyashchemu-bogotvoryat-i-eto-ne-pro.webp)
 Сегодня мы хотим затронуть тему, которая близка каждой женщине: какую женщину мужчины ценят, уважают и даже боготворят. Часто мы думаем, что для этого нужно быть «идеальной»: соответствовать чужим стандартам красоты, быть хозяйственной до безупречности, всё время угадывать желания мужчины. Но правда совсем другая. Мужчину вдохновляет не образ «совершенной», а женщина, которая живёт в гармонии с собой. Та, у которой есть внутренняя точка опоры — не на внешнем, не на муже, не на обстоятельствах, а в самой себе...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

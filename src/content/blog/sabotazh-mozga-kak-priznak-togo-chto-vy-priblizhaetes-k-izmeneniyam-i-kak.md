@@ -16,7 +16,7 @@ date: '2026-02-28'
 readingTime: 5
 viewsCount: 124
 cover: >-
-  /images/blog/covers/sabotazh-mozga-kak-priznak-togo-chto-vy-priblizhaetes-k-izmeneniyam-i-kak.png
+  /images/blog/covers/sabotazh-mozga-kak-priznak-togo-chto-vy-priblizhaetes-k-izmeneniyam-i-kak.webp
 relatedProductId: null
 seo:
   title: >-
@@ -27,14 +27,14 @@ seo:
     знаком: вы собрались менять жизнь, выбрали цель, даже сделали пару шагов, и
     вдруг мозг сло
   ogImage: >-
-    /images/blog/covers/sabotazh-mozga-kak-priznak-togo-chto-vy-priblizhaetes-k-izmeneniyam-i-kak.png
+    /images/blog/covers/sabotazh-mozga-kak-priznak-togo-chto-vy-priblizhaetes-k-izmeneniyam-i-kak.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aaKUs0Wy4T8i0Njc).
 
-![«Саботаж мозга», как признак того, что вы приближаетесь к изменениям, и как мягко убедить нервную систему, что новое без](/images/blog/covers/sabotazh-mozga-kak-priznak-togo-chto-vy-priblizhaetes-k-izmeneniyam-i-kak.png)
+![«Саботаж мозга», как признак того, что вы приближаетесь к изменениям, и как мягко убедить нервную систему, что новое без](/images/blog/covers/sabotazh-mozga-kak-priznak-togo-chto-vy-priblizhaetes-k-izmeneniyam-i-kak.webp)
 амечали ли вы странный момент, который почти никто не считает хорошим знаком: вы собрались менять жизнь, выбрали цель, даже сделали пару шагов, и вдруг мозг словно подменили. Вас тянет в сон, теряется фокус, появляются «срочные» дела, начинает раздражать всё и все, а иногда включается мысль: «Да зачем мне это»? «А может и не надо?» Обычно в этот момент люди решают, что с ними что-то не так, что нет силы воли, что «я опять сорвался». Но часто саботаж как раз и означает, что вы подошли близко к настоящему сдвигу, и старой системе внутри стало тесно...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

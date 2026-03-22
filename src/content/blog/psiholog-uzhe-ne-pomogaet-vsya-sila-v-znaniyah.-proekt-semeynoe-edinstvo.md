@@ -14,7 +14,7 @@ date: '2025-09-23'
 readingTime: 2
 viewsCount: 3
 cover: >-
-  /images/blog/covers/psiholog-uzhe-ne-pomogaet-vsya-sila-v-znaniyah.-proekt-semeynoe-edinstvo.png
+  /images/blog/covers/psiholog-uzhe-ne-pomogaet-vsya-sila-v-znaniyah.-proekt-semeynoe-edinstvo.webp
 relatedProductId: null
 seo:
   title: >-
@@ -25,14 +25,14 @@ seo:
     И это хорошо. Но часто вместо ясности получают новые, так скажем, «ярлыки» и
     конфли
   ogImage: >-
-    /images/blog/covers/psiholog-uzhe-ne-pomogaet-vsya-sila-v-znaniyah.-proekt-semeynoe-edinstvo.png
+    /images/blog/covers/psiholog-uzhe-ne-pomogaet-vsya-sila-v-znaniyah.-proekt-semeynoe-edinstvo.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aNIYtHG8VBIM3RQ-).
 
-![Психолог уже не помогает? Вся сила в знаниях. Проект «Семейное Единство»](/images/blog/covers/psiholog-uzhe-ne-pomogaet-vsya-sila-v-znaniyah.-proekt-semeynoe-edinstvo.png)
+![Психолог уже не помогает? Вся сила в знаниях. Проект «Семейное Единство»](/images/blog/covers/psiholog-uzhe-ne-pomogaet-vsya-sila-v-znaniyah.-proekt-semeynoe-edinstvo.webp)
 Сегодня многие, столкнувшись с трудностями в семье, обращаются к психологам. И это хорошо. Но часто вместо ясности получают новые, так скажем, «ярлыки» и конфликты. Истинная проблема не в том, что с нами «что-то не так», а в том, что у нас нет знаний, как устроена система семьи и какие роли мы в ней играем. Самим увидеть корень трудностей в отношениях и выйти в новое качество жизни дает проект Анны Камаллаи Хефорс «Семейное Единство». Почему важно работать над собой? Мы живём во время, когда информация льётся потоками...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

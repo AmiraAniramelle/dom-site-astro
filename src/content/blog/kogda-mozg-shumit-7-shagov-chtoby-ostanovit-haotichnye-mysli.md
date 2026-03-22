@@ -13,7 +13,7 @@ date: '2025-09-27'
 readingTime: 2
 viewsCount: 242
 cover: >-
-  /images/blog/covers/kogda-mozg-shumit-7-shagov-chtoby-ostanovit-haotichnye-mysli.png
+  /images/blog/covers/kogda-mozg-shumit-7-shagov-chtoby-ostanovit-haotichnye-mysli.webp
 relatedProductId: null
 seo:
   title: 'Когда мозг шумит: 7 шагов, чтобы остановить хаотичные мысли | DOM'
@@ -21,14 +21,14 @@ seo:
     Сегодня мы поговорим о наших мыслях, которые в течении дня звучат фоном в
     голове . А действительно ли они наши? Давайте разбираться.
   ogImage: >-
-    /images/blog/covers/kogda-mozg-shumit-7-shagov-chtoby-ostanovit-haotichnye-mysli.png
+    /images/blog/covers/kogda-mozg-shumit-7-shagov-chtoby-ostanovit-haotichnye-mysli.webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aNUv98zvi1w_vrGa).
 
-![Когда мозг шумит: 7 шагов, чтобы остановить хаотичные мысли](/images/blog/covers/kogda-mozg-shumit-7-shagov-chtoby-ostanovit-haotichnye-mysli.png)
+![Когда мозг шумит: 7 шагов, чтобы остановить хаотичные мысли](/images/blog/covers/kogda-mozg-shumit-7-shagov-chtoby-ostanovit-haotichnye-mysli.webp)
 Сегодня мы поговорим о наших мыслях, которые в течении дня звучат фоном в голове . А действительно ли они наши? Давайте разбираться. Каждому знакомо это состояние: мысли крутятся по кругу, спорят между собой, напоминают старые ошибки, пугают будущим. Кажется, что мозг живёт отдельной жизнью — и эта жизнь в каком-то хаосе. Камаллая говорит: хаотичные мысли — это не враг и не болезнь. Это сигнал, что мозг тянет вас назад в непрожитые ситуации и в исключённых родственников. Освободив это пространство, можно вернуть ясность и силу...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.

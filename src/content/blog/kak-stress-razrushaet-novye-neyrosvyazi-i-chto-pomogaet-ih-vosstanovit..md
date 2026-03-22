@@ -15,7 +15,7 @@ date: '2025-11-08'
 readingTime: 4
 viewsCount: 4
 cover: >-
-  /images/blog/covers/kak-stress-razrushaet-novye-neyrosvyazi-i-chto-pomogaet-ih-vosstanovit..png
+  /images/blog/covers/kak-stress-razrushaet-novye-neyrosvyazi-i-chto-pomogaet-ih-vosstanovit..webp
 relatedProductId: null
 seo:
   title: >-
@@ -25,14 +25,14 @@ seo:
     Когда мы начинаем меняться - учиться чему-то новому, развивать осознанность,
     менять привычки - всё кажется возможным.
   ogImage: >-
-    /images/blog/covers/kak-stress-razrushaet-novye-neyrosvyazi-i-chto-pomogaet-ih-vosstanovit..png
+    /images/blog/covers/kak-stress-razrushaet-novye-neyrosvyazi-i-chto-pomogaet-ih-vosstanovit..webp
 published: true
 lang: ru
 ---
 
 Полный текст опубликован на [Дзен](https://dzen.ru/a/aQ8yk94HIlKXLzfp).
 
-![Как стресс разрушает новые нейросвязи и что помогает их восстановить. Анна Хефорс](/images/blog/covers/kak-stress-razrushaet-novye-neyrosvyazi-i-chto-pomogaet-ih-vosstanovit..png)
+![Как стресс разрушает новые нейросвязи и что помогает их восстановить. Анна Хефорс](/images/blog/covers/kak-stress-razrushaet-novye-neyrosvyazi-i-chto-pomogaet-ih-vosstanovit..webp)
 Когда мы начинаем меняться - учиться чему-то новому, развивать осознанность, менять привычки - всё кажется возможным. Но стоит столкнуться со стрессом, и вдруг всё возвращается «назад»: старые реакции, раздражение, усталость, чувство бессилия. Мы думаем, что откатились. Но это не слабость, это просто биология. Стресс действительно способен разрушать новые нейронные связи. Но то, что разрушается, можно восстановить - если понимать, как работает мозг. Что происходит в мозге под действием стресса? Анна Камаллая Хефорс объясняет: «Стресс — это не враг, а перегрузка системы...
 
 > Иллюстрации внутри текста статьи на Дзене в выгрузке канала недоступны (API отдаёт только обложку и сниппет). При необходимости добавьте скриншоты или вставьте картинки вручную.
