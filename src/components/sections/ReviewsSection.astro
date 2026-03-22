@@ -102,9 +102,9 @@ const flowCardsJson = JSON.stringify(flowCards);
       full: item.fullText || item.result,
     }));
 
-    const stories = [...gridStories, ...flowStories];
+    const storiesForModal = [...gridStories, ...flowStories];
 
-    grid.innerHTML = stories
+    grid.innerHTML = gridStories
       .map(
         (story) => `
       <button type="button" class="home-review-card" data-home-story-id="${story.id}">
@@ -122,9 +122,9 @@ const flowCardsJson = JSON.stringify(flowCards);
       )
       .join('');
 
-    if (flowTrackA && flowCards.length) {
-      const flowSlice = flowCards.slice(0, 6);
-      const flowMarkup = flowSlice
+    if (flowTrackA && flowCards.length > 0) {
+      const flowMarkup = flowCards
+        .slice(0, 6)
         .map(
           (item) => `
         <button type="button" class="home-flow-card" data-home-story-id="${item.id}" aria-label="Открыть историю: ${item.name}">
@@ -151,7 +151,7 @@ const flowCardsJson = JSON.stringify(flowCards);
     };
 
     const openModal = (storyId) => {
-      const story = stories.find((item) => item.id === storyId);
+      const story = storiesForModal.find((item) => item.id === storyId);
       if (!story) return;
       photoEl.src = story.image;
       photoEl.alt = story.name;

@@ -213,7 +213,7 @@ export const reviewsSectionData = {
   ],
   cta: { text: 'Читать все истории', url: '/ru/reviews/' },
   flowTitle: 'Тысячи участников проходят трансформацию с DOM',
-  /** storyId = id записи в src/content/reviews (истории на /ru/reviews/ и текст для модалки на главной) */
+  /** Горизонтальная лента под кнопкой (компактные карточки). Не смешивать с основной сеткой из трёх историй. */
   flowCards: [
     {
       storyId: 'story-flow-olga-romanova',
