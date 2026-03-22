@@ -3,7 +3,6 @@
  * Блок 3: Филантропия (about-sections/03-philanthropy.md, source-DOM ~6242–6255)
  */
 interface Props {
-  eyebrow: string;
   title: string;
   text: string;
   image: { src: string; alt: string; width?: number; height?: number };
@@ -11,18 +10,13 @@ interface Props {
   imageCaption?: string;
 }
 
-const { eyebrow, title, text, image, imageCaption } = Astro.props;
+const { title, text, image, imageCaption } = Astro.props;
 const imgW = image.width ?? 1200;
 const imgH = image.height ?? 800;
 const imgSrc = encodeURI(image.src);
 ---
 
 <article class="about-light-card rounded-2xl p-8 md:p-10">
-  <p
-    class="font-montserrat text-[11px] uppercase tracking-[0.12em] text-dom-goldDark mb-2 md:mb-3 block text-center md:text-left"
-  >
-    {eyebrow}
-  </p>
   <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
     <div class="order-2 lg:order-none lg:col-span-7">
       <h2

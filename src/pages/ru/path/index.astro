@@ -40,36 +40,39 @@ const pathWebPageJsonLd = {
 ---
 
 <BaseLayout meta={meta}>
-  <section class="bg-dom-beige">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-0 pb-0">
-      <nav aria-label="Хлебные крошки" class="text-sm text-dom-graphite/80">
-        <ol class="flex flex-wrap gap-x-2 gap-y-1">
-          {breadcrumbs.map((b, i) => (
-            <li class="flex items-center gap-2">
-              {i > 0 && <span aria-hidden="true">/</span>}
-              {i === breadcrumbs.length - 1 ? (
-                <span class="text-dom-graphite font-medium">{b.name}</span>
-              ) : (
-                <a href={b.url.replace(siteConfig.url, '')} class="hover:text-dom-gold transition-colors">{b.name}</a>
-              )}
-            </li>
-          ))}
-        </ol>
-      </nav>
+  <!-- Как /ru/blog/ и /ru/reviews/: home-section-tone-soft + паттерн (global.css) -->
+  <section class="home-section home-section-tone-soft relative">
+    <div class="home-surface">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-0 pb-0">
+        <nav aria-label="Хлебные крошки" class="text-sm text-dom-graphite/80">
+          <ol class="flex flex-wrap gap-x-2 gap-y-1">
+            {breadcrumbs.map((b, i) => (
+              <li class="flex items-center gap-2">
+                {i > 0 && <span aria-hidden="true">/</span>}
+                {i === breadcrumbs.length - 1 ? (
+                  <span class="text-dom-graphite font-medium">{b.name}</span>
+                ) : (
+                  <a href={b.url.replace(siteConfig.url, '')} class="hover:text-dom-gold transition-colors">{b.name}</a>
+                )}
+              </li>
+            ))}
+          </ol>
+        </nav>
+      </div>
+
+      <div class="path-map-page">
+        <PathHero {...pathPageData.hero} />
+
+        <!-- Одна секция: без стыка двух <section> и без margin снизу у внутреннего блока (иначе просвечивает фон body) -->
+        <section class="path-page-section relative overflow-x-clip">
+          <PathExternalHouse {...pathPageData.externalHouse} />
+          <PathMirror {...pathPageData.mirror} />
+          <PathInternalHouse {...pathPageData.internalHouse} />
+          <PathEnroll {...pathPageData.enroll} />
+        </section>
+      </div>
     </div>
   </section>
-
-  <div class="path-map-page">
-    <PathHero {...pathPageData.hero} />
-
-    <!-- Одна секция: без стыка двух <section> и без margin снизу у внутреннего блока (иначе просвечивает фон body) -->
-    <section class="path-page-section bg-dom-beige relative overflow-x-clip">
-      <PathExternalHouse {...pathPageData.externalHouse} />
-      <PathMirror {...pathPageData.mirror} />
-      <PathInternalHouse {...pathPageData.internalHouse} />
-      <PathEnroll {...pathPageData.enroll} />
-    </section>
-  </div>
 
   <script type="application/ld+json" set:html={JSON.stringify(pathWebPageJsonLd)} />
 </BaseLayout>

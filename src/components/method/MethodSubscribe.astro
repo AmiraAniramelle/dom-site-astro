@@ -3,7 +3,8 @@
  * Подписка DOM — блок на странице «О методе» (виджет GetCourse, отдельные id от главной).
  */
 interface Props {
-  eyebrow: string;
+  /** Если не задано — строка над заголовком не показывается (напр. страница «Об авторе»). */
+  eyebrow?: string;
   title: string;
   subtitle: string;
   form: {
@@ -17,7 +18,7 @@ const { eyebrow, title, subtitle, form } = Astro.props;
 <section class="section-method-subscription" aria-labelledby="method-subscription-heading">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="method-subscription-card fade-in">
-      <p class="method-subscription-eyebrow">{eyebrow}</p>
+      {eyebrow ? <p class="method-subscription-eyebrow">{eyebrow}</p> : null}
       <h2 id="method-subscription-heading" class="font-messiri method-subscription-title">
         {title}
       </h2>

@@ -1,0 +1,66 @@
+---
+/**
+ * Блок 2: фильтры-чипы страницы «Отзывы»
+ * @see reviews-sections/02-reviews-filters.md
+ */
+import type { ReviewsFilterItem } from '../../data/pages/reviews';
+
+interface Props {
+  hint: string;
+  filters: readonly ReviewsFilterItem[];
+  statusPrefix: string;
+  /** Текст после префикса для фильтра «все темы» */
+  statusAllLabel?: string;
+}
+
+const { hint, filters, statusPrefix, statusAllLabel = 'все темы' } = Astro.props;
+
+const initialStatus = `${statusPrefix} ${statusAllLabel}`;
+---
+
+<div class="reviews-filters-panel mb-8">
+  <p class="review-filter-help">{hint}</p>
+  <div class="review-filter-list max-w-7xl mx-auto">
+    <div
+      class="review-filter-chip-wrap"
+      role="group"
+      aria-label="Фильтр отзывов по теме"
+    >
+      {
+        filters.map((item) => {
+          const isAll = item.id === 'all';
+          const statusText = isAll ? statusAllLabel : item.label;
+          return (
+            <button
+              type="button"
+              class:list={[
+                'review-filter-btn',
+                'review-filter-control',
+                { active: isAll },
+              ]}
+              data-filter={item.id}
+              data-review-status-text={statusText}
+              aria-pressed={isAll ? 'true' : 'false'}
+            >
+              <svg
+                class="review-filter-icon-svg"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                set:html={item.svgMarkup}
+              />
+              <span>{item.label}</span>
+            </button>
+          );
+        })
+      }
+    </div>
+  </div>
+  <div class="mt-2">
+    <p
+      class="font-montserrat text-[11px] uppercase tracking-[0.11em] text-dom-goldDark"
+      data-review-filter-status
+    >
+      {initialStatus}
+    </p>
+  </div>
+</div>

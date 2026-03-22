@@ -1,0 +1,146 @@
+---
+/**
+ * Секция «Отзывы из Telegram-чатов» — сетка 3 колонки, «Показать ещё» по 3 карточки.
+ */
+import type { CollectionEntry } from 'astro:content';
+import TelegramScreenshot from './TelegramScreenshot.astro';
+
+interface Props {
+  title: string;
+  reviews: Array<CollectionEntry<'reviews'> & { data: { type: 'telegram' } }>;
+}
+
+const { title, reviews } = Astro.props;
+---
+
+{
+  reviews.length > 0 ? (
+    <>
+      <div class="mb-20" data-review-section="telegram" data-telegram-reviews-section>
+        <h2 class="font-messiri mb-4 text-center text-4xl text-dom-graphite">{title}</h2>
+        <div class="mx-auto mb-8 h-1 w-20 bg-dom-gold" aria-hidden="true" />
+        <div class="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-8">
+          {reviews.map((entry, i) => {
+            const d = entry.data;
+            const catAttr = d.categories.join(',');
+            return (
+              <div
+                class:list={[
+                  'review-filter-item review-telegram-slot',
+                  i >= 3 && 'review-slot-pending',
+                ]}
+                data-review-category={catAttr}
+              >
+                <TelegramScreenshot
+                  screenshot={d.screenshot}
+                  title={d.title}
+                  telegramLink={d.telegramLink}
+                />
+              </div>
+            );
+          })}
+        </div>
+        <div class="mt-8 flex justify-center" data-telegram-load-more-wrap>
+          <button
+            type="button"
+            class="hidden rounded-xl border border-dom-graphite/20 px-8 py-3 font-montserrat text-xs font-semibold uppercase tracking-[0.08em] text-dom-graphite transition-all duration-300 hover:border-dom-gold/50 hover:bg-dom-gold/10 hover:text-dom-goldDark"
+            data-telegram-load-more
+          >
+            Показать ещё
+          </button>
+        </div>
+      </div>
+
+      <div
+        class="telegram-lightbox fixed inset-0 z-[60] p-4"
+        data-telegram-lightbox
+        role="dialog"
+        aria-modal="true"
+        aria-label="Увеличенный скриншот"
+      >
+        <button
+          type="button"
+          class="telegram-lightbox-backdrop absolute inset-0 border-0 cursor-default bg-black/75 p-0"
+          data-telegram-lightbox-close
+          aria-label="Закрыть просмотр"
+        />
+        <div class="relative z-[1] mx-auto flex max-h-[min(90vh,900px)] w-full max-w-[min(920px,96vw)] flex-col items-center gap-3">
+          <button
+            type="button"
+            class="telegram-lightbox-x self-end rounded-full border border-white/30 bg-dom-graphite/90 px-3 py-1 font-montserrat text-lg leading-none text-white hover:bg-dom-graphite"
+            data-telegram-lightbox-close
+            aria-label="Закрыть"
+          >
+            ×
+          </button>
+          <img
+            class="max-h-[min(78vh,820px)] w-auto max-w-full rounded-xl object-contain shadow-2xl"
+            data-telegram-lightbox-img
+            src=""
+            alt=""
+          />
+          <a
+            class="telegram-lightbox-link hidden rounded-lg bg-dom-gold/20 px-4 py-2 font-montserrat text-sm font-semibold text-dom-graphite hover:bg-dom-gold/35"
+            data-telegram-lightbox-link
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Открыть в Telegram
+          </a>
+        </div>
+      </div>
+    </>
+  ) : null
+}
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const section = document.querySelector('[data-telegram-reviews-section]');
+    if (!section) return;
+
+    const btn = section.querySelector('[data-telegram-load-more]');
+    const loadWrap = section.querySelector('[data-telegram-load-more-wrap]');
+
+    function visibleTelegramSlots(): HTMLElement[] {
+      return Array.from(section.querySelectorAll<HTMLElement>('.review-telegram-slot')).filter(
+        (el) => !el.classList.contains('hidden'),
+      );
+    }
+
+    function resetTelegramLoadMore() {
+      const slots = visibleTelegramSlots();
+      slots.forEach((el, i) => {
+        if (i < 3) el.classList.remove('review-slot-pending');
+        else el.classList.add('review-slot-pending');
+      });
+      updateTelegramLoadMoreButton();
+    }
+
+    function updateTelegramLoadMoreButton() {
+      const pending = visibleTelegramSlots().filter((el) =>
+        el.classList.contains('review-slot-pending'),
+      );
+      if (btn instanceof HTMLButtonElement) {
+        btn.classList.toggle('hidden', pending.length === 0);
+      }
+      if (loadWrap instanceof HTMLElement) {
+        loadWrap.classList.toggle('hidden', pending.length === 0);
+      }
+    }
+
+    btn?.addEventListener('click', () => {
+      const pending = visibleTelegramSlots().filter((el) =>
+        el.classList.contains('review-slot-pending'),
+      );
+      pending.slice(0, 3).forEach((el) => el.classList.remove('review-slot-pending'));
+      updateTelegramLoadMoreButton();
+    });
+
+    window.addEventListener('reviews-filtered', () => {
+      resetTelegramLoadMore();
+    });
+
+    resetTelegramLoadMore();
+  });
+</script>

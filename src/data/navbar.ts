@@ -3,6 +3,7 @@
  */
 
 import { blogMenuFilters } from './pages/blog';
+import { reviewsMenuFilters } from './pages/reviews';
 
 export interface NavItemChild {
   title: string;
@@ -52,14 +53,24 @@ export const navItems: NavItem[] = [
     title: 'Блог и наука',
     url: '/ru/blog/',
     children: [
+      { title: 'Смотреть весь блог', url: '/ru/blog/' },
       ...blogMenuFilters.map((f) => ({
         title: f.label,
         url: `/ru/blog/?filter=${f.id}`,
       })),
-      { title: 'Смотреть весь блог', url: '/ru/blog/' },
     ],
   },
-  { title: 'Отзывы', url: '/ru/reviews/' },
+  {
+    title: 'Отзывы',
+    url: '/ru/reviews/',
+    children: [
+      { title: 'Смотреть все отзывы', url: '/ru/reviews/' },
+      ...reviewsMenuFilters.map((f) => ({
+        title: f.label,
+        url: `/ru/reviews/?filter=${f.id}`,
+      })),
+    ],
+  },
   { title: 'Магазин', url: '/ru/shop/' },
 ];
 
@@ -74,12 +85,16 @@ export function getMobileNavLinks(): { title: string; url: string }[] {
     { title: 'История жизни', url: '/ru/about-life/' },
     { title: 'Приложение DOM', url: '/ru/app-dom/' },
     { title: 'Блог и наука', url: '/ru/blog/' },
+    { title: 'Смотреть весь блог', url: '/ru/blog/' },
     ...blogMenuFilters.map((f) => ({
       title: `Блог: ${f.label}`,
       url: `/ru/blog/?filter=${f.id}`,
     })),
-    { title: 'Блог: весь каталог', url: '/ru/blog/' },
-    { title: 'Отзывы', url: '/ru/reviews/' },
+    { title: 'Смотреть все отзывы', url: '/ru/reviews/' },
+    ...reviewsMenuFilters.map((f) => ({
+      title: `Отзывы: ${f.label}`,
+      url: `/ru/reviews/?filter=${f.id}`,
+    })),
     { title: 'Магазин', url: '/ru/shop/' },
   ];
   return links;

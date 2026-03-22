@@ -1,0 +1,133 @@
+---
+/**
+ * Секция «Видео-отзывы»: H2, золотая линия, сетка 3 колонки, «Показать ещё» по 3 карточки.
+ */
+import type { CollectionEntry } from 'astro:content';
+import VideoReviewCard from './VideoReviewCard.astro';
+import { reviewsPageData } from '../../data/pages/reviews';
+
+interface Props {
+  title: string;
+  reviews: Array<CollectionEntry<'reviews'> & { data: { type: 'video' } }>;
+}
+
+const { title, reviews } = Astro.props;
+
+function topicLabelFor(categories: string[]): string | undefined {
+  if (!categories.length) return undefined;
+  const id = categories[0];
+  const found = reviewsPageData.filters.items.find((i) => i.id === id);
+  return found?.label ?? id;
+}
+---
+
+{
+  reviews.length > 0 ? (
+    <div class="mb-20" data-review-section="video" data-video-reviews-section>
+      <h2 class="font-messiri mb-4 text-center text-4xl text-dom-graphite">{title}</h2>
+      <div class="mx-auto mb-8 h-1 w-20 bg-dom-gold" aria-hidden="true" />
+      <div class="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-8">
+        {reviews.map((entry, i) => {
+          const d = entry.data;
+          const catAttr = d.categories.join(',');
+          const embedSrc = `https://www.youtube.com/embed/${d.youtubeId}?autoplay=1`;
+          return (
+            <div
+              class:list={[
+                'review-filter-item review-video-slot',
+                i >= 3 && 'review-slot-pending',
+              ]}
+              data-review-category={catAttr}
+              data-youtube-embed={embedSrc}
+            >
+              <VideoReviewCard
+                thumbnail={d.thumbnail}
+                title={d.title}
+                excerpt={d.excerpt}
+                topicLabel={topicLabelFor(d.categories)}
+              />
+            </div>
+          );
+        })}
+      </div>
+      <div class="mt-8 flex justify-center" data-video-load-more-wrap>
+        <button
+          type="button"
+          class="hidden border border-dom-graphite/20 px-8 py-3 font-montserrat text-xs font-semibold uppercase tracking-[0.08em] text-dom-graphite transition-all duration-300 hover:border-dom-gold/50 hover:bg-dom-gold/10 hover:text-dom-goldDark rounded-xl"
+          data-video-load-more
+        >
+          Показать ещё
+        </button>
+      </div>
+    </div>
+  ) : null
+}
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const root = document.querySelector('[data-reviews-root]');
+    const section = document.querySelector('[data-video-reviews-section]');
+    if (!section) return;
+
+    const btn = section.querySelector('[data-video-load-more]');
+    const wrap = section.querySelector('[data-video-load-more-wrap]');
+
+    function visibleSlots(): HTMLElement[] {
+      return Array.from(section.querySelectorAll<HTMLElement>('.review-video-slot')).filter(
+        (el) => !el.classList.contains('hidden'),
+      );
+    }
+
+    function resetLoadMore() {
+      const slots = visibleSlots();
+      slots.forEach((el, i) => {
+        if (i < 3) el.classList.remove('review-slot-pending');
+        else el.classList.add('review-slot-pending');
+      });
+      updateButton();
+    }
+
+    function updateButton() {
+      const pending = visibleSlots().filter((el) => el.classList.contains('review-slot-pending'));
+      if (btn instanceof HTMLButtonElement) {
+        btn.classList.toggle('hidden', pending.length === 0);
+      }
+      if (wrap instanceof HTMLElement) {
+        wrap.classList.toggle('hidden', pending.length === 0);
+      }
+    }
+
+    btn?.addEventListener('click', () => {
+      const pending = visibleSlots().filter((el) =>
+        el.classList.contains('review-slot-pending'),
+      );
+      pending.slice(0, 3).forEach((el) => el.classList.remove('review-slot-pending'));
+      updateButton();
+    });
+
+    window.addEventListener('reviews-filtered', () => {
+      resetLoadMore();
+    });
+
+    resetLoadMore();
+
+    root?.addEventListener('click', (e) => {
+      const card = (e.target as HTMLElement).closest('.video-ribbon-card');
+      if (!card || !root.contains(card)) return;
+      if (card.classList.contains('video-review-playing')) return;
+
+      const wrap = card.closest('[data-youtube-embed]');
+      const url = wrap?.getAttribute('data-youtube-embed');
+      const poster = card.querySelector('.video-review-poster');
+      const embedWrap = card.querySelector('.video-review-embed-wrap');
+      const iframe = card.querySelector('[data-video-review-iframe]') as HTMLIFrameElement | null;
+      if (!url || !poster || !embedWrap || !iframe) return;
+
+      iframe.src = url;
+      poster.classList.add('hidden');
+      embedWrap.classList.remove('hidden');
+      card.classList.add('video-review-playing');
+      card.classList.remove('cursor-pointer', 'group');
+    });
+  });
+</script>

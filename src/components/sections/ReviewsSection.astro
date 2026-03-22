@@ -86,7 +86,9 @@ const flowCardsJson = JSON.stringify(flowCards);
       full: r.fullText,
     }));
 
-    grid.innerHTML = stories.map((story) => `
+    grid.innerHTML = stories
+      .map(
+        (story) => `
       <button type="button" class="home-review-card" data-home-story-id="${story.id}">
         <div class="home-review-photo-wrap">
           <img src="${story.image}" alt="${story.name}" class="home-review-photo" loading="lazy" decoding="async" width="400" height="275" onerror="this.onerror=null;this.src='/images/home/hero-reference.jpg';">
@@ -98,11 +100,15 @@ const flowCardsJson = JSON.stringify(flowCards);
           <p class="home-review-readmore">Читать полностью</p>
         </div>
       </button>
-    `).join('');
+    `,
+      )
+      .join('');
 
     if (flowTrackA && flowCards.length) {
       const flowSlice = flowCards.slice(0, 6);
-      const flowMarkup = flowSlice.map((item) => `
+      const flowMarkup = flowSlice
+        .map(
+          (item) => `
         <article class="home-flow-card">
           <div class="home-flow-card-media">
             <img src="${item.photo}" alt="${item.name}" loading="lazy" decoding="async" width="290" height="138" onerror="this.onerror=null;this.src='/images/home/hero-reference.jpg';">
@@ -114,7 +120,9 @@ const flowCardsJson = JSON.stringify(flowCards);
             <p class="home-flow-card-result">${item.result}</p>
           </div>
         </article>
-      `).join('');
+      `,
+        )
+        .join('');
       flowTrackA.innerHTML = flowMarkup;
     }
 

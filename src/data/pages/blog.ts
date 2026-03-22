@@ -28,8 +28,9 @@ export const blogPageData = {
       { id: 'money-business', title: 'Деньги и бизнес' },
       { id: 'anxiety-depression', title: 'Тревожность и депрессия' },
     ],
-    contentTypes: ['Статья', 'Книга'],
+    contentTypes: ['Статья', 'Книга', 'Видео'],
     tags: [
+      'Видео-отзыв',
       'Принятие',
       'Позиция взрослого',
       'Роль',

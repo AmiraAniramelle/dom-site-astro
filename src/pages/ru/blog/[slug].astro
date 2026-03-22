@@ -104,6 +104,7 @@ const ctaHref = post.cta?.url
     : null;
 const ctaIsExternal = post.cta?.url ? /^https?:\/\//i.test(post.cta.url) : false;
 const isBook = post.contentType === 'Книга';
+const isVideoPost = post.contentType === 'Видео' && Boolean(post.youtubeId);
 ---
 
 <BaseLayout meta={meta}>
@@ -117,37 +118,60 @@ const isBook = post.contentType === 'Книга';
         <span class="hidden md:inline">← К списку материалов</span>
       </a>
 
-      <div
-        class:list={[
-          'blog-article-cover relative rounded-2xl mb-8 border border-dom-gold/15',
-          isBook
-            ? 'h-72 md:h-96 overflow-hidden bg-dom-beige/45 px-6 py-6 md:px-10 md:py-8'
-            : 'h-72 md:h-96 overflow-hidden bg-dom-beige/30',
-        ]}
-      >
-        <img
-          src={coverSrc}
-          alt={post.title}
-          class:list={[
-            'h-full w-full',
-            isBook ? 'object-contain object-center' : 'object-cover object-top',
-          ]}
-          width="1200"
-          height="675"
-          loading="lazy"
-          decoding="async"
-          onerror="this.onerror=null;this.src='/images/blog/placeholder.jpg'"
-        />
-        <span
-          class="blog-article-cover-badge absolute top-4 left-4 px-4 py-1.5 rounded-full bg-dom-gold/90 text-white text-xs font-montserrat font-bold uppercase tracking-wider"
-        >
-          {post.contentType}
-        </span>
-      </div>
+      {
+        isVideoPost && post.youtubeId ? (
+          <div class="relative mb-8 overflow-hidden rounded-2xl border border-dom-gold/15 shadow-md aspect-video w-full">
+            <iframe
+              class="absolute inset-0 h-full w-full"
+              src={`https://www.youtube.com/embed/${post.youtubeId}`}
+              title={post.title}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+              loading="lazy"
+            />
+            <span class="pointer-events-none absolute top-4 left-4 z-[1] rounded-full bg-dom-gold/90 px-4 py-1.5 font-montserrat text-xs font-bold uppercase tracking-wider text-white">
+              {post.contentType}
+            </span>
+          </div>
+        ) : (
+          <div
+            class:list={[
+              'blog-article-cover relative rounded-2xl mb-8 border border-dom-gold/15',
+              isBook
+                ? 'h-72 md:h-96 overflow-hidden bg-dom-beige/45 px-6 py-6 md:px-10 md:py-8'
+                : 'h-72 md:h-96 overflow-hidden bg-dom-beige/30',
+            ]}
+          >
+            <img
+              src={coverSrc}
+              alt={post.title}
+              class:list={[
+                'h-full w-full',
+                isBook ? 'object-contain object-center' : 'object-cover object-top',
+              ]}
+              width="1200"
+              height="675"
+              loading="lazy"
+              decoding="async"
+              onerror="this.onerror=null;this.src='/images/blog/placeholder.jpg'"
+            />
+            <span
+              class="blog-article-cover-badge absolute top-4 left-4 px-4 py-1.5 rounded-full bg-dom-gold/90 text-white text-xs font-montserrat font-bold uppercase tracking-wider"
+            >
+              {post.contentType}
+            </span>
+          </div>
+        )
+      }
 
       <div class="blog-article-header mb-6">
         <p class="blog-article-meta font-montserrat text-sm text-dom-graphite/50 mb-3">
-          {post.date} · {post.readingTime} мин чтения
+          {post.date}
+          {isVideoPost ? (
+            <> · ~{post.readingTime} мин просмотра</>
+          ) : (
+            <> · {post.readingTime} мин чтения</>
+          )}
         </p>
         <h1 class="blog-article-title font-messiri text-4xl md:text-5xl text-dom-graphite mb-4 leading-tight">
           {post.title}

@@ -1,57 +1,155 @@
 ---
+/**
+ * Блок «База знаний» на главной: карточки как в макете + фильтры-чипы.
+ * Материалы: карточки из данных главной (home.ts → knowledgeBase.categories).
+ */
+export interface KnowledgeBaseItem {
+  chipLabel: string;
+  title: string;
+  description: string;
+  href: string;
+  image: { src: string; alt: string };
+  /** Ключи для фильтрации: video, id категории блога (system-thinking, …) */
+  filterKeys: string[];
+}
+
 interface Props {
   title: string;
   ctaAll?: { text: string; url: string };
-  categories: Array<{
-    title: string;
-    description: string;
-    articles: Array<{ title: string; url: string }>;
-    chipLabel?: string;
-    image?: { src: string; alt: string };
-  }>;
+  items: KnowledgeBaseItem[];
+  filterChips: Array<{ id: string; label: string }>;
 }
 
-const { title, ctaAll, categories } = Astro.props;
+const { title, ctaAll, items, filterChips } = Astro.props;
 ---
 
-<section class="home-section home-section-tone-soft" aria-labelledby="knowledge-heading">
+<section
+  class="home-section home-section-tone-soft"
+  aria-labelledby="knowledge-heading"
+  data-knowledge-base-section
+>
   <div class="max-w-7xl mx-auto px-4 home-surface">
-    <div class="flex items-end justify-between flex-wrap gap-4 mb-7">
+    <div class="flex items-end justify-between flex-wrap gap-4 mb-6">
       <h2 id="knowledge-heading" class="font-messiri home-title text-dom-graphite">{title}</h2>
-      {ctaAll && (
-        <a href={ctaAll.url} class="font-montserrat text-xs uppercase tracking-[0.1em] text-dom-goldDark hover:text-dom-graphite">{ctaAll.text}</a>
-      )}
+      {
+        ctaAll && (
+          <a
+            href={ctaAll.url}
+            class="font-montserrat text-xs uppercase tracking-[0.1em] text-dom-goldDark hover:text-dom-graphite"
+          >
+            {ctaAll.text}
+          </a>
+        )
+      }
     </div>
+
+    <div
+      class="flex flex-wrap gap-2 mb-7"
+      role="tablist"
+      aria-label="Фильтр материалов базы знаний"
+      data-knowledge-base-filters
+    >
+      {
+        filterChips.map((chip, i) => (
+          <button
+            type="button"
+            role="tab"
+            aria-selected={i === 0 ? 'true' : 'false'}
+            class:list={[
+              'home-kb-filter-chip rounded-full border px-4 py-2 font-montserrat text-xs font-bold uppercase tracking-[0.1em] transition-colors duration-200',
+              i === 0
+                ? 'border-dom-gold bg-dom-gold/15 text-dom-graphite'
+                : 'border-dom-gold/30 bg-white/80 text-dom-graphite/80 hover:border-dom-gold/50 hover:bg-dom-beige/30',
+            ]}
+            data-kb-chip={chip.id}
+          >
+            {chip.label}
+          </button>
+        ))
+      }
+    </div>
+
     <div class="home-knowledge-grid">
-      {categories.map((category) => (
-        <article class="home-knowledge-card">
-          {category.image && (
-            <div class="home-knowledge-media">
-              <img
-                src={category.image.src}
-                alt={category.image.alt}
-                width="400"
-                height="250"
-                loading="lazy"
-                decoding="async"
-              />
-              <div class="home-knowledge-overlay" aria-hidden="true"></div>
-              {category.chipLabel && <p class="home-knowledge-chip">{category.chipLabel}</p>}
-            </div>
-          )}
-          <div class="home-knowledge-body">
-            <h3 class="font-messiri text-2xl text-dom-graphite mb-3">{category.title}</h3>
-            <p class="font-montserrat text-sm text-dom-graphite/75 leading-relaxed mb-5">{category.description}</p>
-            <ul class="home-knowledge-articles flex flex-wrap gap-3 list-none m-0 p-0" aria-label="Статьи">
-              {category.articles.map((article) => (
-                <li>
-                  <a href={article.url} class="font-montserrat text-xs uppercase tracking-[0.08em] text-dom-goldDark hover:text-dom-graphite">{article.title}</a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </article>
-      ))}
+      {
+        items.map((item) => (
+          <a
+            href={item.href}
+            class="home-knowledge-card group block no-underline text-inherit"
+            data-kb-card
+            data-kb-filters={item.filterKeys.join(' ')}
+          >
+            <article class="h-full flex flex-col">
+              <div class="home-knowledge-media">
+                <img
+                  src={item.image.src}
+                  alt={item.image.alt}
+                  width="400"
+                  height="250"
+                  loading="lazy"
+                  decoding="async"
+                  class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                />
+                <div class="home-knowledge-overlay" aria-hidden="true" />
+                <p class="home-knowledge-chip">{item.chipLabel}</p>
+              </div>
+              <div class="home-knowledge-body">
+                <h3 class="font-messiri text-2xl text-dom-graphite mb-3 group-hover:text-dom-gold transition-colors">
+                  {item.title}
+                </h3>
+                <p class="font-montserrat text-sm text-dom-graphite/75 leading-relaxed mb-5 flex-grow">
+                  {item.description}
+                </p>
+                <span
+                  class="font-montserrat text-xs uppercase tracking-[0.08em] text-dom-goldDark group-hover:text-dom-graphite"
+                >
+                  Читать
+                </span>
+              </div>
+            </article>
+          </a>
+        ))
+      }
     </div>
   </div>
 </section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const root = document.querySelector('[data-knowledge-base-section]');
+    if (!root) return;
+    const chips = root.querySelectorAll('[data-kb-chip]');
+    const cards = root.querySelectorAll('[data-kb-card]');
+    if (!chips.length || !cards.length) return;
+
+    function applyFilter(activeId: string) {
+      chips.forEach((c) => {
+        const id = c.getAttribute('data-kb-chip') || '';
+        const on = id === activeId;
+        c.setAttribute('aria-selected', on ? 'true' : 'false');
+        c.classList.toggle('border-dom-gold', on);
+        c.classList.toggle('bg-dom-gold/15', on);
+        c.classList.toggle('text-dom-graphite', on);
+        c.classList.toggle('border-dom-gold/30', !on);
+        c.classList.toggle('bg-white/80', !on);
+        c.classList.toggle('text-dom-graphite/80', !on);
+      });
+
+      cards.forEach((card) => {
+        const raw = card.getAttribute('data-kb-filters') || '';
+        const keys = raw.split(/\s+/).filter(Boolean);
+        const show =
+          activeId === 'all' || activeId === '' || keys.includes(activeId);
+        card.classList.toggle('hidden', !show);
+      });
+    }
+
+    chips.forEach((chip) => {
+      chip.addEventListener('click', () => {
+        const id = chip.getAttribute('data-kb-chip') || 'all';
+        applyFilter(id);
+      });
+    });
+
+    applyFilter('all');
+  });
+</script>

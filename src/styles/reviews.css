@@ -1,0 +1,182 @@
+/*
+ * Страница «Отзывы»: подключается из reviews.astro (не дублируем в global.css — Vite подмешивает в бандл страницы).
+ * Карточки: .video-ribbon-card (видео), .telegram-shot; истории — .home-review-card + .reviews-story-card.
+ */
+
+/* Скрытие по фильтру (дублирует смысл Tailwind .hidden — на случай если утилита не попала в CSS) */
+.review-filter-item.review-filter-item--filtered-out {
+  display: none !important;
+}
+
+/* «Показать ещё»: скрытые карточки до клика */
+.review-slot-pending {
+  display: none !important;
+}
+
+.video-ribbon-card.video-review-playing:hover {
+  transform: none;
+}
+
+.telegram-shot {
+  border-radius: 1.1rem;
+  border: 1px solid rgba(184, 142, 74, 0.25);
+  background: linear-gradient(155deg, rgba(255, 255, 255, 0.96), rgba(245, 232, 202, 0.78));
+  box-shadow: 0 10px 24px rgba(126, 91, 35, 0.12);
+  overflow: hidden;
+}
+
+.telegram-shot-img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.telegram-lightbox {
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.telegram-lightbox.telegram-lightbox--open {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Фильтры-чипы страницы «Отзывы» — source-DOM/source-DOM.html ~4190–4277 + мобильный скролл */
+
+.review-filter-list {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  padding: 0;
+}
+
+.review-filter-chip-wrap {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 0.65rem;
+  padding: 0.2rem 0 0.15rem;
+  width: 100%;
+}
+
+.review-filter-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.44rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid rgba(173, 128, 58, 0.32);
+  background: rgba(255, 255, 255, 0.84);
+  font-family: var(--font-montserrat, 'Montserrat', sans-serif);
+  font-size: 12px;
+  font-weight: 600;
+  color: #3f3528;
+  transition:
+    background-color 0.22s ease,
+    color 0.22s ease,
+    border-color 0.22s ease,
+    transform 0.22s ease;
+  text-align: left;
+  white-space: normal;
+  width: 100%;
+  min-height: 40px;
+  cursor: pointer;
+}
+
+.review-filter-btn:hover {
+  background: rgba(217, 179, 114, 0.16);
+  border-color: rgba(173, 128, 58, 0.45);
+  transform: translateY(-1px);
+}
+
+.review-filter-btn.active {
+  background: linear-gradient(120deg, rgba(217, 179, 114, 0.34), rgba(204, 162, 107, 0.2));
+  border-color: rgba(159, 113, 43, 0.62);
+  color: #1f1810;
+  box-shadow: 0 8px 22px rgba(126, 91, 35, 0.16);
+}
+
+.review-filter-icon-svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  color: #ad8040;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.85;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.review-filter-btn.active .review-filter-icon-svg {
+  color: #825a23;
+}
+
+.review-filter-help {
+  font-family: var(--font-montserrat, 'Montserrat', sans-serif);
+  font-size: 12px;
+  line-height: 1.4;
+  color: rgba(56, 51, 45, 0.72);
+  margin: 0 0 0.45rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+@media (max-width: 880px) {
+  .review-filter-chip-wrap {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+}
+
+/* Мобильный горизонтальный скролл чипов (reviews-sections/02) */
+@media (max-width: 768px) {
+  .review-filter-chip-wrap {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 0.65rem;
+    padding-bottom: 0.5rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+  }
+
+  .review-filter-chip-wrap .review-filter-btn {
+    width: auto;
+    min-width: max-content;
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+}
+
+/*
+ * Истории на /ru/reviews/: внешний вид = .home-review-card с главной (global.css).
+ * Здесь только уточнения для <article> и кнопки «Читать полностью».
+ */
+.reviews-story-card {
+  cursor: pointer;
+}
+
+/* Полный текст в модалке: HTML из markdown, не pre-line как у plain text на главной */
+.reviews-story-modal-body {
+  white-space: normal;
+  margin-top: 0.9rem;
+}
+
+.story-markdown :where(p) {
+  margin: 0 0 0.65rem;
+}
+
+.story-markdown :where(p:last-child) {
+  margin-bottom: 0;
+}
+
+.story-markdown :where(strong) {
+  font-weight: 600;
+  color: rgba(31, 24, 16, 0.92);
+}

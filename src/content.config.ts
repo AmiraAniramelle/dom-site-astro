@@ -71,7 +71,9 @@ const blog = defineCollection({
       'money-business',
       'anxiety-depression',
     ]),
-    contentType: z.enum(['Статья', 'Книга']),
+    contentType: z.enum(['Статья', 'Книга', 'Видео']),
+    /** Для постов с contentType «Видео» — встраивание на странице статьи */
+    youtubeId: z.string().optional(),
     tags: z.array(z.string()),
     date: z.string(),
     readingTime: z.number(),
@@ -101,18 +103,40 @@ const blog = defineCollection({
   }),
 });
 
+const reviewCommon = {
+  title: z.string(),
+  name: z.string(),
+  city: z.string(),
+  role: z.string().optional(),
+  categories: z.array(z.string()),
+  excerpt: z.string(),
+  date: z.string(),
+  published: z.boolean().default(true),
+  lang: z.enum(['ru', 'en']).default('ru'),
+};
+
 const reviews = defineCollection({
   loader: glob({ base: './src/content/reviews', pattern: '**/*.md' }),
-  schema: z.object({
-    author: z.string(),
-    text: z.string(),
-    category: z.string(),
-    productId: z.string().optional(),
-    rating: z.number().min(1).max(5).optional(),
-    date: z.string().optional(),
-    published: z.boolean().default(true),
-    lang: z.enum(['ru', 'en']).default('ru'),
-  }),
+  schema: z.discriminatedUnion('type', [
+    z.object({
+      type: z.literal('video'),
+      ...reviewCommon,
+      youtubeId: z.string(),
+      thumbnail: z.string(),
+    }),
+    z.object({
+      type: z.literal('story'),
+      ...reviewCommon,
+      photo: z.string(),
+      highlight: z.string(),
+    }),
+    z.object({
+      type: z.literal('telegram'),
+      ...reviewCommon,
+      screenshot: z.string(),
+      telegramLink: z.string().optional(),
+    }),
+  ]),
 });
 
 export const collections = { products, blog, reviews };

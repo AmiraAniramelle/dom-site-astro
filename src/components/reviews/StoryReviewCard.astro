@@ -1,0 +1,65 @@
+---
+/**
+ * Карточка истории на /ru/reviews/ — как на главной: excerpt + «Читать полностью», полный текст в модалке.
+ * Классы карточки: home-review-* (global.css).
+ */
+interface Props {
+  id: string;
+  name: string;
+  city: string;
+  role?: string;
+  photo: string;
+  highlight: string;
+  excerpt: string;
+}
+
+const {
+  id,
+  name,
+  city,
+  role,
+  photo,
+  highlight: _highlight,
+  excerpt,
+} = Astro.props;
+const photoSrc = encodeURI(photo);
+const metaLine =
+  role && role.trim() ? `${role.trim()} · ${city}` : city;
+const imgFallback = '/images/home/hero-reference.jpg';
+---
+
+<article
+  class="home-review-card reviews-story-card flex h-full w-full min-w-0 flex-col"
+  data-reviews-story-card
+  data-reviews-story-id={id}
+  tabindex="0"
+  role="button"
+  aria-haspopup="dialog"
+  aria-label={`Отзыв: ${name}. Открыть полностью`}
+>
+  <div class="home-review-photo-wrap shrink-0">
+    <img
+      src={photoSrc}
+      alt={name}
+      class="home-review-photo"
+      loading="lazy"
+      decoding="async"
+      width="400"
+      height="275"
+      onerror={`this.onerror=null;this.src='${imgFallback}';`}
+    />
+  </div>
+  <div class="home-review-body flex min-h-0 flex-grow flex-col">
+    <h3 class="home-review-name shrink-0">{name}</h3>
+    <p class="home-review-meta shrink-0">{metaLine}</p>
+    <div class="reviews-story-main flex min-h-0 flex-grow flex-col">
+      <p class="home-review-excerpt mb-0 shrink-0">{excerpt}</p>
+    </div>
+    <p class="home-review-readmore mt-auto shrink-0">Читать полностью</p>
+  </div>
+  <div class="hidden" data-reviews-story-body aria-hidden="true">
+    <div class="story-markdown">
+      <slot />
+    </div>
+  </div>
+</article>

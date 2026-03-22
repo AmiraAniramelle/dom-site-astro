@@ -1,0 +1,231 @@
+---
+/**
+ * Секция «Истории студентов» — reviews-sections/04-story-reviews.md
+ * Модалка полного текста — как на главной (home-review-modal-* в global.css).
+ */
+import { render } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import StoryReviewCard from './StoryReviewCard.astro';
+
+interface Props {
+  title: string;
+  reviews: Array<CollectionEntry<'reviews'> & { data: { type: 'story' } }>;
+}
+
+const { title, reviews } = Astro.props;
+
+const items = await Promise.all(
+  reviews.map(async (entry) => {
+    const { Content } = await render(entry);
+    return { entry, Content };
+  }),
+);
+---
+
+{
+  items.length > 0 ? (
+    <div class="mb-20" data-review-section="stories" data-reviews-story-section>
+      <h2 class="font-messiri mb-4 text-center text-4xl text-dom-graphite">{title}</h2>
+      <div class="mx-auto mb-8 h-1 w-20 bg-dom-gold" aria-hidden="true" />
+      <div class="grid grid-cols-1 items-stretch gap-4 md:grid-cols-3 md:gap-8">
+        {items.map(({ entry, Content }, i) => {
+          const d = entry.data;
+          const catAttr = d.categories.join(',');
+          return (
+            <div
+              class:list={[
+                'review-filter-item review-story-slot',
+                i >= 3 && 'review-slot-pending',
+              ]}
+              data-review-category={catAttr}
+            >
+              <StoryReviewCard
+                id={entry.id}
+                name={d.name}
+                city={d.city}
+                role={d.role}
+                photo={d.photo}
+                highlight={d.highlight}
+                excerpt={d.excerpt}
+              >
+                <Content />
+              </StoryReviewCard>
+            </div>
+          );
+        })}
+      </div>
+      <div class="mt-8 flex justify-center" data-story-load-more-wrap>
+        <button
+          type="button"
+          class="hidden rounded-xl border border-dom-graphite/20 px-8 py-3 font-montserrat text-xs font-semibold uppercase tracking-[0.08em] text-dom-graphite transition-all duration-300 hover:border-dom-gold/50 hover:bg-dom-gold/10 hover:text-dom-goldDark"
+          data-story-load-more
+        >
+          Показать ещё
+        </button>
+      </div>
+
+      <div
+        class="home-review-modal-overlay hidden"
+        data-reviews-story-modal-overlay
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="reviews-story-modal-name"
+      >
+        <article class="home-review-modal relative max-h-[min(90vh,880px)] overflow-y-auto">
+          <button
+            type="button"
+            class="home-review-modal-close"
+            data-reviews-story-modal-close
+            aria-label="Закрыть отзыв"
+          >
+            ×
+          </button>
+          <div class="home-review-photo-wrap">
+            <img
+              src=""
+              alt=""
+              class="home-review-photo"
+              data-reviews-story-modal-photo
+              width="760"
+              height="420"
+            />
+          </div>
+          <div class="home-review-modal-content">
+            <h3 id="reviews-story-modal-name" class="home-review-name" data-reviews-story-modal-name></h3>
+            <p class="home-review-meta" data-reviews-story-modal-meta></p>
+            <div
+              class="home-review-modal-text story-markdown reviews-story-modal-body"
+              data-reviews-story-modal-text
+            ></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  ) : null
+}
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const section = document.querySelector('[data-reviews-story-section]');
+    const overlay = document.querySelector('[data-reviews-story-modal-overlay]');
+    if (!section || !overlay) return;
+
+    const photoEl = overlay.querySelector(
+      '[data-reviews-story-modal-photo]',
+    ) as HTMLImageElement | null;
+    const nameEl = overlay.querySelector('[data-reviews-story-modal-name]');
+    const metaEl = overlay.querySelector('[data-reviews-story-modal-meta]');
+    const textEl = overlay.querySelector('[data-reviews-story-modal-text]');
+    const closeBtn = overlay.querySelector('[data-reviews-story-modal-close]');
+    if (!photoEl || !nameEl || !metaEl || !textEl || !closeBtn) return;
+
+    const fallbackImg = '/images/home/hero-reference.jpg';
+
+    function isCardVisible(card: Element) {
+      return !card.classList.contains('hidden');
+    }
+
+    function openModal(card: HTMLElement) {
+      if (!isCardVisible(card)) return;
+      const source = card.querySelector('[data-reviews-story-body] .story-markdown');
+      const img = card.querySelector('.home-review-photo') as HTMLImageElement | null;
+      const name = card.querySelector('.home-review-name')?.textContent?.trim() || '';
+      const meta = card.querySelector('.home-review-meta')?.textContent?.trim() || '';
+
+      if (img) {
+        photoEl.src = img.currentSrc || img.src || fallbackImg;
+        photoEl.alt = img.alt || name;
+        photoEl.onerror = () => {
+          photoEl.onerror = null;
+          photoEl.src = fallbackImg;
+        };
+      } else {
+        photoEl.src = fallbackImg;
+        photoEl.alt = name;
+      }
+
+      nameEl.textContent = name;
+      metaEl.textContent = meta;
+      if (source) {
+        textEl.innerHTML = source.innerHTML;
+      } else {
+        textEl.innerHTML = '';
+      }
+
+      overlay.classList.remove('hidden');
+      document.body.classList.add('overflow-hidden');
+      closeBtn.focus();
+    }
+
+    function closeModal() {
+      overlay.classList.add('hidden');
+      document.body.classList.remove('overflow-hidden');
+      textEl.innerHTML = '';
+    }
+
+    section.addEventListener('click', (e) => {
+      const card = (e.target as HTMLElement).closest('[data-reviews-story-card]');
+      if (!card || !section.contains(card)) return;
+      openModal(card as HTMLElement);
+    });
+
+    section.addEventListener('keydown', (e) => {
+      if (e.key !== 'Enter' && e.key !== ' ') return;
+      const card = (e.target as HTMLElement).closest('[data-reviews-story-card]');
+      if (!card || !section.contains(card)) return;
+      if (e.key === ' ') e.preventDefault();
+      openModal(card as HTMLElement);
+    });
+
+    closeBtn.addEventListener('click', closeModal);
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) closeModal();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !overlay.classList.contains('hidden')) closeModal();
+    });
+
+    const btn = section.querySelector('[data-story-load-more]');
+    const loadWrap = section.querySelector('[data-story-load-more-wrap]');
+
+    function visibleStorySlots(): HTMLElement[] {
+      return Array.from(section.querySelectorAll<HTMLElement>('.review-story-slot')).filter(
+        (el) => !el.classList.contains('hidden'),
+      );
+    }
+
+    function resetStoryLoadMore() {
+      const slots = visibleStorySlots();
+      slots.forEach((el, i) => {
+        if (i < 3) el.classList.remove('review-slot-pending');
+        else el.classList.add('review-slot-pending');
+      });
+      updateStoryLoadMoreButton();
+    }
+
+    function updateStoryLoadMoreButton() {
+      const pending = visibleStorySlots().filter((el) => el.classList.contains('review-slot-pending'));
+      if (btn instanceof HTMLButtonElement) {
+        btn.classList.toggle('hidden', pending.length === 0);
+      }
+      if (loadWrap instanceof HTMLElement) {
+        loadWrap.classList.toggle('hidden', pending.length === 0);
+      }
+    }
+
+    btn?.addEventListener('click', () => {
+      const pending = visibleStorySlots().filter((el) =>
+        el.classList.contains('review-slot-pending'),
+      );
+      pending.slice(0, 3).forEach((el) => el.classList.remove('review-slot-pending'));
+      updateStoryLoadMoreButton();
+    });
+
+    window.addEventListener('reviews-filtered', () => {
+      resetStoryLoadMore();
+    });
+
+    resetStoryLoadMore();
+  });
+</script>

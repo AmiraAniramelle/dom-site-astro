@@ -1,0 +1,72 @@
+---
+/**
+ * Видео-отзыв: превью 16:9 без текста на кадре; текст и тег только под видео (белая карточка).
+ */
+interface Props {
+  thumbnail: string;
+  title: string;
+  excerpt: string;
+  /** Подпись тега темы (первая категория) */
+  topicLabel?: string;
+}
+
+const { thumbnail, title, excerpt, topicLabel } = Astro.props;
+const thumbSrc = encodeURI(thumbnail);
+const imgFallback = '/images/home/hero-reference.jpg';
+---
+
+<article
+  class="video-ribbon-card group flex h-full min-h-0 cursor-pointer flex-col overflow-hidden rounded-2xl border border-dom-gold/25 bg-white shadow-[0_10px_24px_rgba(126,91,35,0.1)] transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+  data-video-review-card
+>
+  <div class="relative aspect-video bg-dom-graphite">
+    <div class="video-review-poster absolute inset-0 z-[1]">
+      <img
+        src={thumbSrc}
+        alt=""
+        class="h-full w-full object-cover"
+        width="640"
+        height="360"
+        loading="lazy"
+        onerror={`this.onerror=null;this.src='${imgFallback}';`}
+      />
+    </div>
+    <div
+      class="pointer-events-none absolute inset-0 z-[2] flex items-center justify-center"
+      aria-hidden="true"
+    >
+      <span
+        class="flex h-16 w-16 items-center justify-center rounded-full bg-dom-gold/90 text-white shadow-lg transition-colors duration-200 group-hover:bg-dom-gold"
+      >
+        <svg class="ml-1 h-7 w-7" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </span>
+    </div>
+    <div class="video-review-embed-wrap absolute inset-0 z-[3] hidden bg-black">
+      <iframe
+        class="h-full w-full"
+        title={title}
+        allow="autoplay; encrypted-media; fullscreen"
+        allowfullscreen
+        loading="lazy"
+        data-video-review-iframe
+      ></iframe>
+    </div>
+  </div>
+  <div class="p-6">
+    <h3 class="font-messiri mb-2 text-xl text-dom-graphite">
+      {title}
+    </h3>
+    <p class="font-montserrat text-sm leading-relaxed text-dom-graphite/70">
+      {excerpt}
+    </p>
+    {
+      topicLabel ? (
+        <span class="mt-3 inline-block rounded-full border border-dom-gold/30 px-4 py-1 font-montserrat text-[11px] uppercase tracking-[0.08em] text-dom-goldDark">
+          {topicLabel}
+        </span>
+      ) : null
+    }
+  </div>
+</article>

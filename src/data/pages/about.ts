@@ -19,19 +19,16 @@ export interface AboutPageData {
     stats: Array<{ value: string; label: string }>;
   };
   whoToday: {
-    eyebrow: string;
     title: string;
     paragraphs: string[];
   };
   philanthropy: {
-    eyebrow: string;
     title: string;
     text: string;
     image: { src: string; alt: string; width?: number; height?: number };
     imageCaption?: string;
   };
   pathLived: {
-    eyebrow: string;
     title: string;
     text: string;
     image: { src: string; alt: string; width?: number; height?: number };
@@ -39,7 +36,6 @@ export interface AboutPageData {
   };
   philosophy: {
     title: string;
-    eyebrow?: string;
     principles: Array<{ title: string; description: string }>;
   };
   ecosystem: {
@@ -50,14 +46,12 @@ export interface AboutPageData {
     items: string[];
     /** Не показывается, если есть gallery — портрет в полосе карточек */
     image?: { src: string; alt: string; width?: number; height?: number };
-    eyebrow?: string;
     cta?: { text: string; url: string };
     gallery?: Array<{ src: string; alt: string; imgClass?: string }>;
   };
   method: {
     title: string;
     houses: Array<{ title: string; description: string; subtitle?: string }>;
-    eyebrow?: string;
     footerParagraphs?: string[];
     cta?: { text: string; url: string };
   };
@@ -70,7 +64,6 @@ export interface AboutPageData {
       url?: string;
       coverLayout?: 'default' | 'library';
     }>;
-    eyebrow?: string;
     intro?: string;
     cta?: { text: string; url: string };
   };
@@ -79,13 +72,11 @@ export interface AboutPageData {
     description: string;
     image: { src: string; alt: string; width?: number; height?: number };
     cta: { text: string; url: string };
-    eyebrow?: string;
     sublabel?: string;
   };
   stories: {
     title: string;
     stories: Array<{ name: string; text: string; photo?: string }>;
-    eyebrow?: string;
     intro?: string;
     cta?: { text: string; url: string };
   };
@@ -97,7 +88,6 @@ export interface AboutPageData {
   };
   /** Подписка (MethodSubscribe + виджет GetCourse; поля формы задаёт виджет) */
   subscribe: {
-    eyebrow: string;
     title: string;
     subtitle: string;
     fields: Array<{ name: string; placeholder: string; type: string }>;
@@ -151,7 +141,6 @@ export const aboutPageData: AboutPageData = {
     ],
   },
   whoToday: {
-    eyebrow: 'Роль Анны Камаллаи Хефорс: автор и архитектор метода DOM',
     title: 'Кто она сегодня',
     paragraphs: [
       'Камаллая Хефорс - автор и архитектор метода DOM. Практик, исследователь и женщина, которая соединяет системное мышление с глубокой человечностью - чтобы изменения происходили не только «в голове», а в реальной жизни: в семье, в решениях, в кошельке, в спокойствии.',
@@ -160,7 +149,6 @@ export const aboutPageData: AboutPageData = {
     ],
   },
   philanthropy: {
-    eyebrow: 'Роль Анны Камаллаи Хефорс: филантропическая миссия',
     title: 'Филантропия, которая не про образ, а про жизнь',
     text:
       'Камаллая поддерживает медицинские и благотворительные программы, которые помогают детям с риском тяжелых заболеваний мозга. Это не отдельная часть «для репутации», а продолжение ее главного выбора, быть рядом там, где человеку страшно, и где нужна опора, простая и настоящая. Поэтому в DOM много внимания к тому, как держится психика, как сохраняется семья, и как человек возвращает себе взрослую устойчивость, потому что это не абстрактные идеи, а то, что напрямую влияет на жизнь.',
@@ -173,7 +161,6 @@ export const aboutPageData: AboutPageData = {
     imageCaption: '«Помощь детям это продолжение того же смысла, возвращать опору и жизнь.»',
   },
   pathLived: {
-    eyebrow: 'Роль Анны Камаллаи Хефорс: прожитый опыт метода DOM',
     title: 'Путь, который прожит, а не выучен',
     text:
       'Для Камаллаи важно говорить честно: DOM не родился как теория из кабинета. Это путь, который она проживала через собственные кризисы и трансформации, и поэтому в ее работе нет оторванных советов и красивых лозунгов. Камаллая говорит о том, что она не автор, который просто чему-то научился и пересказал, и что все, что она дает людям, прошло через ее жизнь и стало проверкой на прочность. В этом много спокойной силы, потому что человек чувствует, что его не ведут в «идеальность», его ведут к реальности, где можно выстроить устойчивость и вернуть состояние, я дома.',
@@ -186,7 +173,6 @@ export const aboutPageData: AboutPageData = {
     imageCaption: '«DOM - это не просто знания. Это опыт, который я прожила через себя, и поэтому он работает.»',
   },
   philosophy: {
-    eyebrow: 'Роль Анны Камаллаи Хефорс: проводник философии DOM',
     title: 'Философия DOM',
     principles: [
       {
@@ -214,7 +200,6 @@ export const aboutPageData: AboutPageData = {
     ],
   },
   ecosystem: {
-    eyebrow: 'Роль Анны Камаллаи Хефорс: основатель экосистемы DOM',
     title: 'Основатель экосистемы',
     titleLine2: 'DOM',
     description:
@@ -256,7 +241,6 @@ export const aboutPageData: AboutPageData = {
     ],
   },
   method: {
-    eyebrow: 'Роль Анны Камаллаи Хефорс: архитектор системного метода DOM',
     title: 'Метод DOM',
     houses: [
       {
@@ -277,7 +261,6 @@ export const aboutPageData: AboutPageData = {
     ],
   },
   books: {
-    eyebrow: 'Роль Анны Камаллаи Хефорс: автор книг DOM',
     title: 'Книги автора',
     intro:
       'Книги Камаллаи Хефорс - это практические маршруты внешней и внутренней трансформации: от семьи и отношений до осознанности и зрелого мировоззрения.',
@@ -302,7 +285,6 @@ export const aboutPageData: AboutPageData = {
     cta: { text: 'Перейти на страницу книг автора', url: '/ru/books/' },
   },
   app: {
-    eyebrow: 'Роль Анны Камаллаи Хефорс: создатель приложения DOM',
     sublabel: 'Приложение DOM',
     title: 'Мобильное приложение DOM',
     description:
@@ -316,7 +298,6 @@ export const aboutPageData: AboutPageData = {
     cta: { text: 'Перейти на страницу приложения DOM', url: '/ru/app-dom/' },
   },
   stories: {
-    eyebrow: 'Роль Анны Камаллаи Хефорс: наставник трансформации',
     title: 'Истории людей',
     intro:
       'Тысячи отзывов - от людей, которые были в похожем кризисе. Здесь ты увидишь: со мной не что-то «не так». Я просто в периоде - и его можно пройти.',
@@ -332,7 +313,6 @@ export const aboutPageData: AboutPageData = {
     secondaryCta: { text: 'Узнать её путь', url: '/ru/about-life/' },
   },
   subscribe: {
-    eyebrow: 'ПОДПИСКА DOM',
     title: 'Получать новости и обновления DOM',
     subtitle:
       'Подпишитесь, чтобы первыми узнавать о новых программах, материалах и событиях метода.',

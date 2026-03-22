@@ -1,12 +1,287 @@
 ---
+/**
+ * Страница «Отзывы» — reviews-sections/07-reviews-page.md
+ * (секции 01–06 + фильтр, коллекция reviews в content.config.ts)
+ */
+import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import ReviewsHero from '../../components/reviews/ReviewsHero.astro';
+import ReviewsFilters from '../../components/reviews/ReviewsFilters.astro';
+import VideoReviewsGrid from '../../components/reviews/VideoReviewsGrid.astro';
+import StoryReviewsGrid from '../../components/reviews/StoryReviewsGrid.astro';
+import TelegramReviewsGrid from '../../components/reviews/TelegramReviewsGrid.astro';
+import { reviewsPageData } from '../../data/pages/reviews';
+import { createPageMeta } from '../../data/seo/defaults';
+import { siteConfig } from '../../data/site';
+import type { PageMeta } from '../../types/page';
+import '../../styles/reviews.css';
+
+const allReviews = await getCollection('reviews', ({ data }) => data.published !== false);
+const videoReviews = allReviews.filter(
+  (r): r is (typeof allReviews)[number] & { data: { type: 'video' } } =>
+    r.data.type === 'video',
+);
+const storyReviews = allReviews.filter(
+  (r): r is (typeof allReviews)[number] & { data: { type: 'story' } } =>
+    r.data.type === 'story',
+);
+const telegramReviews = allReviews.filter(
+  (r): r is (typeof allReviews)[number] & { data: { type: 'telegram' } } =>
+    r.data.type === 'telegram',
+);
+
+if (import.meta.env.DEV) {
+  console.log('[reviews page] getCollection', {
+    total: allReviews.length,
+    video: videoReviews.length,
+    story: storyReviews.length,
+    telegram: telegramReviews.length,
+  });
+}
+
+const baseMeta = createPageMeta({
+  title: reviewsPageData.seo.title,
+  description: reviewsPageData.seo.description,
+  canonicalUrl: reviewsPageData.seo.canonicalUrl,
+  ogType: 'website',
+  locale: 'ru_RU',
+});
+
+const reviewsWebPageJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Отзывы участников DOM',
+  description: baseMeta.description,
+  url: baseMeta.canonicalUrl,
+  breadcrumb: {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Главная',
+        item: `${siteConfig.url}/ru/`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Отзывы',
+        item: baseMeta.canonicalUrl,
+      },
+    ],
+  },
+};
+
+const meta: PageMeta = {
+  ...baseMeta,
+  jsonLd: [reviewsWebPageJsonLd],
+};
 ---
 
-<BaseLayout title="Отзывы | DOM" description="Отзывы учеников и участников программ метода DOM.">
-  <section class="home-section home-section-tone-soft">
-    <div class="max-w-4xl mx-auto px-4 home-surface">
-      <h1 class="font-messiri home-title text-dom-graphite mb-6">Отзывы</h1>
-      <p class="home-subtitle font-montserrat text-dom-graphite">Контент переносится из исходного HTML.</p>
+<BaseLayout meta={meta}>
+  <section class="home-section home-section-tone-soft relative">
+    <div
+      class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 home-surface"
+      data-reviews-root
+      data-review-status-prefix={reviewsPageData.filters.statusPrefix}
+      data-review-status-all={reviewsPageData.filters.statusAllLabel}
+      data-review-ssr-total={allReviews.length}
+      data-review-ssr-video={videoReviews.length}
+      data-review-ssr-story={storyReviews.length}
+      data-review-ssr-telegram={telegramReviews.length}
+    >
+      <ReviewsHero {...reviewsPageData.hero} />
+      <ReviewsFilters
+        hint={reviewsPageData.filters.hint}
+        filters={reviewsPageData.filters.items}
+        statusPrefix={reviewsPageData.filters.statusPrefix}
+        statusAllLabel={reviewsPageData.filters.statusAllLabel}
+      />
+
+      <VideoReviewsGrid title={reviewsPageData.sections.video} reviews={videoReviews} />
+
+      <StoryReviewsGrid title={reviewsPageData.sections.stories} reviews={storyReviews} />
+
+      <TelegramReviewsGrid title={reviewsPageData.sections.telegram} reviews={telegramReviews} />
+
+      <div class="text-center hidden py-8" data-reviews-empty>
+        <p class="font-montserrat text-dom-graphite/75 text-base mb-0">
+          По выбранному фильтру пока нет отзывов.
+        </p>
+      </div>
+
+      <div class="text-center mt-12 pb-2">
+        <a
+          href={reviewsPageData.moreReviewsCta.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center rounded-xl bg-gold-gradient px-10 py-4 font-montserrat text-sm font-semibold uppercase tracking-wider text-white shadow-lg no-underline transition-shadow duration-300 hover:shadow-xl"
+        >
+          {reviewsPageData.moreReviewsCta.label}
+        </a>
+      </div>
     </div>
   </section>
+
+  <script>
+    /**
+     * Фильтрация отзывов (видео, истории, Telegram) — reviews-sections/06-filter-script.md
+     * - чипы .review-filter-control, карточки .review-filter-item
+     * - data-review-category: несколько тем через запятую
+     * - пустое состояние [data-reviews-empty]; статус [data-review-filter-status]
+     * - ?filter=slug при загрузке (латиница, цифры, дефис)
+     */
+    document.addEventListener('DOMContentLoaded', () => {
+      const root = document.querySelector('[data-reviews-root]');
+      if (!root) return;
+
+      const chips = root.querySelectorAll('.review-filter-control');
+      const items = root.querySelectorAll('.review-filter-item');
+      const status = root.querySelector('[data-review-filter-status]');
+      const empty = root.querySelector('[data-reviews-empty]');
+      const prefix = root.getAttribute('data-review-status-prefix') || 'Сейчас показаны:';
+      const allLabel = root.getAttribute('data-review-status-all') || 'все темы';
+
+      /** Скрыть заголовок секции (видео / истории / Telegram), если в ней нет видимых карточек */
+      function updateReviewSectionVisibility() {
+        root.querySelectorAll('[data-review-section]').forEach((section) => {
+          const cards = section.querySelectorAll('.review-filter-item');
+          let anyVisible = false;
+          cards.forEach((card) => {
+            if (!card.classList.contains('hidden')) anyVisible = true;
+          });
+          section.classList.toggle('hidden', cards.length > 0 && !anyVisible);
+        });
+      }
+
+      function applyReviewFilter(filter, chip) {
+        chips.forEach((c) => {
+          c.classList.remove('active');
+          c.setAttribute('aria-pressed', 'false');
+        });
+        chip.classList.add('active');
+        chip.setAttribute('aria-pressed', 'true');
+
+        let visibleCount = 0;
+        items.forEach((item) => {
+          const raw = item.getAttribute('data-review-category') || '';
+          const cats = raw
+            .split(',')
+            .map((s) => s.trim())
+            .filter(Boolean);
+          const show = filter === 'all' || cats.includes(filter);
+          /* Tailwind .hidden + fallback в reviews.css (.review-filter-item--filtered-out) */
+          item.classList.toggle('hidden', !show);
+          item.classList.toggle('review-filter-item--filtered-out', !show);
+          if (show) visibleCount++;
+        });
+
+        if (status) {
+          const text =
+            filter === 'all'
+              ? allLabel
+              : chip.getAttribute('data-review-status-text')?.trim() ||
+                chip.querySelector('span')?.textContent?.trim() ||
+                filter;
+          status.textContent = `${prefix} ${text}`.trim();
+        }
+        if (empty) empty.classList.toggle('hidden', visibleCount > 0);
+        updateReviewSectionVisibility();
+        window.dispatchEvent(new CustomEvent('reviews-filtered'));
+      }
+
+      chips.forEach((chip) => {
+        chip.addEventListener('click', () => {
+          const filter = chip.getAttribute('data-filter') || 'all';
+          applyReviewFilter(filter, chip);
+        });
+      });
+
+      const telegramLightbox = document.querySelector('[data-telegram-lightbox]');
+      if (telegramLightbox) {
+        const telegramImg = telegramLightbox.querySelector(
+          '[data-telegram-lightbox-img]',
+        ) as HTMLImageElement | null;
+        const telegramLinkBtn = telegramLightbox.querySelector(
+          '[data-telegram-lightbox-link]',
+        ) as HTMLAnchorElement | null;
+
+        function closeTelegramLightbox() {
+          telegramLightbox.classList.remove('telegram-lightbox--open');
+          document.body.classList.remove('overflow-hidden');
+        }
+
+        function openTelegramLightbox(src: string, alt: string, link: string) {
+          if (telegramImg) {
+            telegramImg.src = src;
+            telegramImg.alt = alt;
+          }
+          if (telegramLinkBtn) {
+            if (link) {
+              telegramLinkBtn.href = link;
+              telegramLinkBtn.classList.remove('hidden');
+            } else {
+              telegramLinkBtn.classList.add('hidden');
+              telegramLinkBtn.removeAttribute('href');
+            }
+          }
+          telegramLightbox.classList.add('telegram-lightbox--open');
+          document.body.classList.add('overflow-hidden');
+        }
+
+        root.addEventListener('click', (e) => {
+          const shot = (e.target as HTMLElement).closest('[data-telegram-shot-open]');
+          if (!shot || !root.contains(shot)) return;
+          e.preventDefault();
+          const src = shot.getAttribute('data-telegram-img') || '';
+          const alt = shot.getAttribute('data-telegram-alt') || '';
+          const link = shot.getAttribute('data-telegram-link') || '';
+          openTelegramLightbox(src, alt, link);
+        });
+
+        telegramLightbox.addEventListener('click', (e) => {
+          if ((e.target as HTMLElement).closest('[data-telegram-lightbox-close]')) {
+            closeTelegramLightbox();
+          }
+        });
+
+        document.addEventListener('keydown', (e) => {
+          if (
+            e.key === 'Escape' &&
+            telegramLightbox.classList.contains('telegram-lightbox--open')
+          ) {
+            closeTelegramLightbox();
+          }
+        });
+      }
+
+      const allChip = root.querySelector('.review-filter-control[data-filter="all"]');
+      const key = new URLSearchParams(window.location.search).get('filter');
+      let appliedFromUrl = false;
+      if (allChip instanceof HTMLElement) {
+        if (key && /^[a-z0-9-]+$/i.test(key)) {
+          const safe = typeof CSS !== 'undefined' && CSS.escape ? CSS.escape(key) : key;
+          const match = root.querySelector(`[data-filter="${safe}"]`);
+          if (match instanceof HTMLElement) {
+            applyReviewFilter(key, match);
+            appliedFromUrl = true;
+          }
+        }
+        if (!appliedFromUrl) {
+          applyReviewFilter('all', allChip);
+        }
+      }
+
+      console.log('[reviews client]', {
+        filterItems: items.length,
+        chips: chips.length,
+        urlFilter: key || null,
+        appliedFromUrl,
+        ssrTotal: root.getAttribute('data-review-ssr-total'),
+        ssrVideo: root.getAttribute('data-review-ssr-video'),
+        ssrStory: root.getAttribute('data-review-ssr-story'),
+        ssrTelegram: root.getAttribute('data-review-ssr-telegram'),
+      });
+    });
+  </script>
 </BaseLayout>

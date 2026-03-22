@@ -13,22 +13,14 @@ interface Book {
 interface Props {
   title: string;
   books: Book[];
-  eyebrow?: string;
   intro?: string;
   cta?: { text: string; url: string };
 }
 
-const { title, books, eyebrow, intro, cta } = Astro.props;
+const { title, books, intro, cta } = Astro.props;
 ---
 
 <article class="about-light-card rounded-2xl p-8 md:p-10">
-  {eyebrow ? (
-    <p
-      class="font-montserrat text-[11px] uppercase tracking-[0.12em] text-dom-goldDark mb-2 md:mb-3 block text-center md:text-left"
-    >
-      {eyebrow}
-    </p>
-  ) : null}
   <h2
     class="font-messiri text-dom-graphite mb-4 md:mb-6 text-[clamp(1.5rem,7vw,2rem)] md:text-4xl lg:text-5xl text-center md:text-left leading-tight"
   >

@@ -11,8 +11,8 @@ import {
 
 const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
 
-/** Параметр filter для data-blog-nav-filter: '' = весь блог, иначе id фильтра */
-function blogNavFilterParamFromUrl(url: string): string {
+/** Параметр filter для data-blog-nav-filter / data-reviews-nav-filter: '' = весь раздел */
+function navFilterParamFromChildUrl(url: string): string {
   if (!url.includes('?')) return '';
   try {
     return new URL(url, 'https://localhost').searchParams.get('filter') ?? '';
@@ -22,8 +22,8 @@ function blogNavFilterParamFromUrl(url: string): string {
 }
 
 function isDropdownChildActive(child: NavItemChild, parentTitle: string): boolean {
-  /** Статическая сборка: у Astro.url нет ?filter= на /ru/blog/ — подсветка только в <script> */
-  if (parentTitle === 'Блог и наука') {
+  /** Статическая сборка: у Astro.url нет ?filter= — подсветка только в <script> */
+  if (parentTitle === 'Блог и наука' || parentTitle === 'Отзывы') {
     return false;
   }
   const cp = child.url.replace(/\/$/, '') || '/';
@@ -71,15 +71,19 @@ const isRu = currentPath.startsWith('/ru') || currentPath === '/';
                 <div
                   class="blog-nav-dropdown-menu opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all absolute left-1/2 -translate-x-1/2 mt-1 z-[80]"
                   {...(item.title === 'Блог и наука' ? { 'data-blog-nav-submenu': 'true' } : {})}
+                  {...(item.title === 'Отзывы' ? { 'data-reviews-nav-submenu': 'true' } : {})}
                 >
                   {item.children.map((child) => {
                     const isBlog = item.title === 'Блог и наука';
-                    const blogFilterParam = isBlog ? blogNavFilterParamFromUrl(child.url) : undefined;
+                    const isReviews = item.title === 'Отзывы';
+                    const queryFilter =
+                      isBlog || isReviews ? navFilterParamFromChildUrl(child.url) : undefined;
                     const childActive = isDropdownChildActive(child, item.title);
                     return (
                     <a
                       href={child.url}
-                      {...(isBlog ? { 'data-blog-nav-filter': blogFilterParam } : {})}
+                      {...(isBlog ? { 'data-blog-nav-filter': queryFilter } : {})}
+                      {...(isReviews ? { 'data-reviews-nav-filter': queryFilter } : {})}
                       class:list={[
                         'blog-nav-dropdown-item block',
                         childActive && 'blog-nav-dropdown-item--active',
@@ -171,7 +175,28 @@ const isRu = currentPath.startsWith('/ru') || currentPath === '/';
     });
   }
 
-  syncBlogNavDropdownActive();
-  document.addEventListener('DOMContentLoaded', syncBlogNavDropdownActive);
-  window.addEventListener('popstate', syncBlogNavDropdownActive);
+  /** Подсветка «Отзывы» по ?filter= на /ru/reviews/ */
+  function syncReviewsNavDropdownActive() {
+    const submenu = document.querySelector('[data-reviews-nav-submenu]');
+    if (!submenu) return;
+    const path = window.location.pathname.replace(/\/$/, '') || '/';
+    if (path !== '/ru/reviews') return;
+    const currentFilter = new URLSearchParams(window.location.search).get('filter') || '';
+    submenu.querySelectorAll('a[data-reviews-nav-filter]').forEach((a) => {
+      const wanted = a.getAttribute('data-reviews-nav-filter') ?? '';
+      const match = wanted === currentFilter;
+      a.classList.toggle('blog-nav-dropdown-item--active', match);
+      if (match) a.setAttribute('aria-current', 'page');
+      else a.removeAttribute('aria-current');
+    });
+  }
+
+  function syncQueryNavDropdowns() {
+    syncBlogNavDropdownActive();
+    syncReviewsNavDropdownActive();
+  }
+
+  syncQueryNavDropdowns();
+  document.addEventListener('DOMContentLoaded', syncQueryNavDropdowns);
+  window.addEventListener('popstate', syncQueryNavDropdowns);
 </script>

@@ -3,20 +3,14 @@
  * Блок 2: Кто она сегодня (about-sections/02-who-today.md, source-DOM ~6228–6240)
  */
 interface Props {
-  eyebrow: string;
   title: string;
   paragraphs: string[];
 }
 
-const { eyebrow, title, paragraphs } = Astro.props;
+const { title, paragraphs } = Astro.props;
 ---
 
 <article class="about-light-card rounded-2xl p-8 md:p-10">
-  <p
-    class="font-montserrat text-[11px] uppercase tracking-[0.12em] text-dom-goldDark mb-2 md:mb-3 block text-center md:text-left"
-  >
-    {eyebrow}
-  </p>
   <h2
     class="font-messiri text-dom-graphite mb-4 md:mb-6 text-[clamp(1.5rem,7vw,2rem)] md:text-4xl lg:text-5xl text-center md:text-left leading-tight"
   >

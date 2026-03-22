@@ -1,0 +1,51 @@
+---
+/**
+ * Карточка скриншота из Telegram — reviews-sections/05-telegram-reviews.md
+ */
+interface Props {
+  screenshot: string;
+  title: string;
+  telegramLink?: string;
+}
+
+const { screenshot, title, telegramLink } = Astro.props;
+const imgSrc = encodeURI(screenshot);
+---
+
+<article class="telegram-shot">
+  <button
+    type="button"
+    class="telegram-shot-open block w-full border-0 bg-transparent p-0 cursor-pointer text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-dom-gold/50 focus-visible:ring-offset-2"
+    data-telegram-shot-open
+    data-telegram-img={imgSrc}
+    data-telegram-alt={title}
+    data-telegram-link={telegramLink ?? ''}
+    aria-haspopup="dialog"
+  >
+    <img
+      src={imgSrc}
+      alt={title}
+      class="telegram-shot-img"
+      width="320"
+      height="250"
+      loading="lazy"
+    />
+  </button>
+  <div class="p-4">
+    <p class="font-montserrat text-xs uppercase tracking-[0.12em] text-dom-goldDark mb-0">
+      {title}
+    </p>
+    {
+      telegramLink ? (
+        <a
+          href={telegramLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="font-montserrat text-xs text-dom-graphite/80 underline underline-offset-2 mt-2 inline-block hover:text-dom-graphite"
+        >
+          Открыть в Telegram
+        </a>
+      ) : null
+    }
+  </div>
+</article>

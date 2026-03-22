@@ -13,6 +13,42 @@ import KnowledgeBaseSection from '../../components/sections/KnowledgeBaseSection
 import FaqSection from '../../components/sections/FaqSection.astro';
 import FinalCtaSection from '../../components/sections/FinalCtaSection.astro';
 import { homePageData } from '../../data/pages/home';
+import { blogPageData } from '../../data/pages/blog';
+
+const knowledgeItems = homePageData.knowledgeBase.categories
+  .filter(
+    (c): c is (typeof homePageData.knowledgeBase.categories)[number] & {
+      image: { src: string; alt: string };
+      chipLabel: string;
+    } => Boolean(c.image && c.chipLabel && c.articles[0]?.url),
+  )
+  .map((c) => {
+    const url = c.articles[0].url;
+    let fk = 'system-thinking';
+    if (url.includes('male-female')) fk = 'male-female';
+    else if (url.includes('money-business')) fk = 'money-business';
+    else if (url.includes('system-thinking')) fk = 'system-thinking';
+    return {
+      chipLabel: c.chipLabel,
+      title: c.title,
+      description: c.description,
+      href: url,
+      image: c.image,
+      filterKeys: [fk],
+    };
+  });
+
+const usedCategoryIds = new Set<string>();
+knowledgeItems.forEach((item) => {
+  item.filterKeys.forEach((k) => usedCategoryIds.add(k));
+});
+
+const knowledgeFilterChips = [
+  { id: 'all', label: 'Все' },
+  ...blogPageData.filters.categories
+    .filter((c) => usedCategoryIds.has(c.id))
+    .map((c) => ({ id: c.id, label: c.title })),
+];
 ---
 
 <BaseLayout
@@ -89,7 +125,8 @@ import { homePageData } from '../../data/pages/home';
   <KnowledgeBaseSection
     title={homePageData.knowledgeBase.title}
     ctaAll={homePageData.knowledgeBase.ctaAll}
-    categories={homePageData.knowledgeBase.categories}
+    items={knowledgeItems}
+    filterChips={knowledgeFilterChips}
   />
   <FaqSection
     title={homePageData.faq.title}
