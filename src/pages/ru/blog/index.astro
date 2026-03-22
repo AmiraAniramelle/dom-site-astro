@@ -7,10 +7,13 @@ import BlogGrid from '../../../components/blog/BlogGrid.astro';
 import { createPageMeta } from '../../../data/seo/defaults';
 import { blogPageData } from '../../../data/pages/blog';
 
+/** Ссылка на канал с роликами (видео в блоге — отдельные записи коллекции `blog`). */
+const YOUTUBE_CHANNEL_URL = 'https://www.youtube.com/@itbrain_balance/videos';
+const YOUTUBE_CHANNEL_TITLE = 'IT BRAIN — меняя сознание, меняешь жизнь';
+
 const allPosts = await getCollection('blog', ({ data }) => data.published !== false);
 
-const posts = [...allPosts]
-  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+const posts = allPosts
   .map((post) => ({
     slug: post.id,
     title: post.data.title,
@@ -22,7 +25,8 @@ const posts = [...allPosts]
     readingTime: post.data.readingTime,
     tags: post.data.tags,
     viewsCount: post.data.viewsCount ?? 0,
-  }));
+  }))
+  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
 const meta = createPageMeta({
   title: blogPageData.seo.title,
@@ -42,6 +46,18 @@ const meta = createPageMeta({
       <BlogHero {...blogPageData.hero} />
       <BlogFilters {...blogPageData.filters} />
       <BlogGrid posts={posts} />
+      <p
+        class="mt-10 text-center font-montserrat text-sm text-dom-graphite/60"
+      >
+        <a
+          href={YOUTUBE_CHANNEL_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-dom-goldDark font-semibold hover:text-dom-graphite underline-offset-2"
+        >
+          Все видео канала «{YOUTUBE_CHANNEL_TITLE}» на YouTube →
+        </a>
+      </p>
     </div>
   </section>
 

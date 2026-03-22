@@ -338,7 +338,7 @@ group-hover:bg-dom-gold group-hover:text-white transition-all"
 - title: заголовок
 - slug: транслитерация заголовка (для URL)
 - category: одна из 9 категорий
-- contentType: Статья | Книга
+- contentType: Статья | Книга | Видео (только эти три; без Пост / Практика / Разбор)
 - tags: минимум 2, максимум 5 из списка тегов
 - date: дата публикации
 - readingTime: время чтения в минутах

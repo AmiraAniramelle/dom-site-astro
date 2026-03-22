@@ -96,7 +96,73 @@ export interface AboutPageData {
   };
 }
 
-export const aboutPageData: AboutPageData = {
+/** Убирает eyebrow из макета: «Роль Анны Камаллаи Хефорс: …» перед заголовком блока */
+function stripAboutRoleEyebrowLine(text: string): string {
+  if (!text) return text;
+  return text.replace(/^Роль\s+Анны\s+Камалла[яи]\s+Хефорс\s*:\s*/iu, '').trim();
+}
+
+function normalizeAboutPageData(data: AboutPageData): AboutPageData {
+  return {
+    ...data,
+    hero: { ...data.hero, title: stripAboutRoleEyebrowLine(data.hero.title) },
+    whoToday: { ...data.whoToday, title: stripAboutRoleEyebrowLine(data.whoToday.title) },
+    philanthropy: {
+      ...data.philanthropy,
+      title: stripAboutRoleEyebrowLine(data.philanthropy.title),
+    },
+    pathLived: { ...data.pathLived, title: stripAboutRoleEyebrowLine(data.pathLived.title) },
+    philosophy: {
+      ...data.philosophy,
+      title: stripAboutRoleEyebrowLine(data.philosophy.title),
+      principles: data.philosophy.principles.map((p) => ({
+        ...p,
+        title: stripAboutRoleEyebrowLine(p.title),
+      })),
+    },
+    ecosystem: {
+      ...data.ecosystem,
+      title: stripAboutRoleEyebrowLine(data.ecosystem.title),
+      titleLine2: data.ecosystem.titleLine2
+        ? stripAboutRoleEyebrowLine(data.ecosystem.titleLine2)
+        : data.ecosystem.titleLine2,
+    },
+    method: {
+      ...data.method,
+      title: stripAboutRoleEyebrowLine(data.method.title),
+      houses: data.method.houses.map((h) => ({
+        ...h,
+        title: stripAboutRoleEyebrowLine(h.title),
+      })),
+    },
+    books: {
+      ...data.books,
+      title: stripAboutRoleEyebrowLine(data.books.title),
+      books: data.books.books.map((b) => ({
+        ...b,
+        title: stripAboutRoleEyebrowLine(b.title),
+      })),
+    },
+    app: {
+      ...data.app,
+      title: stripAboutRoleEyebrowLine(data.app.title),
+      sublabel: data.app.sublabel
+        ? stripAboutRoleEyebrowLine(data.app.sublabel)
+        : undefined,
+    },
+    stories: { ...data.stories, title: stripAboutRoleEyebrowLine(data.stories.title) },
+    finalCta: {
+      ...data.finalCta,
+      title: stripAboutRoleEyebrowLine(data.finalCta.title),
+    },
+    subscribe: {
+      ...data.subscribe,
+      title: stripAboutRoleEyebrowLine(data.subscribe.title),
+    },
+  };
+}
+
+const aboutPageDataRaw: AboutPageData = {
   seo: {
     title: 'Анна Камаллая Хефорс — Основатель метода DOM | Об авторе',
     description:
@@ -326,3 +392,5 @@ export const aboutPageData: AboutPageData = {
     },
   },
 };
+
+export const aboutPageData: AboutPageData = normalizeAboutPageData(aboutPageDataRaw);

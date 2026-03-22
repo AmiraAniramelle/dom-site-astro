@@ -13,7 +13,14 @@ interface Props {
   }>;
   cta: { text: string; url: string };
   flowTitle: string;
-  flowCards: Array<{ name: string; city: string; result: string; photo: string }>;
+  flowCards: Array<{
+    id: string;
+    name: string;
+    city: string;
+    result: string;
+    photo: string;
+    fullText: string;
+  }>;
 }
 
 const { eyebrow, title, reviews, cta, flowTitle, flowCards } = Astro.props;
@@ -77,7 +84,7 @@ const flowCardsJson = JSON.stringify(flowCards);
     const closeBtn = overlay.querySelector('[data-home-review-close]');
     if (!photoEl || !nameEl || !metaEl || !textEl || !closeBtn) return;
 
-    const stories = reviews.map((r) => ({
+    const gridStories = reviews.map((r) => ({
       id: r.id,
       name: r.name,
       meta: r.role + ' · ' + r.city,
@@ -85,6 +92,17 @@ const flowCardsJson = JSON.stringify(flowCards);
       excerpt: r.text,
       full: r.fullText,
     }));
+
+    const flowStories = flowCards.map((item) => ({
+      id: item.id,
+      name: item.name,
+      meta: item.city,
+      image: item.photo,
+      excerpt: item.result,
+      full: item.fullText || item.result,
+    }));
+
+    const stories = [...gridStories, ...flowStories];
 
     grid.innerHTML = stories
       .map(
@@ -109,17 +127,18 @@ const flowCardsJson = JSON.stringify(flowCards);
       const flowMarkup = flowSlice
         .map(
           (item) => `
-        <article class="home-flow-card">
+        <button type="button" class="home-flow-card" data-home-story-id="${item.id}" aria-label="Открыть историю: ${item.name}">
           <div class="home-flow-card-media">
-            <img src="${item.photo}" alt="${item.name}" loading="lazy" decoding="async" width="290" height="138" onerror="this.onerror=null;this.src='/images/home/hero-reference.jpg';">
+            <img src="${item.photo}" alt="" loading="lazy" decoding="async" width="290" height="138" onerror="this.onerror=null;this.src='/images/home/hero-reference.jpg';">
             <div class="home-flow-card-overlay"></div>
           </div>
           <div class="home-flow-card-body">
             <p class="home-flow-card-name">${item.name}</p>
             <p class="home-flow-card-meta">${item.city}</p>
             <p class="home-flow-card-result">${item.result}</p>
+            <p class="home-flow-card-readhint font-montserrat text-[10px] font-bold uppercase tracking-[0.12em] text-dom-goldDark mt-2 mb-0">Читать полностью</p>
           </div>
-        </article>
+        </button>
       `,
         )
         .join('');
@@ -143,10 +162,11 @@ const flowCardsJson = JSON.stringify(flowCards);
       document.body.style.overflow = 'hidden';
     };
 
-    grid.addEventListener('click', (event) => {
+    root.addEventListener('click', (event) => {
       const card = event.target.closest('[data-home-story-id]');
-      if (!card) return;
-      openModal(card.getAttribute('data-home-story-id'));
+      if (!card || !root.contains(card)) return;
+      const sid = card.getAttribute('data-home-story-id');
+      if (sid) openModal(sid);
     });
 
     closeBtn.addEventListener('click', closeModal);

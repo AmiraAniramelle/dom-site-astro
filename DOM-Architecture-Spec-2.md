@@ -503,7 +503,7 @@ const blog = defineCollection({
       'parents', 'children', 'male-female', 'money-business',
       'anxiety-depression'
     ]),
-    contentType: z.enum(['Статья', 'Книга']),
+    contentType: z.enum(['Статья', 'Книга', 'Видео']),
     tags: z.array(z.string()),
     date: z.string(),
     readingTime: z.number(),
@@ -876,7 +876,7 @@ export const ui = {
 
 ### 10.3 Типы контента блога
 
-Статья, Книга
+Только **Статья**, **Книга**, **Видео**. Значения «Пост», «Практика», «Разбор» в схеме и контенте не используются.
 
 ### 10.4 Теги блога (27 шт.)
 

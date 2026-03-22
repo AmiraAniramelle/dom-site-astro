@@ -3,8 +3,8 @@ import type { PopupField } from '../../data/popup';
 
 interface Props {
   enabled?: boolean;
-  triggerType?: 'scroll';
-  scrollPercent: number;
+  /** Показ через N мс после первого захода на сайт в сессии (см. sessionStorage). */
+  delayMs: number;
   eyebrow: string;
   title: string;
   description: string;
@@ -16,7 +16,7 @@ interface Props {
 }
 
 const {
-  scrollPercent,
+  delayMs,
   eyebrow,
   title,
   description,
@@ -110,37 +110,42 @@ const inputClass =
   </div>
 </div>
 
-<script define:vars={{ scrollPercent }}>
-  const STORAGE_KEY = 'dom_popup_shown';
+<script define:vars={{ delayMs }}>
+  const STORAGE_SHOWN = 'dom_popup_shown';
+  const STORAGE_ARRIVAL = 'dom_popup_arrival';
 
   document.addEventListener('DOMContentLoaded', () => {
-    if (sessionStorage.getItem(STORAGE_KEY)) return;
+    if (sessionStorage.getItem(STORAGE_SHOWN)) return;
 
     const popup = document.getElementById('welcome-popup');
     if (!popup) return;
 
     const showPopup = () => {
+      if (sessionStorage.getItem(STORAGE_SHOWN)) return;
       popup.classList.remove('hidden');
       document.body.style.overflow = 'hidden';
-      sessionStorage.setItem(STORAGE_KEY, 'true');
+      sessionStorage.setItem(STORAGE_SHOWN, 'true');
     };
 
     const hidePopup = () => {
       popup.classList.add('hidden');
       document.body.style.overflow = '';
-      sessionStorage.setItem(STORAGE_KEY, 'true');
+      sessionStorage.setItem(STORAGE_SHOWN, 'true');
     };
 
-    function onScroll() {
-      const scrolled =
-        (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
-      if (scrolled >= scrollPercent) {
-        window.removeEventListener('scroll', onScroll);
-        showPopup();
-      }
+    let arrival = Number(sessionStorage.getItem(STORAGE_ARRIVAL) || 0);
+    if (!arrival) {
+      arrival = Date.now();
+      sessionStorage.setItem(STORAGE_ARRIVAL, String(arrival));
     }
 
-    window.addEventListener('scroll', onScroll);
+    const elapsed = Date.now() - arrival;
+    const remaining = Math.max(0, delayMs - elapsed);
+
+    window.setTimeout(() => {
+      if (sessionStorage.getItem(STORAGE_SHOWN)) return;
+      showPopup();
+    }, remaining);
 
     const closeBtn = popup.querySelector('[data-popup-close]');
     closeBtn?.addEventListener('click', () => {

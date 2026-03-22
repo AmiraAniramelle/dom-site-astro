@@ -12,6 +12,10 @@ npm run blog:optimize-covers
 
 Скрипт создаёт `.webp` (ширина до 800px, quality 80%) и обновляет пути в `src/content/blog/*.md`. Исходные растровые файлы можно удалить вручную после проверки, чтобы уменьшить репозиторий.
 
+### Видео с YouTube в блоге
+
+Ролики канала [@itbrain_balance](https://www.youtube.com/@itbrain_balance/videos) оформляются как обычные записи коллекции `src/content/blog/*.md`: в frontmatter укажите `contentType: Видео`, `youtubeId: …`, обложку (`cover` — URL превью YouTube или локальный файл) и текст в теле поста. Страница открывается по тому же маршруту, что и статьи: `/ru/blog/{slug}/`. Внизу списка блога остаётся ссылка «все видео канала на YouTube».
+
 ---
 
 ## 1. Vercel (рекомендуется)

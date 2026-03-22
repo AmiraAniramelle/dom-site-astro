@@ -213,38 +213,45 @@ export const reviewsSectionData = {
   ],
   cta: { text: 'Читать все истории', url: '/ru/reviews/' },
   flowTitle: 'Тысячи участников проходят трансформацию с DOM',
+  /** storyId = id записи в src/content/reviews (истории на /ru/reviews/ и текст для модалки на главной) */
   flowCards: [
     {
+      storyId: 'story-flow-olga-romanova',
       name: 'Ольга Романова',
       city: 'Екатеринбург',
       result: 'Вернула внутреннюю опору и спокойствие',
       photo: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=900&q=80',
     },
     {
+      storyId: 'story-flow-dmitry-volkov',
       name: 'Дмитрий Волков',
       city: 'Новосибирск',
       result: 'Вышел из выгорания и собрал фокус в работе',
       photo: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=900&q=80',
     },
     {
+      storyId: 'story-flow-natalya-orlova',
       name: 'Наталья Орлова',
       city: 'Сочи',
       result: 'Наладила отношения с собой и близкими',
       photo: 'https://images.unsplash.com/photo-1544717302-de2939b7ef71?auto=format&fit=crop&w=900&q=80',
     },
     {
+      storyId: 'story-flow-igor-sorokin',
       name: 'Игорь Сорокин',
       city: 'Казань',
       result: 'Перестроил финансовые сценарии',
       photo: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600&q=80',
     },
     {
+      storyId: 'story-flow-elena-gromova',
       name: 'Елена Громова',
       city: 'Москва',
       result: 'Снизила тревожность и обрела ясность',
       photo: 'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=900&q=80',
     },
     {
+      storyId: 'story-flow-maksim-belyaev',
       name: 'Максим Беляев',
       city: 'Самара',
       result: 'Укрепил ментальную устойчивость',

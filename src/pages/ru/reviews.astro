@@ -13,6 +13,7 @@ import TelegramReviewsGrid from '../../components/reviews/TelegramReviewsGrid.as
 import { reviewsPageData } from '../../data/pages/reviews';
 import { createPageMeta } from '../../data/seo/defaults';
 import { siteConfig } from '../../data/site';
+import { getStoryReviewPlainBodyFromFile } from '../../lib/reviewsSeo';
 import type { PageMeta } from '../../types/page';
 import '../../styles/reviews.css';
 
@@ -43,6 +44,7 @@ const baseMeta = createPageMeta({
   title: reviewsPageData.seo.title,
   description: reviewsPageData.seo.description,
   canonicalUrl: reviewsPageData.seo.canonicalUrl,
+  ogImage: reviewsPageData.seo.ogImage,
   ogType: 'website',
   locale: 'ru_RU',
 });
@@ -51,7 +53,7 @@ const reviewsWebPageJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebPage',
   name: 'Отзывы участников DOM',
-  description: baseMeta.description,
+  description: 'Реальные истории трансформации через метод DOM',
   url: baseMeta.canonicalUrl,
   breadcrumb: {
     '@type': 'BreadcrumbList',
@@ -66,20 +68,48 @@ const reviewsWebPageJsonLd = {
         '@type': 'ListItem',
         position: 2,
         name: 'Отзывы',
-        item: baseMeta.canonicalUrl,
+        item: `${siteConfig.url}/ru/reviews/`,
       },
     ],
   },
 };
 
+const storyReviewJsonLd = storyReviews.map((entry) => {
+  const d = entry.data;
+  const reviewBody =
+    getStoryReviewPlainBodyFromFile(entry.id) ||
+    [d.highlight, d.excerpt].filter(Boolean).join(' ').trim();
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Review',
+    author: { '@type': 'Person', name: d.name },
+    reviewBody,
+    itemReviewed: {
+      '@type': 'Organization',
+      name: 'DOM Method',
+    },
+  };
+});
+
 const meta: PageMeta = {
   ...baseMeta,
-  jsonLd: [reviewsWebPageJsonLd],
+  jsonLd: [reviewsWebPageJsonLd, ...storyReviewJsonLd],
 };
 ---
 
 <BaseLayout meta={meta}>
   <section class="home-section home-section-tone-soft relative">
+    <nav class="sr-only" aria-label="Хлебные крошки">
+      <ol class="m-0 list-none p-0">
+        <li class="inline">
+          <a href="/ru/">Главная</a>
+          <span aria-hidden="true"> → </span>
+        </li>
+        <li class="inline">
+          <span aria-current="page">Отзывы</span>
+        </li>
+      </ol>
+    </nav>
     <div
       class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 home-surface"
       data-reviews-root
@@ -104,18 +134,20 @@ const meta: PageMeta = {
 
       <TelegramReviewsGrid title={reviewsPageData.sections.telegram} reviews={telegramReviews} />
 
-      <div class="text-center hidden py-8" data-reviews-empty>
-        <p class="font-montserrat text-dom-graphite/75 text-base mb-0">
+      <div class="text-center hidden py-8 max-md:py-6" data-reviews-empty>
+        <p
+          class="font-montserrat text-dom-graphite/75 text-base max-md:text-sm mb-0 max-md:text-center"
+        >
           По выбранному фильтру пока нет отзывов.
         </p>
       </div>
 
-      <div class="text-center mt-12 pb-2">
+      <div class="text-center mt-12 max-md:mt-8 pb-2 max-md:mb-4">
         <a
           href={reviewsPageData.moreReviewsCta.href}
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center justify-center rounded-xl bg-gold-gradient px-10 py-4 font-montserrat text-sm font-semibold uppercase tracking-wider text-white shadow-lg no-underline transition-shadow duration-300 hover:shadow-xl"
+          class="inline-flex max-md:w-full items-center justify-center rounded-xl bg-gold-gradient px-10 max-md:px-4 py-4 max-md:py-3 font-montserrat text-sm font-semibold uppercase tracking-wider text-white shadow-lg no-underline transition-shadow duration-300 hover:shadow-xl"
         >
           {reviewsPageData.moreReviewsCta.label}
         </a>
@@ -154,13 +186,24 @@ const meta: PageMeta = {
         });
       }
 
-      function applyReviewFilter(filter, chip) {
+      const topicSelect = root.querySelector('[data-review-filter-select]');
+
+      function escapeFilterAttr(value) {
+        return typeof CSS !== 'undefined' && CSS.escape ? CSS.escape(value) : value;
+      }
+
+      function applyReviewFilter(filter) {
         chips.forEach((c) => {
           c.classList.remove('active');
           c.setAttribute('aria-pressed', 'false');
         });
-        chip.classList.add('active');
-        chip.setAttribute('aria-pressed', 'true');
+        const activeChip = root.querySelector(
+          `.review-filter-control[data-filter="${escapeFilterAttr(filter)}"]`,
+        );
+        if (activeChip) {
+          activeChip.classList.add('active');
+          activeChip.setAttribute('aria-pressed', 'true');
+        }
 
         let visibleCount = 0;
         items.forEach((item) => {
@@ -177,13 +220,17 @@ const meta: PageMeta = {
         });
 
         if (status) {
-          const text =
-            filter === 'all'
-              ? allLabel
-              : chip.getAttribute('data-review-status-text')?.trim() ||
-                chip.querySelector('span')?.textContent?.trim() ||
-                filter;
+          let text = allLabel;
+          if (filter !== 'all' && activeChip) {
+            text =
+              activeChip.getAttribute('data-review-status-text')?.trim() ||
+              activeChip.querySelector('span')?.textContent?.trim() ||
+              filter;
+          }
           status.textContent = `${prefix} ${text}`.trim();
+        }
+        if (topicSelect instanceof HTMLSelectElement && topicSelect.value !== filter) {
+          topicSelect.value = filter;
         }
         if (empty) empty.classList.toggle('hidden', visibleCount > 0);
         updateReviewSectionVisibility();
@@ -193,9 +240,15 @@ const meta: PageMeta = {
       chips.forEach((chip) => {
         chip.addEventListener('click', () => {
           const filter = chip.getAttribute('data-filter') || 'all';
-          applyReviewFilter(filter, chip);
+          applyReviewFilter(filter);
         });
       });
+
+      if (topicSelect instanceof HTMLSelectElement) {
+        topicSelect.addEventListener('change', () => {
+          applyReviewFilter(topicSelect.value || 'all');
+        });
+      }
 
       const telegramLightbox = document.querySelector('[data-telegram-lightbox]');
       if (telegramLightbox) {
@@ -260,15 +313,15 @@ const meta: PageMeta = {
       let appliedFromUrl = false;
       if (allChip instanceof HTMLElement) {
         if (key && /^[a-z0-9-]+$/i.test(key)) {
-          const safe = typeof CSS !== 'undefined' && CSS.escape ? CSS.escape(key) : key;
+          const safe = escapeFilterAttr(key);
           const match = root.querySelector(`[data-filter="${safe}"]`);
           if (match instanceof HTMLElement) {
-            applyReviewFilter(key, match);
+            applyReviewFilter(key);
             appliedFromUrl = true;
           }
         }
         if (!appliedFromUrl) {
-          applyReviewFilter('all', allChip);
+          applyReviewFilter('all');
         }
       }
 

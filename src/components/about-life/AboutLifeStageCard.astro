@@ -1,6 +1,6 @@
 ---
 /**
- * Блок 3: одна карточка этапа (about-life-sections/03-stage-card.md)
+ * Содержимое одного этапа (timeline-оболочка — в about-life.astro)
  */
 interface Props {
   eyebrow: string;
@@ -11,10 +11,14 @@ interface Props {
 const { eyebrow, title, description } = Astro.props;
 ---
 
-<article
-  class="p-6 rounded-2xl border border-dom-gold/22 bg-white/92 shadow-[0_10px_24px_rgba(126,91,35,0.1)]"
->
-  <p class="font-montserrat text-[11px] uppercase tracking-[0.12em] text-dom-goldDark mb-2">{eyebrow}</p>
-  <h3 class="font-messiri text-2xl text-dom-graphite mb-2">{title}</h3>
-  <p class="font-montserrat text-dom-graphite/78">{description}</p>
-</article>
+<div class="about-life-stage-card-inner lg:text-center">
+  <p
+    class="font-montserrat text-[11px] uppercase tracking-[0.12em] text-dom-goldDark mb-2"
+  >
+    {eyebrow}
+  </p>
+  <h3 class="font-messiri text-xl md:text-2xl text-dom-graphite mb-3">{title}</h3>
+  <p class="font-montserrat text-base text-dom-graphite/80 leading-relaxed">
+    {description}
+  </p>
+</div>

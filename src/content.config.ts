@@ -71,6 +71,7 @@ const blog = defineCollection({
       'money-business',
       'anxiety-depression',
     ]),
+    /** Только: Статья | Книга | Видео. Не использовать Пост, Практика, Разбор. */
     contentType: z.enum(['Статья', 'Книга', 'Видео']),
     /** Для постов с contentType «Видео» — встраивание на странице статьи */
     youtubeId: z.string().optional(),

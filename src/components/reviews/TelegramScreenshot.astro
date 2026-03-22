@@ -10,29 +10,32 @@ interface Props {
 
 const { screenshot, title, telegramLink } = Astro.props;
 const imgSrc = encodeURI(screenshot);
+const shotAlt = `Скриншот отзыва из Telegram: ${title}`;
 ---
 
-<article class="telegram-shot">
+<article class="telegram-shot max-md:rounded-xl overflow-hidden">
   <button
     type="button"
     class="telegram-shot-open block w-full border-0 bg-transparent p-0 cursor-pointer text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-dom-gold/50 focus-visible:ring-offset-2"
     data-telegram-shot-open
     data-telegram-img={imgSrc}
-    data-telegram-alt={title}
+    data-telegram-alt={shotAlt}
     data-telegram-link={telegramLink ?? ''}
     aria-haspopup="dialog"
   >
     <img
       src={imgSrc}
-      alt={title}
-      class="telegram-shot-img"
+      alt={shotAlt}
+      class="telegram-shot-img w-full max-md:rounded-xl"
       width="320"
       height="250"
       loading="lazy"
     />
   </button>
-  <div class="p-4">
-    <p class="font-montserrat text-xs uppercase tracking-[0.12em] text-dom-goldDark mb-0">
+  <div class="p-4 max-md:p-2">
+    <p
+      class="font-montserrat text-xs max-md:text-[10px] max-md:leading-tight uppercase tracking-[0.12em] text-dom-goldDark mb-0 max-md:normal-case max-md:tracking-wide"
+    >
       {title}
     </p>
     {

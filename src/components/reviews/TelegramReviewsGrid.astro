@@ -16,10 +16,14 @@ const { title, reviews } = Astro.props;
 {
   reviews.length > 0 ? (
     <>
-      <div class="mb-20" data-review-section="telegram" data-telegram-reviews-section>
-        <h2 class="font-messiri mb-4 text-center text-4xl text-dom-graphite">{title}</h2>
-        <div class="mx-auto mb-8 h-1 w-20 bg-dom-gold" aria-hidden="true" />
-        <div class="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-8">
+      <div class="mb-8 md:mb-20" data-review-section="telegram" data-telegram-reviews-section>
+        <h2
+          class="font-messiri mb-4 text-center text-4xl text-dom-graphite max-md:mb-3 max-md:text-[clamp(1.5rem,7vw,2rem)] max-md:break-words"
+        >
+          {title}
+        </h2>
+        <div class="mx-auto mb-8 max-md:mb-6 h-1 w-20 bg-dom-gold" aria-hidden="true" />
+        <div class="grid grid-cols-2 gap-2 md:grid-cols-3 md:gap-8">
           {reviews.map((entry, i) => {
             const d = entry.data;
             const catAttr = d.categories.join(',');
@@ -77,7 +81,7 @@ const { title, reviews } = Astro.props;
             class="max-h-[min(78vh,820px)] w-auto max-w-full rounded-xl object-contain shadow-2xl"
             data-telegram-lightbox-img
             src=""
-            alt=""
+            alt="Увеличенный скриншот отзыва из Telegram"
           />
           <a
             class="telegram-lightbox-link hidden rounded-lg bg-dom-gold/20 px-4 py-2 font-montserrat text-sm font-semibold text-dom-graphite hover:bg-dom-gold/35"

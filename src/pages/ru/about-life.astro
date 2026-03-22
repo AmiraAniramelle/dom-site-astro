@@ -61,14 +61,56 @@ const articleJsonLd = {
     </ol>
   </nav>
 
-  <section class="bg-white min-h-screen pb-28 futuristic-grid">
+  <section class="home-section home-section-tone-soft relative min-h-screen pb-28 futuristic-grid">
     <div class="max-w-6xl mx-auto px-4 fade-in">
       <AboutLifeHero {...aboutLifePageData.hero} />
       <AboutLifeStory {...aboutLifePageData.story} />
-      <div class="space-y-5">
-        {aboutLifePageData.stages.map((stage) => (
-          <AboutLifeStageCard {...stage} />
-        ))}
+
+      <!-- Десктоп: горизонтальный timeline (3 колонки, линия, точки) -->
+      <div class="hidden lg:block mb-20">
+        <div class="grid grid-cols-3 gap-8">
+          <div class="col-span-3 grid grid-cols-3 gap-8 relative mb-6 h-4 items-center">
+            <div
+              class="pointer-events-none absolute inset-x-[16.666667%] top-1/2 h-px -translate-y-1/2 bg-dom-gold/30"
+              aria-hidden="true"
+            />
+            {
+              aboutLifePageData.stages.map(() => (
+                <div class="relative z-[1] flex justify-center">
+                  <div
+                    class="h-4 w-4 shrink-0 rounded-full bg-dom-gold ring-4 ring-[#f7f0e3]"
+                    aria-hidden="true"
+                  />
+                </div>
+              ))
+            }
+          </div>
+          {
+            aboutLifePageData.stages.map((stage) => (
+              <div class="text-center hover:-translate-y-1 transition-all duration-300">
+                <AboutLifeStageCard {...stage} />
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Мобильный: вертикальный timeline (линия слева, точки на линии, текст справа) -->
+      <div class="lg:hidden mb-16 border-l border-dom-gold/30 pl-8 ml-3">
+        {
+          aboutLifePageData.stages.map((stage) => (
+            <div class="relative pb-10 last:pb-2 hover:-translate-y-1 transition-all duration-300">
+              <div
+                class="absolute top-1.5 left-0 h-4 w-4 -translate-x-1/2 rounded-full border-2 border-[#f7f0e3] bg-dom-gold"
+                style="margin-left: -1px;"
+                aria-hidden="true"
+              />
+              <div class="text-left">
+                <AboutLifeStageCard {...stage} />
+              </div>
+            </div>
+          ))
+        }
       </div>
     </div>
   </section>

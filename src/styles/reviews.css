@@ -134,23 +134,36 @@
   }
 }
 
-/* Мобильный горизонтальный скролл чипов (reviews-sections/02) */
+/* Мобильный UX страницы «Отзывы» — reviews-mobile-ux.md (только max-width: 768px) */
+
+[data-reviews-root] {
+  overflow-x: clip;
+}
+
 @media (max-width: 768px) {
-  .review-filter-chip-wrap {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    gap: 0.65rem;
-    padding-bottom: 0.5rem;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: thin;
+  /* Истории: карточка без «коробки», нижняя граница */
+  [data-reviews-root] .reviews-story-card.home-review-card {
+    padding: 16px;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    background: transparent;
+    border-bottom: 1px solid rgba(217, 179, 114, 0.15);
+    overflow: visible;
   }
 
-  .review-filter-chip-wrap .review-filter-btn {
-    width: auto;
-    min-width: max-content;
-    flex-shrink: 0;
-    white-space: nowrap;
+  [data-reviews-root] .reviews-story-card.home-review-card:hover {
+    transform: none;
+    box-shadow: none;
+    border-color: transparent;
+    border-bottom-color: rgba(217, 179, 114, 0.15);
+  }
+
+  [data-reviews-root] .reviews-story-excerpt:not(.reviews-story-excerpt--expanded) {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
   }
 }
 

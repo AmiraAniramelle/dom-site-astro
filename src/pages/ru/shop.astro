@@ -1,12 +1,70 @@
 ---
+/**
+ * Страница «Магазин» — shop-sections/03-shop-page.md, 00-RULES-shop.md
+ */
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import ShopHero from '../../components/shop/ShopHero.astro';
+import ShopBrandCard from '../../components/shop/ShopBrandCard.astro';
+import { createPageMeta } from '../../data/seo/defaults';
+import { siteConfig } from '../../data/site';
+import { shopPageData } from '../../data/pages/shop';
+import type { PageMeta } from '../../types/page';
+
+const baseMeta = createPageMeta({
+  ...shopPageData.seo,
+  ogType: 'website',
+  locale: 'ru_RU',
+});
+
+const storeJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Store',
+  name: 'Магазин DOM',
+  description: 'Лимитированные коллекции MIROZDANIE и DOM',
+  url: `${siteConfig.url}/ru/shop/`,
+  breadcrumb: {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Главная',
+        item: `${siteConfig.url}/ru/`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Магазин',
+        item: `${siteConfig.url}/ru/shop/`,
+      },
+    ],
+  },
+};
+
+const meta: PageMeta = {
+  ...baseMeta,
+  jsonLd: [storeJsonLd],
+};
 ---
 
-<BaseLayout title="Магазин | DOM" description="Программы и продукты метода DOM.">
-  <section class="home-section home-section-tone-soft">
-    <div class="max-w-4xl mx-auto px-4 home-surface">
-      <h1 class="font-messiri home-title text-dom-graphite mb-6">Магазин</h1>
-      <p class="home-subtitle font-montserrat text-dom-graphite">Каталог продуктов будет добавлен (Content Collection).</p>
+<BaseLayout meta={meta}>
+  <nav class="sr-only" aria-label="Хлебные крошки">
+    <ol class="m-0 list-none p-0">
+      <li class="inline">
+        <a href="/ru/">Главная</a>
+        <span aria-hidden="true"> → </span>
+      </li>
+      <li class="inline">
+        <span aria-current="page">Магазин</span>
+      </li>
+    </ol>
+  </nav>
+  <section class="bg-white min-h-screen pt-20 pb-24">
+    <div class="max-w-6xl mx-auto px-4">
+      <ShopHero {...shopPageData.hero} />
+      {shopPageData.brands.map((brand) => (
+        <ShopBrandCard {...brand} />
+      ))}
     </div>
   </section>
 </BaseLayout>

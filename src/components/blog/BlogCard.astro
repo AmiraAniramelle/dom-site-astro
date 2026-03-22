@@ -67,6 +67,7 @@ function formatBlogCardDateRu(dateStr: string): string {
 const dateLabel = formatBlogCardDateRu(date);
 /** Обложки книг часто «высокие» — object-cover в h-56 обрезает верх; contain показывает целиком */
 const isBook = contentType === 'Книга';
+const isVideo = contentType === 'Видео';
 ---
 
 <a
@@ -101,8 +102,27 @@ const isBook = contentType === 'Книга';
       loading="lazy"
       decoding="async"
     />
+    {
+      isVideo ? (
+        <div
+          class="pointer-events-none absolute inset-0 z-[1] flex items-center justify-center"
+          aria-hidden="true"
+        >
+          <span class="flex h-14 w-14 items-center justify-center rounded-full bg-dom-gold/90 text-white shadow-lg transition-colors duration-200 group-hover:bg-dom-gold">
+            <svg
+              class="ml-0.5 h-6 w-6"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path d="M8 5v14l11-7z" />
+            </svg>
+          </span>
+        </div>
+      ) : null
+    }
     <span
-      class="blog-card-badge absolute top-4 left-4 px-4 py-1.5 rounded-full bg-dom-gold/90 text-white text-xs font-montserrat font-bold uppercase tracking-wider"
+      class="blog-card-badge absolute top-4 left-4 z-[2] px-4 py-1.5 rounded-full bg-dom-gold/90 text-white text-xs font-montserrat font-bold uppercase tracking-wider"
     >
       {contentType}
     </span>

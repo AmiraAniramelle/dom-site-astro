@@ -1,0 +1,76 @@
+---
+/**
+ * Карточка бренда магазина — shop-sections/02-shop-brand-card.md
+ * Кнопки: тип 5 / тип 2 ДС → dom-btn-primary / dom-btn-secondary
+ */
+interface Props {
+  title: string;
+  paragraphs: string[];
+  image: { src: string; alt: string };
+  primaryCta: { text: string; url: string };
+  secondaryCta: { text: string; url: string };
+}
+
+const { title, paragraphs, image, primaryCta, secondaryCta } = Astro.props;
+const imgSrc = encodeURI(image.src);
+---
+
+<article
+  class="rounded-[2.4rem] p-7 md:p-10 max-md:p-5 max-md:rounded-2xl border border-dom-gold/28 bg-[linear-gradient(140deg,rgba(255,250,238,0.95),rgba(247,232,199,0.72))] shadow-[0_24px_56px_rgba(126,91,35,0.18)] mb-10"
+>
+  <div class="grid grid-cols-1 md:grid-cols-12 gap-7 items-center">
+    <div class="md:col-span-5">
+      <div
+        class="aspect-[4/3] rounded-[1.6rem] overflow-hidden border border-dom-gold/30 shadow-[0_14px_34px_rgba(90,63,25,0.2)] bg-[linear-gradient(130deg,rgba(42,33,21,0.94),rgba(74,54,26,0.88))] relative"
+      >
+        <img
+          src={imgSrc}
+          alt={image.alt}
+          class="w-full h-full object-contain p-8 opacity-95"
+          width="800"
+          height="600"
+          loading="lazy"
+        />
+        <div
+          class="absolute inset-0 bg-[radial-gradient(circle_at_75%_20%,rgba(217,179,114,0.35),transparent_45%)]"
+          aria-hidden="true"
+        >
+        </div>
+      </div>
+    </div>
+    <div class="md:col-span-7">
+      <h2 class="font-messiri text-4xl text-dom-graphite mb-4">{title}</h2>
+      {
+        paragraphs.map((p, i) => {
+          const isLast = i === paragraphs.length - 1;
+          const tone =
+            i === 0 ? 'text-dom-graphite/82' : 'text-dom-graphite/78';
+          const margin = isLast ? 'mb-6' : 'mb-4';
+          return (
+            <p class={`font-montserrat ${tone} leading-relaxed ${margin}`}>
+              {p}
+            </p>
+          );
+        })
+      }
+      <div class="flex flex-col md:flex-row gap-3">
+        <a
+          href={primaryCta.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="dom-btn-primary w-full md:w-auto text-center justify-center"
+        >
+          {primaryCta.text}
+        </a>
+        <a
+          href={secondaryCta.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="dom-btn-secondary w-full md:w-auto text-center justify-center"
+        >
+          {secondaryCta.text}
+        </a>
+      </div>
+    </div>
+  </div>
+</article>

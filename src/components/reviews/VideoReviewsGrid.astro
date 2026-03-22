@@ -23,10 +23,14 @@ function topicLabelFor(categories: string[]): string | undefined {
 
 {
   reviews.length > 0 ? (
-    <div class="mb-20" data-review-section="video" data-video-reviews-section>
-      <h2 class="font-messiri mb-4 text-center text-4xl text-dom-graphite">{title}</h2>
-      <div class="mx-auto mb-8 h-1 w-20 bg-dom-gold" aria-hidden="true" />
-      <div class="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-8">
+    <div class="mb-8 md:mb-20" data-review-section="video" data-video-reviews-section>
+      <h2
+        class="font-messiri mb-4 text-center text-4xl text-dom-graphite max-md:mb-3 max-md:text-[clamp(1.5rem,7vw,2rem)] max-md:break-words"
+      >
+        {title}
+      </h2>
+      <div class="mx-auto mb-8 max-md:mb-6 h-1 w-20 bg-dom-gold" aria-hidden="true" />
+      <div class="grid grid-cols-1 gap-3 md:gap-8 md:grid-cols-3">
         {reviews.map((entry, i) => {
           const d = entry.data;
           const catAttr = d.categories.join(',');

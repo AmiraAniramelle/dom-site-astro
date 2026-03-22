@@ -13,17 +13,19 @@ interface Props {
 const { thumbnail, title, excerpt, topicLabel } = Astro.props;
 const thumbSrc = encodeURI(thumbnail);
 const imgFallback = '/images/home/hero-reference.jpg';
+const videoTitle = title?.trim() || 'Видео-отзыв участника метода DOM';
+const thumbAlt = `Превью видео-отзыва: ${videoTitle}`;
 ---
 
 <article
-  class="video-ribbon-card group flex h-full min-h-0 cursor-pointer flex-col overflow-hidden rounded-2xl border border-dom-gold/25 bg-white shadow-[0_10px_24px_rgba(126,91,35,0.1)] transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+  class="video-ribbon-card group flex h-full min-h-0 cursor-pointer flex-col overflow-hidden rounded-2xl max-md:rounded-xl border border-dom-gold/25 bg-white shadow-[0_10px_24px_rgba(126,91,35,0.1)] transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
   data-video-review-card
 >
-  <div class="relative aspect-video bg-dom-graphite">
+  <div class="relative aspect-video w-full bg-dom-graphite max-md:rounded-xl overflow-hidden">
     <div class="video-review-poster absolute inset-0 z-[1]">
       <img
         src={thumbSrc}
-        alt=""
+        alt={thumbAlt}
         class="h-full w-full object-cover"
         width="640"
         height="360"
@@ -36,9 +38,14 @@ const imgFallback = '/images/home/hero-reference.jpg';
       aria-hidden="true"
     >
       <span
-        class="flex h-16 w-16 items-center justify-center rounded-full bg-dom-gold/90 text-white shadow-lg transition-colors duration-200 group-hover:bg-dom-gold"
+        class="flex h-16 w-16 max-md:h-12 max-md:w-12 items-center justify-center rounded-full bg-dom-gold/90 text-white shadow-lg transition-colors duration-200 group-hover:bg-dom-gold"
       >
-        <svg class="ml-1 h-7 w-7" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <svg
+          class="ml-1 h-7 w-7 max-md:h-5 max-md:w-5"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          aria-hidden="true"
+        >
           <path d="M8 5v14l11-7z"></path>
         </svg>
       </span>
@@ -54,11 +61,15 @@ const imgFallback = '/images/home/hero-reference.jpg';
       ></iframe>
     </div>
   </div>
-  <div class="p-6">
-    <h3 class="font-messiri mb-2 text-xl text-dom-graphite">
-      {title}
+  <div class="p-6 max-md:p-4">
+    <h3
+      class="font-messiri mb-2 text-xl max-md:text-base text-dom-graphite max-md:break-words"
+    >
+      {videoTitle}
     </h3>
-    <p class="font-montserrat text-sm leading-relaxed text-dom-graphite/70">
+    <p
+      class="font-montserrat text-sm max-md:text-[13px] max-md:leading-relaxed text-dom-graphite/70"
+    >
       {excerpt}
     </p>
     {

@@ -24,10 +24,14 @@ const items = await Promise.all(
 
 {
   items.length > 0 ? (
-    <div class="mb-20" data-review-section="stories" data-reviews-story-section>
-      <h2 class="font-messiri mb-4 text-center text-4xl text-dom-graphite">{title}</h2>
-      <div class="mx-auto mb-8 h-1 w-20 bg-dom-gold" aria-hidden="true" />
-      <div class="grid grid-cols-1 items-stretch gap-4 md:grid-cols-3 md:gap-8">
+    <div class="mb-8 md:mb-20" data-review-section="stories" data-reviews-story-section>
+      <h2
+        class="font-messiri mb-4 text-center text-4xl text-dom-graphite max-md:mb-3 max-md:text-[clamp(1.5rem,7vw,2rem)] max-md:break-words"
+      >
+        {title}
+      </h2>
+      <div class="mx-auto mb-8 max-md:mb-6 h-1 w-20 bg-dom-gold" aria-hidden="true" />
+      <div class="grid grid-cols-1 items-stretch gap-3 md:grid-cols-3 md:gap-8">
         {items.map(({ entry, Content }, i) => {
           const d = entry.data;
           const catAttr = d.categories.join(',');
@@ -83,7 +87,7 @@ const items = await Promise.all(
           <div class="home-review-photo-wrap">
             <img
               src=""
-              alt=""
+              alt="Фото участника в полном тексте отзыва"
               class="home-review-photo"
               data-reviews-story-modal-photo
               width="760"
@@ -184,6 +188,20 @@ const items = await Promise.all(
 
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && !overlay.classList.contains('hidden')) closeModal();
+    });
+
+    /** Мобильный UX: «Читать полностью» раскрывает текст превью, не открывает модалку */
+    section.querySelectorAll('[data-reviews-story-inline-toggle]').forEach((toggle) => {
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        e.preventDefault();
+        const card = (toggle as HTMLElement).closest('[data-reviews-story-card]');
+        const excerpt = card?.querySelector('[data-reviews-story-excerpt]');
+        if (!excerpt) return;
+        const expanded = excerpt.classList.toggle('reviews-story-excerpt--expanded');
+        (toggle as HTMLButtonElement).setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        (toggle as HTMLButtonElement).textContent = expanded ? 'Свернуть' : 'Читать полностью';
+      });
     });
 
     const btn = section.querySelector('[data-story-load-more]');

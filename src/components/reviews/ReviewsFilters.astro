@@ -18,11 +18,35 @@ const { hint, filters, statusPrefix, statusAllLabel = 'все темы' } = Astr
 const initialStatus = `${statusPrefix} ${statusAllLabel}`;
 ---
 
-<div class="reviews-filters-panel mb-8">
-  <p class="review-filter-help">{hint}</p>
+<div class="reviews-filters-panel mb-8 max-md:mb-6">
+  <p class="review-filter-help max-md:hidden">
+    {hint}
+  </p>
   <div class="review-filter-list max-w-7xl mx-auto">
+    <div class="md:hidden mb-1">
+      <p class="font-montserrat text-[11px] uppercase tracking-[0.12em] text-dom-goldDark mb-2">
+        Смотреть отзывы по теме
+      </p>
+      <label class="sr-only" for="review-filter-topic-select">
+        Фильтр отзывов по теме
+      </label>
+      <select
+        id="review-filter-topic-select"
+        class="review-filter-mobile-select w-full rounded-xl border border-dom-gold/20 bg-white px-6 py-4 font-montserrat text-base text-dom-graphite outline-none focus:border-dom-gold/60 focus:ring-2 focus:ring-dom-gold/20"
+        data-review-filter-select
+        aria-label="Фильтр отзывов по теме"
+      >
+        {
+          filters.map((item) => (
+            <option value={item.id}>
+              {item.label}
+            </option>
+          ))
+        }
+      </select>
+    </div>
     <div
-      class="review-filter-chip-wrap"
+      class="review-filter-chip-wrap max-md:hidden"
       role="group"
       aria-label="Фильтр отзывов по теме"
     >
@@ -55,9 +79,9 @@ const initialStatus = `${statusPrefix} ${statusAllLabel}`;
       }
     </div>
   </div>
-  <div class="mt-2">
+  <div class="mt-2 max-md:mt-1.5">
     <p
-      class="font-montserrat text-[11px] uppercase tracking-[0.11em] text-dom-goldDark"
+      class="font-montserrat text-[11px] uppercase tracking-[0.11em] text-dom-goldDark max-md:text-[10px] max-md:text-center max-md:tracking-[0.1em]"
       data-review-filter-status
     >
       {initialStatus}

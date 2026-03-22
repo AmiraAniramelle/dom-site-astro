@@ -1,6 +1,6 @@
 ---
 /**
- * Блок 2: От личного опыта к системе DOM (about-life-sections/02-story.md)
+ * Блок 2: фото + текст — без белой карточки, сетка 12 колонок (about-life-sections)
  */
 interface Props {
   title: string;
@@ -11,31 +11,34 @@ interface Props {
 const { title, paragraphs, portrait } = Astro.props;
 ---
 
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
-  <div class="lg:col-span-4">
-    <div
-      class="rounded-[2rem] overflow-hidden border border-dom-gold/30 shadow-[0_22px_48px_rgba(126,91,35,0.16)]"
-    >
+<div
+  class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12 lg:items-center"
+>
+  <div class="lg:col-span-5 flex items-center">
+    <div class="w-full overflow-hidden rounded-[2rem] border border-dom-gold/25">
       <img
         src={portrait.src}
         alt={portrait.alt}
-        class="w-full h-full object-cover object-top"
+        class="w-full h-full min-h-[280px] lg:min-h-[360px] object-cover object-top"
         width="800"
         height="1000"
         loading="lazy"
+        decoding="async"
       />
     </div>
   </div>
-  <div class="lg:col-span-8">
-    <div
-      class="p-8 rounded-[2rem] border border-dom-gold/25 bg-white/90 shadow-[0_20px_42px_rgba(126,91,35,0.12)]"
-    >
-      <h2 class="font-messiri text-3xl text-dom-graphite mb-4">{title}</h2>
-      {paragraphs.map((text) => (
-        <p class="font-montserrat text-base text-dom-graphite/82 leading-relaxed mb-4 last:mb-0">
-          {text}
-        </p>
-      ))}
+  <div class="lg:col-span-7 flex items-center">
+    <div class="w-full">
+      <h2 class="font-messiri text-3xl md:text-4xl text-dom-graphite mb-5">
+        {title}
+      </h2>
+      {
+        paragraphs.map((text) => (
+          <p class="font-montserrat text-base md:text-lg text-dom-graphite/85 leading-relaxed mb-4 last:mb-0">
+            {text}
+          </p>
+        ))
+      }
     </div>
   </div>
 </div>

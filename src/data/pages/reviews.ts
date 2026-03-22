@@ -23,10 +23,12 @@ export const reviewsMenuFilters = [
 
 export const reviewsPageData = {
   seo: {
-    title: 'Отзывы участников DOM — Истории трансформации | DOM',
+    title: 'Отзывы участников DOM — Истории трансформации',
     description:
-      'Реальные отзывы участников метода DOM: видео, истории, отзывы из Telegram-чатов.',
+      'Реальные отзывы участников метода DOM: видео, истории студентов, скриншоты из Telegram. 300 000+ слушателей по всему миру.',
     canonicalUrl: '/ru/reviews/',
+    /** Open Graph / Twitter — 1200×630 предпочтительно */
+    ogImage: '/images/shared/dom-logo-home-gold-bg.jpg',
   },
   hero: {
     eyebrow: 'РЕЗУЛЬТАТЫ',
@@ -121,11 +123,11 @@ export const reviewsPageData = {
       },
     ] satisfies readonly ReviewsFilterItem[],
   },
-  /** Заголовки секций с отзывами */
+  /** Заголовки секций с отзывами (H2 под единственным H1 страницы) */
   sections: {
-    video: 'Видео-отзывы',
+    video: 'Студийные видео-отзывы',
     stories: 'Истории студентов',
-    telegram: 'Отзывы из Telegram-чатов',
+    telegram: 'Скриншоты из Telegram',
   },
   /** Нижний CTA — reviews-sections/07-reviews-page.md */
   moreReviewsCta: {

@@ -19,17 +19,19 @@ const {
   city,
   role,
   photo,
-  highlight: _highlight,
+  highlight,
   excerpt,
 } = Astro.props;
+const hasHighlight = Boolean(highlight?.trim());
 const photoSrc = encodeURI(photo);
 const metaLine =
   role && role.trim() ? `${role.trim()} · ${city}` : city;
 const imgFallback = '/images/home/hero-reference.jpg';
+const photoAlt = `Фото участника метода DOM: ${name}, ${city}`;
 ---
 
 <article
-  class="home-review-card reviews-story-card flex h-full w-full min-w-0 flex-col"
+  class="home-review-card reviews-story-card h-full w-full min-w-0 max-md:grid max-md:grid-cols-[48px_minmax(0,1fr)] max-md:gap-x-3 max-md:gap-y-2 max-md:items-start md:flex md:flex-col"
   data-reviews-story-card
   data-reviews-story-id={id}
   tabindex="0"
@@ -37,10 +39,12 @@ const imgFallback = '/images/home/hero-reference.jpg';
   aria-haspopup="dialog"
   aria-label={`Отзыв: ${name}. Открыть полностью`}
 >
-  <div class="home-review-photo-wrap shrink-0">
+  <div
+    class="home-review-photo-wrap shrink-0 max-md:col-start-1 max-md:row-start-1 max-md:!h-12 max-md:!w-12 max-md:overflow-hidden max-md:rounded-full max-md:aspect-auto"
+  >
     <img
       src={photoSrc}
-      alt={name}
+      alt={photoAlt}
       class="home-review-photo"
       loading="lazy"
       decoding="async"
@@ -49,13 +53,41 @@ const imgFallback = '/images/home/hero-reference.jpg';
       onerror={`this.onerror=null;this.src='${imgFallback}';`}
     />
   </div>
-  <div class="home-review-body flex min-h-0 flex-grow flex-col">
-    <h3 class="home-review-name shrink-0">{name}</h3>
-    <p class="home-review-meta shrink-0">{metaLine}</p>
+  <div
+    class="reviews-story-head max-md:col-start-2 max-md:row-start-1 max-md:min-w-0 md:contents"
+  >
+    <h3 class="home-review-name shrink-0 max-md:text-base max-md:break-words">{name}</h3>
+    <p class="home-review-meta reviews-story-meta-line shrink-0 max-md:!text-[10px] max-md:normal-case max-md:tracking-normal">
+      {metaLine}
+    </p>
+  </div>
+  <div
+    class="home-review-body flex min-h-0 flex-grow flex-col max-md:col-span-2 max-md:row-start-2 max-md:!px-0 max-md:!pt-0 max-md:!pb-0"
+  >
+    {
+      hasHighlight ? (
+        <p class="reviews-story-highlight mb-2 font-montserrat font-semibold text-dom-graphite max-md:mb-2 max-md:text-sm max-md:leading-snug md:hidden">
+          {highlight}
+        </p>
+      ) : null
+    }
     <div class="reviews-story-main flex min-h-0 flex-grow flex-col">
-      <p class="home-review-excerpt mb-0 shrink-0">{excerpt}</p>
+      <p
+        class="home-review-excerpt reviews-story-excerpt mb-0 shrink-0 max-md:text-[13px] max-md:leading-[1.6] max-md:break-words"
+        data-reviews-story-excerpt
+      >
+        {excerpt}
+      </p>
     </div>
-    <p class="home-review-readmore mt-auto shrink-0">Читать полностью</p>
+    <button
+      type="button"
+      class="reviews-story-inline-toggle mt-2 hidden max-md:inline-flex font-montserrat text-xs font-bold uppercase tracking-[0.1em] text-dom-goldDark underline-offset-2 hover:underline bg-transparent border-0 p-0 cursor-pointer text-left"
+      data-reviews-story-inline-toggle
+      aria-expanded="false"
+    >
+      Читать полностью
+    </button>
+    <p class="home-review-readmore mt-auto shrink-0 max-md:hidden">Читать полностью</p>
   </div>
   <div class="hidden" data-reviews-story-body aria-hidden="true">
     <div class="story-markdown">
