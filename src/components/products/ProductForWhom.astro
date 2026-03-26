@@ -1,0 +1,23 @@
+---
+interface Props {
+  items: Array<{ title: string; desc: string }>;
+}
+
+const { items } = Astro.props as Props;
+---
+
+{
+  items && items.length > 0 ? (
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 md:mb-16">
+      <h2 class="font-messiri text-4xl md:text-5xl text-dom-graphite mb-6">Для кого этот путь?</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {items.map((item) => (
+          <article class="bg-white rounded-2xl border border-dom-gold/25 p-6 md:p-8 shadow-[0_10px_24px_rgba(126,91,35,0.1)]">
+            <h3 class="font-messiri text-2xl text-dom-graphite mb-3">{item.title}</h3>
+            <p class="font-montserrat text-sm md:text-base text-dom-graphite/85">{item.desc}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+  ) : null
+}

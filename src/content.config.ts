@@ -8,6 +8,31 @@ const products = defineCollection({
     title: z.string(),
     tag: z.string(),
     shortDesc: z.string(),
+    heroSubtitle: z.string().optional(),
+    heroTagline: z.string().optional(),
+    heroShortDesc: z.string().optional(),
+    heroQuote: z.string().optional(),
+    heroImage: z
+      .object({
+        src: z.string(),
+        alt: z.string(),
+      })
+      .optional(),
+    videoPreview: z
+      .object({
+        thumbnail: z.string(),
+        videoUrl: z.string(),
+        alt: z.string(),
+      })
+      .optional(),
+    stats: z
+      .array(
+        z.object({
+          icon: z.string().optional(),
+          text: z.string(),
+        })
+      )
+      .optional(),
     mission: z.string(),
     whyImportant: z.string(),
     price: z.string(),

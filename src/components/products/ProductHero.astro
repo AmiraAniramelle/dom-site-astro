@@ -1,0 +1,31 @@
+---
+interface Props {
+  title: string;
+  tag: string;
+  shortDesc: string;
+  backLink: { text: string; url: string };
+}
+
+const { title, tag, shortDesc, backLink } = Astro.props as Props;
+---
+
+<section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 md:pt-20 mb-8 md:mb-16">
+  <a
+    href={backLink.url}
+    class="product-back-btn text-dom-goldDark hover:text-dom-graphite flex items-center text-sm font-bold uppercase tracking-widest mb-10 transition-colors"
+  >
+    ← {backLink.text}
+  </a>
+
+  <div
+    class="product-hero-card product-hero-linked rounded-[2rem] p-10 md:p-16 relative overflow-hidden bg-[linear-gradient(145deg,rgba(255,252,244,0.98),rgba(246,233,203,0.92))] border border-dom-gold/22 shadow-[0_10px_24px_rgba(126,91,35,0.1)]"
+  >
+    <span class="text-xs font-bold uppercase text-white bg-dom-goldDark px-5 py-2 rounded-full inline-block mb-8 shadow-md tracking-widest">
+      {tag}
+    </span>
+    <h1 class="font-messiri text-5xl md:text-7xl text-dom-graphite mb-8 leading-tight">{title}</h1>
+    <p class="text-xl md:text-2xl text-dom-graphite/80 font-montserrat leading-relaxed max-w-4xl font-light border-l-4 border-dom-gold pl-6">
+      {shortDesc}
+    </p>
+  </div>
+</section>

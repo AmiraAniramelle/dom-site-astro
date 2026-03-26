@@ -1,0 +1,33 @@
+---
+interface Props {
+  reviews: Array<{ text: string; author: string }>;
+}
+
+const { reviews } = Astro.props as Props;
+
+if (!Array.isArray(reviews) || reviews.length === 0) {
+  // Включаем «показ только если reviews.length > 0»
+  // eslint-disable-next-line no-useless-return
+  return;
+}
+---
+
+<section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 md:mb-16">
+  <h2 class="font-messiri text-4xl md:text-5xl text-dom-graphite mb-6">
+    Изменения участников
+  </h2>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+    {reviews.map((rev) => (
+      <article class="rounded-2xl border border-dom-gold/20 bg-white/70 p-6 md:p-7">
+        <p class="font-montserrat text-dom-graphite/85 italic leading-relaxed">
+          "{rev.text}"
+        </p>
+        <p class="font-montserrat text-sm md:text-base text-dom-graphite/70 mt-4">
+          — {rev.author}
+        </p>
+      </article>
+    ))}
+  </div>
+</section>
+

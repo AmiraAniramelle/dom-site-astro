@@ -1,0 +1,30 @@
+---
+interface Props {
+  items: Array<{ q: string; a: string }>;
+}
+
+const { items } = Astro.props as Props;
+const hasItems = Array.isArray(items) && items.length > 0;
+---
+
+{
+  hasItems ? (
+    <section class="mb-24 max-w-4xl mx-auto">
+      <h2 class="font-messiri text-4xl md:text-5xl text-dom-graphite mb-6">Частые вопросы</h2>
+
+      <div class="space-y-4">
+        {items.map((item, idx) => (
+          <details class="rounded-xl border border-dom-gold/20 bg-white/70 px-5 py-4" open={idx === 0}>
+            <summary class="cursor-pointer list-none font-messiri text-2xl text-dom-graphite mb-2">
+              {item.q}
+            </summary>
+            <div class="font-montserrat text-sm md:text-base text-dom-graphite/85">
+              {item.a}
+            </div>
+          </details>
+        ))}
+      </div>
+    </section>
+  ) : null
+}
+

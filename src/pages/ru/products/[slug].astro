@@ -1,6 +1,14 @@
 ---
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ProductHero from '../../../components/products/ProductHero.astro';
+import ProductShowcase from '../../../components/products/ProductShowcase.astro';
+import ProductMission from '../../../components/products/ProductMission.astro';
+import ProductForWhom from '../../../components/products/ProductForWhom.astro';
+import ProductResults from '../../../components/products/ProductResults.astro';
+import ProductReviews from '../../../components/products/ProductReviews.astro';
+import ProductFAQ from '../../../components/products/ProductFAQ.astro';
+import ProductEnroll from '../../../components/products/ProductEnroll.astro';
 import { createPageMeta } from '../../../data/seo/defaults';
 import { siteConfig } from '../../../data/site';
 import type { PageMeta, Breadcrumb } from '../../../types/page';
@@ -25,17 +33,26 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const product = entry.data;
 const slug = entry.id;
+const { Content } = await render(entry);
+
+const backLinkPath = product.backLink.startsWith('/')
+  ? product.backLink
+  : `/ru/path/${product.backLink === 'path-money' ? 'money' : product.backLink.replace('path-', '')}/`;
 
 const breadcrumbs: Breadcrumb[] = [
   { name: 'Главная', url: `${siteConfig.url}/ru/` },
-  { name: CATEGORY_PATH[product.category]?.label ?? product.category, url: `${siteConfig.url}${CATEGORY_PATH[product.category]?.path ?? '/ru/path/'}` },
+  { name: 'Карта пути', url: `${siteConfig.url}/ru/path/` },
+  {
+    name: CATEGORY_PATH[product.category]?.label ?? product.category,
+    url: `${siteConfig.url}${CATEGORY_PATH[product.category]?.path ?? '/ru/path/'}`,
+  },
   { name: product.title, url: `${siteConfig.url}/ru/products/${slug}/` },
 ];
 
 const meta: PageMeta = createPageMeta({
-  title: product.seo.title,
-  description: product.seo.description,
-  canonicalUrl: `${siteConfig.url}/ru/products/${slug}/`,
+  title: `${product.title} | Программы DOM`,
+  description: product.shortDesc,
+  canonicalUrl: `/ru/products/${slug}/`,
   ogImage: product.seo.ogImage,
   ogType: 'product',
   locale: 'ru_RU',
@@ -70,111 +87,57 @@ const faqJsonLd =
         })),
       }
     : null;
-
-const { Content } = await render(entry);
 ---
 
 <BaseLayout meta={meta}>
-  <article class="max-w-4xl mx-auto px-4 py-10">
-    <nav aria-label="Хлебные крошки" class="text-sm text-dom-graphite/80 mb-6">
-      <ol class="flex flex-wrap gap-x-2 gap-y-1">
-        {breadcrumbs.map((b, i) => (
-          <li class="flex items-center gap-2">
-            {i > 0 && <span aria-hidden="true">/</span>}
-            {i === breadcrumbs.length - 1 ? (
-              <span class="text-dom-graphite font-medium">{b.name}</span>
-            ) : (
-              <a href={b.url.replace(siteConfig.url, '')} class="hover:text-dom-gold transition-colors">{b.name}</a>
-            )}
-          </li>
-        ))}
+  <section class="product-page-shell min-h-screen pt-12 pb-32">
+    <div class="max-w-5xl mx-auto px-4">
+    <nav aria-label="Хлебные крошки" class="sr-only">
+      <ol>
+        <li><a href="/ru/">Главная</a></li>
+        <li><a href="/ru/path/">Карта пути</a></li>
+        <li><a href={backLinkPath}>{CATEGORY_PATH[product.category]?.label ?? product.category}</a></li>
+        <li>{product.title}</li>
       </ol>
     </nav>
 
-    <header class="mb-10">
-      <p class="font-montserrat text-xs uppercase tracking-widest text-dom-gold mb-2">{product.tag}</p>
-      <h1 class="font-messiri text-4xl md:text-5xl text-dom-graphite mb-4">{product.title}</h1>
-      <p class="text-lg text-dom-graphite/85">{product.shortDesc}</p>
-      <p class="mt-4 text-dom-graphite/75">{product.price}</p>
-    </header>
+    <ProductHero
+      title={product.title}
+      tag={product.tag}
+      shortDesc={product.shortDesc}
+      backLink={{ text: 'Назад к направлению', url: backLinkPath }}
+    />
 
-    <section class="prose prose-dom max-w-none mb-10">
-      <p class="text-dom-graphite/85">{product.mission}</p>
-      <h2 class="font-messiri text-2xl text-dom-graphite mt-8 mb-3">Почему это важно</h2>
-      <p class="text-dom-graphite/85">{product.whyImportant}</p>
-    </section>
+    <ProductShowcase
+      title={product.title}
+      modulesCount={product.modules.length}
+      format="Онлайн"
+      access="Сразу после заявки"
+    />
 
-    <section class="mb-10">
-      <h2 class="font-messiri text-3xl text-dom-graphite mb-6">Для кого эта программа</h2>
-      <ul class="space-y-6">
-        {product.forWhom.map((item) => (
-          <li>
-            <h3 class="font-messiri text-xl text-dom-graphite mb-2">{item.title}</h3>
-            <p class="text-dom-graphite/85">{item.desc}</p>
-          </li>
-        ))}
-      </ul>
-    </section>
+    <ProductMission mission={product.mission} whyImportant={product.whyImportant} />
 
-    <section class="mb-10">
-      <h2 class="font-messiri text-3xl text-dom-graphite mb-6">Результаты программы</h2>
-      <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 list-disc list-inside text-dom-graphite/85">
-        {product.results.map((r) => (
-          <li>{r}</li>
-        ))}
-      </ul>
-    </section>
+    <ProductForWhom items={product.forWhom} />
 
-    <section class="mb-10">
-      <h2 class="font-messiri text-3xl text-dom-graphite mb-6">Модули программы</h2>
-      <ul class="space-y-4">
-        {product.modules.map((mod) => (
-          <li class="border border-dom-gold/20 rounded-xl p-4 bg-white/50">
-            <h3 class="font-messiri text-xl text-dom-graphite mb-2">{mod.name}</h3>
-            <p class="text-dom-graphite/85 text-sm">{mod.desc}</p>
-          </li>
-        ))}
-      </ul>
-    </section>
+    <ProductResults results={product.results} modules={product.modules} />
 
-    {product.reviews && product.reviews.length > 0 && (
-      <section class="mb-10">
-        <h2 class="font-messiri text-3xl text-dom-graphite mb-6">Отзывы участников</h2>
-        <ul class="space-y-4">
-          {product.reviews.map((rev) => (
-            <li class="border-l-4 border-dom-gold/40 pl-4 py-2">
-              <p class="text-dom-graphite/85 italic">"{rev.text}"</p>
-              <p class="text-sm text-dom-graphite/70 mt-1">— {rev.author}</p>
-            </li>
-          ))}
-        </ul>
-      </section>
-    )}
+    <ProductReviews reviews={product.reviews ?? []} />
 
-    {product.faq && product.faq.length > 0 && (
-      <section class="mb-10">
-        <h2 class="font-messiri text-3xl text-dom-graphite mb-6">Частые вопросы</h2>
-        <dl class="space-y-4">
-          {product.faq.map((item) => (
-            <div>
-              <dt class="font-messiri text-lg text-dom-graphite mb-1">{item.q}</dt>
-              <dd class="text-dom-graphite/85 pl-4">{item.a}</dd>
-            </div>
-          ))}
-        </dl>
-      </section>
-    )}
+    <ProductFAQ items={product.faq ?? []} />
 
-    <section class="prose prose-dom max-w-none mt-10">
-      <Content />
-    </section>
-
-    <p class="mt-10">
-      <a href={`/ru/path/${product.backLink === 'path-money' ? 'money' : product.backLink.replace('path-', '')}/`} class="text-dom-gold hover:underline font-medium">
-        ← Назад к направлению
-      </a>
-    </p>
-  </article>
+    <ProductEnroll
+      title={product.title}
+      shortDesc={product.shortDesc}
+      price={product.price}
+      tag={product.tag}
+      productSlug={slug}
+    >
+      <div class="prose prose-dom max-w-none">
+        <Content />
+      </div>
+    </ProductEnroll>
+    </div>
+  </section>
 
   <script type="application/ld+json" set:html={JSON.stringify(courseJsonLd)} />
   {faqJsonLd && <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />}

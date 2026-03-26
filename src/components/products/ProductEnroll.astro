@@ -1,0 +1,89 @@
+---
+interface Props {
+  title: string;
+  shortDesc: string;
+  price: string;
+  tag: string;
+  productSlug: string;
+}
+
+const {
+  title,
+  shortDesc,
+  price,
+  tag,
+  productSlug,
+} = Astro.props as Props;
+---
+
+<section
+  class="product-enroll p-8 md:p-12 rounded-[2.2rem] relative overflow-hidden"
+  id="product-enroll-block"
+>
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+    <div class="bg-white/70 border border-dom-gold/25 rounded-3xl p-6 md:p-8">
+      <p class="font-montserrat text-xs uppercase tracking-[0.12em] text-dom-goldDark mb-3">
+        {tag}
+      </p>
+      <p class="text-5xl font-messiri text-dom-graphite mb-2">{price}</p>
+      <p class="font-montserrat text-base text-dom-graphite/80 leading-relaxed">
+        {shortDesc}
+      </p>
+
+      <div class="mt-6">
+        <slot />
+      </div>
+    </div>
+
+    <div class="bg-white/75 border border-dom-gold/25 rounded-3xl p-6 md:p-8">
+      <form class="flex flex-col" data-enroll-form>
+        <input type="hidden" name="productSlug" value={productSlug} />
+
+        <label class="font-montserrat text-sm font-semibold text-dom-graphite/80 mb-2">
+          Имя
+        </label>
+        <input
+          type="text"
+          name="name"
+          required
+          class="w-full rounded-xl border border-dom-gold/20 bg-white px-5 py-3.5 md:px-6 md:py-4 font-montserrat text-[15px] text-dom-graphite placeholder:text-dom-graphite/30 outline-none focus:border-dom-gold/60 focus:ring-2 focus:ring-dom-gold/20"
+        />
+
+        <label class="font-montserrat text-sm font-semibold text-dom-graphite/80 mt-5 mb-2">
+          Email
+        </label>
+        <input
+          type="email"
+          name="email"
+          required
+          class="w-full rounded-xl border border-dom-gold/20 bg-white px-5 py-3.5 md:px-6 md:py-4 font-montserrat text-[15px] text-dom-graphite placeholder:text-dom-graphite/30 outline-none focus:border-dom-gold/60 focus:ring-2 focus:ring-dom-gold/20"
+        />
+
+        <label class="font-montserrat text-sm font-semibold text-dom-graphite/80 mt-5 mb-2">
+          Телефон или Telegram
+        </label>
+        <input
+          type="text"
+          name="contact"
+          required
+          class="w-full rounded-xl border border-dom-gold/20 bg-white px-5 py-3.5 md:px-6 md:py-4 font-montserrat text-[15px] text-dom-graphite placeholder:text-dom-graphite/30 outline-none focus:border-dom-gold/60 focus:ring-2 focus:ring-dom-gold/20"
+        />
+
+        <label class="mt-5 flex items-start gap-3 cursor-pointer">
+          <input type="checkbox" required class="mt-1" />
+          <span class="font-montserrat text-xs md:text-sm text-dom-graphite/70 leading-relaxed">
+            Нажимая на кнопку, вы соглашаетесь на обработку персональных данных.
+          </span>
+        </label>
+
+        <button
+          type="submit"
+          class="w-full mt-6 py-4 bg-gold-gradient text-white font-messiri text-3xl tracking-wide rounded-2xl hover:brightness-105 transition-all shadow-[0_12px_26px_rgba(166,120,50,0.34)]"
+        >
+          Подать заявку
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+

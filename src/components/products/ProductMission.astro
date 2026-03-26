@@ -1,0 +1,38 @@
+---
+interface Props {
+  mission: string;
+  whyImportant: string;
+}
+
+const { mission, whyImportant } = Astro.props as Props;
+---
+
+<section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-24">
+    <article class="product-dark-card p-10 md:p-12 rounded-[2rem] text-dom-graphite relative overflow-hidden">
+      <h3 class="font-messiri text-4xl text-dom-goldDark mb-6 relative z-10">Миссия проекта</h3>
+      <p class="font-montserrat text-base md:text-lg leading-relaxed text-dom-graphite/85 relative z-10">{mission}</p>
+    </article>
+
+    <article class="product-light-card p-10 md:p-12 rounded-[2rem]">
+      <h3 class="font-messiri text-4xl text-dom-graphite mb-6">Почему это важно?</h3>
+      <p class="font-montserrat text-base md:text-lg leading-relaxed text-dom-graphite/85">{whyImportant}</p>
+    </article>
+  </div>
+</section>
+
+<style>
+  .product-dark-card {
+    border: 1px solid rgba(186, 143, 75, 0.26);
+    background:
+      radial-gradient(circle at 0% 0%, rgba(217, 179, 114, 0.16), transparent 55%),
+      linear-gradient(155deg, rgba(255, 252, 244, 0.98), rgba(240, 226, 195, 0.92));
+    box-shadow: 0 14px 34px rgba(90, 63, 25, 0.16);
+  }
+
+  .product-light-card {
+    border: 1px solid rgba(186, 143, 75, 0.24);
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(246, 233, 203, 0.8));
+    box-shadow: 0 10px 24px rgba(126, 91, 35, 0.12);
+  }
+</style>
