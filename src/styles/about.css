@@ -195,8 +195,7 @@
     text-align: center;
   }
 
-  .about-hero-title {
-    font-size: clamp(1.8rem, 7vw, 2.4rem);
+  .about-hero-copy .hero-title {
     text-align: center;
   }
 

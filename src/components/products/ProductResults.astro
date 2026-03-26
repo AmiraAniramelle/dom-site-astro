@@ -11,15 +11,24 @@ const hasModules = Array.isArray(modules) && modules.length > 0;
 
 {
   hasResults || hasModules ? (
-    <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="product-results-card rounded-[2.5rem] p-10 md:p-16 mb-24 grid grid-cols-1 lg:grid-cols-2 gap-16 relative overflow-hidden border border-dom-gold/25 bg-[linear-gradient(145deg,rgba(255,252,244,0.98),rgba(246,233,203,0.9))] shadow-[0_14px_34px_rgba(90,63,25,0.16)]">
-        <div>
-          <h2 class="font-messiri text-4xl md:text-5xl text-dom-graphite mb-6">Что вы получите:</h2>
+    <section class="mx-auto w-full max-w-5xl">
+      <div
+        class="results-wrap product-light-card flex flex-col gap-10 rounded-[2.5rem] p-6 lg:grid lg:grid-cols-2 lg:gap-16 lg:p-16"
+      >
+        <div class="mb-10 lg:mb-0">
+          <h3 class="mb-6 font-messiri text-3xl text-dom-graphite md:mb-10 md:text-4xl">
+            Что вы получите:
+          </h3>
           {hasResults ? (
             <ul class="space-y-4">
               {results.map((item) => (
-                <li class="font-montserrat text-sm md:text-base text-dom-graphite/85 border-l-2 border-dom-gold/50 pl-4">
-                  {item}
+                <li class="product-light-panel flex items-start rounded-xl p-4 transition-colors hover:border-dom-gold/40 md:p-5">
+                  <span class="mr-4 mt-1 text-2xl font-bold text-dom-gold" aria-hidden="true">
+                    ✓
+                  </span>
+                  <span class="font-montserrat text-sm leading-relaxed text-dom-graphite/80 md:text-base">
+                    {item}
+                  </span>
                 </li>
               ))}
             </ul>
@@ -27,13 +36,19 @@ const hasModules = Array.isArray(modules) && modules.length > 0;
         </div>
 
         <div>
-          <h2 class="font-messiri text-4xl md:text-5xl text-dom-graphite mb-6">Как это работает:</h2>
+          <h3 class="mb-6 font-messiri text-3xl text-dom-graphite md:mb-10 md:text-4xl">
+            Как это работает:
+          </h3>
           {hasModules ? (
-            <ul class="space-y-4">
+            <ul class="space-y-0">
               {modules.map((mod) => (
-                <li class="rounded-xl border border-dom-gold/20 bg-white/65 px-4 py-3">
-                  <h3 class="font-messiri text-2xl text-dom-graphite mb-2">{mod.name}</h3>
-                  <p class="font-montserrat text-sm md:text-base text-dom-graphite/85">{mod.desc}</p>
+                <li class="group relative border-l-2 border-dom-gold/30 pb-6 pl-6 md:pl-8">
+                  <span
+                    class="absolute -left-[9px] top-1 h-4 w-4 rounded-full border-2 border-dom-gold bg-dom-beige transition-colors group-hover:bg-dom-gold"
+                    aria-hidden="true"
+                  />
+                  <h4 class="mb-2 font-messiri text-2xl font-bold text-dom-graphite">{mod.name}</h4>
+                  <p class="font-montserrat text-base leading-relaxed text-dom-graphite/70">{mod.desc}</p>
                 </li>
               ))}
             </ul>

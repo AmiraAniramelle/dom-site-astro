@@ -9,16 +9,21 @@ const hasItems = Array.isArray(items) && items.length > 0;
 
 {
   hasItems ? (
-    <section class="mb-24 max-w-4xl mx-auto">
-      <h2 class="font-messiri text-4xl md:text-5xl text-dom-graphite mb-6">Частые вопросы</h2>
+    <section class="mx-auto w-full max-w-4xl">
+      <h2 class="mb-12 text-center font-messiri text-4xl text-dom-graphite md:text-5xl">
+        Частые вопросы
+      </h2>
 
       <div class="space-y-4">
-        {items.map((item, idx) => (
-          <details class="rounded-xl border border-dom-gold/20 bg-white/70 px-5 py-4" open={idx === 0}>
-            <summary class="cursor-pointer list-none font-messiri text-2xl text-dom-graphite mb-2">
-              {item.q}
+        {items.map((item) => (
+          <details class="product-light-panel group cursor-pointer rounded-xl p-5 transition-colors hover:border-dom-gold/40 md:p-6">
+            <summary class="flex list-none items-center justify-between font-montserrat text-base font-bold text-dom-graphite outline-none transition-colors group-open:text-dom-gold-dark md:text-lg [&::-webkit-details-marker]:hidden">
+              <span>{item.q}</span>
+              <span class="text-3xl font-light text-dom-gold transition-transform group-open:rotate-45">
+                +
+              </span>
             </summary>
-            <div class="font-montserrat text-sm md:text-base text-dom-graphite/85">
+            <div class="mt-5 border-t border-dom-gold/15 pt-5 font-montserrat text-sm leading-relaxed text-dom-graphite/70 md:text-base">
               {item.a}
             </div>
           </details>
@@ -27,4 +32,3 @@ const hasItems = Array.isArray(items) && items.length > 0;
     </section>
   ) : null
 }
-

@@ -8,13 +8,15 @@ const { items } = Astro.props as Props;
 
 {
   items && items.length > 0 ? (
-    <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 md:mb-16">
-      <h2 class="font-messiri text-4xl md:text-5xl text-dom-graphite mb-6">Для кого этот путь?</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <section class="mx-auto w-full max-w-5xl">
+      <div class="mb-10 text-center">
+        <h2 class="font-messiri text-4xl text-dom-graphite md:text-5xl">Для кого этот путь?</h2>
+      </div>
+      <div class="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-8">
         {items.map((item) => (
-          <article class="bg-white rounded-2xl border border-dom-gold/25 p-6 md:p-8 shadow-[0_10px_24px_rgba(126,91,35,0.1)]">
-            <h3 class="font-messiri text-2xl text-dom-graphite mb-3">{item.title}</h3>
-            <p class="font-montserrat text-sm md:text-base text-dom-graphite/85">{item.desc}</p>
+          <article class="for-whom-card product-light-card rounded-2xl p-6 transition-all duration-300 hover:border-dom-gold/50 hover:shadow-xl md:p-8">
+            <h4 class="mb-3 font-messiri text-2xl text-dom-graphite">{item.title}</h4>
+            <p class="font-montserrat text-sm leading-relaxed text-dom-graphite/70">{item.desc}</p>
           </article>
         ))}
       </div>

@@ -6,28 +6,29 @@ interface Props {
 const { reviews } = Astro.props as Props;
 
 if (!Array.isArray(reviews) || reviews.length === 0) {
-  // Включаем «показ только если reviews.length > 0»
-  // eslint-disable-next-line no-useless-return
   return;
 }
 ---
 
-<section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 md:mb-16">
-  <h2 class="font-messiri text-4xl md:text-5xl text-dom-graphite mb-6">
+<section class="mx-auto w-full max-w-5xl">
+  <h2 class="mb-12 text-center font-messiri text-4xl text-dom-graphite md:text-5xl">
     Изменения участников
   </h2>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+  <div class="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-10">
     {reviews.map((rev) => (
-      <article class="rounded-2xl border border-dom-gold/20 bg-white/70 p-6 md:p-7">
-        <p class="font-montserrat text-dom-graphite/85 italic leading-relaxed">
-          "{rev.text}"
+      <article class="product-light-card relative rounded-2xl p-6 md:p-10">
+        <span
+          class="quote-mark absolute left-6 top-4 font-serif text-5xl text-dom-gold/20 md:text-7xl"
+          aria-hidden="true"
+        >
+          &ldquo;
+        </span>
+        <p class="relative z-10 mb-8 font-montserrat text-base italic leading-relaxed text-dom-graphite/85">
+          {rev.text}
         </p>
-        <p class="font-montserrat text-sm md:text-base text-dom-graphite/70 mt-4">
-          — {rev.author}
-        </p>
+        <p class="font-montserrat text-base font-semibold text-dom-gold-dark">— {rev.author}</p>
       </article>
     ))}
   </div>
 </section>
-

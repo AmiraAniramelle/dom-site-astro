@@ -207,8 +207,7 @@
     margin-bottom: 0.5rem;
   }
 
-  .blog-article-title {
-    font-size: clamp(1.5rem, 7vw, 2rem) !important;
+  .blog-article-header .hero-title {
     line-height: 1.2;
     margin-bottom: 0.75rem;
     text-transform: none;

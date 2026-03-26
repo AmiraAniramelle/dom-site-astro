@@ -103,6 +103,32 @@ nav[aria-label*="крошк"] {
   }
 }
 
+/*
+ * Продукты — тёплые светлые блоки как .about-light-card (about.css §5).
+ * Только внутри .product-page-shell (глобальный сброс .about-light-card на мобильном сюда не попадает).
+ */
+.product-page-shell .product-light-card {
+  background: linear-gradient(145deg, rgba(255, 252, 244, 0.98), rgba(246, 233, 203, 0.92));
+  border: 1px solid rgba(217, 179, 114, 0.22);
+  box-shadow: 0 10px 24px rgba(126, 91, 35, 0.1);
+}
+
+.product-page-shell .product-light-card-inner {
+  background: linear-gradient(180deg, rgba(255, 252, 244, 0.94), rgba(252, 246, 236, 0.9));
+  border: 1px solid rgba(217, 179, 114, 0.22);
+  box-shadow: 0 4px 20px rgba(126, 91, 35, 0.07);
+}
+
+.product-page-shell .product-light-panel {
+  background: rgba(255, 252, 244, 0.82);
+  border: 1px solid rgba(217, 179, 114, 0.18);
+}
+
+.product-page-shell .product-light-input {
+  background: rgba(255, 252, 244, 0.98);
+  border-color: rgba(217, 179, 114, 0.35);
+}
+
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
@@ -3008,7 +3034,8 @@ button.home-flow-card:focus-visible {
     height: 1.25rem !important;
     flex-shrink: 0;
   }
-  .home-hero .hero-title {
+  /* Единый H1 как на главной — все страницы с классом .hero-title */
+  .hero-title {
     font-size: clamp(2rem, 8vw, 2.8rem) !important;
     line-height: 1.15;
   }

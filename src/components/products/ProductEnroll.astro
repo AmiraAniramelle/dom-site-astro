@@ -7,83 +7,79 @@ interface Props {
   productSlug: string;
 }
 
-const {
-  title,
-  shortDesc,
-  price,
-  tag,
-  productSlug,
-} = Astro.props as Props;
+const { title, shortDesc, price, tag: _tag, productSlug } = Astro.props as Props;
 ---
 
 <section
-  class="product-enroll p-8 md:p-12 rounded-[2.2rem] relative overflow-hidden"
   id="product-enroll-block"
+  class="product-enroll product-light-card rounded-[2.2rem] p-5 md:p-8 lg:p-12"
 >
-  <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
-    <div class="bg-white/70 border border-dom-gold/25 rounded-3xl p-6 md:p-8">
-      <p class="font-montserrat text-xs uppercase tracking-[0.12em] text-dom-goldDark mb-3">
-        {tag}
+  <div class="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-10">
+    <div class="product-light-card-inner rounded-3xl p-5 md:p-8">
+      <p class="mb-4 font-montserrat text-xs uppercase tracking-[0.16em] text-dom-graphite/70">
+        Условия участия
       </p>
-      <p class="text-5xl font-messiri text-dom-graphite mb-2">{price}</p>
-      <p class="font-montserrat text-base text-dom-graphite/80 leading-relaxed">
-        {shortDesc}
+      <h3 class="mb-4 font-messiri text-3xl text-dom-graphite md:text-4xl">{title}</h3>
+      <p class="mb-6 font-montserrat text-base leading-relaxed text-dom-graphite/80">{shortDesc}</p>
+      <p class="mb-2 font-messiri text-4xl text-dom-graphite md:text-5xl">{price}</p>
+      <p class="mb-6 font-montserrat text-sm text-dom-graphite/75">
+        После заявки свяжемся и уточним детали доступа.
       </p>
-
-      <div class="mt-6">
+      <div class="prose prose-dom max-w-none">
         <slot />
       </div>
     </div>
 
-    <div class="bg-white/75 border border-dom-gold/25 rounded-3xl p-6 md:p-8">
-      <form class="flex flex-col" data-enroll-form>
+    <div class="product-light-card-inner rounded-3xl p-5 md:p-8">
+      <h4 class="mb-5 font-messiri text-2xl text-dom-graphite">Форма заявки</h4>
+      <form class="flex flex-col space-y-4" data-enroll-form>
         <input type="hidden" name="productSlug" value={productSlug} />
 
-        <label class="font-montserrat text-sm font-semibold text-dom-graphite/80 mb-2">
-          Имя
-        </label>
         <input
           type="text"
           name="name"
           required
-          class="w-full rounded-xl border border-dom-gold/20 bg-white px-5 py-3.5 md:px-6 md:py-4 font-montserrat text-[15px] text-dom-graphite placeholder:text-dom-graphite/30 outline-none focus:border-dom-gold/60 focus:ring-2 focus:ring-dom-gold/20"
+          placeholder="Ваше имя"
+          aria-label="Ваше имя"
+          class="product-light-input w-full rounded-xl border px-6 py-4 font-montserrat text-base text-dom-graphite outline-none placeholder:text-dom-graphite/30 focus:border-dom-gold/60 focus:ring-2 focus:ring-dom-gold/20 md:text-lg"
         />
 
-        <label class="font-montserrat text-sm font-semibold text-dom-graphite/80 mt-5 mb-2">
-          Email
-        </label>
         <input
           type="email"
           name="email"
           required
-          class="w-full rounded-xl border border-dom-gold/20 bg-white px-5 py-3.5 md:px-6 md:py-4 font-montserrat text-[15px] text-dom-graphite placeholder:text-dom-graphite/30 outline-none focus:border-dom-gold/60 focus:ring-2 focus:ring-dom-gold/20"
+          placeholder="Электронная почта"
+          aria-label="Электронная почта"
+          class="product-light-input w-full rounded-xl border px-6 py-4 font-montserrat text-base text-dom-graphite outline-none placeholder:text-dom-graphite/30 focus:border-dom-gold/60 focus:ring-2 focus:ring-dom-gold/20 md:text-lg"
         />
 
-        <label class="font-montserrat text-sm font-semibold text-dom-graphite/80 mt-5 mb-2">
-          Телефон или Telegram
-        </label>
         <input
           type="text"
           name="contact"
           required
-          class="w-full rounded-xl border border-dom-gold/20 bg-white px-5 py-3.5 md:px-6 md:py-4 font-montserrat text-[15px] text-dom-graphite placeholder:text-dom-graphite/30 outline-none focus:border-dom-gold/60 focus:ring-2 focus:ring-dom-gold/20"
+          placeholder="Телефон / Telegram"
+          aria-label="Телефон или Telegram"
+          class="product-light-input w-full rounded-xl border px-6 py-4 font-montserrat text-base text-dom-graphite outline-none placeholder:text-dom-graphite/30 focus:border-dom-gold/60 focus:ring-2 focus:ring-dom-gold/20 md:text-lg"
         />
 
-        <label class="mt-5 flex items-start gap-3 cursor-pointer">
+        <label class="mt-5 flex cursor-pointer items-start gap-3">
           <input type="checkbox" required class="mt-1" />
-          <span class="font-montserrat text-xs md:text-sm text-dom-graphite/70 leading-relaxed">
+          <span class="font-montserrat text-sm leading-relaxed text-dom-graphite/85">
             Нажимая на кнопку, вы соглашаетесь на обработку персональных данных.
           </span>
         </label>
 
         <button
           type="submit"
-          class="w-full mt-6 py-4 bg-gold-gradient text-white font-messiri text-3xl tracking-wide rounded-2xl hover:brightness-105 transition-all shadow-[0_12px_26px_rgba(166,120,50,0.34)]"
+          class="enroll-submit mt-6 w-full rounded-2xl bg-gold-gradient py-4 font-messiri text-xl tracking-wide text-white shadow-[0_12px_26px_rgba(166,120,50,0.34)] transition-all hover:brightness-105 md:text-2xl"
         >
-          Подать заявку
+          Занять место
         </button>
+
+        <p class="mt-3 text-center font-montserrat text-sm text-dom-graphite/75">
+          Ответим в рабочее время в течение 1–2 дней.
+        </p>
       </form>
     </div>
   </div>
 </section>
-

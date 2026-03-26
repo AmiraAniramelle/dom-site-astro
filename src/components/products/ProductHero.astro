@@ -9,23 +9,62 @@ interface Props {
 const { title, tag, shortDesc, backLink } = Astro.props as Props;
 ---
 
-<section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 md:pt-20 mb-8 md:mb-16">
+<section class="mx-auto w-full max-w-5xl pt-1 md:pt-3">
   <a
     href={backLink.url}
-    class="product-back-btn text-dom-goldDark hover:text-dom-graphite flex items-center text-sm font-bold uppercase tracking-widest mb-10 transition-colors"
+    class="product-back-link mb-4 inline-flex items-center gap-1.5 font-montserrat text-[10px] font-bold uppercase tracking-[0.14em] text-dom-gold-dark transition-colors hover:text-dom-graphite md:mb-5"
   >
-    ← {backLink.text}
+    <span class="product-back-arrow" aria-hidden="true">←</span>
+    <span>{backLink.text}</span>
   </a>
 
   <div
-    class="product-hero-card product-hero-linked rounded-[2rem] p-10 md:p-16 relative overflow-hidden bg-[linear-gradient(145deg,rgba(255,252,244,0.98),rgba(246,233,203,0.92))] border border-dom-gold/22 shadow-[0_10px_24px_rgba(126,91,35,0.1)]"
+    class="product-light-card relative overflow-hidden rounded-2xl p-5 md:rounded-[1.75rem] md:p-8 lg:p-10"
   >
-    <span class="text-xs font-bold uppercase text-white bg-dom-goldDark px-5 py-2 rounded-full inline-block mb-8 shadow-md tracking-widest">
+    <span
+      class="mb-4 inline-block rounded-full bg-dom-gold-dark px-3 py-1 font-montserrat text-[10px] font-bold uppercase tracking-[0.12em] text-white shadow-sm md:mb-5 md:px-4 md:py-1.5 md:text-xs"
+    >
       {tag}
     </span>
-    <h1 class="font-messiri text-5xl md:text-7xl text-dom-graphite mb-8 leading-tight">{title}</h1>
-    <p class="text-xl md:text-2xl text-dom-graphite/80 font-montserrat leading-relaxed max-w-4xl font-light border-l-4 border-dom-gold pl-6">
+    <h1 class="hero-title mb-4 text-dom-graphite md:mb-5">
+      {title}
+    </h1>
+    <p
+      class="max-w-3xl border-l-[3px] border-dom-gold pl-4 font-montserrat text-[15px] font-light leading-relaxed text-dom-graphite/80 md:border-l-4 md:pl-5 md:text-base lg:text-lg"
+    >
       {shortDesc}
     </p>
   </div>
 </section>
+
+<style>
+  .product-back-link {
+    text-decoration: none;
+    color: inherit;
+    padding: 0.35rem 0.55rem;
+    margin-left: -0.15rem;
+    border-radius: 9999px;
+    border: 1px solid rgba(217, 179, 114, 0.28);
+    background: rgba(255, 255, 255, 0.55);
+    transition:
+      color 0.2s ease,
+      border-color 0.2s ease,
+      background-color 0.2s ease;
+  }
+
+  .product-back-link:hover {
+    border-color: rgba(217, 179, 114, 0.45);
+    background: rgba(255, 250, 242, 0.95);
+  }
+
+  .product-back-link:hover .product-back-arrow {
+    transform: translateX(-2px);
+  }
+
+  .product-back-arrow {
+    display: inline-block;
+    line-height: 1;
+    transition: transform 0.2s ease;
+    opacity: 0.9;
+  }
+</style>

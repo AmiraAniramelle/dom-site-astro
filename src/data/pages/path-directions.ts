@@ -176,7 +176,7 @@ function heroLight(letter: string, title: string): DirectionEntry['hero'] {
     letter,
     levelClass: 'text-dom-graphite/50 font-bold tracking-widest uppercase text-xs mb-2 block',
     level: 'Уровень 1 / Внешний DOM',
-    titleClass: 'font-messiri text-5xl text-dom-graphite',
+    titleClass: 'hero-title text-dom-graphite',
     title,
   };
 }
@@ -195,7 +195,7 @@ function heroDark(letter: string, title: string): DirectionEntry['hero'] {
     letter,
     levelClass: 'text-dom-gold font-bold tracking-widest uppercase text-xs mb-2 block',
     level: 'Уровень 2 / Внутренний DOM',
-    titleClass: 'font-messiri text-5xl text-dom-gold',
+    titleClass: 'hero-title text-dom-gold',
     title,
   };
 }

@@ -20,15 +20,15 @@
 ### Основная палитра
 - Графитовый: `dom-graphite` (#38332d) — тёмный фон, основной текст
 - Золотой: `dom-gold` (#d9b372) — акценты, кнопки, иконки
-- Тёмное золото: `dom-goldDark` (#a4814a) — hover, eyebrow
+- Тёмное золото: `dom-gold-dark` (#a4814a) — hover, eyebrow
 - Бежевый: `dom-beige` (#f4e4ce) — светлый фон
 - Белый: white — карточки, чистый фон
 
 ### Правила применения
 - Текст на светлом фоне: `text-dom-graphite`
 - Текст на тёмном фоне: `text-dom-beige` или `text-white`
-- Eyebrow/labels: `text-dom-gold` или `text-dom-goldDark`
-- Ссылки: `text-dom-gold hover:text-dom-goldDark`
+- Eyebrow/labels: `text-dom-gold` или `text-dom-gold-dark`
+- Ссылки: `text-dom-gold hover:text-dom-gold-dark`
 - Разделители: `border-dom-gold/20` или `border-dom-gold/30`
 
 ### Градиенты
@@ -55,7 +55,7 @@ transition-all duration-300 block text-center w-full md:w-auto"
 ```
 class="border border-dom-graphite/20 text-dom-graphite py-3 px-8 
 rounded-xl font-montserrat font-semibold uppercase tracking-[0.08em] text-xs 
-hover:bg-dom-gold/10 hover:border-dom-gold/50 hover:text-dom-goldDark 
+hover:bg-dom-gold/10 hover:border-dom-gold/50 hover:text-dom-gold-dark 
 transition-all duration-300 block text-center w-full md:w-auto"
 ```
 
@@ -71,7 +71,7 @@ block text-center w-full"
 ### Кнопка 4: Текстовая ссылка
 Когда: навигация — «← Вернуться», «Читать далее»
 ```
-class="text-dom-goldDark hover:text-dom-graphite 
+class="text-dom-gold-dark hover:text-dom-graphite 
 font-montserrat font-bold uppercase tracking-wider text-sm 
 transition-colors inline-flex items-center"
 ```
@@ -181,7 +181,7 @@ hover:bg-white/10 hover:border-dom-gold/50 transition-all duration-300"
 Везде одинаковый:
 ```
 class="font-montserrat text-[11px] uppercase tracking-[0.12em] 
-text-dom-goldDark mb-2 block"
+text-dom-gold-dark mb-2 block"
 ```
 На тёмном фоне: `text-dom-gold/85`
 
@@ -212,7 +212,7 @@ shadow-[0_10px_24px_rgba(126,91,35,0.12)]
 hover:-translate-y-1 hover:shadow-[0_16px_30px_rgba(126,91,35,0.2)] 
 transition-all duration-300"
 ```
-Число: `font-messiri text-4xl md:text-5xl text-dom-goldDark leading-none mb-2`
+Число: `font-messiri text-4xl md:text-5xl text-dom-gold-dark leading-none mb-2`
 Подпись: `font-montserrat text-base md:text-lg text-dom-graphite/82`
 
 ---
@@ -338,7 +338,7 @@ group-hover:bg-dom-gold group-hover:text-white transition-all"
 - title: заголовок
 - slug: транслитерация заголовка (для URL)
 - category: одна из 9 категорий
-- contentType: Статья | Книга | Видео (только эти три; без Пост / Практика / Разбор)
+- contentType: Статья | Книга | Видео
 - tags: минимум 2, максимум 5 из списка тегов
 - date: дата публикации
 - readingTime: время чтения в минутах
