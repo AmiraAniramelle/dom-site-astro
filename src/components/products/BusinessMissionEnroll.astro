@@ -1,0 +1,172 @@
+---
+/**
+ * Финальный блок записи на «Бизнес Миссия»: золотая карточка + форма.
+ */
+import { legalLinks } from '../../data/footer';
+import { domLinkProductLegal } from '../../data/ui/domButtons';
+import { dsH2, dsH3, dsPriceDisplay } from '../../data/ui/domTypography';
+
+export interface BmEnrollData {
+  dateBlocks: Array<{ heading: string; detail: string }>;
+  supportLine: string;
+  priceSubline: string;
+  formTitle: string;
+  placeholders?: { name?: string; email?: string; phone?: string };
+  marketingConsentPrefix: string;
+  marketingConsentLinkLabel?: string;
+  marketingConsentSuffix?: string;
+}
+
+interface Props {
+  data: BmEnrollData;
+  price: string;
+  productSlug: string;
+}
+
+const { data, price, productSlug } = Astro.props;
+
+const phName = data.placeholders?.name ?? 'Ваше имя';
+const phEmail = data.placeholders?.email ?? 'Электронная почта';
+const phPhone = data.placeholders?.phone ?? 'Телефон / Telegram';
+const marketingLinkLabel = data.marketingConsentLinkLabel?.trim() || 'Согласие';
+const marketingSuffix = data.marketingConsentSuffix ?? ' на получение мною сообщений по электронной почте рекламного характера';
+/** Ссылка на «согласие» в чекбоксе — как политика в подвале */
+const consentHref = legalLinks.find((l) => l.title.includes('Политика'))?.href ?? '#';
+
+const offerHref = legalLinks.find((l) => l.title === 'Оферта')?.href ?? '#';
+const policyHref = legalLinks.find((l) => l.title.includes('Политика'))?.href ?? '#';
+
+/** Поля формы — DOM-Design-System §11 + TZ-BusinessMission-FullAudit §4 */
+const bmEnrollInputClass =
+  'w-full rounded-xl border border-dom-gold/20 bg-white px-6 py-4 font-montserrat text-base text-dom-graphite outline-none transition-all duration-300 placeholder:text-dom-graphite/30 focus:border-dom-gold/60 focus:ring-2 focus:ring-dom-gold/20 md:text-lg';
+---
+
+<section
+  id="product-enroll-block"
+  class="relative w-full py-10 md:py-14"
+  aria-labelledby="bm-enroll-section-heading"
+>
+  <h2 id="bm-enroll-section-heading" class:list={['mb-6 text-center', dsH2]}>
+    Запись на программу
+  </h2>
+  <div class="relative z-10 w-full">
+    <div
+      class="grid grid-cols-1 gap-8 overflow-hidden rounded-[2rem] border border-dom-gold/25 p-6 shadow-[0_24px_60px_rgba(126,91,35,0.18)] md:gap-10 md:p-8 lg:grid-cols-2 lg:gap-10 lg:p-10"
+      style="background: linear-gradient(145deg, #e0c48a 0%, #d9b372 42%, #c9a666 100%);"
+    >
+      <!-- Левая колонка: даты, сопровождение, цена -->
+      <div class="relative flex flex-col justify-center font-montserrat text-dom-graphite">
+        <div
+          class="pointer-events-none absolute -right-8 -bottom-10 h-48 w-48 rounded-full opacity-[0.12] blur-2xl"
+          style="background: radial-gradient(circle, rgba(255,255,255,0.9) 0%, transparent 70%);"
+          aria-hidden="true"
+        />
+        <div
+          class="pointer-events-none absolute -left-6 top-0 h-40 w-40 opacity-[0.07]"
+          aria-hidden="true"
+        >
+          <svg viewBox="0 0 200 200" class="h-full w-full text-white" fill="none">
+            <path
+              d="M120 40c30 20 45 55 40 95-8 65-75 95-130 70"
+              stroke="currentColor"
+              stroke-width="1.2"
+              opacity="0.5"></path>
+          </svg>
+        </div>
+
+        <div class="relative space-y-6">
+          {
+            data.dateBlocks.map((block) => (
+              <div>
+                <p class="font-montserrat text-sm font-bold uppercase leading-snug tracking-[0.08em] text-dom-graphite md:text-base lg:text-lg">
+                  {block.heading}
+                </p>
+                <p class="mt-1.5 font-montserrat text-sm font-medium leading-relaxed text-dom-graphite/95 md:text-base lg:text-lg">
+                  {block.detail}
+                </p>
+              </div>
+            ))
+          }
+
+          <p class="max-w-md font-montserrat text-sm font-medium leading-relaxed text-dom-graphite/90 md:text-base lg:text-lg">
+            {data.supportLine}
+          </p>
+
+          <div class="pt-2">
+            <p class:list={['font-bold tracking-tight text-dom-graphite', dsPriceDisplay]}>{price}</p>
+            <p class="mt-2 font-montserrat text-[13px] font-semibold uppercase tracking-[0.12em] text-dom-graphite/85 md:text-sm">
+              {data.priceSubline}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Правая колонка: форма -->
+      <div class="relative flex flex-col justify-center font-montserrat text-dom-graphite">
+        <h3
+          id="bm-enroll-form-title"
+          class:list={['mb-6 text-center md:text-left', dsH3]}
+        >
+          {data.formTitle}
+        </h3>
+
+        <form class="flex flex-col gap-4" data-enroll-form>
+          <input type="hidden" name="productSlug" value={productSlug} />
+
+          <input
+            type="text"
+            name="name"
+            required
+            placeholder={phName}
+            aria-label={phName}
+            class={bmEnrollInputClass}
+          />
+
+          <input
+            type="email"
+            name="email"
+            required
+            placeholder={phEmail}
+            aria-label={phEmail}
+            class={bmEnrollInputClass}
+          />
+
+          <input
+            type="text"
+            name="contact"
+            required
+            placeholder={phPhone}
+            aria-label={phPhone}
+            class={bmEnrollInputClass}
+          />
+
+          <button type="submit" class="dom-btn-primary mt-2 w-full">
+            Занять место
+          </button>
+
+          <label class="mt-1 flex cursor-pointer items-start gap-3">
+            <input type="checkbox" name="marketingConsent" class="mt-1 h-4 w-4 shrink-0 rounded border-dom-graphite/40 text-dom-graphite focus:ring-dom-graphite/30" />
+            <span class="font-montserrat text-sm leading-relaxed text-dom-graphite/90 md:text-base lg:text-lg">
+              {data.marketingConsentPrefix}
+              <a href={consentHref} class={domLinkProductLegal}>
+                {marketingLinkLabel}
+              </a>
+              {marketingSuffix}
+            </span>
+          </label>
+
+          <p class="text-center text-[11px] leading-relaxed text-dom-graphite/80 md:text-left md:text-xs">
+            Нажимая на кнопку «Занять место», вы даете{' '}
+            <a href={consentHref} class={domLinkProductLegal}>Согласие</a>
+            {' '}на обработку персональных данных в соответствии с{' '}
+            <a href={policyHref} class={domLinkProductLegal}>
+              Политикой обработки персональных данных
+            </a>
+            , а также соглашаетесь и принимаете условия{' '}
+            <a href={offerHref} class={domLinkProductLegal}>Оферты</a>.
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

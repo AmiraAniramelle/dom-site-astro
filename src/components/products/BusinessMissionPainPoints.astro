@@ -1,0 +1,80 @@
+---
+/**
+ * Блок «Узнаёте себя» — только страница business-mission (ТЗ TZ-BusinessMission-PainPoints-v2.md).
+ */
+import { dsBody, dsEyebrow, dsH2, dsH3 } from '../../data/ui/domTypography';
+
+export interface Props {
+  eyebrow?: string;
+  title?: string;
+  items: Array<{ bold: string; muted: string }>;
+  conclusion?: { line1: string; line2: string };
+}
+
+const DEFAULT_TITLE = 'Если это про вас — программа создана для вас';
+
+const { eyebrow, title, items, conclusion } = Astro.props;
+const heading = title?.trim() || DEFAULT_TITLE;
+---
+
+<section>
+  <div class="w-full">
+    <div
+      class="overflow-hidden rounded-[2rem] border border-dom-gold/[0.18] bg-[linear-gradient(145deg,rgba(255,252,244,0.98),rgba(246,233,203,0.92))]"
+    >
+      <div class="px-5 pb-2 pt-8 text-center md:px-8 md:pb-3 md:pt-12">
+        {
+          eyebrow?.trim() ? (
+            <span class:list={['mb-3 block', dsEyebrow]}>{eyebrow}</span>
+          ) : null
+        }
+        <h2 class:list={['mb-5', dsH2]}>{heading}</h2>
+        <div class="mx-auto h-0.5 w-12 bg-gold-gradient"></div>
+      </div>
+
+      <div class="px-4 pb-6 pt-2 md:px-5 md:pb-8">
+        <ul
+          class="grid list-none grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 xl:gap-4"
+          role="list"
+        >
+          {
+            items.map((item, i) => (
+              <li class="group min-w-0">
+                <div
+                  class="flex h-full cursor-default flex-col items-center gap-3 rounded-2xl border border-dom-gold/15 bg-white/45 px-3 py-4 text-center shadow-[0_4px_20px_rgba(126,91,35,0.06)] transition-all duration-300 hover:border-dom-gold/35 hover:bg-white/70 hover:shadow-[0_8px_28px_rgba(217,179,114,0.12)] sm:px-4 sm:py-5 md:gap-3.5"
+                >
+                  <span
+                    class="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full border border-dom-gold/25 font-messiri text-sm text-dom-gold-dark transition-all duration-300 group-hover:border-dom-gold/50 group-hover:text-dom-gold md:h-10 md:w-10 md:text-base"
+                    aria-hidden="true"
+                  >
+                    {i + 1}
+                  </span>
+                  <p class:list={['leading-snug text-dom-graphite', dsBody]}>
+                    <span class="font-semibold text-dom-graphite">{item.bold}</span>
+                    <span class="text-dom-graphite/50"> {item.muted}</span>
+                  </p>
+                </div>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      {
+        conclusion ? (
+          <div
+            class="mx-4 mb-6 mt-2 flex flex-col items-center justify-center gap-6 rounded-2xl border border-dom-gold/25 bg-[linear-gradient(145deg,rgba(255,252,244,0.98),rgba(246,233,203,0.92))] p-8 text-center md:mx-6 md:mb-8 md:mt-4 md:flex-row md:gap-10 md:p-10 md:text-left"
+          >
+            <p class="flex-1 whitespace-pre-line font-montserrat text-sm leading-relaxed text-dom-graphite/50 md:text-right md:text-base lg:text-lg">
+              {conclusion.line1}
+            </p>
+            <div class="h-px w-16 flex-shrink-0 bg-dom-gold/30 md:h-12 md:w-px" aria-hidden="true"></div>
+            <p class:list={['flex-1 whitespace-pre-line text-dom-gold-dark md:text-left', dsH3]}>
+              {conclusion.line2}
+            </p>
+          </div>
+        ) : null
+      }
+    </div>
+  </div>
+</section>

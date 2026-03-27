@@ -1,0 +1,144 @@
+---
+import { domButtonTextLink } from '../../data/ui/domButtons';
+
+interface Props {
+  title: string;
+  tag: string;
+  shortDesc: string;
+  price: string;
+  modulesCount: number;
+  backLink: { text: string; url: string };
+}
+
+const { title, tag, shortDesc, price, modulesCount, backLink } = Astro.props as Props;
+---
+
+<section class="mx-auto w-full max-w-7xl pt-1 md:pt-3">
+  <a href={backLink.url} class:list={['product-back-link mb-4 gap-1.5 md:mb-5', domButtonTextLink]}>
+    <span class="product-back-arrow" aria-hidden="true">←</span>
+    <span>{backLink.text}</span>
+  </a>
+
+  <div class="overflow-hidden rounded-3xl border border-dom-gold/25">
+    <div
+      class="relative p-6 md:p-16"
+      style="background: linear-gradient(145deg, rgba(255,252,244,0.98), rgba(246,233,203,0.92));"
+    >
+      <div
+        class="absolute left-0 top-0 h-full w-1"
+        style="background: linear-gradient(180deg, #d9b372, #a4814a);"
+      ></div>
+
+      <div class="mb-6 flex flex-col gap-3 sm:flex-row">
+        <span
+          class="rounded-full px-4 py-1.5 font-montserrat text-[11px] uppercase tracking-[0.1em] text-white"
+          style="background: #a4814a;"
+        >
+          {tag}
+        </span>
+        <span
+          class="rounded-full border border-dom-gold/35 px-4 py-1.5 font-montserrat text-[11px] uppercase tracking-[0.1em]"
+          style="color: #a4814a;"
+        >
+          Онлайн · {modulesCount} модулей
+        </span>
+      </div>
+
+      <h1
+        class="mb-5 font-messiri leading-tight text-dom-graphite md:text-7xl"
+        style="max-width: 600px; font-size: clamp(1.8rem, 8vw, 2.4rem);"
+      >
+        {title}
+      </h1>
+
+      <p
+        class="mb-8 font-montserrat text-lg leading-relaxed text-dom-graphite/75"
+        style="max-width: 580px;"
+      >
+        {shortDesc}
+      </p>
+
+      <div class="mb-0 flex flex-col gap-3 sm:flex-row sm:gap-4">
+        <a href="#product-enroll-block" class="dom-btn-primary w-full md:w-auto text-center">
+          Подать заявку
+        </a>
+        <a href="#product-modules" class="dom-btn-secondary w-full md:w-auto text-center">
+          Смотреть программу
+        </a>
+      </div>
+
+      <div
+        class="product-hero-meta mt-8 grid w-full min-w-0 grid-cols-2 gap-x-4 gap-y-4 border-t border-[rgba(217,179,114,0.15)] pt-6 md:grid-cols-4 md:gap-0"
+      >
+        <div class="md:px-3 md:text-center lg:px-4">
+          <p class="mb-1 font-montserrat text-[11px] uppercase tracking-[0.1em]" style="color: #a4814a;">
+            Формат
+          </p>
+          <p class="font-montserrat text-base font-semibold text-dom-graphite">Онлайн</p>
+        </div>
+        <div class="md:px-3 md:text-center lg:px-4">
+          <p class="mb-1 font-montserrat text-[11px] uppercase tracking-[0.1em]" style="color: #a4814a;">
+            Материалы
+          </p>
+          <p class="font-montserrat text-base font-semibold text-dom-graphite">{modulesCount} модулей</p>
+        </div>
+        <div class="md:px-3 md:text-center lg:px-4">
+          <p class="mb-1 font-montserrat text-[11px] uppercase tracking-[0.1em]" style="color: #a4814a;">
+            Доступ
+          </p>
+          <p class="font-montserrat text-base font-semibold text-dom-graphite">Сразу после заявки</p>
+        </div>
+        <div class="md:px-3 md:text-center lg:px-4">
+          <p class="mb-1 font-montserrat text-[11px] uppercase tracking-[0.1em]" style="color: #a4814a;">
+            Стоимость
+          </p>
+          <p class="font-montserrat text-base font-semibold text-dom-graphite">{price}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .product-back-link {
+    text-decoration: none;
+    color: inherit;
+    padding: 0.35rem 0.55rem;
+    margin-left: -0.15rem;
+    border-radius: 9999px;
+    border: 1px solid rgba(217, 179, 114, 0.28);
+    background: rgba(255, 255, 255, 0.55);
+    transition:
+      color 0.2s ease,
+      border-color 0.2s ease,
+      background-color 0.2s ease;
+  }
+
+  .product-back-link:hover {
+    border-color: rgba(217, 179, 114, 0.45);
+    background: rgba(255, 250, 242, 0.95);
+  }
+
+  .product-back-link:hover .product-back-arrow {
+    transform: translateX(-2px);
+  }
+
+  .product-back-arrow {
+    display: inline-block;
+    line-height: 1;
+    transition: transform 0.2s ease;
+    opacity: 0.9;
+  }
+
+  @media (min-width: 768px) {
+    .product-hero-meta {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .product-hero-meta > div:not(:last-child) {
+      border-right-width: 1px;
+      border-right-style: solid;
+      border-right-color: rgba(217, 179, 114, 0.25);
+    }
+  }
+</style>

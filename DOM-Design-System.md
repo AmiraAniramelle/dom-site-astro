@@ -21,6 +21,7 @@
 - Графитовый: `dom-graphite` (#38332d) — тёмный фон, основной текст
 - Золотой: `dom-gold` (#d9b372) — акценты, кнопки, иконки
 - Тёмное золото: `dom-gold-dark` (#a4814a) — hover, eyebrow
+- Золотой лист: `dom-gold-leaf` (#cca26b) — дополнительный акцент
 - Бежевый: `dom-beige` (#f4e4ce) — светлый фон
 - Белый: white — карточки, чистый фон
 
@@ -46,7 +47,8 @@
 class="bg-gold-gradient text-white py-4 px-8 rounded-xl 
 font-montserrat font-bold uppercase tracking-[0.12em] text-sm 
 shadow-[0_12px_28px_rgba(217,179,114,0.36)] 
-hover:shadow-[0_16px_36px_rgba(217,179,114,0.45)] 
+hover:-translate-y-1 hover:shadow-[0_16px_36px_rgba(217,179,114,0.45)] 
+active:translate-y-0 active:shadow-[0_8px_20px_rgba(217,179,114,0.3)]
 transition-all duration-300 block text-center w-full md:w-auto"
 ```
 
@@ -56,6 +58,8 @@ transition-all duration-300 block text-center w-full md:w-auto"
 class="border border-dom-graphite/20 text-dom-graphite py-3 px-8 
 rounded-xl font-montserrat font-semibold uppercase tracking-[0.08em] text-xs 
 hover:bg-dom-gold/10 hover:border-dom-gold/50 hover:text-dom-gold-dark 
+hover:-translate-y-0.5
+active:translate-y-0
 transition-all duration-300 block text-center w-full md:w-auto"
 ```
 
@@ -64,8 +68,9 @@ transition-all duration-300 block text-center w-full md:w-auto"
 ```
 class="border border-dom-gold/50 text-dom-gold py-3 px-6 
 rounded font-montserrat font-medium text-sm 
-hover:bg-dom-gold hover:text-white transition-all duration-300 
-block text-center w-full"
+hover:bg-dom-gold hover:text-white hover:-translate-y-0.5
+active:translate-y-0
+transition-all duration-300 block text-center w-full"
 ```
 
 ### Кнопка 4: Текстовая ссылка
@@ -73,16 +78,20 @@ block text-center w-full"
 ```
 class="text-dom-gold-dark hover:text-dom-graphite 
 font-montserrat font-bold uppercase tracking-wider text-sm 
-transition-colors inline-flex items-center"
+transition-colors duration-300 inline-flex items-center"
 ```
+Без подъёма — это текстовая ссылка, не кнопка.
 
 ### Кнопка 5: Внешняя ссылка (покупка)
 Когда: переход на внешний сайт — «Купить на Ozon», «App Store»
 ```
 class="inline-flex items-center justify-center bg-gold-gradient 
 text-white py-3 px-8 rounded-xl font-montserrat font-semibold 
-uppercase tracking-[0.08em] text-xs shadow-lg 
-hover:shadow-xl transition-all duration-300"
+uppercase tracking-[0.08em] text-xs 
+shadow-[0_8px_20px_rgba(217,179,114,0.3)]
+hover:-translate-y-1 hover:shadow-[0_14px_32px_rgba(217,179,114,0.4)]
+active:translate-y-0 active:shadow-[0_6px_16px_rgba(217,179,114,0.25)]
+transition-all duration-300"
 ```
 Обязательно: `target="_blank" rel="noopener noreferrer"`
 
@@ -136,28 +145,37 @@ hover:shadow-xl transition-all duration-300"
 ### Карточка 1: Светлая
 ```
 class="bg-white rounded-2xl border border-dom-gold/25 
-p-8 md:p-10 shadow-[0_10px_24px_rgba(126,91,35,0.1)]"
+p-8 md:p-10 shadow-[0_10px_24px_rgba(126,91,35,0.1)]
+hover:-translate-y-1 hover:shadow-[0_16px_32px_rgba(126,91,35,0.15)]
+hover:border-dom-gold/35
+transition-all duration-300"
 ```
 
 ### Карточка 2: Тёплая
 ```
 class="bg-[linear-gradient(145deg,rgba(255,252,244,0.98),rgba(246,233,203,0.92))] 
 rounded-2xl border border-dom-gold/22 p-8 
-hover:border-dom-gold/50 hover:shadow-xl transition-all duration-300"
+hover:-translate-y-1 hover:border-dom-gold/50 
+hover:shadow-[0_16px_36px_rgba(126,91,35,0.14)]
+transition-all duration-300"
 ```
 
 ### Карточка 3: Тёплая выделенная (флагман)
 ```
 class="bg-[linear-gradient(150deg,#fff7e8_0%,#f5e2bc_58%,#f1d8aa_100%)] 
 rounded-2xl border-2 border-dom-gold/50 p-10 
-shadow-[0_20px_44px_rgba(126,91,35,0.18)]"
+shadow-[0_20px_44px_rgba(126,91,35,0.18)]
+hover:-translate-y-1.5 hover:shadow-[0_28px_52px_rgba(126,91,35,0.22)]
+transition-all duration-300"
 ```
 
 ### Карточка 4: Тёмная
 ```
 class="bg-white/5 backdrop-blur-md rounded-2xl 
 border border-dom-gold/20 p-8 
-hover:bg-white/10 hover:border-dom-gold/50 transition-all duration-300"
+hover:-translate-y-1 hover:bg-white/10 hover:border-dom-gold/50 
+hover:shadow-[0_16px_36px_rgba(0,0,0,0.15)]
+transition-all duration-300"
 ```
 
 ### Одинаковая высота карточек в ряду
@@ -173,6 +191,7 @@ hover:bg-white/10 hover:border-dom-gold/50 transition-all duration-300"
 - Одна колонка
 - Обёртки убираются (transparent, no border)
 - Внутренние карточки: padding 20px
+- **hover-подъём отключается** на мобильном (нет ховера на тач-экранах)
 
 ---
 
@@ -228,16 +247,60 @@ transition-all duration-300"
 
 ---
 
-## 10. АНИМАЦИИ
+## 10. АНИМАЦИИ И HOVER-ЭФФЕКТЫ
 
-Разрешённые:
-- Hover: `transition-all duration-300`
-- Ссылки: `transition-colors`
-- Появление: `fade-in`
+### Система подъёмов (hover translate)
 
-Запрещённые:
-- zoom, transform: scale() на контейнерах
-- CSS animations на тексте
+Все интерактивные элементы при hover «поднимаются» вверх — это создаёт ощущение глубины и отклика.
+
+| Элемент | Подъём | Тень при hover |
+|---------|--------|---------------|
+| Кнопка 1 (CTA) | `hover:-translate-y-1` (4px) | Тень усиливается, радиус увеличивается |
+| Кнопка 2 (контурная) | `hover:-translate-y-0.5` (2px) | Лёгкое свечение через bg-dom-gold/10 |
+| Кнопка 3 (на тёмном) | `hover:-translate-y-0.5` (2px) | Заливка bg-dom-gold |
+| Кнопка 4 (текстовая) | Без подъёма | Только смена цвета |
+| Кнопка 5 (внешняя) | `hover:-translate-y-1` (4px) | Тень усиливается |
+| Карточка 1–3 (светлые) | `hover:-translate-y-1` (4px) | Тень углубляется, бордер ярче |
+| Карточка 3 (флагман) | `hover:-translate-y-1.5` (6px) | Максимальная тень |
+| Карточка 4 (тёмная) | `hover:-translate-y-1` (4px) | bg-white/10, бордер ярче |
+| Stat-карточка | `hover:-translate-y-1` (4px) | Тень углубляется |
+| FAQ `<details>` | Без подъёма | Бордер ярче, цвет заголовка |
+| Навигационные ссылки | Без подъёма | Только цвет/подчёркивание |
+
+### Active/pressed состояние
+
+При клике (`:active`) кнопка «возвращается» на место — создаёт ощущение нажатия:
+```
+active:translate-y-0 active:shadow-[уменьшенная_тень]
+```
+
+Применяется только к кнопкам 1, 2, 3, 5. НЕ применяется к карточкам и ссылкам.
+
+### Правила hover-анимаций
+
+1. **Всегда `transition-all duration-300`** — плавный переход за 300ms
+2. **Подъём + тень = пара.** Если элемент поднимается — тень ОБЯЗАНА усилиться. Подъём без тени = элемент «летит», тень без подъёма = просто свечение
+3. **Тень всегда тёплая:** `rgba(126,91,35,...)` или `rgba(217,179,114,...)`. НИКОГДА `rgba(0,0,0,...)` на светлом фоне
+4. **На мобильном hover не работает** — на touch-устройствах нет ховера. Все hover-эффекты = приятный бонус для десктопа, НЕ обязательный элемент дизайна
+5. **Масштабирование (`scale`) ЗАПРЕЩЕНО** на контейнерах и блоках. Допускается ТОЛЬКО на мелких элементах: иконки (`hover:scale-105`), play-кнопки, аватарки
+6. **Кривая анимации:** стандартная `ease` (встроена в `transition-all`). НЕ использовать `ease-in`, `ease-out`, `cubic-bezier` без причины
+
+### Разрешённые анимации
+- Hover подъём: `hover:-translate-y-{n}` + усиление тени
+- Hover цвет: смена цвета текста/бордера/фона
+- Hover тень: усиление/появление тени
+- Hover масштаб (только мелкие элементы): `hover:scale-105`
+- Hover opacity: `hover:opacity-80` и подобные
+- Появление при скролле: `fade-in` (CSS animation)
+- Transition цвета ссылок: `transition-colors`
+
+### Запрещённые анимации
+- `zoom` или `transform: scale()` на контейнерах, секциях, карточках
+- CSS `@keyframes` анимации на тексте (мигание, пульсация, typing effect)
+- Бесконечные анимации (`animation: ... infinite`) кроме специальных случаев (бегущая строка)
+- `transition-all` с `duration` больше 500ms — всё должно быть отзывчивым
+- Анимация высоты/ширины блоков (вызывает layout shifts)
+- Параллакс-скролл (тяжёлый, ломает мобильный)
 
 ---
 
@@ -247,7 +310,8 @@ transition-all duration-300"
 class="w-full rounded-xl border border-dom-gold/20 bg-white 
 px-6 py-4 font-montserrat text-lg text-dom-graphite 
 placeholder:text-dom-graphite/30 outline-none 
-focus:border-dom-gold/60 focus:ring-2 focus:ring-dom-gold/20"
+focus:border-dom-gold/60 focus:ring-2 focus:ring-dom-gold/20
+transition-all duration-300"
 ```
 На мобильном: столбик, w-full, font-size: 15px
 
@@ -321,6 +385,7 @@ group-hover:bg-dom-gold group-hover:text-white transition-all"
 ## 16. ЗАПРЕЩЕНО (везде, всегда)
 
 - zoom на html/body
+- transform: scale() на контейнерах и секциях
 - text-overflow: ellipsis
 - overflow: hidden как костыль
 - Фиксированные ширины
@@ -329,6 +394,9 @@ group-hover:bg-dom-gold group-hover:text-white transition-all"
 - Менять Footer или Navbar
 - Менять десктоп при мобильных правках
 - Менять файлы других страниц
+- Чёрные тени `rgba(0,0,0,...)` на светлом фоне
+- `transition-all` с duration > 500ms
+- Бесконечные CSS animations на контенте
 
 ---
 

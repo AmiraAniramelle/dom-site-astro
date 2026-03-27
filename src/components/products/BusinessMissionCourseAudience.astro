@@ -1,0 +1,113 @@
+---
+/**
+ * «Этот курс» — две колонки «не для вас» / «для вас» — business-mission.
+ */
+import { dsBody, dsH2, dsH3 } from '../../data/ui/domTypography';
+
+export interface BmCourseAudienceData {
+  headline: string;
+  notForTitle: string;
+  notForItems: string[];
+  notForImage?: string;
+  forTitle: string;
+  forItems: string[];
+  forImage?: string;
+}
+
+interface Props {
+  data: BmCourseAudienceData;
+}
+
+const { data } = Astro.props;
+const notImg = data.notForImage?.trim();
+const forImg = data.forImage?.trim();
+---
+
+<section>
+  <div class="w-full">
+    <div
+      class="overflow-hidden rounded-[2rem] border border-dom-gold/22 bg-[linear-gradient(145deg,rgba(255,252,244,0.98),rgba(246,233,203,0.92))] px-5 py-8 md:px-8 md:py-10 lg:px-10 lg:py-12"
+    >
+      <h2 class:list={['mb-8 text-center md:mb-10', dsH2]}>
+        {data.headline}
+      </h2>
+
+      <div class="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-8">
+        <!-- Не для вас -->
+        <article
+          class="flex flex-col overflow-hidden rounded-2xl border border-dom-gold/25 bg-white/55 p-6 shadow-[0_8px_28px_rgba(126,91,35,0.08)] md:p-8"
+        >
+          <h3 class:list={['mb-6 md:mb-8', dsH3]}>
+            {data.notForTitle}
+          </h3>
+          <ul class="mb-6 flex flex-col gap-4 md:gap-5">
+            {
+              data.notForItems.map((line) => (
+                <li class="flex gap-3">
+                  <span class="mt-0.5 flex h-10 w-10 flex-shrink-0 items-center justify-center text-dom-gold" aria-hidden="true">
+                    <svg class="h-9 w-9" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="1.4">
+                      <circle cx="24" cy="24" r="14" />
+                      <path d="M16 16l16 16" stroke-linecap="round" />
+                    </svg>
+                  </span>
+                  <p class:list={['text-dom-graphite', dsBody]}>{line}</p>
+                </li>
+              ))
+            }
+          </ul>
+          {
+            notImg ? (
+              <div class="mt-auto overflow-hidden rounded-xl border border-dom-gold/15">
+                <img
+                  src={notImg}
+                  alt=""
+                  class="w-full object-cover object-center"
+                  loading="lazy"
+                  decoding="async"
+                  width="600"
+                  height="360"
+                />
+              </div>
+            ) : null
+          }
+        </article>
+
+        <!-- Для вас -->
+        <article
+          class="flex flex-col overflow-hidden rounded-2xl border border-dom-gold/25 bg-white/55 p-6 shadow-[0_8px_28px_rgba(126,91,35,0.08)] md:p-8"
+        >
+          <h3 class:list={['mb-6 md:mb-8', dsH3]}>
+            {data.forTitle}
+          </h3>
+          <ul class="mb-6 flex flex-col gap-4 md:gap-5">
+            {
+              data.forItems.map((line) => (
+                <li class="flex gap-3">
+                  <span class="mt-0.5 flex-shrink-0 font-montserrat text-dom-gold" aria-hidden="true">
+                    ✓✓
+                  </span>
+                  <p class:list={['text-dom-graphite', dsBody]}>{line}</p>
+                </li>
+              ))
+            }
+          </ul>
+          {
+            forImg ? (
+              <div class="mt-auto overflow-hidden rounded-xl border border-dom-gold/15">
+                <img
+                  src={forImg}
+                  alt=""
+                  class="w-full object-cover object-center"
+                  loading="lazy"
+                  decoding="async"
+                  width="600"
+                  height="360"
+                />
+              </div>
+            ) : null
+          }
+        </article>
+      </div>
+    </div>
+  </div>
+</section>

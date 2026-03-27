@@ -1,4 +1,6 @@
 ---
+import { dsBody, dsH2, dsH4 } from '../../data/ui/domTypography';
+
 interface Props {
   items: Array<{ q: string; a: string }>;
 }
@@ -9,21 +11,24 @@ const hasItems = Array.isArray(items) && items.length > 0;
 
 {
   hasItems ? (
-    <section class="mx-auto w-full max-w-4xl">
-      <h2 class="mb-12 text-center font-messiri text-4xl text-dom-graphite md:text-5xl">
-        Частые вопросы
-      </h2>
+    <section class="w-full">
+      <h2 class:list={['mb-8 text-center text-dom-graphite md:mb-10', dsH2]}>Частые вопросы</h2>
 
       <div class="space-y-4">
         {items.map((item) => (
           <details class="product-light-panel group cursor-pointer rounded-xl p-5 transition-colors hover:border-dom-gold/40 md:p-6">
-            <summary class="flex list-none items-center justify-between font-montserrat text-base font-bold text-dom-graphite outline-none transition-colors group-open:text-dom-gold-dark md:text-lg [&::-webkit-details-marker]:hidden">
+            <summary
+              class:list={[
+                'flex list-none items-center justify-between font-semibold outline-none transition-colors group-open:text-dom-gold-dark [&::-webkit-details-marker]:hidden',
+                dsH4,
+              ]}
+            >
               <span>{item.q}</span>
-              <span class="text-3xl font-light text-dom-gold transition-transform group-open:rotate-45">
+              <span class="font-montserrat text-2xl font-light text-dom-gold transition-transform group-open:rotate-45 md:text-3xl">
                 +
               </span>
             </summary>
-            <div class="mt-5 border-t border-dom-gold/15 pt-5 font-montserrat text-sm leading-relaxed text-dom-graphite/70 md:text-base">
+            <div class:list={['mt-5 border-t border-dom-gold/15 pt-5 text-dom-graphite/80', dsBody]}>
               {item.a}
             </div>
           </details>

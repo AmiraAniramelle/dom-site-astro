@@ -75,6 +75,165 @@ const products = defineCollection({
     order: z.number().default(0),
     published: z.boolean().default(true),
     lang: z.enum(['ru', 'en']).default('ru'),
+    /** Уникальный hero «Бизнес Миссия» (slug business-mission) */
+    heroPillars: z
+      .array(
+        z.object({
+          icon: z.string().optional(),
+          label: z.string(),
+        })
+      )
+      .optional(),
+    heroCta: z
+      .object({
+        text: z.string(),
+        url: z.string(),
+      })
+      .optional(),
+    /** Строка параметров под CTA (уникальный hero, напр. business-mission) */
+    heroMetaRows: z
+      .array(
+        z.object({
+          label: z.string(),
+          value: z.string(),
+        })
+      )
+      .optional(),
+    /** YouTube под заголовком в hero (напр. business-mission) */
+    heroVideo: z
+      .object({
+        youtubeId: z.string(),
+        posterSrc: z.string().optional(),
+        /** Подзаголовок на кастомной обложке превью (business-mission) */
+        coverSubtitle: z.string().optional(),
+      })
+      .optional(),
+    /** Единый hero (ProductHeroNew): приоритет над heroVideo при сборке props в [slug] */
+    youtubeId: z.string().optional(),
+    videoCover: z.string().optional(),
+    format: z.string().optional(),
+    meta: z
+      .array(
+        z.object({
+          label: z.string(),
+          value: z.string(),
+        })
+      )
+      .optional(),
+    /** Блок «Узнаёте себя» — только business-mission */
+    painPointsEyebrow: z.string().optional(),
+    painPointsTitle: z.string().optional(),
+    painPoints: z
+      .array(
+        z.object({
+          bold: z.string(),
+          muted: z.string(),
+        })
+      )
+      .optional(),
+    painPointsConclusion: z
+      .object({
+        line1: z.string(),
+        line2: z.string(),
+      })
+      .optional(),
+    /** Блок «Главная ошибка» + практика — только business-mission */
+    bmMainMistake: z
+      .object({
+        title: z.string(),
+        leftText: z.string(),
+        leftImage: z.string().optional(),
+        ctaText: z.string().optional(),
+        ctaHref: z.string().optional(),
+        practiceLabel: z.string(),
+        examples: z.array(
+          z.object({
+            title: z.string(),
+            desc: z.string(),
+            image: z.string().optional(),
+          })
+        ),
+      })
+      .optional(),
+    /** Блок «Не мотивационный курс» + 4 карточки — только business-mission */
+    bmSystemWork: z
+      .object({
+        title: z.string(),
+        strikethroughItems: z.array(z.string()).min(1),
+        subtitle: z.string(),
+        cards: z
+          .array(
+            z.object({
+              label: z.string(),
+              image: z.string().optional(),
+            })
+          )
+          .length(4),
+      })
+      .optional(),
+    /** Блок «Формат» + «Результат после курса» — только business-mission */
+    bmFormatResults: z
+      .object({
+        formatTitle: z.string(),
+        formatItems: z.array(
+          z.object({
+            icon: z.enum(['target', 'bulb', 'chat']),
+            text: z.string(),
+          })
+        ),
+        ctaText: z.string().optional(),
+        ctaHref: z.string().optional(),
+        resultsTitle: z.string(),
+        resultsItems: z.array(
+          z.object({
+            segments: z.array(
+              z.union([
+                z.object({ text: z.string() }),
+                z.object({ gold: z.string() }),
+              ])
+            ),
+          })
+        ),
+      })
+      .optional(),
+    /** Блок «Этот курс» — не для вас / для вас — только business-mission */
+    bmCourseAudience: z
+      .object({
+        headline: z.string(),
+        notForTitle: z.string(),
+        notForItems: z.array(z.string()).min(1),
+        notForImage: z.string().optional(),
+        forTitle: z.string(),
+        forItems: z.array(z.string()).min(1),
+        forImage: z.string().optional(),
+      })
+      .optional(),
+    /** Финальный блок записи (золотая карточка + форма) — только business-mission */
+    bmEnroll: z
+      .object({
+        dateBlocks: z
+          .array(
+            z.object({
+              heading: z.string(),
+              detail: z.string(),
+            })
+          )
+          .min(1),
+        supportLine: z.string(),
+        priceSubline: z.string(),
+        formTitle: z.string(),
+        placeholders: z
+          .object({
+            name: z.string().optional(),
+            email: z.string().optional(),
+            phone: z.string().optional(),
+          })
+          .optional(),
+        marketingConsentPrefix: z.string(),
+        marketingConsentLinkLabel: z.string().optional(),
+        marketingConsentSuffix: z.string().optional(),
+      })
+      .optional(),
   }),
 });
 

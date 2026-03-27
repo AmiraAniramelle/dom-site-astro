@@ -1,0 +1,292 @@
+---
+/**
+ * Уникальный hero только для /ru/products/business-mission/ (ТЗ TZ-BusinessMission-Hero.md).
+ * Стили только здесь + Tailwind; global.css не трогаем.
+ */
+import { dsBodyLight, dsEyebrowOnDark, dsH1, dsMetaLabel, dsMetaValue } from '../../data/ui/domTypography';
+
+export interface Props {
+  /** Плашка над заголовком (напр. «СИСТЕМНАЯ ПРОГРАММА») — как в макете */
+  tag?: string;
+  title: string;
+  pillars: Array<{ icon?: string; label: string }>;
+  description: string;
+  cta: { text: string; url: string };
+  metaRows?: Array<{ label: string; value: string }>;
+  heroVideo?: { youtubeId: string; posterSrc?: string; coverSubtitle?: string };
+}
+
+const { tag, title, pillars, description, cta, metaRows, heroVideo } = Astro.props;
+const tagLine = tag?.trim();
+
+const ytId = heroVideo?.youtubeId?.trim() ?? '';
+const showHeroVideo = Boolean(ytId);
+const videoCoverSubtitle =
+  heroVideo?.coverSubtitle?.trim() || 'Ключевые смыслы, формат и результат прохождения';
+/** Логотип DOM (сердце) — золотой символ на тёмной обложке */
+const domHeartLogoSrc = '/images/shared/dom-symbol-gold.svg';
+const embedSrc = ytId
+  ? `https://www.youtube.com/embed/${ytId}?autoplay=1&rel=0`
+  : '';
+const coverPoster = heroVideo?.posterSrc?.trim() ?? '';
+---
+
+<section
+  class="product-hero-new relative mx-auto w-full max-w-full overflow-hidden rounded-t-[2rem] rounded-b-2xl border border-dom-gold/20 p-5 text-center shadow-[0_4px_28px_rgba(126,91,35,0.1)] md:rounded-t-[2.5rem] md:rounded-b-2xl md:p-8 lg:p-10"
+  style="background: linear-gradient(180deg, #fffdfb 0%, rgba(255, 252, 244, 0.97) 45%, rgba(246, 233, 203, 0.88) 100%);"
+>
+  <div class="relative z-10">
+    {
+      tagLine ? (
+        <div class="mb-3 text-left md:mb-5">
+          <span
+            class="inline-flex items-center rounded-full bg-dom-gold-dark px-4 py-2 font-montserrat text-[11px] font-semibold uppercase tracking-[0.12em] text-white shadow-sm md:text-xs"
+          >
+            {tagLine}
+          </span>
+        </div>
+      ) : null
+    }
+    <h1 class:list={['mb-2.5 md:mb-4', dsH1]}>
+      {title}
+    </h1>
+
+    <p class:list={['mx-auto mb-5 max-w-3xl md:mb-8', dsBodyLight]}>
+      {description}
+    </p>
+
+    <svg
+      class="mx-auto mb-2 hidden h-[60px] w-full max-w-[600px] md:block"
+      viewBox="0 0 600 60"
+      aria-hidden="true"
+    >
+      <line x1="100" y1="55" x2="300" y2="5" stroke="rgba(217,179,114,0.4)" stroke-width="1"></line>
+      <line x1="500" y1="55" x2="300" y2="5" stroke="rgba(217,179,114,0.4)" stroke-width="1"></line>
+      <line x1="300" y1="5" x2="300" y2="55" stroke="rgba(217,179,114,0.4)" stroke-width="1"></line>
+      <circle cx="300" cy="5" r="3" fill="#d9b372"></circle>
+      <circle cx="100" cy="55" r="3" fill="#d9b372"></circle>
+      <circle cx="300" cy="55" r="3" fill="#d9b372"></circle>
+      <circle cx="500" cy="55" r="3" fill="#d9b372"></circle>
+    </svg>
+
+    <div
+      class="relative mb-4 flex flex-nowrap items-start justify-center gap-2 md:mb-5 md:gap-3 lg:gap-5"
+    >
+      {
+        pillars.map((p, i) => (
+          <article
+            class="w-[110px] rounded-lg border border-dom-gold/25 bg-white/50 px-3 py-3 text-center backdrop-blur-sm transition-all duration-300 hover:border-dom-gold/50 hover:bg-white/70 hover:shadow-[0_6px_20px_rgba(217,179,114,0.15)] md:w-[180px] md:rounded-xl md:px-5 md:py-4"
+          >
+            <div
+              class="mb-1.5 flex justify-center text-dom-gold-dark md:mb-2 [&_svg]:h-8 [&_svg]:w-8 md:[&_svg]:h-10 md:[&_svg]:w-10"
+              aria-hidden="true"
+            >
+              {i % 3 === 0 && (
+                <svg
+                  viewBox="0 0 48 48"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <ellipse cx="24" cy="32" rx="16" ry="5.5" />
+                  <ellipse cx="24" cy="24" rx="16" ry="5.5" />
+                  <ellipse cx="24" cy="16" rx="16" ry="5.5" />
+                </svg>
+              )}
+              {i % 3 === 1 && (
+                <svg
+                  viewBox="0 0 48 48"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="10" y="26" width="7" height="14" rx="1.5" />
+                  <rect x="20.5" y="18" width="7" height="22" rx="1.5" />
+                  <rect x="31" y="22" width="7" height="18" rx="1.5" />
+                </svg>
+              )}
+              {i % 3 === 2 && (
+                <svg
+                  viewBox="0 0 48 48"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="17" cy="15" r="6" />
+                  <path d="M9 38c0-5 4-9 8-9s8 4 8 9" />
+                  <circle cx="31" cy="15" r="6" />
+                  <path d="M23 38c0-5 4-9 8-9s8 4 8 9" />
+                </svg>
+              )}
+            </div>
+            <p class="font-messiri text-[11px] font-bold uppercase tracking-wider text-dom-graphite md:text-base">
+              {p.label}
+            </p>
+          </article>
+        ))
+      }
+    </div>
+
+    {
+      showHeroVideo && (
+        <div
+          class="relative z-10 -mx-5 w-[calc(100%+2.5rem)] max-w-none overflow-hidden rounded-3xl border border-dom-gold/40 shadow-[0_16px_48px_rgba(40,32,24,0.28)] ring-1 ring-dom-gold/30 md:-mx-8 md:w-[calc(100%+4rem)] lg:-mx-10 lg:w-[calc(100%+5rem)]"
+        >
+          <div
+            class="relative aspect-video w-full"
+            data-business-mission-hero-video
+            data-youtube-embed={embedSrc}
+          >
+            <button
+              type="button"
+              class="group absolute inset-0 z-[1] cursor-pointer border-0 bg-transparent p-0 text-left"
+              data-bm-video-play
+              aria-label="Воспроизвести видео-презентацию программы"
+            >
+              {
+                coverPoster ? (
+                  <img
+                    src={coverPoster}
+                    alt=""
+                    width="1280"
+                    height="720"
+                    class="absolute inset-0 h-full w-full object-cover"
+                    loading="eager"
+                    decoding="async"
+                    aria-hidden="true"
+                  />
+                ) : null
+              }
+              <div
+                class="absolute inset-0 bg-[radial-gradient(ellipse_100%_90%_at_50%_35%,rgba(217,179,114,0.2)_0%,transparent_50%),linear-gradient(165deg,rgba(42,35,28,0.88)_0%,rgba(26,22,19,0.92)_48%,rgba(12,10,8,0.94)_100%)]"
+                aria-hidden="true"
+              />
+              <div
+                class="relative flex h-full min-h-0 flex-col items-center justify-center gap-2 px-4 py-5 text-center sm:gap-2.5 sm:py-7 md:gap-3 md:px-8 md:py-8"
+              >
+                <img
+                  src={domHeartLogoSrc}
+                  alt=""
+                  width="120"
+                  height="120"
+                  class="h-10 w-10 shrink-0 object-contain opacity-95 sm:h-12 sm:w-12 md:h-14 md:w-14"
+                  loading="eager"
+                  decoding="async"
+                />
+                <span
+                  class:list={[
+                    'inline-flex max-w-full rounded-full border border-dom-gold/50 bg-black/25 px-3 py-1.5 font-semibold md:px-4 md:py-2',
+                    dsEyebrowOnDark,
+                  ]}
+                >
+                  Видео-презентация программы
+                </span>
+                <p
+                  class="font-messiri text-lg leading-tight tracking-wide text-[#e8d4b0] sm:text-xl md:text-2xl lg:text-3xl"
+                >
+                  {title}
+                </p>
+                <p class="max-w-[95%] font-montserrat text-sm leading-snug text-dom-beige/85 sm:max-w-xl sm:text-base md:text-lg">
+                  {videoCoverSubtitle}
+                </p>
+                <span
+                  class="mt-2 flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white/92 shadow-[0_12px_28px_rgba(217,179,114,0.36)] ring-1 ring-dom-gold/30 transition-all duration-300 group-hover:scale-105 group-hover:shadow-[0_16px_36px_rgba(217,179,114,0.45)] md:h-14 md:w-14"
+                  aria-hidden="true"
+                >
+                  <svg class="ml-0.5 h-6 w-6 text-dom-gold-dark md:h-7 md:w-7" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M8 5v14l11-7z"></path>
+                  </svg>
+                </span>
+              </div>
+            </button>
+            <div class="absolute inset-0 z-[2] hidden bg-black" data-bm-video-embed-wrap>
+              <iframe
+                class="h-full w-full"
+                title="Видео-презентация программы Бизнес-миссия"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+                allowfullscreen
+                loading="lazy"
+                data-bm-video-iframe
+              />
+            </div>
+          </div>
+
+          {
+            metaRows && metaRows.length > 0 ? (
+              <div class="border-t border-dom-gold/25 bg-[linear-gradient(180deg,rgba(255,252,244,0.99)_0%,rgba(246,233,203,0.55)_100%)] px-4 py-4 md:px-6 md:py-5">
+                <div class="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-x-4 sm:gap-y-4 lg:grid-cols-4 lg:items-center lg:gap-0 lg:divide-x lg:divide-dom-gold/20">
+                  {metaRows.map((row) => (
+                    <div class="min-w-0 text-center lg:px-3 xl:px-4">
+                      <p class={dsMetaLabel}>{row.label}</p>
+                      <p class={dsMetaValue}>{row.value}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ) : null
+          }
+        </div>
+      )
+    }
+
+    {
+      !showHeroVideo && metaRows && metaRows.length > 0 ? (
+        <div
+          class="relative z-10 mx-auto mt-3 w-full max-w-3xl rounded-2xl border border-dom-gold/20 bg-[rgba(255,252,244,0.96)] px-3 py-3 shadow-[0_4px_18px_rgba(126,91,35,0.08)] sm:px-4 md:mt-4 md:py-4"
+        >
+          <div class="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-x-2 sm:gap-y-4 lg:grid-cols-4 lg:items-start lg:gap-0 lg:divide-x lg:divide-dom-gold/20">
+            {metaRows.map((row) => (
+              <div class="min-w-0 text-center lg:px-4">
+                <p class={dsMetaLabel}>{row.label}</p>
+                <p class={dsMetaValue}>{row.value}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      ) : null
+    }
+
+    <div class="mt-6 flex justify-center md:mt-8">
+      <a href={cta.url} class="dom-btn-primary w-full text-center md:w-auto">
+        {cta.text}
+      </a>
+    </div>
+  </div>
+</section>
+
+{
+  showHeroVideo && (
+    <script is:inline>
+      (function () {
+        function initBmHeroVideo() {
+          var root = document.querySelector('[data-business-mission-hero-video]');
+          if (!root) return;
+          var url = root.getAttribute('data-youtube-embed');
+          var btn = root.querySelector('[data-bm-video-play]');
+          var embedWrap = root.querySelector('[data-bm-video-embed-wrap]');
+          var iframe = root.querySelector('[data-bm-video-iframe]');
+          if (!url || !btn || !embedWrap || !iframe) return;
+          btn.addEventListener('click', function () {
+            iframe.setAttribute('src', url);
+            embedWrap.classList.remove('hidden');
+            btn.classList.add('hidden');
+          });
+        }
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', initBmHeroVideo);
+        } else {
+          initBmHeroVideo();
+        }
+      })();
+    </script>
+  )
+}

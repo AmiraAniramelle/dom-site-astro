@@ -1,33 +1,59 @@
 ---
+import { dsBody, dsH2, dsH3 } from '../../data/ui/domTypography';
+
 interface Props {
   mission: string;
   whyImportant: string;
+  /** `light` — светлая левая карточка (Бизнес Миссия); `default` — тёмная как на остальных продуктах */
+  theme?: 'default' | 'light';
 }
 
-const { mission, whyImportant } = Astro.props as Props;
+const { mission, whyImportant, theme = 'default' } = Astro.props as Props;
+const isLight = theme === 'light';
 ---
 
-<section class="mx-auto w-full max-w-5xl">
-  <div class="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-8">
+<section class="w-full" aria-labelledby="product-mission-heading">
+  <h2
+    id="product-mission-heading"
+    class:list={['mb-6 text-center md:mb-8', dsH2]}
+  >
+    Миссия и ценность программы
+  </h2>
+  <div class="grid grid-cols-1 gap-5 lg:grid-cols-2 lg:gap-6">
     <article
-      class="product-mission-dark relative z-[1] isolate flex h-full flex-col overflow-hidden rounded-3xl border border-dom-gold/20 p-6 shadow-[0_18px_48px_rgba(24,20,16,0.35)] ring-1 ring-inset ring-white/[0.06] md:p-10 lg:p-12"
-      style="background: linear-gradient(165deg, #3d3730 0%, #2a2520 55%, #221e1a 100%);"
+      class:list={[
+        'relative z-[1] isolate flex h-full flex-col overflow-hidden border p-5 md:p-8 lg:p-10',
+        isLight
+          ? 'rounded-[2rem] border-dom-gold/22 bg-[linear-gradient(145deg,rgba(255,252,244,0.98),rgba(246,233,203,0.92))] shadow-[0_10px_24px_rgba(126,91,35,0.1)]'
+          : 'product-mission-dark rounded-3xl border-dom-gold/20 shadow-[0_18px_48px_rgba(24,20,16,0.35)] ring-1 ring-inset ring-white/[0.06]',
+      ]}
+      style={isLight ? undefined : 'background: linear-gradient(165deg, #3d3730 0%, #2a2520 55%, #221e1a 100%);'}
     >
       <h3
-        class="mb-5 font-messiri text-2xl leading-snug tracking-[0.04em] text-dom-gold md:mb-6 md:text-3xl"
+        class:list={[
+          'mb-5 md:mb-6',
+          dsH3,
+          isLight ? 'text-dom-graphite' : 'text-dom-gold',
+        ]}
       >
         Миссия проекта
       </h3>
-      <p class="text-balance font-montserrat text-[15px] leading-relaxed text-dom-beige/85 md:text-base md:leading-[1.65]">
+      <p
+        class:list={[
+          'text-balance md:leading-[1.65]',
+          dsBody,
+          isLight ? 'text-dom-graphite/80' : 'text-dom-beige/85',
+        ]}
+      >
         {mission}
       </p>
     </article>
 
-    <article class="product-light-card flex h-full flex-col rounded-3xl p-6 md:p-10 lg:p-12">
-      <h3 class="mb-5 font-messiri text-2xl leading-snug tracking-tight text-dom-graphite md:mb-6 md:text-3xl">
+    <article class="product-light-card flex h-full flex-col rounded-3xl p-5 md:p-8 lg:p-10">
+      <h3 class:list={['mb-5 md:mb-6', dsH3]}>
         Почему это важно?
       </h3>
-      <p class="text-balance font-montserrat text-[15px] leading-relaxed text-dom-graphite/80 md:text-base md:leading-[1.65]">
+      <p class:list={['text-balance text-dom-graphite/80 md:leading-[1.65]', dsBody]}>
         {whyImportant}
       </p>
     </article>

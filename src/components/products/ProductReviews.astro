@@ -1,4 +1,6 @@
 ---
+import { dsBody, dsH2 } from '../../data/ui/domTypography';
+
 interface Props {
   reviews: Array<{ text: string; author: string }>;
 }
@@ -10,24 +12,24 @@ if (!Array.isArray(reviews) || reviews.length === 0) {
 }
 ---
 
-<section class="mx-auto w-full max-w-5xl">
-  <h2 class="mb-12 text-center font-messiri text-4xl text-dom-graphite md:text-5xl">
-    Изменения участников
-  </h2>
+<section class="w-full">
+  <h2 class:list={['mb-8 text-center text-dom-graphite md:mb-10', dsH2]}>Изменения участников</h2>
 
-  <div class="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-10">
+  <div class="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6">
     {reviews.map((rev) => (
-      <article class="product-light-card relative rounded-2xl p-6 md:p-10">
+      <article class="product-light-card relative rounded-2xl p-5 md:p-8">
         <span
-          class="quote-mark absolute left-6 top-4 font-serif text-5xl text-dom-gold/20 md:text-7xl"
+          class="quote-mark absolute left-6 top-4 font-messiri text-5xl text-dom-gold/20 md:text-6xl"
           aria-hidden="true"
         >
           &ldquo;
         </span>
-        <p class="relative z-10 mb-8 font-montserrat text-base italic leading-relaxed text-dom-graphite/85">
+        <p class:list={['relative z-10 mb-6 italic text-dom-graphite/85', dsBody]}>
           {rev.text}
         </p>
-        <p class="font-montserrat text-base font-semibold text-dom-gold-dark">— {rev.author}</p>
+        <p class="font-montserrat text-sm font-semibold text-dom-gold-dark md:text-base lg:text-lg">
+          — {rev.author}
+        </p>
       </article>
     ))}
   </div>

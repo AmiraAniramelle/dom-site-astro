@@ -1,0 +1,97 @@
+---
+/**
+ * Тёмный блок «Главная ошибка» + колонка практики — страница business-mission.
+ * Стиль: DOM-Design-System (графитовый градиент, тёплые карточки, Messiri + Montserrat).
+ */
+import { dsBody, dsH2, dsH3 } from '../../data/ui/domTypography';
+
+export interface BmMainMistakeData {
+  title: string;
+  leftText: string;
+  leftImage?: string;
+  ctaText?: string;
+  ctaHref?: string;
+  practiceLabel: string;
+  examples: Array<{ title: string; desc: string; image?: string }>;
+}
+
+interface Props {
+  data: BmMainMistakeData;
+}
+
+const { data } = Astro.props;
+const ctaText = data.ctaText?.trim() || 'ЗАНЯТЬ МЕСТО';
+const ctaHref = data.ctaHref?.trim() || '#product-enroll-block';
+const leftImage = data.leftImage?.trim();
+---
+
+<section>
+  <div class="w-full">
+    <div
+      class="overflow-hidden rounded-[2rem] border border-dom-gold/22 bg-[linear-gradient(145deg,rgba(255,252,244,0.98),rgba(246,233,203,0.92))] px-5 py-8 md:px-8 md:py-10 lg:px-10 lg:py-12"
+    >
+      <h2 class:list={['mx-auto mb-8 max-w-[52rem] text-center md:mb-10', dsH2]}>
+        {data.title}
+      </h2>
+
+      <div class="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-stretch lg:gap-8">
+        <!-- Левая колонка -->
+        <div class="flex flex-col lg:col-span-4">
+          <article
+            class="product-light-card flex h-full flex-col rounded-2xl p-6 md:p-8"
+          >
+            <p class="flex-1 whitespace-pre-line font-montserrat text-sm leading-relaxed text-dom-graphite/90 md:text-base lg:text-lg">
+              {data.leftText}
+            </p>
+            {
+              leftImage ? (
+                <img
+                  src={leftImage}
+                  alt=""
+                  class="mt-6 w-full rounded-xl object-cover"
+                  loading="lazy"
+                  decoding="async"
+                  width="800"
+                  height="600"
+                />
+              ) : null
+            }
+            <a href={ctaHref} class="dom-btn-primary mt-6 w-full text-center md:w-auto">
+              {ctaText}
+            </a>
+          </article>
+        </div>
+
+        <!-- Правая колонка -->
+        <div class="flex flex-col gap-5 lg:col-span-8">
+          <p class="font-montserrat text-[11px] font-bold uppercase tracking-[0.12em] text-dom-graphite/70 md:text-xs">
+            {data.practiceLabel}
+          </p>
+          {
+            data.examples.map((ex) => (
+              <div
+                class="product-light-card-inner flex flex-col gap-4 rounded-2xl p-5 md:flex-row md:items-center md:justify-between md:gap-6 md:p-6"
+              >
+                <div class="min-w-0 flex-1">
+                  <h3 class:list={['mb-2', dsH3]}>{ex.title}</h3>
+                  <p class:list={['text-dom-graphite/78', dsBody]}>{ex.desc}</p>
+                </div>
+                {ex.image?.trim() ? (
+                  <img
+                    src={ex.image.trim()}
+                    alt=""
+                    class="h-28 w-full shrink-0 rounded-xl object-cover sm:h-24 sm:w-24 md:h-28 md:w-28"
+                    loading="lazy"
+                    decoding="async"
+                    width="224"
+                    height="224"
+                  />
+                ) : null}
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

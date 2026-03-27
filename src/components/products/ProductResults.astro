@@ -1,4 +1,6 @@
 ---
+import { dsBody, dsH2, dsH3, dsH4 } from '../../data/ui/domTypography';
+
 interface Props {
   results: string[];
   modules: Array<{ name: string; desc: string }>;
@@ -11,14 +13,15 @@ const hasModules = Array.isArray(modules) && modules.length > 0;
 
 {
   hasResults || hasModules ? (
-    <section class="mx-auto w-full max-w-5xl">
+    <section class="w-full" aria-labelledby="product-results-heading">
+      <h2 id="product-results-heading" class:list={['mb-6 text-center text-dom-graphite md:mb-8', dsH2]}>
+        Результаты и структура программы
+      </h2>
       <div
-        class="results-wrap product-light-card flex flex-col gap-10 rounded-[2.5rem] p-6 lg:grid lg:grid-cols-2 lg:gap-16 lg:p-16"
+        class="results-wrap product-light-card flex flex-col gap-8 rounded-[2.5rem] p-5 lg:grid lg:grid-cols-2 lg:gap-10 lg:p-10"
       >
-        <div class="mb-10 lg:mb-0">
-          <h3 class="mb-6 font-messiri text-3xl text-dom-graphite md:mb-10 md:text-4xl">
-            Что вы получите:
-          </h3>
+        <div class="mb-8 lg:mb-0">
+          <h3 class:list={['mb-5 text-dom-graphite md:mb-7', dsH3]}>Что вы получите:</h3>
           {hasResults ? (
             <ul class="space-y-4">
               {results.map((item) => (
@@ -26,7 +29,7 @@ const hasModules = Array.isArray(modules) && modules.length > 0;
                   <span class="mr-4 mt-1 text-2xl font-bold text-dom-gold" aria-hidden="true">
                     ✓
                   </span>
-                  <span class="font-montserrat text-sm leading-relaxed text-dom-graphite/80 md:text-base">
+                  <span class:list={['whitespace-pre-line text-dom-graphite/80', dsBody]}>
                     {item}
                   </span>
                 </li>
@@ -36,9 +39,7 @@ const hasModules = Array.isArray(modules) && modules.length > 0;
         </div>
 
         <div>
-          <h3 class="mb-6 font-messiri text-3xl text-dom-graphite md:mb-10 md:text-4xl">
-            Как это работает:
-          </h3>
+          <h3 class:list={['mb-5 text-dom-graphite md:mb-7', dsH3]}>Как это работает:</h3>
           {hasModules ? (
             <ul class="space-y-0">
               {modules.map((mod) => (
@@ -47,8 +48,8 @@ const hasModules = Array.isArray(modules) && modules.length > 0;
                     class="absolute -left-[9px] top-1 h-4 w-4 rounded-full border-2 border-dom-gold bg-dom-beige transition-colors group-hover:bg-dom-gold"
                     aria-hidden="true"
                   />
-                  <h4 class="mb-2 font-messiri text-2xl font-bold text-dom-graphite">{mod.name}</h4>
-                  <p class="font-montserrat text-base leading-relaxed text-dom-graphite/70">{mod.desc}</p>
+                  <h4 class:list={['mb-2', dsH4]}>{mod.name}</h4>
+                  <p class:list={['text-dom-graphite/70', dsBody]}>{mod.desc}</p>
                 </li>
               ))}
             </ul>

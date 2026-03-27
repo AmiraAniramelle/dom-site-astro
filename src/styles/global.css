@@ -104,6 +104,25 @@ nav[aria-label*="крошк"] {
 }
 
 /*
+ * Страница продукта (/ru/products/...): фон как у блока 2 главной (IntentSlider) —
+ * --dom-home-tone-soft и лёгкий pattern-rings (см. .home-section::before).
+ */
+.product-page-shell {
+  background: var(--dom-home-tone-soft);
+  position: relative;
+  overflow-x: hidden;
+}
+.product-page-shell::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('/images/shared/pattern-rings.png') center/520px repeat;
+  opacity: 0.06;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/*
  * Продукты — тёплые светлые блоки как .about-light-card (about.css §5).
  * Только внутри .product-page-shell (глобальный сброс .about-light-card на мобильном сюда не попадает).
  */
